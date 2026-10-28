@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAANAA — What's Killing Your Focus?</title>
+<style>
+  :root{
+    --bg:#FBFBF8;
+    --ink:#14231B;
+    --fuel:#8FAE4B;
+    --guard:#E8836B;
+    --anchor:#5FA8A0;
+    --catalyst:#C46A9B;
+    --line:rgba(20,35,27,.14);
+    --card:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{background:var(--bg);color:var(--ink)}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;
+    -webkit-font-smoothing:antialiased;
+  }
+  .col{width:100%;max-width:560px;padding:0 20px}
+
+  /* ---------- HEADER ---------- */
+  header{width:100%;max-width:560px;padding:28px 20px 0;position:relative}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand svg{flex:0 0 auto}
+  .wordmark{font-size:20px;font-weight:700;letter-spacing:.34em}
+  .brand-sub{font-size:11px;letter-spacing:.18em;opacity:.55;margin-top:2px;text-transform:uppercase}
+  .band{display:block;width:100%;height:34px;margin-top:22px}
+  .band path{fill:var(--ink)}
+
+  /* ---------- INTRO ---------- */
+  .intro{padding:44px 0 8px;text-align:left}
+  .intro h1{font-size:clamp(30px,8.4vw,44px);line-height:1.04;font-weight:800;letter-spacing:-.01em}
+  .intro p{margin-top:14px;font-size:17px;line-height:1.45;opacity:.72}
+  .start-btn{
+    margin-top:28px;width:100%;min-height:56px;border:none;border-radius:14px;
+    background:var(--ink);color:var(--bg);font-size:16px;font-weight:700;letter-spacing:.06em;
+    cursor:pointer;transition:transform .15s ease,opacity .15s ease;
+  }
+  .start-btn:active{transform:scale(.985)}
+
+  /* ---------- PROGRESS ---------- */
+  .progress-wrap{padding:30px 0 6px;display:none}
+  .progress-meta{display:flex;justify-content:space-between;align-items:baseline}
+  .progress-label{font-size:12px;font-weight:700;letter-spacing:.22em}
+  .back-link{font-size:13px;color:var(--ink);opacity:.55;text-decoration:none;cursor:pointer;background:none;border:none;font-family:inherit;padding:6px 0}
+  .back-link:hover{opacity:.9}
+  .track{height:4px;background:var(--line);border-radius:99px;margin-top:12px;overflow:hidden}
+  .fill{height:100%;width:0%;background:var(--fuel);border-radius:99px;transition:width .45s cubic-bezier(.22,1,.36,1)}
+
+  /* ---------- QUESTION CARD ---------- */
+  .stage{position:relative;width:100%}
+  .q-block{
+    display:none;background:var(--card);border:1px solid var(--line);border-radius:22px;
+    padding:30px 24px 26px;margin-top:22px;
+    opacity:0;transform:translateY(14px);
+  }
+  .q-block.active{display:block;animation:rise .45s cubic-bezier(.22,1,.36,1) forwards}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  .q-kicker{font-size:11px;font-weight:700;letter-spacing:.24em;opacity:.45;text-transform:uppercase}
+  .q-text{font-size:clamp(22px,6vw,27px);font-weight:750;line-height:1.22;margin:12px 0 22px;letter-spacing:-.01em}
+  .options{display:flex;flex-direction:column;gap:10px}
+  .opt{
+    width:100%;min-height:56px;text-align:left;padding:14px 18px;
+    font-family:inherit;font-size:16px;line-height:1.3;color:var(--ink);
+    background:var(--bg);border:1.5px solid var(--line);border-radius:14px;cursor:pointer;
+    transition:border-color .15s ease,background .15s ease,transform .1s ease;
+    display:flex;align-items:center;gap:12px;
+  }
+  .opt .dot{flex:0 0 auto;width:10px;height:10px;border-radius:50%;background:var(--line);transition:background .15s ease}
+  .opt:hover{border-color:var(--ink)}
+  .opt:active{transform:scale(.99)}
+  .opt.picked{border-color:var(--ink);background:#fff}
+  .opt.picked .dot{background:var(--ink)}
+
+  /* ---------- EMAIL GATE ---------- */
+  .gate{
+    display:none;background:var(--card);border:1px solid var(--line);border-radius:22px;
+    padding:32px 24px 28px;margin-top:22px;text-align:left;
+    opacity:0;transform:translateY(14px);
+  }
+  .gate.active{display:block;animation:rise .45s cubic-bezier(.22,1,.36,1) forwards}
+  .gate h2{font-size:clamp(22px,6vw,27px);font-weight:750;line-height:1.2;letter-spacing:-.01em}
+  .gate p{margin-top:10px;font-size:15px;line-height:1.5;opacity:.68}
+  .gate label{display:block;margin-top:22px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.6}
+  .gate input{
+    margin-top:8px;width:100%;min-height:56px;padding:0 16px;font-family:inherit;font-size:16px;
+    color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:14px;outline:none;
+  }
+  .gate input:focus{border-color:var(--ink)}
+  .send-btn{
+    margin-top:14px;width:100%;min-height:56px;border:none;border-radius:14px;
+    background:var(--fuel);color:#fff;font-size:16px;font-weight:700;letter-spacing:.06em;cursor:pointer;
+    transition:transform .15s ease;
+  }
+  .send-btn:active{transform:scale(.985)}
+  .gate .fine{margin-top:14px;font-size:12.5px;opacity:.5;text-align:center}
+
+  /* ---------- RESULT CARD ---------- */
+  .result{
+    display:none;position:relative;overflow:hidden;background:var(--card);
+    border:1px solid var(--line);border-radius:22px;margin-top:26px;
+    opacity:0;transform:translateY(14px);
+  }
+  .result.active{display:block;animation:rise .5s cubic-bezier(.22,1,.36,1) forwards}
+  .result-inner{padding:34px 26px 0}
+  .result .r-kicker{font-size:11px;font-weight:700;letter-spacing:.26em;opacity:.5;text-transform:uppercase;text-align:center}
+  .result .r-ring{display:flex;justify-content:center;margin:20px 0 6px}
+  .result h2{font-size:15px;letter-spacing:.3em;text-align:center;opacity:.6;font-weight:700}
+  .result .r-class{font-size:clamp(40px,11vw,54px);font-weight:850;letter-spacing:.02em;text-align:center;line-height:1.05;margin-top:4px}
+  .result .r-def{margin:16px auto 0;max-width:400px;font-size:17.5px;line-height:1.5;text-align:center;opacity:.85}
+  .result .r-divider{width:44px;height:2px;background:var(--line);margin:26px auto}
+  .result .r-match-label{font-size:11px;font-weight:700;letter-spacing:.26em;text-align:center;opacity:.5;text-transform:uppercase}
+  .result .r-match{font-size:clamp(24px,7vw,32px);font-weight:800;text-align:center;margin-top:6px;letter-spacing:.01em}
+  .result .r-format{margin-top:8px;font-size:15px;text-align:center;opacity:.68}
+  .cta-btn{
+    display:block;margin:28px auto 0;width:100%;max-width:400px;min-height:56px;border:none;border-radius:14px;
+    background:var(--ink);color:var(--bg);font-size:16px;font-weight:700;letter-spacing:.05em;cursor:pointer;
+    transition:transform .15s ease;
+  }
+  .cta-btn:active{transform:scale(.985)}
+  .retake{display:block;margin:16px auto 30px;background:none;border:none;font-family:inherit;font-size:13.5px;color:var(--ink);opacity:.5;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .result .band{margin-top:6px;height:40px}
+
+  /* ---------- FOOTER ---------- */
+  footer{width:100%;max-width:560px;margin-top:auto;padding:48px 20px 0}
+  .foot-line{font-size:14px;letter-spacing:.04em;opacity:.75;text-align:center}
+  footer .band{margin-top:18px;height:30px}
+  footer .band path{fill:var(--ink)}
+  .foot-base{height:14px}
+</style>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="brand">
+      <svg id="ringMark" width="46" height="46" viewBox="0 0 60 60" aria-hidden="true">
+        <path id="ringPath" fill="none" stroke="#14231B" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"></path>
+      </svg>
+      <div>
+        <div class="wordmark">MAANAA</div>
+        <div class="brand-sub">The Constraint Assessment</div>
+      </div>
+    </div>
+    <svg class="band" viewBox="0 0 560 34" preserveAspectRatio="none" aria-hidden="true"><path class="wave-path" d=""></path></svg>
+  </header>
+
+  <div class="col">
+
+    <!-- ================= INTRO ================= -->
+    <section class="intro" id="intro">
+      <h1>WHAT'S KILLING YOUR FOCUS?</h1>
+      <p>7 questions. 45 seconds. One honest answer.</p>
+      <button class="start-btn" id="startBtn" type="button">START &rarr;</button>
+    </section>
+
+    <!-- ================= PROGRESS ================= -->
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-meta">
+        <span class="progress-label" id="progressLabel">QUESTION 1 OF 7</span>
+        <button class="back-link" id="backBtn" type="button" style="visibility:hidden">&larr; Back</button>
+      </div>
+      <div class="track"><div class="fill" id="progressFill"></div></div>
+    </div>
+
+    <div class="stage" id="stage">
+
+      <!-- Q1 — when focus dies -->
+      <section class="q-block" data-q="1">
+        <div class="q-kicker">The Pattern</div>
+        <div class="q-text">When does your focus actually die?</div>
+        <div class="options">
+          <button class="opt" type="button" data-class="ANCHOR"><span class="dot"></span>Mid-afternoon. The floor drops out.</button>
+          <button class="opt" type="button" data-class="FUEL"><span class="dot"></span>By Thursday, I'm running on fumes.</button>
+          <button class="opt" type="button" data-class="GUARD"><span class="dot"></span>I hold together until I get home.</button>
+          <button class="opt" type="button" data-class="CATALYST"><span class="dot"></span>One bad meeting ruins everything.</button>
+        </div>
+      </section>
+
+      <!-- Q2 — morning start -->
+      <section class="q-block" data-q="2">
+        <div class="q-kicker">The Start</div>
+        <div class="q-text">How does your morning actually start?</div>
+        <div class="options">
+          <button class="opt" type="button" data-class="FUEL"><span class="dot"></span>Coffee before my feet touch the floor.</button>
+          <button class="opt" type="button" data-class="ANCHOR"><span class="dot"></span>Slow — an hour to come online.</button>
+          <button class="opt" type="button" data-class="GUARD"><span class="dot"></span>Sharp, until the inbox opens.</button>
+          <button class="opt" type="button" data-class="CATALYST"><span class="dot"></span>Great, until one thing goes sideways.</button>
+        </div>
+      </section>
+
+      <!-- Q3 — fuel pattern -->
+      <section class="q-block" data-q="3">
+        <div class="q-kicker">The Fuel</div>
+        <div class="q-text">Your caffeine pattern, honestly?</div>
+        <div class="options">
+          <button class="opt" type="button" data-class="FUEL"><span class="dot"></span>Three-plus cups, still fading by three.</button>
+          <button class="opt" type="button" data-class="ANCHOR"><span class="dot"></span>One coffee, then the 3pm cliff.</button>
+          <button class="opt" type="button" data-class="GUARD"><span class="dot"></span>Coffee all day, something stronger to land.</button>
+          <button class="opt" type="button" data-class="CATALYST"><span class="dot"></span>Depends entirely on the day.</button>
+        </div>
+      </section>
+
+      <!-- Q4 — crash pattern -->
+      <section class="q-block" data-q="4">
+        <div class="q-kicker">The Wall</div>
+        <div class="q-text">The 3pm wall looks like&hellip;</div>
+        <div class="options">
+          <button class="opt" type="button" data-class="ANCHOR"><span class="dot"></span>Fourteen tabs open, nothing finished.</button>
+          <button class="opt" type="button" data-class="FUEL"><span class="dot"></span>Pushing through on fumes and snacks.</button>
+          <button class="opt" type="button" data-class="GUARD"><span class="dot"></span>I'm fine. My crash comes later.</button>
+          <button class="opt" type="button" data-class="CATALYST"><span class="dot"></span>Small things suddenly feel huge.</button>
+        </div>
+      </section>
+
+      <!-- Q5 — evening state -->
+      <section class="q-block" data-q="5">
+        <div class="q-kicker">The Evening</div>
+        <div class="q-text">By 8pm, you are&hellip;</div>
+        <div class="options">
+          <button class="opt" type="button" data-class="GUARD"><span class="dot"></span>On the couch. Wired and tired.</button>
+          <button class="opt" type="button" data-class="FUEL"><span class="dot"></span>Asleep early, still not restored.</button>
+          <button class="opt" type="button" data-class="ANCHOR"><span class="dot"></span>Second wind — too late to use.</button>
+          <button class="opt" type="button" data-class="CATALYST"><span class="dot"></span>Replaying the day's one bad moment.</button>
+        </div>
+      </section>
+
+      <!-- Q6 — what they've tried -->
+      <section class="q-block" data-q="6">
+        <div class="q-kicker">The History</div>
+        <div class="q-text">What have you already tried?</div>
+        <div class="options">
+          <button class="opt" type="button" data-class="FUEL"><span class="dot"></span>More caffeine. Stronger caffeine.</button>
+          <button class="opt" type="button" data-class="ANCHOR"><span class="dot"></span>Every productivity app on the store.</button>
+          <button class="opt" type="button" data-class="GUARD"><span class="dot"></span>Pushing harder. White-knuckling it.</button>
+          <button class="opt" type="button" data-class="CATALYST"><span class="dot"></span>A supplement stack. Mostly blends.</button>
+        </div>
+      </section>
+
+      <!-- Q7 — what a good day looks like -->
+      <section class="q-block" data-q="7">
+        <div class="q-kicker">The Standard</div>
+        <div class="q-text">A good day feels like&hellip;</div>
+        <div class="options">
+          <button class="opt" type="button" data-class="ANCHOR"><span class="dot"></span>Steady from nine to six.</button>
+          <button class="opt" type="button" data-class="FUEL"><span class="dot"></span>Full tank, start to finish.</button>
+          <button class="opt" type="button" data-class="GUARD"><span class="dot"></span>On at work, off at home.</button>
+          <button class="opt" type="button" data-class="CATALYST"><span class="dot"></span>Nothing knocks me sideways.</button>
+        </div>
+      </section>
+
+      <!-- ================= EMAIL GATE ================= -->
+      <section class="gate" id="gate">
+        <h2>Your Constraint Card is ready.</h2>
+        <p>Seven answers, one pattern. Tell us where it goes and it's on your screen — and in your inbox.</p>
+        <form id="gateForm" novalidate>
+          <label for="email">Where do we send your Constraint Card?</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@yourdesk.com" required>
+          <button class="send-btn" type="submit">SEND MY CARD</button>
+          <div class="fine">One card. No sequence of fourteen emails disguised as concern.</div>
+        </form>
+      </section>
+
+      <!-- ================= RESULT / CONSTRAINT CARD ================= -->
+      <section class="result" id="result">
+        <div class="result-inner">
+          <div class="r-kicker">Maanaa &middot; Constraint Card</div>
+          <div class="r-ring">
+            <svg width="72" height="72" viewBox="0 0 60 60" aria-hidden="true">
+              <path id="ringPathResult" fill="none" stroke="#14231B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <h2>YOUR CONSTRAINT:</h2>
+          <div class="r-class" id="rClass">ANCHOR</div>
+          <p class="r-def" id="rDef">The floor drops out mid-afternoon.</p>
+          <div class="r-divider"></div>
+          <div class="r-match-label">Your Matched State</div>
+          <div class="r-match" id="rMatch">FLOW</div>
+          <div class="r-format" id="rFormat">20 sticks &middot; 20 workdays &middot; every dose printed</div>
+          <button class="cta-btn" id="ctaBtn" type="button">START WITH FLOW &rarr;</button>
+          <button class="retake" id="retakeBtn" type="button">Retake the assessment</button>
+        </div>
+        <svg class="band" viewBox="0 0 560 40" preserveAspectRatio="none" aria-hidden="true"><path class="wave-path" id="resultWave" d=""></path></svg>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="foot-line">Doses printed. Nothing blended. No proprietary anything.</div>
+    <svg class="band" viewBox="0 0 560 30" preserveAspectRatio="none" aria-hidden="true"><path class="wave-path" d=""></path></svg>
+    <div class="foot-base"></div>
+  </footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ===== Wave Ring mark: r = R + A*sin(7θ), computed exactly ===== */
+  function ringPath(cx, cy, R, A){
+    var pts = [], steps = 140, i, t, r;
+    for (i = 0; i <= steps; i++){
+      t = (i / steps) * Math.PI * 2;
+      r = R + A * Math.sin(7 * t);
+      pts.push((i === 0 ? "M" : "L") + (cx + r * Math.cos(t)).toFixed(2) + " " + (cy + r * Math.sin(t)).toFixed(2));
+    }
+    return pts.join(" ") + " Z";
+  }
+  document.getElementById("ringPath").setAttribute("d", ringPath(30, 30, 21, 3.6));
+  document.getElementById("ringPathResult").setAttribute("d", ringPath(30, 30, 21, 3.6));
+
+  /* ===== Sine band: 2.8 cycles across the width, filled below the curve ===== */
+  function wavePath(w, h){
+    var base = h * 0.42, amp = h * 0.30, pts = [], steps = 112, i, x, y;
+    for (i = 0; i <= steps; i++){
+      x = (i / steps) * w;
+      y = base + amp * Math.sin((x / w) * Math.PI * 2 * 2.8);
+      pts.push((i === 0 ? "M" : "L") + x.toFixed(1) + " " + y.toFixed(1));
+    }
+    return pts.join(" ") + " L" + w + " " + h + " L0 " + h + " Z";
+  }
+  var waves = document.querySelectorAll(".wave-path");
+  for (var w = 0; w < waves.length; w++){
+    var vb = waves[w].closest("svg").viewBox.baseVal;
+    waves[w].setAttribute("d", wavePath(vb.width, vb.height));
+  }
+
+  /* ===== Assessment data ===== */
+  var CLASS_ORDER = ["FUEL", "ANCHOR", "GUARD", "CATALYST"]; /* tie-break: flywheel order */
+  var RESULTS = {
+    FUEL:     { def: "Runs on fumes by Thursday.",                              sku: "SPARK",  format: "30 strips · one before the work starts · every dose printed", color: "#8FAE4B" },
+    ANCHOR:   { def: "The floor drops out mid-afternoon.",                      sku: "FLOW",   format: "20 sticks · 20 workdays · every dose printed",                color: "#5FA8A0" },
+    GUARD:    { def: "Guarded all day, crashes at home.",                       sku: "STEADY", format: "30 servings · one ritual, daily · every dose printed",           color: "#E8836B" },
+    CATALYST: { def: "Fine — until one thing knocks the whole day sideways.",   sku: "SIGNAL", format: "30-day set · 2 tubes · every dose printed",                      color: "#C46A9B" }
+  };
+
+  /* ===== Flow ===== */
+  var blocks   = Array.prototype.slice.call(document.querySelectorAll(".q-block"));
+  var intro    = document.getElementById("intro");
+  var wrap     = document.getElementById("progressWrap");
+  var label    = document.getElementById("progressLabel");
+  var fill     = document.getElementById("progressFill");
+  var backBtn  = document.getElementById("backBtn");
+  var gate     = document.getElementById("gate");
+  var result   = document.getElementById("result");
+  var answers  = new Array(blocks.length).fill(null);
+  var current  = -1; /* -1 intro · 0..6 questions · 7 gate · 8 result */
+
+  function showOnly(el){
+    blocks.forEach(function(b){ b.classList.remove("active"); });
+    gate.classList.remove("active");
+    result.classList.remove("active");
+    if (el) el.classList.add("active");
+  }
+  function setProgress(){
+    if (current >= 0 && current < 7){
+      label.textContent = "QUESTION " + (current + 1) + " OF 7";
+      fill.style.width = ((current) / 7 * 100) + "%";
+      backBtn.style.visibility = current > 0 ? "visible" : "hidden";
+    } else if (current >= 7){
+      label.textContent = "YOUR CARD IS READY";
+      fill.style.width = "100%";
+      backBtn.style.visibility = "hidden";
+    }
+  }
+  function go(i){
+    current = i;
+    if (i < 7){ showOnly(blocks[i]); }
+    else if (i === 7){ showOnly(gate); }
+    setProgress();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  document.getElementById("startBtn").addEventListener("click", function(){
+    intro.style.display = "none";
+    wrap.style.display = "block";
+    go(0);
+  });
+
+  blocks.forEach(function(block, qi){
+    block.querySelectorAll(".opt").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        block.querySelectorAll(".opt").forEach(function(b){ b.classList.remove("picked"); });
+        btn.classList.add("picked");
+        answers[qi] = btn.getAttribute("data-class");
+        fill.style.width = ((qi + 1) / 7 * 100) + "%";
+        setTimeout(function(){ go(qi + 1); }, 180);
+      });
+    });
+  });
+
+  backBtn.addEventListener("click", function(){
+    if (current > 0 && current < 7) go(current - 1);
+  });
+
+  document.getElementById("gateForm").addEventListener("submit", function(e){
+    e.preventDefault(); /* front-end only: nothing is stored, nothing is posted */
+    var email = document.getElementById("email");
+    if (!email.value || email.value.indexOf("@") < 1){ email.focus(); return; }
+    reveal();
+  });
+
+  function score(){
+    var counts = { FUEL: 0, ANCHOR: 0, GUARD: 0, CATALYST: 0 };
+    answers.forEach(function(a){ if (a) counts[a]++; });
+    var winner = CLASS_ORDER[0];
+    CLASS_ORDER.forEach(function(c){ if (counts[c] > counts[winner]) winner = c; });
+    return winner; /* strict > over flywheel order = specified tie-break */
+  }
+
+  function reveal(){
+    var win = score(), r = RESULTS[win];
+    document.getElementById("rClass").textContent  = win;
+    document.getElementById("rClass").style.color  = r.color;
+    document.getElementById("rDef").textContent    = r.def;
+    document.getElementById("rMatch").textContent  = r.sku;
+    document.getElementById("rFormat").textContent = r.format;
+    document.getElementById("ctaBtn").textContent  = "START WITH " + r.sku + " →";
+    document.getElementById("resultWave").style.fill = r.color;
+    current = 8;
+    showOnly(result);
+    setProgress();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  document.getElementById("retakeBtn").addEventListener("click", function(){ location.reload(); });
+})();
+</script>
+</body>
+</html>

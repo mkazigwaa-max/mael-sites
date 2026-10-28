@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAANAA — What's Killing Your Focus?</title>
+<style>
+  :root{
+    --ink:#111214; --grey:#6d7278; --paper:#f7f7f5; --card:#ffffff;
+    --line:#e4e4e0; --fuel:#9bc53d; --anchor:#0e7c7b; --guard:#ff6b57;
+    --catalyst:#b0307a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--paper);color:var(--ink);min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;padding:28px 18px 60px}
+  .wordmark{font-size:15px;letter-spacing:.42em;font-weight:600;text-align:center}
+  .wordmark small{display:block;letter-spacing:.18em;font-size:9px;color:var(--grey);
+    font-weight:500;margin-top:5px}
+  .wrap{width:100%;max-width:520px;margin-top:34px}
+  .screen{display:none}
+  .screen.on{display:block;animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h1{font-size:34px;line-height:1.12;font-weight:700;letter-spacing:-.01em}
+  .sub{color:var(--grey);font-size:16px;line-height:1.55;margin-top:14px}
+  .meta{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap}
+  .chip{border:1px solid var(--line);background:var(--card);border-radius:999px;
+    padding:7px 13px;font-size:12.5px;color:var(--ink)}
+  .btn{display:block;width:100%;margin-top:28px;background:var(--ink);color:#fff;
+    border:none;border-radius:14px;padding:17px;font-size:16px;font-weight:600;
+    cursor:pointer;letter-spacing:.01em}
+  .btn:active{transform:scale(.99)}
+  .btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+  .progress{display:flex;justify-content:space-between;align-items:baseline;
+    font-size:12px;color:var(--grey);letter-spacing:.14em;margin-bottom:8px}
+  .bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;margin-bottom:26px}
+  .bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .3s ease}
+  .q{font-size:24px;font-weight:650;line-height:1.3;letter-spacing:-.01em}
+  .opts{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+  .opt{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:16px 18px;font-size:16px;text-align:left;cursor:pointer;width:100%}
+  .opt:active{border-color:var(--ink)}
+  .cardbox{background:var(--card);border:1px solid var(--line);border-radius:22px;
+    padding:28px 24px;overflow:hidden;position:relative}
+  .band{height:10px;border-radius:6px;margin:-6px -6px 20px}
+  .klass{font-size:12px;letter-spacing:.34em;color:var(--grey);font-weight:600}
+  .kname{font-size:44px;font-weight:750;letter-spacing:-.01em;margin-top:6px}
+  .read{font-size:18px;line-height:1.5;margin-top:12px}
+  .quote{margin-top:16px;border-left:3px solid var(--line);padding-left:14px;
+    color:var(--grey);font-size:15px;line-height:1.5}
+  .sku{margin-top:22px;background:var(--paper);border-radius:14px;padding:16px 18px}
+  .sku b{font-size:17px}
+  .sku p{font-size:14.5px;color:var(--grey);line-height:1.55;margin-top:5px}
+  .timeline{margin-top:18px;font-size:14.5px;line-height:1.65;color:var(--ink)}
+  .timeline span{color:var(--grey)}
+  .promise{margin-top:22px;border-top:1px solid var(--line);padding-top:16px;
+    font-size:13px;line-height:1.7;color:var(--grey)}
+  .capture{margin-top:26px}
+  .capture label{font-size:14px;font-weight:600}
+  .row{display:flex;gap:8px;margin-top:10px}
+  input[type=email]{flex:1;border:1px solid var(--line);border-radius:12px;
+    padding:14px;font-size:15px;background:var(--card);min-width:0}
+  .row .btn{margin-top:0;width:auto;padding:14px 20px;border-radius:12px}
+  .fine{font-size:12px;color:var(--grey);margin-top:10px;line-height:1.5}
+  .done-msg{margin-top:14px;font-size:14.5px;font-weight:600;display:none}
+  .wave{display:block;width:100%;height:26px;margin-top:26px}
+  .foot{margin-top:34px;font-size:11.5px;color:var(--grey);text-align:center;line-height:1.7}
+</style>
+</head>
+<body>
+  <div class="wordmark">MAANAA<small>THE NEURO-ECOSYSTEM</small></div>
+  <div class="wrap">
+
+    <section class="screen on" id="s-intro">
+      <h1>What's killing<br>your focus?</h1>
+      <p class="sub">Seven questions. Forty-five seconds. You get a Constraint
+      Card — the pattern that's actually running your workday — and the one
+      state that answers it. No diagnosis. No blend. A read.</p>
+      <div class="meta">
+        <span class="chip">7 questions</span><span class="chip">45 seconds</span>
+        <span class="chip">1 matched state</span>
+      </div>
+      <button class="btn" id="start">Start the test</button>
+      <svg class="wave" viewBox="0 0 520 26" preserveAspectRatio="none">
+        <path d="M0 13 Q 9.3 3, 18.6 13 T 37.2 13 T 55.8 13 T 74.4 13 T 93 13 T 111.6 13 T 130.2 13 T 148.8 13 T 167.4 13 T 186 13 T 204.6 13 T 223.2 13 T 241.8 13 T 260.4 13 T 279 13 T 297.6 13 T 316.2 13 T 334.8 13 T 353.4 13 T 372 13 T 390.6 13 T 409.2 13 T 427.8 13 T 446.4 13 T 465 13 T 483.6 13 T 502.2 13 T 520 13"
+          fill="none" stroke="#111214" stroke-width="1.6"/></svg>
+      <p class="foot">Built from 7,381 one-star reviews of the brands that came
+      before us.<br>Everything they hid, we print.</p>
+    </section>
+
+    <section class="screen" id="s-quiz">
+      <div class="progress"><span id="qn">QUESTION 1 / 7</span><span>MAANAA</span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="q" id="qtext"></div>
+      <div class="opts" id="opts"></div>
+    </section>
+
+    <section class="screen" id="s-result">
+      <div class="cardbox" id="cardbox">
+        <div class="band" id="band"></div>
+        <div class="klass">YOUR CONSTRAINT</div>
+        <div class="kname" id="kname"></div>
+        <p class="read" id="kread"></p>
+        <div class="quote" id="kquote"></div>
+        <div class="sku"><b id="ksku"></b><p id="kwhy"></p></div>
+        <p class="timeline" id="ktimeline"></p>
+        <div class="promise">THE PROMISE — printed in every box, on paper:
+        cancel in two taps · 90-day full refund including shipping, both
+        ways · every dose printed, nothing blended · nothing ships past
+        20% of its shelf life.</div>
+      </div>
+      <div class="capture">
+        <label for="email">Get your Card + the Day-2 mechanism video</label>
+        <div class="row">
+          <input type="email" id="email" placeholder="you@work.com" autocomplete="email">
+          <button class="btn" id="save">Save my Card</button>
+        </div>
+        <p class="fine">One email with your Card. Then the Day-2 video and the
+        Day-5 offer — that's the whole sequence. Unsubscribe is one tap and
+        it actually works.</p>
+        <p class="done-msg" id="done">You're in. Your Card is saved — check your inbox on Day 2.</p>
+      </div>
+      <button class="btn ghost" id="share">Download my Card as an image</button>
+      <button class="btn ghost" id="again">Retake the test</button>
+    </section>
+
+  </div>
+<script>
+const QUESTIONS = [
+ {q:"When does your focus actually die?",
+  a:[["The first hour — I start slow and foggy",{FUEL:3}],
+     ["Right after lunch",{CATALYST:2,ANCHOR:1}],
+     ["The 3pm wall, like clockwork",{CATALYST:3,ANCHOR:1}],
+     ["It never really starts",{FUEL:3,ANCHOR:1}]]},
+ {q:"How many tabs — browser and mental — are open right now?",
+  a:[["Under five. I'm not the problem",{GUARD:1}],
+     ["Five to fifteen",{ANCHOR:2}],
+     ["Fifteen-plus",{ANCHOR:3}],
+     ["I've lost count",{ANCHOR:3,GUARD:1}]]},
+ {q:"Last night's sleep, honestly?",
+  a:[["Solid",{}],
+     ["Broken — up and down all night",{GUARD:3}],
+     ["Short. Not enough of it",{GUARD:3}],
+     ["Sleep is fine. Mornings are the problem",{FUEL:2,GUARD:1}]]},
+ {q:"What do you reach for at the wall?",
+  a:[["More caffeine",{CATALYST:3}],
+     ["Sugar",{CATALYST:2}],
+     ["A scroll — phone, feeds, anything",{ANCHOR:2}],
+     ["Nothing works anymore",{FUEL:2,CATALYST:1}]]},
+ {q:"Your gut by 4pm?",
+  a:[["Fine",{}],
+     ["Bloated",{GUARD:2}],
+     ["Wired and tired at the same time",{CATALYST:2,GUARD:1}],
+     ["Don't ask",{GUARD:2}]]},
+ {q:"Deep work happens…",
+  a:[["Mornings, if I protect them",{ANCHOR:2}],
+     ["Nights. I'm a creature of the dark",{GUARD:2}],
+     ["In bursts, between crashes",{CATALYST:3}],
+     ["Basically never",{FUEL:3}]]},
+ {q:"If one thing changed this week?",
+  a:[["I'd start faster",{FUEL:3}],
+     ["I'd last longer",{ANCHOR:3}],
+     ["I'd crash less",{CATALYST:3}],
+     ["I'd feel steady",{GUARD:3}]]}
+];
+const CARDS = {
+ FUEL:{color:"#9bc53d",read:"Your starts are fine. Your tank is the constraint — the first hour burns what the day needed.",
+   sku:"SPARK — Arctic Mint strips (30)",why:"The ignite state. A strip that lives on the tongue, not in a pill organizer — built for the first hour, honest about the 150 mg a film can carry.",
+   time:"<span>Week 1:</span> faster first hours. <span>Week 4:</span> the fog window shrinks. <span>Week 8:</span> starts stop being a negotiation."},
+ ANCHOR:{color:"#0e7c7b",read:"You don't lack energy. You lack a floor — nothing holds the middle of your day up.",
+   sku:"FLOW — Sour Blue Raspberry sticks (20)",why:"The sustain state. Twenty sticks, twenty workdays — the workday protocol, printed on the box: 5 on, 2 off.",
+   time:"<span>Week 1:</span> steady feels boring before it feels good. <span>Week 4:</span> the middle of the day holds. <span>Week 8:</span> deep work stops being weather."},
+ GUARD:{color:"#ff6b57",read:"Your days are won or lost the night before. Balance is the constraint — everything downstream of it wobbles.",
+   sku:"STEADY — Vanilla Cacao creamer (30 servings)",why:"The balance state. A daily ritual with the full doses printed — including the ingredient that couldn't fit in a strip, at a real dose, here.",
+   time:"<span>Week 1:</span> the ritual lands; adaptation is a phase with an end date. <span>Week 4:</span> evenings get quieter. <span>Week 8:</span> steady becomes your default, not your goal."},
+ CATALYST:{color:"#b0307a",read:"You run on spikes. Spikes invoice you at 3pm — the crash is the receipt for the morning's borrowed energy.",
+   sku:"FLOW — Sour Blue Raspberry sticks (20)",why:"The sustain state answers a spike architecture better than another spike. RISE — the activate state — joins your waitlist for Wave 4.",
+   time:"<span>Week 1:</span> the wall moves later. <span>Week 4:</span> the wall gets lower. <span>Week 8:</span> some days, there's no wall."}
+};
+let step=0, scores={FUEL:0,ANCHOR:0,GUARD:0,CATALYST:0}, answers=[];
+const $=id=>document.getElementById(id);
+function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("on"));$(id).classList.add("on");}
+function renderQ(){
+  $("qn").textContent="QUESTION "+(step+1)+" / 7";
+  $("bar").style.width=(step/7*100)+"%";
+  $("qtext").textContent=QUESTIONS[step].q;
+  const box=$("opts"); box.innerHTML="";
+  QUESTIONS[step].a.forEach(([label,w])=>{
+    const b=document.createElement("button"); b.className="opt"; b.textContent=label;
+    b.onclick=()=>{ for(const k in w) scores[k]+=w[k]; answers[step]=label; step++;
+      step<7 ? renderQ() : result(); };
+    box.appendChild(b);
+  });
+}
+function result(){
+  $("bar").style.width="100%";
+  const win=Object.keys(scores).reduce((a,b)=>scores[a]>=scores[b]?a:b);
+  const c=CARDS[win];
+  $("band").style.background=c.color;
+  $("kname").textContent=win;
+  $("kname").style.color=c.color;
+  $("kread").textContent=c.read;
+  $("kquote").innerHTML="You said: &ldquo;"+answers[6].replace(/^I['’]d /,"")+"&rdquo; — that's the week we're building for.";
+  $("ksku").textContent=c.sku;
+  $("kwhy").textContent=c.why;
+  $("ktimeline").innerHTML=c.time;
+  show("s-result");
+  window._card={klass:win,sku:c.sku,read:c.read,color:c.color};
+}
+$("start").onclick=()=>{show("s-quiz");renderQ();};
+$("again").onclick=()=>{step=0;scores={FUEL:0,ANCHOR:0,GUARD:0,CATALYST:0};answers=[];show("s-quiz");renderQ();};
+$("save").onclick=()=>{
+  const e=$("email").value.trim();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){ $("email").focus(); return; }
+  const list=JSON.parse(localStorage.getItem("maanaa_waitlist")||"[]");
+  list.push({email:e,card:window._card.klass,sku:window._card.sku,q1:answers[0]||"",q7:answers[6]||"",at:new Date().toISOString()});
+  localStorage.setItem("maanaa_waitlist",JSON.stringify(list));
+  $("done").style.display="block";
+};
+$("share").onclick=()=>{
+  const c=window._card, cv=document.createElement("canvas");
+  cv.width=1080; cv.height=1350; const x=cv.getContext("2d");
+  x.fillStyle="#ffffff"; x.fillRect(0,0,1080,1350);
+  x.fillStyle=c.color; x.fillRect(0,0,1080,26);
+  x.fillStyle="#6d7278"; x.font="600 30px -apple-system,Helvetica"; x.fillText("Y O U R   C O N S T R A I N T",70,150);
+  x.fillStyle=c.color; x.font="750 150px -apple-system,Helvetica"; x.fillText(c.klass,66,300);
+  x.fillStyle="#111214"; x.font="44px -apple-system,Helvetica";
+  const words=c.read.split(" "); let line="",y=420;
+  words.forEach(w=>{ if(x.measureText(line+w).width>920){x.fillText(line,70,y);y+=62;line="";} line+=w+" "; });
+  x.fillText(line,70,y);
+  x.font="600 40px -apple-system,Helvetica"; x.fillText(c.sku.split(" — ")[0]+" — "+c.klass.toLowerCase()+" state",70,1120);
+  x.fillStyle="#6d7278"; x.font="30px -apple-system,Helvetica";
+  x.fillText("MAANAA · What's killing your focus? · 45 seconds",70,1240);
+  const a=document.createElement("a"); a.download="my-constraint-card.png";
+  a.href=cv.toDataURL("image/png"); a.click();
+};
+</script>
+</body>
+</html>
