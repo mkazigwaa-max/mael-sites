@@ -1,4 +1,4 @@
-// MAANAA — THE FREQUENCY ROOM v2 (custom build)
+// MAANAA — THE FREQUENCY ROOM v3 — VIBRANT (custom build)
 // A true 3D terrain of light: 15,000 points in the four family colors.
 // Every 2.8 Hz cycle a shockwave ring is born at the center and rolls
 // outward through the field — the brand's frequency, visible.
@@ -15,7 +15,7 @@ if (canvas && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     cam.position.set(0, 6.8, 11.5);
     const COLS = 150, ROWS = 100, N = COLS * ROWS;
     const pos = new Float32Array(N * 3), col = new Float32Array(N * 3), fam = new Float32Array(N);
-    const palette = [[0.659,0.635,0.306],[0.753,0.451,0.310],[0.388,0.565,0.498],[0.718,0.431,0.475]];
+    const palette = [[0.608,0.773,0.239],[1.000,0.420,0.341],[0.055,0.486,0.482],[0.690,0.188,0.478]]; // FUEL lime · GUARD coral · ANCHOR teal · CATALYST magenta — the authored family hues, full saturation
     let i = 0;
     for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) {
       const px = (x - COLS / 2) * 0.24, pz = (y - ROWS / 2) * 0.24;
@@ -39,7 +39,7 @@ if (canvas && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
       vertexShader: `
         attribute vec3 aColor; attribute float aFam;
         uniform float uTime; uniform vec2 uPointer; uniform vec4 uBoost; uniform float uPx;
-        varying vec3 vColor; varying float vGlow; varying float vFade;
+        varying vec3 vColor; varying float vGlow; varying float vFade; varying float vRing;
         float boostOf(float f){
           if (f < 0.5) return uBoost.x; if (f < 1.5) return uBoost.y;
           if (f < 2.5) return uBoost.z; return uBoost.w; }
@@ -51,26 +51,30 @@ if (canvas && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
                   + sin((p.x + p.z) * 0.16 + t * 0.4) * 0.22;
           float cyc = fract(t * 2.8);
           float ring = exp(-pow((d - cyc * 19.0) * 1.15, 2.0)) * (1.0 - cyc);
-          h += ring * 1.15;
+          float cyc2 = fract(t * 1.4 + 0.5);
+          float ring2 = exp(-pow((d - cyc2 * 19.0) * 0.9, 2.0)) * (1.0 - cyc2) * 0.55;
+          h += ring * 1.3 + ring2 * 0.6;
+          vRing = ring;
           float pd = distance(p.xz, uPointer);
           h += exp(-pd * pd * 0.10) * 0.85;
           float bst = boostOf(aFam);
           h += bst * 0.55 * (0.6 + 0.4 * sin(t * 2.2 + p.x * 0.5));
           p.y += h;
-          vGlow = ring + exp(-pd * pd * 0.10) * 0.8 + bst * 0.7;
+          vGlow = ring * 1.25 + ring2 * 0.6 + exp(-pd * pd * 0.10) * 0.8 + bst * 0.7;
           vec4 mv = modelViewMatrix * vec4(p, 1.0);
-          gl_PointSize = uPx * (2.6 + vGlow * 3.2) * (11.0 / -mv.z);
+          gl_PointSize = uPx * (4.3 + vGlow * 5.6) * (11.0 / -mv.z);
           vFade = smoothstep(26.0, 9.0, length(mv.xyz));
           vColor = aColor;
           gl_Position = projectionMatrix * mv;
         }`,
       fragmentShader: `
-        varying vec3 vColor; varying float vGlow; varying float vFade;
+        varying vec3 vColor; varying float vGlow; varying float vFade; varying float vRing;
         void main(){
           vec2 q = gl_PointCoord - 0.5;
           float m = smoothstep(0.5, 0.08, length(q));
-          vec3 c = mix(vColor, vec3(0.98, 0.90, 0.74), clamp(vGlow, 0.0, 1.0) * 0.55);
-          gl_FragColor = vec4(c, m * (0.5 + vGlow * 0.5) * vFade);
+          vec3 c = mix(vColor, vec3(1.0), clamp(vRing, 0.0, 1.0) * 0.7);
+          c += vec3(0.894, 1.0, 0.592) * clamp(vGlow - vRing, 0.0, 1.0) * 0.22;
+          gl_FragColor = vec4(c, m * (0.88 + vGlow * 0.4) * vFade);
         }`
     });
     scene.add(new THREE.Points(geo, mat));

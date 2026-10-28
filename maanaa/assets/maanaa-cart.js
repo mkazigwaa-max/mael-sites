@@ -6,12 +6,12 @@
 (function(){
   const CFG = {
     freeShipThreshold: 9900,          // owner's $99 basket (GTM Stream H)
-    subDiscount: 0.15,                // subscribe & save (Bloom pattern)
+    subDiscount: 0,                    // unused — subscription price points are authored per SKU
     consolidateSaving: 875,           // owner's $8.75 — 2+ subscriptions, one parcel
     products: {
-      flow:  { id:'flow',  name:'FLOW',        sub:'Matched to your constraint by the assessment.', img:'assets/flow.jpg',    price:5800 },
-      spark: { id:'spark', name:'SPARK',       sub:'The catalyst, on its own page.',                  img:'assets/spark.jpg',   price:4800 },
-      kit:   { id:'kit',   name:'STARTER KIT', sub:'Where Wave 1 begins. FLOW + SPARK.',              img:'assets/lineup.webp', price:8900 }
+      flow:  { id:'flow',  name:'FLOW',        sub:'Matched to your constraint by the assessment.', img:'assets/flow.jpg',    price:4999, subPrice:2499 },
+      spark: { id:'spark', name:'SPARK',       sub:'The catalyst, on its own page.',                  img:'assets/spark.jpg',   price:5999, subPrice:2999 },
+      kit:   { id:'kit',   name:'STARTER KIT', sub:'Where Wave 1 begins. FLOW + SPARK.',              img:'assets/lineup.webp', price:10998, subPrice:4999 }
     }
   };
   const KEY='maanaa_cart_v1';
@@ -79,7 +79,7 @@
   document.body.appendChild(wrap);
   const drawer=wrap.querySelector('.mn-drawer'), backdrop=wrap.querySelector('.mn-backdrop');
 
-  const linePrice=l=>{ const base=CFG.products[l.id].price*l.qty; return l.plan==='sub'? Math.round(base*(1-CFG.subDiscount)) : base; };
+  const linePrice=l=>{ const P=CFG.products[l.id]; return (l.plan==='sub'? P.subPrice : P.price)*l.qty; };
   const subtotal=()=>cart.reduce((a,l)=>a+linePrice(l),0);
   const subCount=()=>cart.filter(l=>l.plan==='sub').length;
 
@@ -94,7 +94,7 @@
         const full=P.price*l.qty; return `<div class="mn-line">
         <img src="${P.img}" alt="">
         <div class="g"><div class="n">${P.name}</div>
-          <div class="plan ${l.plan==='sub'?'':'once'}">${l.plan==='sub'?'Subscription · every 30 days · save 15%':'One-time'}</div>
+          <div class="plan ${l.plan==='sub'?'':'once'}">${l.plan==='sub'?'Subscription · every 30 days · $'+(CFG.products[l.id].subPrice/100).toFixed(2)+' a cycle':'One-time'}</div>
           <span class="mn-qty"><button data-dec="${i}">−</button><span>${l.qty}</span><button data-inc="${i}">+</button></span>
           <button class="rm" data-rm="${i}">Remove</button></div>
         <div class="p">${l.plan==='sub'?`<s>${money(full)}</s>`:''}${money(lp)}</div></div>`; }).join('');
