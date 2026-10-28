@@ -20,10 +20,11 @@
   body>*{position:relative;z-index:1}
   .bar{text-align:center;font-size:12.5px;letter-spacing:.04em;padding:10px 16px;color:var(--soft);border-bottom:1px solid rgba(255,255,255,.14)}
   .bar b{color:var(--ink)}
-  header{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1180px;margin:0 auto;padding:22px 28px}
-  header img{height:32px;width:auto;display:block}
-  nav{display:flex;gap:30px}
-  nav a{color:var(--soft);text-decoration:none;font-size:14.5px}
+  .hdr{position:sticky;top:0;z-index:50;background:rgba(75,75,77,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.14)}
+  header{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1180px;margin:0 auto;padding:0 28px;height:74px}
+  header img{height:30px;width:auto;display:block}
+  nav{display:flex;gap:34px}
+  nav a{color:var(--soft);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
   nav a:hover{color:var(--ink)}
   .pill{display:inline-block;background:#fff;color:var(--cardink);font-weight:700;font-size:14.5px;padding:12px 24px;border-radius:999px;text-decoration:none;box-shadow:0 10px 26px rgba(0,0,0,.28)}
   .pill.small{padding:9px 18px;font-size:13.5px;box-shadow:none}
@@ -44,6 +45,14 @@
   .reading .radio{width:22px;height:22px;border-radius:50%;border:1.5px solid #C7C7CC;flex:none}
   .reading .go{display:flex;align-items:center;justify-content:space-between;margin-top:24px;font-weight:700;font-size:15.5px;color:var(--cardink)}
   .reading .go .arrow{font-size:19px}
+  .portrait{max-width:480px;margin:56px auto 0;padding:0 20px}
+  .portrait img{width:100%;height:auto;display:block;border-radius:28px;border:1px solid rgba(255,255,255,.14);box-shadow:0 44px 90px rgba(0,0,0,.42)}
+  .waitlist{max-width:560px;margin:52px auto 0;padding:0 28px;text-align:center}
+  .waitlist form{display:flex;gap:10px;margin-top:20px}
+  .waitlist input{flex:1;min-width:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.20);border-radius:999px;padding:15px 22px;font-size:15px;color:var(--ink);font-family:inherit}
+  .waitlist input::placeholder{color:var(--mute)}
+  .waitlist button{background:#fff;color:var(--cardink);border:none;border-radius:999px;padding:15px 26px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;font-family:inherit;white-space:nowrap}
+  .wldone{display:none;margin-top:20px;font-size:16px;font-weight:600;color:var(--ink)}
   .band{max-width:880px;margin:0 auto;text-align:center;padding:100px 28px 10px}
   .band h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em}
   .band .pill{margin-top:30px;font-size:16px;padding:16px 34px}
@@ -61,19 +70,32 @@
 
 <div class="bar">The Skin Reading is live — <b>begin yours</b></div>
 
-<header>
+<div class="hdr"><header>
   <a href="index.html"><img src="assets/skinaa-wordmark.png" alt="SKINAA"></a>
   <nav>
     <a href="assessment.html">The Reading</a>
+    <a href="#waitlist">Waitlist</a>
     <a href="#build">The Build</a>
   </nav>
   <a class="pill small" href="assessment.html">Begin The Skin Reading</a>
-</header>
+</header></div>
 
 <section class="hero">
   <div class="kicker">SKINAA by Maanaa</div>
-  <h1>The skincare line of Maanaa</h1>
-  <p>SKINAA is the skincare line of Maanaa, in build. No products yet, and no product pictures — the first thing it makes is a reading: twenty-eight questions and your photograph, read on your device.</p>
+  <h1>Your skin. Elevated.</h1>
+  <p>Different skin. One goal. Formulated for all skin types. Visible results. Nothing unnecessary.</p>
+</section>
+
+
+<figure class="portrait"><img src="assets/skinaa-post-portrait.jpg" alt="SKINAA — the face of the line"></figure>
+
+<section class="waitlist" id="waitlist">
+  <div class="kicker">The launch list</div>
+  <form id="wl" novalidate>
+    <input type="email" required placeholder="Email address" aria-label="Email address">
+    <button type="submit">Join the waitlist</button>
+  </form>
+  <div class="wldone" id="wldone">You're on the list.</div>
 </section>
 
 <a class="reading" href="assessment.html" aria-label="Begin the Skin Reading">
@@ -106,5 +128,11 @@
 </footer>
 
 <script type="module" src="assets/watermark3d.js"></script>
+<script>
+document.getElementById('wl').addEventListener('submit',function(e){e.preventDefault();
+  var em=this.querySelector('input').value.trim(); if(!em||em.indexOf('@')<0) return;
+  try{localStorage.setItem('skinaa_waitlist',em);}catch(_){}
+  this.style.display='none'; document.getElementById('wldone').style.display='block';});
+</script>
 </body>
 </html>
