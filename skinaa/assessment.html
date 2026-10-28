@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Skin Reading — SKINAA by Maanaa</title>
+<meta name="description" content="Four questions. One reading of where your skin is today.">
+<style>
+  :root{--porc:#f4efe7;--card:#fbf8f2;--ink:#211913;--smoke:#8a7a68;--champ:#b08d57;--line:#e2d8c8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--porc);color:var(--ink);font-family:Georgia,'Times New Roman',serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+  header{padding:44px 24px 0;text-align:center}
+  header img{width:min(300px,60vw);filter:invert(0.92) sepia(0.22) saturate(0.7) hue-rotate(-12deg)}
+  .byline{margin-top:10px;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--smoke)}
+  main{max-width:680px;margin:0 auto;padding:40px 24px 70px}
+  .k{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--champ);text-align:center}
+  h1{font-size:clamp(28px,5vw,42px);font-weight:400;text-align:center;margin-top:14px;line-height:1.2}
+  .sub{text-align:center;color:var(--smoke);margin-top:14px;line-height:1.65}
+  .prog{display:flex;gap:6px;margin:38px 0 8px}
+  .prog i{flex:1;height:2px;background:var(--line);display:block}
+  .prog i.on{background:var(--champ)}
+  .step-no{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.3em;color:var(--smoke);text-transform:uppercase}
+  .q{font-size:clamp(21px,3.4vw,27px);font-weight:400;line-height:1.35;margin-top:12px}
+  .opts{margin-top:24px;display:grid;gap:12px}
+  .opt{border:1px solid var(--line);background:var(--card);padding:18px 20px;text-align:left;font-family:Georgia,serif;font-size:16.5px;color:var(--ink);cursor:pointer;transition:all .18s ease;width:100%}
+  .opt:hover{border-color:var(--champ);box-shadow:0 12px 30px rgba(33,25,19,.09);transform:translateY(-1px)}
+  .hidden{display:none}
+  .result{text-align:center}
+  .result h2{font-size:clamp(26px,4.6vw,38px);font-weight:400;margin-top:14px}
+  .result p{color:var(--smoke);line-height:1.7;margin-top:14px}
+  .faces{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}
+  .faces img{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--line);display:block}
+  .faces figcaption{font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.26em;color:var(--smoke);text-transform:uppercase;margin-top:8px}
+  .cta{display:inline-block;margin-top:34px;background:var(--ink);color:var(--porc);padding:15px 30px;border-radius:99px;text-decoration:none;font-family:ui-rounded,system-ui,sans-serif;font-weight:700;font-size:15px}
+  .again{display:block;margin-top:18px;color:var(--smoke);font-size:14px}
+</style>
+</head>
+<body>
+<header>
+  <img src="assets/skinaa-wordmark.png" alt="SKINAA">
+  <div class="byline">SKINAA by Maanaa — The Skin Reading</div>
+</header>
+<main>
+  <div id="quiz">
+    <div class="k">The Skin Reading</div>
+    <h1>Where is your skin today?</h1>
+    <p class="sub">Four questions. Answer for the last seven days, not your best day.</p>
+    <div class="prog" id="prog"><i class="on"></i><i></i><i></i><i></i></div>
+    <div class="step-no" id="stepNo">Question 1 of 4</div>
+    <div class="q" id="qText"></div>
+    <div class="opts" id="opts"></div>
+  </div>
+  <div id="result" class="result hidden">
+    <div class="k">Your reading</div>
+    <h2 id="rTitle"></h2>
+    <p id="rBody"></p>
+    <div class="faces" id="rFaces"></div>
+    <a class="cta" href="index.html">See the full set — 23 faces</a>
+    <a class="again" href="assessment.html">Take the reading again</a>
+  </div>
+</main>
+<script>
+const STATES = {
+  dry:      { name: 'Dry & Tight',        cards: ['C01-8K.jpg','C02-8K.jpg','C04-8K.jpg'],
+              body: 'Your skin is asking for water before anything else. Tight after washing, quiet by noon, thirsty by night — this is the face the set was built to read first.' },
+  oily:     { name: 'Oily & Congested',   cards: ['K01-8K.jpg','K02-8K.jpg','K03-8K.jpg'],
+              body: 'Shine by midday, pores with opinions, breakouts that arrive uninvited. Your skin is producing more than it can clear — a congestion reading, plainly stated.' },
+  reactive: { name: 'Reactive & Sensitive', cards: ['N1-8K.jpg','N2-8K.jpg','N3-8K.jpg'],
+              body: 'It answers back — to products, to weather, to stress. Redness and sting are information, not flaws. This reading says your barrier is negotiating, loudly.' },
+  dull:     { name: 'Dull & Tired',       cards: ['C20-8K.jpg','C21-8K.jpg','C23-8K.jpg'],
+              body: 'Nothing is wrong, and nothing is lit. The glow you remember is a turnover problem, not an age problem — the surface is keeping the light instead of returning it.' }
+};
+const QUESTIONS = [
+  { q: 'An hour after washing, your face feels…',
+    a: [['Tight, like it shrank a size','dry'],['Shiny across the T-zone already','oily'],['Warm, a little prickly','reactive'],['Fine — just flat, no light in it','dull']] },
+  { q: 'Your main concern this week is…',
+    a: [['Flaking and rough patches','dry'],['Breakouts and visible pores','oily'],['Redness that comes and goes','reactive'],['Looking tired no matter the sleep','dull']] },
+  { q: 'A new product usually…',
+    a: [['Sits on top and never quite sinks in','dry'],['Makes the shine worse by evening','oily'],['Stings or flushes within minutes','reactive'],['Does nothing you can point to','dull']] },
+  { q: 'By 6 p.m., your skin looks…',
+    a: [['Parched — makeup settling into lines','dry'],['Glossy enough to blot twice','oily'],['Blotchy, uneven, unsettled','reactive'],['Grey around the edges, drained','dull']] }
+];
+let step = 0; const score = { dry:0, oily:0, reactive:0, dull:0 };
+const qText = document.getElementById('qText'), opts = document.getElementById('opts'),
+      stepNo = document.getElementById('stepNo'), prog = document.getElementById('prog');
+function render(){
+  qText.textContent = QUESTIONS[step].q;
+  stepNo.textContent = 'Question ' + (step+1) + ' of 4';
+  [...prog.children].forEach((b,i)=>b.classList.toggle('on', i<=step));
+  opts.innerHTML = '';
+  QUESTIONS[step].a.forEach(([label, key])=>{
+    const b = document.createElement('button');
+    b.className = 'opt'; b.textContent = label;
+    b.onclick = ()=>{ score[key]++; step++; step < QUESTIONS.length ? render() : finish(); };
+    opts.appendChild(b);
+  });
+}
+function finish(){
+  const key = Object.keys(score).sort((x,y)=>score[y]-score[x])[0];
+  const s = STATES[key];
+  document.getElementById('quiz').classList.add('hidden');
+  const r = document.getElementById('result'); r.classList.remove('hidden');
+  document.getElementById('rTitle').textContent = s.name;
+  document.getElementById('rBody').textContent = s.body;
+  document.getElementById('rFaces').innerHTML = s.cards.map(c =>
+    '<figure><img src="assets/' + c + '" alt="SKINAA face"><figcaption>From the set</figcaption></figure>').join('');
+}
+render();
+</script>
+</body>
+</html>
