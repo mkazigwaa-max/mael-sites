@@ -8,12 +8,16 @@
     freeShipThreshold: 9900,          // owner's $99 basket (GTM Stream H)
     subDiscount: 0,                    // unused — subscription price points are authored per SKU
     consolidateSaving: 875,           // owner's $8.75 — 2+ subscriptions, one parcel
+    memberOffer: null,                 // owner's number to set — NO member/account price exists until set; two-price display (one-time / subscribe) only
     products: {
       flow:  { id:'flow',  name:'FLOW',        sub:'Matched to your constraint by the assessment.', img:'assets/flow.jpg',    price:4999, subPrice:2499 },
       spark: { id:'spark', name:'SPARK',       sub:'The catalyst, on its own page.',                  img:'assets/spark.jpg',   price:5999, subPrice:2999 },
       kit:   { id:'kit',   name:'STARTER KIT', sub:'Where Wave 1 begins. FLOW + SPARK.',              img:'assets/lineup.webp', price:10998, subPrice:4999 }
     }
   };
+  // asset base derived from this script's own URL, so drawer images resolve
+  // from any directory depth (homepage root, /products/, /pages/)
+  const BASE=(document.currentScript&&document.currentScript.src||'').replace(/assets\/maanaa-cart\.js(?:\?.*)?$/,'');
   const KEY='maanaa_cart_v1';
   let cart=[]; try{ cart=JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(_){ cart=[]; }
   const $=s=>document.querySelector(s);
@@ -26,11 +30,16 @@
   <div class="mn-backdrop" hidden></div>
   <aside class="mn-drawer" aria-hidden="true" aria-label="Your cart">
     <div class="mn-dhead"><span>Your cart</span><button class="mn-close" aria-label="Close cart">✕</button></div>
-    <div class="mn-ship"><div class="mn-shipbar"><i></i></div><div class="mn-shipmsg"></div></div>
+    <div class="mn-ship"><div class="mn-shipbar"><i></i></div><div class="mn-shipmsg"></div><div class="mn-tier"></div></div>
     <div class="mn-items"></div>
     <div class="mn-recs"></div>
     <div class="mn-dfoot">
       <div class="mn-consol"></div>
+      <div class="mn-meter" hidden>
+        <div class="mn-mrow"><span>Original price</span><span class="mn-morig"></span></div>
+        <div class="mn-mrow"><span>Your price</span><span class="mn-myour"></span></div>
+        <div class="mn-mrow save"><span>You save</span><span class="mn-msave"></span></div>
+      </div>
       <div class="mn-total"><span>Subtotal</span><b class="mn-subtotal"></b></div>
       <button class="mn-checkout">Checkout</button>
       <div class="mn-note" hidden>Checkout opens at launch — your cart is saved on this device.</div>
@@ -49,6 +58,11 @@
     .mn-shipbar{height:7px;border-radius:99px;background:#eef4e6;overflow:hidden}
     .mn-shipbar i{display:block;height:100%;background:#215b32;border-radius:99px;transition:width .5s ease}
     .mn-shipmsg{font-size:12.5px;color:#67836c;margin-top:8px}
+    .mn-tier{font-size:12.5px;color:#215b32;font-weight:700;margin-top:4px}
+    .mn-tier:empty{margin-top:0}
+    .mn-meter{border-top:1px dashed #d4ead4;padding-top:10px;margin-bottom:12px}
+    .mn-mrow{display:flex;justify-content:space-between;font-size:13.5px;color:#67836c;padding:2px 0}
+    .mn-mrow.save{color:#215b32;font-weight:800}
     .mn-items{flex:1;overflow-y:auto;padding:8px 22px}
     .mn-line{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid #eef4e6}
     .mn-line img{width:64px;height:64px;object-fit:cover;border-radius:12px;border:1px solid #d4ead4}
@@ -92,25 +106,39 @@
     } else {
       box.innerHTML=cart.map((l,i)=>{ const P=CFG.products[l.id]; const lp=linePrice(l);
         const full=P.price*l.qty; return `<div class="mn-line">
-        <img src="${P.img}" alt="">
+        <img src="${BASE+P.img}" alt="">
         <div class="g"><div class="n">${P.name}</div>
           <div class="plan ${l.plan==='sub'?'':'once'}">${l.plan==='sub'?'Subscription · every 30 days · $'+(CFG.products[l.id].subPrice/100).toFixed(2)+' a cycle':'One-time'}</div>
           <span class="mn-qty"><button data-dec="${i}">−</button><span>${l.qty}</span><button data-inc="${i}">+</button></span>
           <button class="rm" data-rm="${i}">Remove</button></div>
         <div class="p">${l.plan==='sub'?`<s>${money(full)}</s>`:''}${money(lp)}</div></div>`; }).join('');
     }
+    // ---- tiered progress (cart-next pattern, his figures only) ----
+    // Tier 1: free shipping at the threshold. Tier 2: subscription consolidation.
     const st=subtotal(), th=CFG.freeShipThreshold;
     wrap.querySelector('.mn-shipbar i').style.width=Math.min(100, st/th*100)+'%';
     wrap.querySelector('.mn-shipmsg').textContent = st>=th ? 'Your basket ships free.' :
       (st>0 ? `${money(th-st)} away from free shipping — baskets over ${money(th)} ship free.` : `Baskets over ${money(th)} ship free.`);
+    wrap.querySelector('.mn-tier').textContent =
+      (cart.length && subCount()===1) ? `Add one more subscription — subscriptions ride together: one parcel, ${money(CFG.consolidateSaving)} saved each cycle.` : '';
     wrap.querySelector('.mn-consol').textContent = subCount()>=2 ?
       `Subscriptions ride together — one parcel, ${money(CFG.consolidateSaving)} saved each cycle.` : '';
     wrap.querySelector('.mn-subtotal').textContent=money(st);
+    // ---- savings meter (Gundry pattern) — real deltas only: one-time price
+    // is the anchor; savings exist only where a subscription price beats it.
+    const orig=cart.reduce((a,l)=>a+CFG.products[l.id].price*l.qty,0);
+    const meter=wrap.querySelector('.mn-meter');
+    if(cart.length && orig>st){
+      meter.hidden=false;
+      wrap.querySelector('.mn-morig').textContent=money(orig);
+      wrap.querySelector('.mn-myour').textContent=money(st);
+      wrap.querySelector('.mn-msave').textContent=money(orig-st);
+    } else { meter.hidden=true; }
     // recommendations: what's not in the cart (Bloom cart-next pattern)
     const missing=Object.values(CFG.products).filter(p=>!cart.some(l=>l.id===p.id));
     wrap.querySelector('.mn-recs').innerHTML = (cart.length && missing.length) ?
       `<div class="t">Complete the loop</div>` + missing.slice(0,2).map(p=>
-      `<div class="mn-rec"><img src="${p.img}" alt=""><span class="n">${p.name} · ${money(p.price)}</span><button data-rec="${p.id}">Add</button></div>`).join('') : '';
+      `<div class="mn-rec"><img src="${BASE+p.img}" alt=""><span class="n">${p.name} · ${money(p.price)}</span><button data-rec="${p.id}">Add</button></div>`).join('') : '';
     box.querySelectorAll('[data-inc]').forEach(b=>b.onclick=()=>{ cart[+b.dataset.inc].qty++; save(); render(); });
     box.querySelectorAll('[data-dec]').forEach(b=>b.onclick=()=>{ const i=+b.dataset.dec; cart[i].qty--; if(cart[i].qty<1) cart.splice(i,1); save(); render(); });
     box.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{ cart.splice(+b.dataset.rm,1); save(); render(); });
