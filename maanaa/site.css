@@ -68,3 +68,43 @@ footer.site a{text-decoration:none;color:#3C3C38}
 footer.site a:hover{color:var(--ink)}
 footer .fine{margin-top:32px;font-size:12.5px;color:var(--muted);max-width:72ch}
 @media (max-width:640px){nav.main{display:none}section{padding:52px 0}.promise{padding:30px 22px}}
+
+.mn-ann{background:#1c5633;color:#fbf1e4;text-align:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:9px 16px;position:relative;z-index:30}
+.mn-ann-msg{display:none}
+.mn-ann-msg.is-on{display:block;animation:mnAnnFade .5s ease}
+@keyframes mnAnnFade{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+
+header.site .wrap{height:68px}
+header.site{box-shadow:0 10px 30px rgba(20,46,29,.06)}
+
+/* ---- buy box (PDP activation layer) ---- */
+.buybox{margin-top:34px;border-top:1px solid rgba(255,255,255,.16);padding-top:28px}
+.bb-plans{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bb-plan{display:flex;flex-direction:column;gap:2px;border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:13px 16px;cursor:pointer;color:#fff}
+.bb-plan input{accent-color:#E4FF97;margin-bottom:4px}
+.bb-plan-t{font-size:13px;font-weight:600;color:#C9C9C2}
+.bb-plan-p{font-size:19px;font-weight:750}
+.bb-plan:has(input:checked){border-color:#E4FF97;background:rgba(228,255,151,.08)}
+.bb-ladder{display:flex;align-items:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+.bb-ladder .bb-lab{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#9A9A92;font-weight:700;margin-right:2px}
+.bb-ladder button{width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
+.bb-ladder button.is-on{background:#E4FF97;border-color:#E4FF97;color:#142E1D}
+.bb-math{font-size:13.5px;color:#C9C9C2;margin-left:6px}
+.bb-add{width:100%;margin-top:18px;background:#E4FF97;color:#142E1D;border:0;border-radius:999px;padding:16px;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit}
+.bb-add:hover{opacity:.92}
+.bb-facts{margin-top:14px;font-size:13px;color:#C9C9C2;text-align:center}
+@media (max-width:640px){.bb-plans{grid-template-columns:1fr}}
+
+/* ---- sticky add-to-cart bar ---- */
+.mn-stickybar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(253,253,251,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);box-shadow:0 -14px 34px rgba(20,46,29,.10);padding:12px 0}
+.mn-stickybar[hidden]{display:none}
+.mn-stickybar .wrap{display:flex;align-items:center;gap:16px}
+.sb-name{font-weight:800;letter-spacing:.06em}
+.sb-price{color:var(--muted);font-size:14px;flex:1}
+.mn-stickybar button{background:#215B32;color:#FBF1E4;border:0;border-radius:999px;padding:12px 22px;font-weight:800;font-size:14.5px;cursor:pointer;font-family:inherit;white-space:nowrap}
+
+/* ---- reviews (rendered only from a real dataset) ---- */
+.mn-review{border-top:1px solid var(--line);padding:22px 0}
+.mn-review-stars{color:#215B32;letter-spacing:.2em;font-size:14px}
+.mn-review h3{margin:8px 0 6px}
+.mn-review p{color:#3C3C38;font-size:15px;max-width:65ch}
