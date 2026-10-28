@@ -1,106 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SKINAA — by Maanaa</title>
-<meta name="description" content="SKINAA — the skincare line of Maanaa. Start with the Skin Reading.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SKINAA — the skincare line of Maanaa, under construction. The Skin Reading is live.">
+<meta name="theme-color" content="#4B4B4D">
+<title>SKINAA by Maanaa</title>
 <style>
-  :root{--porc:#f4efe7;--card:#fbf8f2;--ink:#211913;--smoke:#8a7a68;--champ:#b08d57;--line:#e2d8c8}
+  :root{
+    --ground:#4B4B4D; --ink:#F5F5F3; --soft:#D8D8D4; --mute:#B9B9B4;
+    --champagne:#C8A165; --card:#FFFFFF; --cardink:#1D1D1F;
+  }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--porc);color:var(--ink);font-family:Georgia,'Times New Roman',serif;-webkit-font-smoothing:antialiased}
-  #veil{position:fixed;top:0;left:0;width:100%;height:100vh;z-index:0;pointer-events:none}
-  header,.hero,.intro,.assess,.set-head,.grid,.poster,footer{position:relative;z-index:1}
-  header{padding:54px 24px 6px;text-align:center}
-  header img.wordmark{width:min(430px,72vw);height:auto;filter:invert(0.92) sepia(0.22) saturate(0.7) hue-rotate(-12deg)}
-  .byline{margin-top:14px;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--smoke)}
-  .hero{max-width:880px;margin:40px auto 0;padding:0 24px}
-  .hero .frame{position:relative;border:1px solid var(--line);box-shadow:0 30px 70px rgba(33,25,19,.16);background:#ddd6c9}
-  .hero img.still{width:100%;height:auto;display:block}
-  .hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 1.2s ease}
-  .hero canvas.live{opacity:1}
-  .hero figcaption{margin-top:12px;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--smoke);text-align:center}
-  .intro{max-width:640px;margin:50px auto 0;padding:0 24px;text-align:center}
-  .intro h1{font-size:clamp(26px,4.4vw,40px);font-weight:400;line-height:1.25}
-  .intro p{margin-top:16px;color:var(--smoke);font-size:16px;line-height:1.65}
-  .assess{max-width:760px;margin:54px auto 0;padding:0 24px}
-  .assess .inner{border:1px solid var(--line);background:linear-gradient(180deg,var(--card),#efe6d8);padding:42px 32px;text-align:center;box-shadow:0 18px 44px rgba(33,25,19,.07)}
-  .assess .k{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--champ)}
-  .assess h2{font-size:clamp(24px,3.6vw,34px);font-weight:400;margin-top:14px}
-  .assess p{color:var(--smoke);margin-top:12px;line-height:1.6}
-  .assess a{display:inline-block;margin-top:24px;background:var(--ink);color:var(--porc);padding:15px 30px;border-radius:99px;text-decoration:none;font-family:ui-rounded,system-ui,sans-serif;font-weight:700;font-size:15px}
-  .set-head{max-width:1060px;margin:74px auto 20px;padding:0 24px 14px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line)}
-  .set-head h2{font-size:20px;font-weight:400;letter-spacing:.06em}
-  .set-head span{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.3em;color:var(--smoke);text-transform:uppercase}
-  .grid{max-width:1060px;margin:0 auto;padding:0 24px 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
-  .grid figure{border:1px solid var(--line);overflow:hidden;background:var(--card);box-shadow:0 10px 26px rgba(33,25,19,.06)}
-  .grid img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5}
-  .poster{max-width:880px;margin:38px auto 0;padding:0 24px}
-  .poster img{width:100%;height:auto;display:block;border:1px solid var(--line);box-shadow:0 18px 44px rgba(33,25,19,.10)}
-  footer{margin:74px 0 0;border-top:1px solid var(--line);padding:30px 24px 44px;text-align:center}
-  footer img{width:54px;height:54px;border-radius:50%}
-  footer p{margin-top:14px;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--smoke)}
+  html{scroll-behavior:smooth}
+  body{background:var(--ground);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* The writing — the poster's field, at a whisper */
+  .wm{position:fixed;inset:-12vh -12vw;z-index:0;pointer-events:none;overflow:hidden;font-weight:800;font-size:19vw;line-height:1.28;letter-spacing:-.015em;color:#515154;white-space:nowrap;user-select:none}
+  .wm div:nth-child(even){transform:translateX(-10vw)}
+  #wm3d{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  body>*{position:relative;z-index:1}
+  .bar{text-align:center;font-size:12.5px;letter-spacing:.04em;padding:10px 16px;color:var(--soft);border-bottom:1px solid rgba(255,255,255,.14)}
+  .bar b{color:var(--ink)}
+  header{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1180px;margin:0 auto;padding:20px 28px}
+  header img{height:26px;width:auto;display:block}
+  nav{display:flex;gap:30px}
+  nav a{color:var(--soft);text-decoration:none;font-size:14.5px}
+  nav a:hover{color:var(--ink)}
+  .pill{display:inline-block;background:var(--card);color:var(--cardink);font-weight:700;font-size:14.5px;padding:12px 24px;border-radius:999px;text-decoration:none;box-shadow:0 10px 26px rgba(0,0,0,.28)}
+  .pill.small{padding:9px 18px;font-size:13.5px;box-shadow:none}
+  .pill.dark{background:#2B2B2B;color:var(--ink);box-shadow:none}
+  .hero{max-width:860px;margin:0 auto;text-align:center;padding:92px 28px 30px}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--champagne)}
+  .hero h1{font-size:clamp(40px,6.4vw,68px);font-weight:800;letter-spacing:-.025em;line-height:1.04;margin-top:18px}
+  .hero p{font-size:17.5px;line-height:1.6;color:var(--soft);max-width:620px;margin:22px auto 0}
+  .hero .pill{margin-top:34px;font-size:16px;padding:16px 34px}
+  .facts{max-width:1020px;margin:64px auto 0;padding:0 28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .fact{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:24px;padding:26px 24px}
+  .fact .n{font-size:26px;font-weight:800;letter-spacing:-.01em}
+  .fact .t{font-size:14px;line-height:1.55;color:var(--soft);margin-top:7px}
+  .band{max-width:860px;margin:0 auto;text-align:center;padding:96px 28px 30px}
+  .band h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em}
+  .band p{font-size:16.5px;line-height:1.6;color:var(--soft);max-width:560px;margin:16px auto 0}
+  .band .pill{margin-top:28px}
+  footer{max-width:1180px;margin:70px auto 0;padding:30px 28px 40px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  footer .fl{display:flex;gap:26px}
+  footer a{color:var(--mute);text-decoration:none;font-size:13.5px}
+  footer a:hover{color:var(--ink)}
+  footer .brand{font-size:13.5px;color:var(--mute)}
+  @media (max-width:760px){ nav{display:none} .facts{grid-template-columns:1fr} .hero{padding-top:60px} }
 </style>
 </head>
 <body>
-<canvas id="veil" aria-hidden="true"></canvas>
+<div class="wm" aria-hidden="true"><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div></div>
+<canvas id="wm3d" aria-hidden="true"></canvas>
+
+<div class="bar">The Skin Reading is live — <b>begin yours</b></div>
+
 <header>
-  <img class="wordmark" src="assets/skinaa-wordmark.png" alt="SKINAA">
-  <div class="byline">SKINAA by Maanaa — Skincare</div>
+  <a href="index.html"><img src="assets/skinaa-wordmark.png" alt="SKINAA"></a>
+  <nav>
+    <a href="assessment.html">The Reading</a>
+    <a href="#build">The Build</a>
+    <a href="#about">About</a>
+  </nav>
+  <a class="pill small" href="assessment.html">Begin The Skin Reading</a>
 </header>
-<figure class="hero">
-  <div class="frame">
-    <img class="still" src="assets/skinaa-post-portrait.jpg" alt="SKINAA — the face of the line">
-    <canvas id="portrait3d" aria-hidden="true"></canvas>
-  </div>
-  <figcaption>The face of the line — move across the face — the light answers</figcaption>
-</figure>
-<section class="intro">
-  <h1>The skincare line of Maanaa.</h1>
-  <p>Built on the faces. Every image in the set is one system — the same cast, the same grade — carried across twenty-three final cards at full 8K width.</p>
+
+<section class="hero">
+  <div class="kicker">SKINAA by Maanaa</div>
+  <h1>The skincare line of Maanaa</h1>
+  <p>Under construction — the reading is live. The first thing SKINAA makes is not a product. It is a reading: twenty-eight questions and your photograph, read on your device.</p>
+  <a class="pill" href="assessment.html">Begin the Skin Reading</a>
 </section>
-<section class="assess">
-  <div class="inner">
-    <div class="k">Start here</div>
-    <h2>The Skin Reading</h2>
-    <p>Four questions. One reading of where your skin is today — and the faces from the set that carry it.</p>
-    <a href="assessment.html">Begin the Skin Reading</a>
-  </div>
+
+<section class="facts">
+  <div class="fact"><div class="n">28 steps</div><div class="t">Twenty-two questions, a photograph, and a reading — at most.</div></div>
+  <div class="fact"><div class="n">On your device</div><div class="t">Your photograph is read where you take it. It is never uploaded.</div></div>
+  <div class="fact"><div class="n">No products yet</div><div class="t">Nothing to sell you today. The reading comes first — the line is matched to it.</div></div>
 </section>
-<div class="set-head"><h2>The Final Set</h2><span>23 cards · 8K</span></div>
-<section class="grid">
-<figure><img src="assets/C01-8K.jpg" alt="SKINAA card C01-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C02-8K.jpg" alt="SKINAA card C02-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C04-8K.jpg" alt="SKINAA card C04-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C05-8K.jpg" alt="SKINAA card C05-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C07-8K.jpg" alt="SKINAA card C07-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C08-8K.jpg" alt="SKINAA card C08-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C11-8K.jpg" alt="SKINAA card C11-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C14-8K.jpg" alt="SKINAA card C14-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C20-8K.jpg" alt="SKINAA card C20-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C21-8K.jpg" alt="SKINAA card C21-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C23-8K.jpg" alt="SKINAA card C23-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C25-8K.jpg" alt="SKINAA card C25-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C26-8K.jpg" alt="SKINAA card C26-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C27-8K.jpg" alt="SKINAA card C27-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/C28-8K.jpg" alt="SKINAA card C28-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/K01-8K.jpg" alt="SKINAA card K01-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/K02-8K.jpg" alt="SKINAA card K02-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/K03-8K.jpg" alt="SKINAA card K03-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/K04-8K.jpg" alt="SKINAA card K04-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/N1-8K.jpg" alt="SKINAA card N1-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/N2-8K.jpg" alt="SKINAA card N2-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/N3-8K.jpg" alt="SKINAA card N3-8K.jpg" loading="lazy"></figure>
-<figure><img src="assets/N4-8K.jpg" alt="SKINAA card N4-8K.jpg" loading="lazy"></figure>
+
+<section class="band" id="build">
+  <h2>Under construction — the reading is live</h2>
+  <p>SKINAA is the skincare line of Maanaa, in build. No products yet, and no product pictures — readings taken now are matched first when the line opens.</p>
+  <a class="pill dark" href="assessment.html">Take the reading</a>
 </section>
-<figure class="poster">
-  <img src="assets/skinaa-post-poster.jpg" alt="SKINAA poster">
-</figure>
+
+<section class="band" id="about" style="padding-top:56px">
+  <div class="kicker">The launch list</div>
+  <p style="margin-top:14px">Get on the list for the launch — readings taken now are matched first.</p>
+  <a class="pill" href="assessment.html" style="margin-top:26px">Begin with the reading</a>
+</section>
+
 <footer>
-  <img src="assets/skinaa-profile-pic.png" alt="SKINAA">
-  <p>SKINAA by Maanaa</p>
+  <span class="brand">SKINAA by Maanaa</span>
+  <div class="fl">
+    <a href="assessment.html">The Reading</a>
+    <a href="#build">The Build</a>
+    <a href="#about">About</a>
+  </div>
 </footer>
-<script type="module" src="assets/veil.js"></script>
-<script type="module" src="assets/portrait.js"></script>
+
+<script type="module" src="assets/watermark3d.js"></script>
 </body>
 </html>
