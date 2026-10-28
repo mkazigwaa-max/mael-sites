@@ -119,7 +119,7 @@ input[type=email]{border-color:var(--line)}
         <div class="kname" id="kname"></div>
         <p class="read" id="kread"></p>
         <div class="quote" id="kquote"></div>
-        <div class="sku"><b id="ksku"></b><p id="kwhy"></p></div>
+        <div class="sku"><b id="ksku"></b><p id="kwhy"></p><button id="kadd" style="margin-top:14px;background:#215B32;color:#FBF1E4;border:none;border-radius:999px;padding:13px 22px;font-weight:800;font-size:14.5px;cursor:pointer;font-family:inherit">Add your match to cart</button></div>
         <p class="timeline" id="ktimeline"></p>
         <div class="promise">THE PROMISE — printed in every box, on paper:
         cancel in two taps · 90-day full refund including shipping, both
@@ -251,6 +251,14 @@ $("share").onclick=()=>{
   const a=document.createElement("a"); a.download="my-constraint-card.png";
   a.href=cv.toDataURL("image/png"); a.click();
 };
+</script>
+<script src="assets/maanaa-cart.js"></script>
+<script>
+document.getElementById('kadd').addEventListener('click',function(){
+  var sku=(window._card&&window._card.sku)||'';
+  var id= sku.indexOf('SPARK')===0 ? 'spark' : (sku.indexOf('FLOW')===0 ? 'flow' : 'kit');
+  window.MaanaaCart.add(id,'once');
+});
 </script>
 </body>
 </html>
