@@ -50,10 +50,11 @@
     if(bar){
       bar.querySelectorAll('[data-sb-add]').forEach(b => b.addEventListener('click', doAdd));
       if('IntersectionObserver' in window){
+        const anchor = box.querySelector('[data-bb-add]') || box;
         new IntersectionObserver(function(entries){
           const e = entries[0];
           bar.hidden = e.isIntersecting || e.boundingClientRect.top > 0;
-        }, { threshold: 0 }).observe(box);
+        }, { threshold: 0 }).observe(anchor);
       }
     }
     paint();
