@@ -6,8 +6,54 @@
 <title>SPARK — Melt Strips | MAANAA</title>
 <meta name="description" content="SPARK by MAANAA: 30 sublingual melt strips. Ignition in 30 seconds — no water, no wait. Arctic Mint.">
 <link rel="stylesheet" href="../site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProductGroup",
+  "productGroupID": "spark",
+  "name": "SPARK \u2014 Melt Strips",
+  "description": "SPARK by MAANAA: 30 sublingual melt strips. Ignition in 30 seconds \u2014 no water, no wait. Arctic Mint.",
+  "brand": {
+    "@type": "Brand",
+    "name": "MAANAA"
+  },
+  "url": "spark.html",
+  "hasVariant": [
+    {
+      "@type": "Product",
+      "name": "SPARK \u2014 Melt Strips \u2014 One-time",
+      "sku": "spark-once",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "59.99",
+        "availability": "https://schema.org/InStock",
+        "url": "spark.html"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "SPARK \u2014 Melt Strips \u2014 Subscription",
+      "sku": "spark-sub",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "29.99",
+        "availability": "https://schema.org/InStock",
+        "url": "spark.html"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
+<div class="mn-ann" role="region" aria-label="Offers">
+  <span class="mn-ann-msg is-on">Free shipping on orders over $99</span>
+  <span class="mn-ann-msg">Subscriptions ship every 30 days — pause or cancel anytime</span>
+  <span class="mn-ann-msg">One constraint. One fix. Matched by the 45-second assessment</span>
+</div>
+<script>(function(){var m=document.querySelectorAll('.mn-ann-msg');if(m.length<2)return;var i=0;setInterval(function(){m[i].classList.remove('is-on');i=(i+1)%m.length;m[i].classList.add('is-on')},4200)})();</script>
 <header class="site">
   <div class="wrap">
     <a class="wordmark" href="../index.html">MAANAA</a>
@@ -17,8 +63,10 @@
       <a href="../pages/doses.html">Doses</a>
       <a href="../pages/guarantee.html">Guarantee</a>
       <a href="../pages/testing.html">Testing</a>
+    <a href="../pages/manage.html">Account</a>
     </nav>
     <a class="btn" href="../assessment.html">Take the assessment</a>
+    <button class="btn" type="button" data-mn-open style="background:#215B32;color:#FBF1E4">Cart<span data-mn-count style="display:none"></span></button>
   </div>
 </header>
 
@@ -73,6 +121,21 @@
         <div><h3>90-day guarantee, returns on us</h3><p>Full refund including shipping both ways, prepaid label included.</p></div>
         <div><h3>Fresh or free</h3><p>BEST BY and PACKED ON on every pack. Nothing ships inside 20% of its shelf life.</p></div>
       </div>
+            <div class="buybox" data-buybox="spark">
+        <div class="bb-plans" role="radiogroup" aria-label="Plan">
+          <label class="bb-plan"><input type="radio" name="plan-spark" value="once"><span class="bb-plan-t">One-time</span><span class="bb-plan-p">$59.99</span></label>
+          <label class="bb-plan"><input type="radio" name="plan-spark" value="sub" checked><span class="bb-plan-t">Subscribe · every 30 days</span><span class="bb-plan-p">$29.99</span></label>
+        </div>
+        <div class="bb-ladder" role="group" aria-label="Quantity">
+          <span class="bb-lab">Qty</span>
+          <button type="button" data-bb-qty="1">1</button>
+          <button type="button" data-bb-qty="2" class="is-on">2</button>
+          <button type="button" data-bb-qty="3">3</button>
+          <span class="bb-math" data-bb-math>2 × $29.99 · $29.99 each</span>
+        </div>
+        <button type="button" class="bb-add" data-bb-add>Add to cart — <span data-bb-total-for="spark">$59.98</span></button>
+        <p class="bb-facts">90-day guarantee, returns on us · Free shipping on orders over $99 · Pause or cancel anytime</p>
+      </div>
       <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
         <a class="btn light" href="starter-kit.html">Get the Starter Kit instead</a>
         <a class="btn light" href="../pages/guarantee.html">Read the guarantee</a>
@@ -80,6 +143,11 @@
     </div>
   </div>
 </section>
+
+<div class="mn-stickybar" data-stickybar="spark" hidden>
+  <div class="wrap"><span class="sb-name">SPARK</span><span class="sb-price" data-sb-price>$29.99 on subscription</span><button type="button" data-sb-add>Add to cart</button></div>
+</div>
+<div data-mn-reviews="spark"></div>
 
 <footer class="site">
   <div class="wrap">
@@ -92,5 +160,8 @@
     <p class="fine">These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
   </div>
 </footer>
+<script src="../assets/maanaa-cart.js"></script>
+<script src="../assets/maanaa-buybox.js"></script>
+<script src="../assets/maanaa-reviews.js"></script>
 </body>
 </html>
