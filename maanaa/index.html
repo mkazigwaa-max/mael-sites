@@ -53,6 +53,13 @@
   .band .btn{display:inline-block;margin-top:26px;background:#e4ff97;color:#215b32;font-weight:800;padding:15px 28px;border-radius:99px;text-decoration:none}
   footer{margin:80px 0 0;border-top:1px solid var(--line);padding:28px;text-align:center;color:var(--smoke);font-size:13px}
   footer a{color:var(--smoke);margin:0 10px}
+  .buy{margin-top:16px}
+  .buy .price{font-weight:900;font-size:17px}
+  .plans{display:flex;gap:8px;margin-top:10px}
+  .plans label{flex:1;border:1px solid var(--line);border-radius:12px;padding:9px 8px;font-size:12.5px;cursor:pointer;text-align:center;background:#fbf1e4;color:#3d5745}
+  .plans label:has(input:checked){border-color:#215b32;background:#eef4e6;font-weight:700;color:#142e1d}
+  .plans input{accent-color:#215b32;margin-right:5px}
+  .addbtn{width:100%;margin-top:10px;background:#215b32;color:#fbf1e4;border:none;border-radius:99px;padding:13px;font-weight:800;cursor:pointer;font-family:inherit;font-size:14.5px}
 </style>
 </head>
 <body>
@@ -65,6 +72,7 @@
     <a href="pages/guarantee.html">Guarantee</a>
     <a href="pages/testing.html">Testing</a>
     <a class="cta" href="assessment.html">Take the assessment</a>
+    <button data-mn-open style="background:none;border:none;cursor:pointer;font:inherit;color:var(--smoke);letter-spacing:.24em;font-size:11px;text-transform:uppercase">Cart<span class="mn-count" data-mn-count style="display:none"></span></button>
   </div>
 </nav>
 <section class="hero">
@@ -89,9 +97,15 @@
 <section class="lineup">
   <div class="wavelabel"><h2>Wave 1</h2><div class="rule"></div></div>
   <div class="lgrid">
-    <div class="sku"><img src="assets/flow.jpg" alt="Flow"><div class="body"><div class="fam">Flow</div><h3>FLOW</h3><p>Matched to your constraint by the assessment.</p><a href="products/flow.html">See Flow</a></div></div>
-    <div class="sku"><img src="assets/spark.jpg" alt="Spark"><div class="body"><div class="fam">Spark</div><h3>SPARK</h3><p>The catalyst, on its own page.</p><a href="products/spark.html">See Spark</a></div></div>
-    <div class="sku"><img src="assets/lineup.webp" alt="The Maanaa lineup"><div class="body"><div class="fam">Start</div><h3>STARTER KIT</h3><p>Where Wave 1 begins.</p><a href="products/starter-kit.html">See the kit</a></div></div>
+    <div class="sku"><img src="assets/flow.jpg" alt="Flow"><div class="body"><div class="fam">Flow</div><h3>FLOW</h3><p>Matched to your constraint by the assessment.</p><div class="buy"><div class="price">$58</div>
+      <div class="plans"><label><input type="radio" name="plan-flow" value="once" checked> One-time</label><label><input type="radio" name="plan-flow" value="sub"> Subscribe · −15%</label></div>
+      <button class="addbtn" data-mn-add="flow">Add to cart</button></div><a href="products/flow.html">See Flow</a></div></div>
+    <div class="sku"><img src="assets/spark.jpg" alt="Spark"><div class="body"><div class="fam">Spark</div><h3>SPARK</h3><p>The catalyst, on its own page.</p><div class="buy"><div class="price">$48</div>
+      <div class="plans"><label><input type="radio" name="plan-spark" value="once" checked> One-time</label><label><input type="radio" name="plan-spark" value="sub"> Subscribe · −15%</label></div>
+      <button class="addbtn" data-mn-add="spark">Add to cart</button></div><a href="products/spark.html">See Spark</a></div></div>
+    <div class="sku"><img src="assets/lineup.webp" alt="The Maanaa lineup"><div class="body"><div class="fam">Start</div><h3>STARTER KIT</h3><p>Where Wave 1 begins.</p><div class="buy"><div class="price">$89</div>
+      <div class="plans"><label><input type="radio" name="plan-kit" value="once" checked> One-time</label><label><input type="radio" name="plan-kit" value="sub"> Subscribe · −15%</label></div>
+      <button class="addbtn" data-mn-add="kit">Add to cart</button></div><a href="products/starter-kit.html">See the kit</a></div></div>
   </div>
 </section>
 <section class="band">
@@ -106,5 +120,6 @@
   <p style="margin-top:12px">MAANAA — The Neuro-Ecosystem&trade;</p>
 </footer>
 <script type="module" src="assets/field.js"></script>
+<script src="assets/maanaa-cart.js"></script>
 </body>
 </html>
