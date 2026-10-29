@@ -13,7 +13,7 @@ header.site .wordmark{display:inline-flex;align-items:center;gap:9px}
 /* section field treatment: dotted field + live rings behind, content above */
 .ll-sec{position:relative;overflow:hidden}
 .ll-sec>*:not(.live-field){position:relative;z-index:1}
-.live-field{position:absolute;inset:0;z-index:0;pointer-events:none;line-height:0}
+.live-field{position:absolute;inset:0;z-index:0;pointer-events:none;line-height:0;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 110px,#000 calc(100% - 110px),transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 110px,#000 calc(100% - 110px),transparent 100%)}
 .live-field canvas{display:block}
 /* legibility veils (hero ::before pattern) over treated cream/paper sections */
 .ll-veil::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
