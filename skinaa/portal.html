@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The Ascension Plus Portal — your living delta, the dual-script Rx note archive, check-ins, and potency step status.">
+<meta name="theme-color" content="#4B4B4D">
+<title>Ascension Plus Portal — SKINAA by Maanaa</title>
+<link rel="stylesheet" href="assets/skinaa.css">
+<style>
+  #delta3d{width:100%;height:520px;display:block;border-radius:26px;background:radial-gradient(120% 120% at 50% 20%,#5A5A5C,#3C3C3E)}
+  .metric{background:#fff;color:var(--cardink);border-radius:20px;padding:22px 24px;box-shadow:0 24px 54px rgba(0,0,0,.30)}
+  .metric .v{font-size:34px;font-weight:800;letter-spacing:-.02em}
+  .metric input[type=range]{width:100%;margin-top:12px;accent-color:#B08D57}
+  .rxnote{background:#FBF7EE;color:var(--cardink);border-radius:20px;padding:26px 28px;box-shadow:0 24px 54px rgba(0,0,0,.30);margin-top:22px}
+  .rxnote .derm{font-family:"Snell Roundhand","Segoe Script",cursive;font-size:19.5px;line-height:1.55;color:#27356E}
+  .rxnote .est{font-family:"Segoe Print","Bradley Hand",cursive;font-size:16px;line-height:1.6;color:#232323;margin-top:16px}
+  .rxnote .who{font-family:-apple-system,system-ui,sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--greytext);margin-top:8px}
+  .modal{position:fixed;inset:0;background:rgba(20,20,22,.66);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+  .modal.open{display:flex}
+  .modal .box{background:#fff;color:var(--cardink);border-radius:26px;max-width:520px;width:100%;padding:32px;box-shadow:0 44px 90px rgba(0,0,0,.5)}
+</style>
+</head>
+<body>
+<section class="pagehead">
+  <div class="kicker">Ascension Plus · Portal</div>
+  <h1>Your delta, alive.</h1>
+  <p>The loop visibly happens here: your Day 0 baseline against your current scan, rendered as a living scene. Subscriber: Alex M. · Status: Week 2 Active · Current refill shipment: en route. Cycles run 30 days, anchored on the 28th — your Day-15 re-assessment is the gate.</p>
+</section>
+
+<section class="blk">
+  <canvas id="delta3d" aria-label="Your 3D visual delta — Day 0 morphing to today"></canvas>
+  <div class="grid c3" style="margin-top:22px">
+    <div class="metric"><div class="tag">Facial width reduction</div><div class="v" id="vWidth">15%</div><input type="range" id="rWidth" min="0" max="40" value="15"><p class="note">Submental drainage, measured against your matched archetype.</p></div>
+    <div class="metric"><div class="tag">Under-eye darkness clearance</div><div class="v" id="vDark">40%</div><input type="range" id="rDark" min="0" max="100" value="40"><p class="note">Vascular dark circle clearance across the infraorbital frame.</p></div>
+    <div class="metric"><div class="tag">Light reflection score</div><div class="v" id="vGlow">+18%</div><input type="range" id="rGlow" min="0" max="100" value="45"><p class="note">Surface glow on the high points — cheekbones, brow, bridge.</p></div>
+  </div>
+  <p class="note" style="text-align:center;margin-top:20px;color:var(--mute)">Drag the metrics — the scene is your scan, not a diagram. Weekly AI delta: facial width reduction, darkness clearance, and light scores, confirmed before the next billing cycle.</p>
+</section>
+
+<section class="blk">
+  <h2>Your check-in</h2>
+  <p class="lede">Day 15 is the iteration gate: a fresh assessment — what you used, how it's going, and your face — and the next batch is reformulated from it.</p>
+  <div style="text-align:center;margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a class="pill" href="assessment.html?mode=day15">Take the Day-15 Re-Assessment \u2192</a>
+    <a class="pill ghosty" href="assessment.html">Retake the 28-step intake</a>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>The dual-script Rx note archive</h2>
+  <p class="lede">Every refill box carries a hand-stamped progress note: blue cursive from your dermatologist, black fine-liner from your esthetician. Your archive:</p>
+
+  <div class="rxnote">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><b style="letter-spacing:.12em;font-size:12.5px">WEEK 2 — MODEL N4 · JAWLINE DEBLOAT &amp; HUNTER EYE</b><span class="stamp">Medical Active Calibrated</span></div>
+    <p class="derm">Marcus — great progress on Week 2. Your submental water retention has dropped noticeably, and the skin over your masseters looks firm with zero irritation from the debloat drops. I'm keeping your Caffeine Eye Roller at the full 5% concentration, but adding 1% Ectoin to your evening fluid to reinforce your moisture mantle as the facial contour tightens.</p>
+    <div class="who">— Dermatologist Co-Founder, MD</div>
+    <p class="est">The jawline separation in your Day 14 photo is coming through! When applying the Cold Steel Roller this week, focus 10 extra passes right along the angle of the mandible before bed. Make sure to keep your sleep tape sealed flat across the lips to prevent morning lower-face puffiness.</p>
+    <div class="who">— Lead LE, Head of Esthetic Protocols</div>
+  </div>
+
+  <div class="rxnote">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><b style="letter-spacing:.12em;font-size:12.5px">WEEK 3 — MODEL N1 · GLASS SKIN &amp; V-SHAPE</b><span class="stamp teal">Academy Approved Radiance</span></div>
+    <p class="derm">Elena — your barrier resilience score is at an all-time high. The mild redness you flagged on Day 7 is completely gone, which means your skin has adapted to the active peptides. I've approved stepping up your Polyglutamic Acid Dew Serum strength in this refill to boost deep epidermal water retention.</p>
+    <div class="who">— Dermatologist Co-Founder, MD</div>
+    <p class="est">Your cheekbone light reflection is gorgeous in this week's scan! To maximize that glass-skin finish, sweep your Stainless Gua Sha upward toward the temples using 45-degree angled pressure right after applying your morning Squalane Glaze. You're officially in Peak Ascension!</p>
+    <div class="who">— Master Esthetician</div>
+  </div>
+
+  <div class="rxnote">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><b style="letter-spacing:.12em;font-size:12.5px">WEEK 4 — MODEL K03 · HYPERPIGMENTATION ERASER</b><span class="stamp">Medical Active Calibrated</span></div>
+    <p class="derm">Devon — 28 days in! Your post-acne dark marks have faded by an estimated 35% based on your visual grid analysis. Because your melanocytes are responding so well to the 3% Tranexamic Acid without rebound inflammation, we are locking this exact topical concentration in for your monthly maintenance cycle.</p>
+    <div class="who">— Dermatologist Co-Founder, MD</div>
+    <p class="est">The overall radiance and even tone across your forehead and jawline look incredible. Make sure you're still using your pH 5.5 Amino Cleanser with lukewarm water only—hot water will trigger flushing. Keep up this exact routine!</p>
+    <div class="who">— Lead LE, Head of Esthetic Protocols</div>
+  </div>
+</section>
+
+<section class="blk">
+  <h2>Potency step status</h2>
+  <div class="grid c2" style="margin-top:36px">
+    <div class="card"><div class="pad"><span class="tag">Day 30 Step-Up</span><div class="sku-name">Potency advances</div><p class="sku-meta" style="font-size:14.5px">Vitamin C 15% \u2192 20% L-Ascorbic Acid · Derma-Stamp depth 0.5mm \u2192 0.75mm · Ferment Toner introduced (female protocol) · Volufiline pen upgraded with multi-peptide complexes.</p></div></div>
+    <div class="card"><div class="pad"><span class="tag">Day 60 Step-Up</span><div class="sku-name">The second advance</div><p class="sku-meta" style="font-size:14.5px">0.015% HOCl Post-Shave Reset Mist added · Copper Peptide \u2192 3% GHK-Cu · 3% Tranexamic + 5% Niacinamide Correcting Serum added (female protocol).</p></div></div>
+  </div>
+  <p class="note" style="text-align:center;margin-top:26px;color:var(--mute)">Active formula adaptation every 30 days — an evolving protocol, not a static shipment. Full sequences: <a href="guide-male.html" style="color:#fff">Male Guide</a> · <a href="guide-female.html" style="color:#fff">Female Guide</a></p>
+</section>
+
+<section class="blk" style="text-align:center">
+  <h2>Thinking of pausing?</h2>
+  <p class="lede">Read your esthetician's note first — that is the standing order before any pause lands.</p>
+  <div style="margin-top:26px"><button class="pill ghosty" id="pauseBtn">Request a pause</button></div>
+</section>
+
+<div class="modal" id="pauseModal"><div class="box">
+  <div class="kicker" style="color:#B08D57">From your Lead Esthetician</div>
+  <h3 style="font-size:23px;font-weight:800;line-height:1.25;margin-top:12px">Pausing your protocol resets your barrier adaptation cycle.</h3>
+  <p style="line-height:1.65;margin-top:14px">Here is your current visual delta score if you stay on track this week: <b>width \u221215% · darkness clearance 40% · light reflection +18%</b>. Your barrier took fourteen days to adapt to this potency — a pause spends that adaptation, and the next cycle starts from the barrier you have today, not the one you're building.</p>
+  <p class="note" style="margin-top:12px">If it's the formula, not the protocol, say so at your Day-15 gate — reformulation is free, and it's what the gate is for.</p>
+  <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap"><button class="pill dark" id="stayBtn">Stay on track</button><button class="pill" style="box-shadow:none;border:1.5px solid var(--cardline)" id="pauseConfirm">Pause anyway</button></div>
+  <p class="note" id="pauseMsg" style="margin-top:14px"></p>
+</div></div>
+
+<script src="assets/skinaa-data.js"></script>
+<script type="module" src="assets/portal3d.js"></script>
+<script>
+function bind(rangeId, valId, fmt, apply){
+  const r = document.getElementById(rangeId), v = document.getElementById(valId);
+  const f = () => { v.textContent = fmt(+r.value); apply(+r.value); };
+  r.addEventListener("input", f); f();
+}
+bind("rWidth", "vWidth", x => x + "%", x => { if (window.__skinaaDelta) window.__skinaaDelta.mix = Math.min(1, x / 20); });
+bind("rDark", "vDark", x => x + "%", x => { if (window.__skinaaDelta) window.__skinaaDelta.dark = x / 100; });
+bind("rGlow", "vGlow", x => "+" + Math.round(x * 0.4) + "%", x => { if (window.__skinaaDelta) window.__skinaaDelta.glow = x / 100; });
+const pm = document.getElementById("pauseModal");
+document.getElementById("pauseBtn").onclick = () => pm.classList.add("open");
+document.getElementById("stayBtn").onclick = () => pm.classList.remove("open");
+document.getElementById("pauseConfirm").onclick = () => {
+  document.getElementById("pauseMsg").textContent = "Pause recorded — your esthetician's barrier-cycle note is on file with it. Your tray slots stay yours; refills resume on your word.";
+  try { localStorage.setItem("skinaa_pause", new Date().toISOString()); } catch(_){}
+};
+pm.addEventListener("click", e => { if (e.target === pm) pm.classList.remove("open"); });
+</script>
+<script src="assets/skinaa-chrome.js"></script>
+</body>
+</html>

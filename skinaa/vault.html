@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The 28-Model Visual Vault — Day 0 baseline, condition panel, Day 14 transformation, straight from the master directory.">
+<meta name="theme-color" content="#4B4B4D">
+<title>The Visual Vault — SKINAA by Maanaa</title>
+<link rel="stylesheet" href="assets/skinaa.css">
+<style>
+  .vcard .pad h3{font-size:20px;font-weight:800;letter-spacing:-.01em}
+  .vrow{margin-top:12px;font-size:14.5px;line-height:1.6}
+  .vrow .k{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--champ2);display:block;margin-bottom:3px}
+  .vrow .k.g{color:#2E7D74}
+  .ba-wrap{margin-top:14px}
+</style>
+</head>
+<body>
+<section class="pagehead">
+  <div class="kicker">The 28-Model Visual Vault</div>
+  <h1>Day 0. Day 14. Day 28.</h1>
+  <p>Every archetype from the master directory, in three panels: the untouched cast portrait (Day 0 — real texture, the real-life before), the condition panel (their documented conditions as a clinical macro plate, at everyday severity), and the Day-14 result — the maximum believable delta. Drastic, but real life.</p>
+</section>
+
+<div class="filters" id="filters">
+  <button data-f="ALL" class="on">All 28</button>
+  <button data-f="M">Guys</button>
+  <button data-f="F">Girls</button>
+  <button data-f="debloat">Debloat</button>
+  <button data-f="glass">Glass Skin</button>
+  <button data-f="hairline">Hairline</button>
+  <button data-f="hyperpigmentation">Hyperpigmentation</button>
+</div>
+
+<section class="blk" style="padding-top:40px">
+  <div class="grid c2" id="grid"></div>
+</section>
+
+<script src="assets/skinaa-data.js"></script>
+<script>
+const grid = document.getElementById("grid");
+const lc = c => c.toLowerCase();
+function panel(src, label){
+  return '<figure><img src="' + src + '" alt="' + label + '" onerror="this.parentNode.innerHTML=\'<div class=&quot;panel-missing&quot;>' + label + '<br>panel in generation</div>\'"><figcaption>' + label + '</figcaption></figure>';
+}
+function baSlider(m){
+  return '<div class="ba-wrap"><div class="ba">'
+    + '<img src="assets/vault/' + lc(m.code) + '-day0.jpg" alt="Model ' + m.n + ' Day 0">'
+    + '<div class="after" style="clip-path:inset(0 0 0 50%)"><img src="assets/vault/' + lc(m.code) + '-day14.webp" alt="Model ' + m.n + ' Day 14" onerror="this.closest(\'.ba\').style.display=\'none\'"></div>'
+    + '<span class="lab l">Day 0</span><span class="lab r">Day 14</span>'
+    + '<input type="range" min="0" max="100" value="50" aria-label="Before after slider" oninput="this.previousElementSibling.previousElementSibling.style.clipPath=\'inset(0 0 0 \'+this.value+\'%)\'">'
+    + '</div></div>';
+}
+function cardHTML(m){
+  return '<article class="card vcard"><div class="pad">'
+    + '<span class="tag">Model ' + String(m.n).padStart(2,"0") + ' · ' + m.code + '</span> <span class="tag">' + m.arch + '</span>'
+    + '<div class="panels3" style="margin-top:16px">'
+    +   panel("assets/vault/" + lc(m.code) + "-day0.jpg", "Day 0 — Baseline")
+    +   panel("assets/vault/" + lc(m.code) + "-condition.webp", "Condition Panel")
+    +   panel("assets/vault/" + lc(m.code) + "-day14.webp", "Day 14 — Result")
+    + '</div>'
+    + baSlider(m)
+    + '<div class="vrow"><span class="k">Day 0 — Flaws</span>' + m.flaws + '</div>'
+    + '<div class="vrow"><span class="k g">Day 14 — Gains</span>' + m.gains + '</div>'
+    + '<div class="vrow"><span class="k">Day 28 — Ascension Goal</span>' + m.goal + '</div>'
+    + '<div class="vrow"><span class="k">Phase 1 — Attack Stack</span>' + m.p1 + '</div>'
+    + '<div class="vrow"><span class="k">Phase 2 — Weekly Refill</span>' + m.p2 + '</div>'
+    + '<div style="margin-top:18px"><a class="pill dark" href="assessment.html">Match my phenotype \u2192</a></div>'
+    + '</div></article>';
+}
+function render(f){
+  const list = MODELS.filter(m => f === "ALL" || (f === "M" || f === "F" ? m.gender === f : m.tags.includes(f)));
+  grid.innerHTML = list.map(cardHTML).join("");
+}
+document.getElementById("filters").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("on", x === b));
+  render(b.dataset.f);
+});
+render("ALL");
+</script>
+<script src="assets/skinaa-chrome.js"></script>
+</body>
+</html>
