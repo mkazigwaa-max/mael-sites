@@ -19,9 +19,9 @@
   nav a:hover{color:var(--bone)}
   nav a.cta{color:#fbf1e4;background:#215b32;padding:8px 14px;border-radius:99px;font-weight:700}
   .hero{position:relative;max-width:1120px;margin:0 auto;padding:72px 28px 30px;text-align:center}
-  #field{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  #field{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent 99%);mask-image:linear-gradient(to bottom,#000 82%,transparent 99%)}
   .hero>*{position:relative;z-index:2}
-  .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 80% 64% at 50% 42%,rgba(251,241,228,.85) 0%,rgba(251,241,228,.55) 46%,rgba(251,241,228,0) 78%)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 82% 66% at 50% 42%,rgba(251,241,228,.82) 0%,rgba(251,241,228,.5) 48%,rgba(251,241,228,0) 78%)}
   .kicker{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--volt)}
   .hero h1{font-size:clamp(42px,7.4vw,84px);font-weight:900;line-height:1.02;letter-spacing:-.01em;margin-top:20px;text-shadow:0 0 26px rgba(251,241,228,.6),0 1px 0 rgba(251,241,228,.65)}
   .hero p{max-width:660px;margin:24px auto 0;color:#33513d;font-weight:600;font-size:18px;line-height:1.65}
@@ -31,7 +31,7 @@
   .hero-pic{position:relative;margin-top:26px}
   .hero-pic img{margin:0;border:none;border-radius:0}
   .hero-pic h1{position:absolute;top:5.5%;left:4%;right:4%;margin:0;font-size:clamp(30px,6.2vw,72px);color:#17301f;text-shadow:0 0 22px rgba(255,255,255,.85),0 1px 0 rgba(255,255,255,.9)}
-  .constraints{max-width:1120px;margin:76px auto 0;padding:0 28px}
+  .constraints{max-width:1120px;margin:30px auto 0;padding:0 28px}
   .constraints h2,.lineup h2{font-size:clamp(28px,4vw,40px);font-weight:900;text-align:center;letter-spacing:-.01em}
   .constraints .sub{text-align:center;color:var(--smoke);margin-top:12px;font-size:16.5px}
   .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:36px}
@@ -45,13 +45,6 @@
   .wavelabel{display:flex;align-items:center;gap:16px}
   .wavelabel .rule{flex:1;height:1px;background:var(--line)}
   .lgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:28px}
-  .sku{border:1px solid var(--line);border-radius:24px;padding:0;overflow:hidden;background:#ffffff;box-shadow:0 10px 30px rgba(33,91,50,.08)}
-  .sku img{width:100%;height:190px;object-fit:cover;display:block}
-  .sku .body{padding:22px 24px 24px}
-  .sku .fam{font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--smoke)}
-  .sku h3{font-size:19px;font-weight:900;margin-top:9px}
-  .sku p{color:#3d5745;font-size:14.5px;margin-top:8px;line-height:1.55}
-  .sku a{display:inline-block;margin-top:14px;color:var(--volt);font-weight:700;text-decoration:none}
   .band{max-width:1120px;margin:84px auto 0;padding:0 28px}
   .band .inner{border-radius:24px;padding:52px 34px;text-align:center;background:#215b32}
   .band h2{font-size:clamp(28px,4vw,40px);font-weight:900;color:#fbf1e4}
@@ -59,13 +52,6 @@
   .band .btn{display:inline-block;margin-top:26px;background:#e4ff97;color:#215b32;font-weight:800;padding:15px 28px;border-radius:99px;text-decoration:none}
   footer{margin:80px 0 0;border-top:1px solid var(--line);padding:28px;text-align:center;color:var(--smoke);font-size:13px}
   footer a{color:var(--smoke);margin:0 10px}
-  .buy{margin-top:16px}
-  .buy .price{font-weight:900;font-size:17px}
-  .plans{display:flex;gap:8px;margin-top:10px}
-  .plans label{flex:1;border:1px solid var(--line);border-radius:12px;padding:9px 8px;font-size:12.5px;cursor:pointer;text-align:center;background:#fbf1e4;color:#3d5745}
-  .plans label:has(input:checked){border-color:#215b32;background:#eef4e6;font-weight:700;color:#142e1d}
-  .plans input{accent-color:#215b32;margin-right:5px}
-
   .mn-head{position:sticky;top:0;z-index:25;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 28px;background:rgba(251,241,228,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);box-shadow:0 12px 32px rgba(28,86,51,.07)}
   .mn-logo{font-weight:900;font-size:23px;letter-spacing:.14em;color:var(--bone);text-decoration:none;display:flex;align-items:center;gap:7px}
   .mn-dot{width:8px;height:8px;border-radius:50%;background:#e4ff97;box-shadow:0 0 0 2px #215b32}
@@ -89,10 +75,10 @@
 .mn-ann-msg{display:none}
 .mn-ann-msg.is-on{display:block;animation:mnAnnFade .5s ease}
 @keyframes mnAnnFade{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
-  .addbtn{width:100%;margin-top:10px;background:#215b32;color:#fbf1e4;border:none;border-radius:99px;padding:13px;font-weight:800;cursor:pointer;font-family:inherit;font-size:14.5px}
-
-  .card,.sku{transition:transform .25s ease,box-shadow .25s ease}
-  .card:hover,.sku:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(28,86,51,.13)}
+  .card{transition:transform .25s ease,box-shadow .25s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(28,86,51,.13)}
+  .product-card{transition:transform .25s ease}
+  .product-card:hover{transform:translateY(-3px)}
   .members .mrows{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px;margin:34px auto 6px;max-width:880px;text-align:left}
   .members .mrows h3{color:#fbf1e4;font-size:16.5px;font-weight:800}
   .members .mrows p{color:#c4e7bc;font-size:14.5px;margin-top:7px;line-height:1.55}
@@ -126,6 +112,72 @@
 .lib-strip img{height:300px;width:auto;border-radius:14px;border:1px solid var(--line);display:block}
 .pdp-gal{max-width:1120px;margin:70px auto 0;padding:0 28px}
 .pdp-gal .lib-grid{margin-top:22px}
+
+/* ===== BLOOM PRODUCT-CARD TRANSPLANT =====
+   Donor chassis: Bloom Nutrition /site download (~/workspace/site-copy-switch/bloomnu/),
+   CSS taken verbatim from raw/cdn/shop/t/263/assets/product-slider.css + theme.css.
+   Only swaps: Bloom's Timesquare font names -> Maanaa's type stack (their font files not taken).
+   Badge + promotion slots ship in the chassis; Maanaa products carry no badge/promo data,
+   so they render empty exactly as Bloom's template renders them without data. */
+.full-width{width:100%}
+.justify-start{justify-content:flex-start}
+.font-family-timesquare-bold{font-family:ui-rounded,'SF Pro Rounded',system-ui,sans-serif}
+.product-card{display:flex;flex-direction:column;width:auto;margin:0;padding:0;font-size:.825rem;contain:layout style}
+.product-card a{display:block;text-decoration:none}
+.product-card__image-container{width:100%;position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:1em;background-color:#fbf5eb}
+.product-card__image-container img{width:100%;height:100%;object-fit:cover;border-radius:1em}
+.product-card__image-container__badges{position:absolute;top:8px;left:8px;z-index:2;display:flex;flex-direction:row;align-items:flex-start;flex-wrap:wrap;gap:4px;pointer-events:none}
+.product-card__image-container__badge{position:absolute;top:0;right:0;padding:1.5rem;margin:.5em;width:4em;height:4em;background-color:#215b32;color:#fff;font-weight:600;border-radius:3em;text-transform:uppercase;font-size:.625rem;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:0;text-align:center}
+html body .product-card .product-card__image-container__badges .product-card__image-container__badge{position:static;top:auto;right:auto;bottom:auto;left:auto;margin:0;pointer-events:auto}
+.promotion-image-banner{position:absolute;bottom:0;left:0;right:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:.65rem .25rem;background-color:#e4ff97;color:#215b32;font-family:ui-rounded,'SF Pro Rounded',system-ui,sans-serif;font-size:.75rem;line-height:1.2;letter-spacing:.04em;text-align:center;text-transform:uppercase;pointer-events:none}
+.promotion-image-banner__text{font-weight:700;white-space:pre-line}
+@media(max-width:390px){.promotion-image-banner{font-size:11px}}
+@media(min-width:440px){.promotion-image-banner{padding:.25rem .5rem;font-size:12px}}
+.product-card__details-container{width:100%;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;color:#215b32;position:relative;padding:4% 0;row-gap:1vw;min-height:4.5rem}
+@media(min-width:1024px){.product-card__details-container{row-gap:.25em;min-height:4rem}}
+.product-card__details-container .product-main{display:flex;flex-direction:column;justify-content:space-between;row-gap:.25em;column-gap:.25em;width:100%;margin:0;padding:0;align-items:flex-start}
+.product-card__details-container .product-main .product-title{text-align:left;font-size:1rem;min-height:1.5em;line-height:1.3}
+.product-card__details-container .product-main .product-cost{display:flex;justify-content:center;align-content:center;gap:.25em;flex-direction:row;min-height:1.25em}
+.product-card__details-container .product-main .product-cost .product-compare-price{font-weight:400;text-decoration:line-through;color:#bbb}
+.product-card__details-container .product-selected-options{display:flex;flex-wrap:wrap;column-gap:.5em;font-family:ui-rounded,'SF Pro Rounded',system-ui,sans-serif;font-size:.875rem;min-height:1.25em}
+.product-card__details-container .product-selected-options .flavor-option{font-weight:600;text-transform:uppercase}
+.product-card__details-container .product-selected-options .serving-option,.product-card__details-container .product-selected-options .option3-option{font-weight:500;color:#215b32}
+.product-card__options-container{padding:2% 0;display:flex;flex-direction:column;width:100%;column-gap:1vw;row-gap:5vw;min-height:3.5rem}
+@media(min-width:1024px){.product-card__options-container{row-gap:1vw;min-height:3rem}}
+.product-card__options-container .option{display:flex;flex-direction:column;width:100%;row-gap:4vw;column-gap:1vw}
+@media(min-width:1024px){.product-card__options-container .option{row-gap:1vw}}
+.product-card__options-container .option__list{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;list-style:none;width:100%;margin:0;column-gap:.25em;row-gap:0;align-self:center}
+.product-card__options-container .option__list .option-hasmore{height:3em;width:3em;border:1px solid #215b32;border-radius:12em;display:flex;justify-content:center;align-items:center;cursor:pointer;align-self:center}
+@media(min-width:1024px){.product-card__options-container .option__list .option-hasmore{height:2.5em;width:2.5em}}
+.product-card__options-container .option__list .option-hasmore svg{display:block;fill:#215b32;height:100%;width:100%;max-width:.5em;margin:auto}
+.product-card__options-container .option__list .option-item{width:auto;flex:0 1 auto;row-gap:1vw;column-gap:1vw;cursor:pointer;text-align:center}
+.product-card__options-container .option__list .option-item .option-flavor{height:2.75rem;width:2.75rem;border-radius:50%;border:2px solid transparent;overflow:hidden}
+@media(min-width:1280px){.product-card__options-container .option__list .option-item .option-flavor{height:2.5rem;width:2.5rem}}
+.product-card__options-container .option__list .option-item .option-flavor img{width:100%;height:100%;object-fit:cover;cursor:pointer;border-radius:50%}
+.product-card__options-container .option__list .option-item.selected .option-flavor,.product-card__options-container .option__list .option-item:hover .option-flavor{border-color:#215b32}
+.product-card__options-container .option__list .option-item .option-serving{padding:1em 2em;border-radius:6em;color:#215b32;font-weight:500;border-width:2px;border-style:solid;border-color:transparent;text-align:center;line-height:1}
+.product-card__options-container .option__list .option-item .option-serving:hover{background-color:#215b3240!important;color:#215b32;border-color:#00000080!important}
+.product-card__options-container .option__list .option-item .option-serving.selected{background-color:#215b3240!important;color:#bbe1ba;border-color:#215b3280!important}
+.product-card__actions-container{width:100%;min-height:2.75rem}
+.product-card__actions-container .button{min-height:2.5rem}
+.button{text-transform:uppercase;-webkit-appearance:none;-moz-appearance:none;border-style:solid;border-width:0;cursor:pointer;font-family:ui-rounded,'SF Pro Rounded',system-ui,sans-serif;line-height:normal;margin:0;position:relative;text-align:center;text-decoration:none;display:inline-block;padding:.875rem 2rem;font-size:1rem;border-radius:3rem;text-transform:capitalize;font-weight:900;outline:0;text-wrap-mode:nowrap;white-space:nowrap;font-weight:unset}
+.button{background-color:var(--btn-bg,#215b32);color:var(--btn-color,#fff);border:2px solid var(--btn-border,#215b32)}
+@media(min-width:1024px){.button{font-size:1.25rem}}
+.button:hover{background-color:var(--btn-hover-bg,rgba(33,91,50,.75));color:var(--btn-hover-color,#fff);border-color:var(--btn-hover-border,#215b32)}
+.button.slim{padding:.5rem 1rem;font-size:.75rem}
+.button:disabled,.button[disabled]{background-color:#e3e3e3;color:#686868;cursor:not-allowed;border:2px solid #cacacd}
+.button:disabled:hover,.button[disabled]:hover{background-color:#e3e3e3;color:#686868;border:2px solid #cacacd}
+/* Maanaa glue (ours, minimal): our one-line product sub-line inside Bloom's details container;
+   Bloom drives .selected with Alpine — ours is driven by the plan radio via :has(), keeping the
+   checked pill legible on cream (deep-green text, donor fill/border tokens);
+   the kit has no square photo (cropping the lineup would cut RISE and CHARGE), so its stage
+   floats the transparent lineup cutout with contain instead of cover. */
+.product-card .product-line{color:#3d5745;font-size:.875rem;line-height:1.55}
+.product-card__options-container .option__list .option-item{position:relative}
+.product-card__options-container .option__list .option-item input{position:absolute;inset:0;opacity:0;cursor:pointer;margin:0}
+.product-card__options-container .option__list .option-item:has(input:checked) .option-serving{background-color:#215b3240;border-color:#215b3280;color:#215b32;font-weight:700}
+.product-card__options-container .option__list .option-item:has(input:focus-visible) .option-serving{outline:2px solid #215b32;outline-offset:2px}
+.product-card__image-container.mn-contain img{object-fit:contain}
 </style>
 <script type="application/ld+json">
 {
@@ -190,7 +242,7 @@
     <img src="assets/lineup-cutout.png" alt="The Maanaa lineup">
     <h1>What's killing your focus?</h1>
   </div>
-  <p>Seven questions, 45 seconds, and you get a Constraint Card — the pattern running your workday — plus the one product matched to it. One constraint, one fix.</p>
+  <p>Seven questions, 45 seconds, and you get a Constraint Card.</p>
   <a class="btn" href="assessment.html">Find my constraint in 45 seconds</a>
   <div class="fine">No email needed to see your result.</div>
 </section>
@@ -210,15 +262,75 @@
   <div class="live-field" aria-hidden="true"></div>
   <div class="wavelabel"><h2>Wave 1</h2><div class="rule"></div></div>
   <div class="lgrid">
-    <div class="sku" data-mn-product="flow"><img src="assets/flavors/flow.jpg" alt="Flow"><div class="body"><div class="fam">Flow</div><h3>FLOW</h3><p>Matched to your constraint by the assessment.</p><div class="buy"><div class="price">$49.99</div>
-      <div class="plans"><label><input type="radio" name="plan-flow" value="once" checked> One-time</label><label><input type="radio" name="plan-flow" value="sub"> Subscribe · $24.99</label></div>
-      <button class="addbtn" data-mn-add="flow">Add to cart</button></div><a href="products/flow.html">See Flow</a></div></div>
-    <div class="sku" data-mn-product="spark"><img src="assets/flavors/spark.jpg" alt="Spark"><div class="body"><div class="fam">Spark</div><h3>SPARK</h3><p>The catalyst, on its own page.</p><div class="buy"><div class="price">$59.99</div>
-      <div class="plans"><label><input type="radio" name="plan-spark" value="once" checked> One-time</label><label><input type="radio" name="plan-spark" value="sub"> Subscribe · $29.99</label></div>
-      <button class="addbtn" data-mn-add="spark">Add to cart</button></div><a href="products/spark.html">See Spark</a></div></div>
-    <div class="sku" data-mn-product="kit"><img src="assets/lineup.webp" alt="The Maanaa lineup"><div class="body"><div class="fam">Start</div><h3>STARTER KIT</h3><p>Where Wave 1 begins.</p><div class="buy"><div class="price">$109.98</div>
-      <div class="plans"><label><input type="radio" name="plan-kit" value="once" checked> One-time</label><label><input type="radio" name="plan-kit" value="sub"> Subscribe · $49.99</label></div>
-      <button class="addbtn" data-mn-add="kit">Add to cart</button></div><a href="products/starter-kit.html">See the kit</a></div></div>
+    <div class="product-card px-0" data-mn-product="flow">
+      <a class="product-card__image-container" href="products/flow.html">
+        <div class="product-card__image-container__badges"></div>
+        <img loading="lazy" src="assets/flavors/flow.jpg" alt="Flow" width="400" height="400">
+      </a>
+      <div class="product-card__details-container justify-start">
+        <div class="product-main font-family-timesquare-bold">
+          <div class="product-title font-family-timesquare-bold"><a href="products/flow.html">FLOW</a></div>
+          <div class="product-cost"><div class="product-price"><span>$49.99</span></div></div>
+        </div>
+        <p class="product-line">Matched to your constraint by the assessment.</p>
+        <div class="product-selected-options"><span class="flavor-option">Sour Blue Raspberry</span></div>
+      </div>
+      <div class="product-card__options-container">
+        <div class="option"><div class="option__list">
+          <label class="option-item"><input type="radio" name="plan-flow" value="once" checked><span class="option-serving">One-time</span></label>
+          <label class="option-item"><input type="radio" name="plan-flow" value="sub"><span class="option-serving">Subscribe · $24.99</span></label>
+        </div></div>
+      </div>
+      <div class="product-card__actions-container">
+        <div class="add-to-cart-button"><button class="button slim full-width" data-mn-add="flow"><span class="button__content"><span class="button__state-ready"><span class="button__text">Add to cart</span></span></span></button></div>
+      </div>
+    </div>
+    <div class="product-card px-0" data-mn-product="spark">
+      <a class="product-card__image-container" href="products/spark.html">
+        <div class="product-card__image-container__badges"></div>
+        <img loading="lazy" src="assets/flavors/spark.jpg" alt="Spark" width="400" height="400">
+      </a>
+      <div class="product-card__details-container justify-start">
+        <div class="product-main font-family-timesquare-bold">
+          <div class="product-title font-family-timesquare-bold"><a href="products/spark.html">SPARK</a></div>
+          <div class="product-cost"><div class="product-price"><span>$59.99</span></div></div>
+        </div>
+        <p class="product-line">The catalyst, on its own page.</p>
+        <div class="product-selected-options"><span class="flavor-option">Arctic Mint</span></div>
+      </div>
+      <div class="product-card__options-container">
+        <div class="option"><div class="option__list">
+          <label class="option-item"><input type="radio" name="plan-spark" value="once" checked><span class="option-serving">One-time</span></label>
+          <label class="option-item"><input type="radio" name="plan-spark" value="sub"><span class="option-serving">Subscribe · $29.99</span></label>
+        </div></div>
+      </div>
+      <div class="product-card__actions-container">
+        <div class="add-to-cart-button"><button class="button slim full-width" data-mn-add="spark"><span class="button__content"><span class="button__state-ready"><span class="button__text">Add to cart</span></span></span></button></div>
+      </div>
+    </div>
+    <div class="product-card px-0" data-mn-product="kit">
+      <a class="product-card__image-container mn-contain" href="products/starter-kit.html">
+        <div class="product-card__image-container__badges"></div>
+        <img loading="lazy" src="assets/lineup-cutout.png" alt="The Maanaa lineup" width="400" height="400">
+      </a>
+      <div class="product-card__details-container justify-start">
+        <div class="product-main font-family-timesquare-bold">
+          <div class="product-title font-family-timesquare-bold"><a href="products/starter-kit.html">STARTER KIT</a></div>
+          <div class="product-cost"><div class="product-price"><span>$109.98</span></div></div>
+        </div>
+        <p class="product-line">Where Wave 1 begins.</p>
+        <div class="product-selected-options"></div>
+      </div>
+      <div class="product-card__options-container">
+        <div class="option"><div class="option__list">
+          <label class="option-item"><input type="radio" name="plan-kit" value="once" checked><span class="option-serving">One-time</span></label>
+          <label class="option-item"><input type="radio" name="plan-kit" value="sub"><span class="option-serving">Subscribe · $49.99</span></label>
+        </div></div>
+      </div>
+      <div class="product-card__actions-container">
+        <div class="add-to-cart-button"><button class="button slim full-width" data-mn-add="kit"><span class="button__content"><span class="button__state-ready"><span class="button__text">Add to cart</span></span></span></button></div>
+      </div>
+    </div>
   </div>
 </section>
 <section class="band">
