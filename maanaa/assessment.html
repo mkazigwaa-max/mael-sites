@@ -83,13 +83,15 @@ body{background:var(--paper)}
 .chip{border-color:var(--line)}
 input[type=email]{border-color:var(--line)}
 </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/live-logo.css">
 </head>
 <body>
-  <div class="wordmark">MAANAA<small>THE NEURO-ECOSYSTEM</small></div>
+  <div class="wordmark ll-mark"><span class="live-logo" style="--lls:36px" data-size="36" data-canonical><img src="favicon.svg" alt="" aria-hidden="true"></span>MAANAA<small>THE NEURO-ECOSYSTEM</small></div>
   <div class="wrap">
 
     <section class="screen on" id="s-intro">
-      <h1>What's killing<br>your focus?</h1>
+      <h1><span class="live-logo" style="--lls:38px" data-size="38"><img src="favicon.svg" alt="" aria-hidden="true"></span>What's killing<br>your focus?</h1>
       <p class="sub">Seven questions. Forty-five seconds. You get a Constraint
       Card — the pattern that's actually running your workday — and the one
       state that answers it. No diagnosis. No blend. A read.</p>
@@ -106,7 +108,7 @@ input[type=email]{border-color:var(--line)}
     </section>
 
     <section class="screen" id="s-quiz">
-      <div class="progress"><span id="qn">QUESTION 1 / 7</span><span>MAANAA</span></div>
+      <div class="progress"><span id="qn">QUESTION 1 / 7</span><span class="live-logo" style="--lls:18px" data-size="18"><img src="favicon.svg" alt="" aria-hidden="true"></span><span>MAANAA</span></div>
       <div class="bar"><i id="bar"></i></div>
       <div class="q" id="qtext"></div>
       <div class="opts" id="opts"></div>
@@ -260,5 +262,6 @@ document.getElementById('kadd').addEventListener('click',function(){
   window.MaanaaCart.add(id,'once');
 });
 </script>
+<script src="assets/live-logo.js" defer></script>
 </body>
 </html>

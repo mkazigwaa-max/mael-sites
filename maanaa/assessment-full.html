@@ -134,6 +134,8 @@
   footer .band path{fill:var(--ink)}
   .foot-base{height:14px}
 </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/live-logo.css">
 </head>
 <body>
 
@@ -155,7 +157,7 @@
 
     <!-- ================= INTRO ================= -->
     <section class="intro" id="intro">
-      <h1>WHAT'S KILLING YOUR FOCUS?</h1>
+      <h1><span class="live-logo" style="--lls:38px" data-size="38"><img src="favicon.svg" alt="" aria-hidden="true"></span>WHAT'S KILLING YOUR FOCUS?</h1>
       <p>7 questions. 45 seconds. One honest answer.</p>
       <button class="start-btn" id="startBtn" type="button">START &rarr;</button>
     </section>
@@ -163,7 +165,7 @@
     <!-- ================= PROGRESS ================= -->
     <div class="progress-wrap" id="progressWrap">
       <div class="progress-meta">
-        <span class="progress-label" id="progressLabel">QUESTION 1 OF 7</span>
+        <span class="progress-label" id="progressLabel">QUESTION 1 OF 7</span><span class="live-logo" style="--lls:20px" data-size="20"><img src="favicon.svg" alt="" aria-hidden="true"></span>
         <button class="back-link" id="backBtn" type="button" style="visibility:hidden">&larr; Back</button>
       </div>
       <div class="track"><div class="fill" id="progressFill"></div></div>
@@ -294,6 +296,7 @@
 
   <!-- ================= FOOTER ================= -->
   <footer>
+    <div class="ll-row"><span class="live-logo" style="--lls:30px" data-size="30"><img src="favicon.svg" alt="" aria-hidden="true"></span></div>
     <div class="foot-line">Doses printed. Nothing blended. No proprietary anything.</div>
     <svg class="band" viewBox="0 0 560 30" preserveAspectRatio="none" aria-hidden="true"><path class="wave-path" d=""></path></svg>
     <div class="foot-base"></div>
@@ -433,5 +436,6 @@
   document.getElementById("retakeBtn").addEventListener("click", function(){ location.reload(); });
 })();
 </script>
+<script src="assets/live-logo.js" defer></script>
 </body>
 </html>
