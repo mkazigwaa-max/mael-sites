@@ -29,7 +29,7 @@
   wrap.innerHTML=`
   <div class="mn-backdrop" hidden></div>
   <aside class="mn-drawer" aria-hidden="true" aria-label="Your cart">
-    <div class="mn-dhead"><span>Your cart</span><button class="mn-close" aria-label="Close cart">✕</button></div>
+    <div class="mn-dhead"><span class="mn-dtitle"><span class="live-logo" style="--lls:22px" data-size="22"><img src="${BASE}favicon.svg" alt="" aria-hidden="true"></span>Your cart</span><button class="mn-close" aria-label="Close cart">✕</button></div>
     <div class="mn-ship"><div class="mn-shipbar"><i></i></div><div class="mn-shipmsg"></div><div class="mn-tier"></div></div>
     <div class="mn-items"></div>
     <div class="mn-recs"></div>
@@ -102,7 +102,7 @@
     const count=cart.reduce((a,l)=>a+l.qty,0);
     document.querySelectorAll('[data-mn-count]').forEach(el=>{ el.textContent=count; el.style.display=count?'':'none'; });
     if(!cart.length){
-      box.innerHTML='<div class="mn-empty">Your cart is empty.<br>One constraint, one fix — start with the assessment.</div>';
+      box.innerHTML='<div class="mn-empty"><span class="live-logo" style="--lls:88px" data-size="88"><img src="${BASE}favicon.svg" alt="" aria-hidden="true"></span>Your cart is empty.<br>One constraint, one fix — start with the assessment.</div>';
     } else {
       box.innerHTML=cart.map((l,i)=>{ const P=CFG.products[l.id]; const lp=linePrice(l);
         const full=P.price*l.qty; return `<div class="mn-line">

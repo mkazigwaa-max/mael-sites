@@ -1,0 +1,54 @@
+/* MAANAA — LIVE LOGO placement styles. The ring itself is drawn by
+   assets/live-logo.js (Canvas 2D, field.js v4 geometry + family colors).
+   This file only places instances and keeps copy legible over fields. */
+.live-logo{display:inline-block;line-height:0;flex:none;width:var(--lls,30px);height:var(--lls,30px);vertical-align:middle}
+.live-logo canvas,.live-logo img{display:block;width:100%;height:100%}
+.live-logo img{opacity:.95}
+
+/* header instances */
+.mn-logo .live-logo{margin-right:1px}
+header.site .wordmark{display:inline-flex;align-items:center;gap:9px}
+.wordmark .live-logo{flex:none}
+
+/* section field treatment: dotted field + live rings behind, content above */
+.ll-sec{position:relative;overflow:hidden}
+.ll-sec>*:not(.live-field){position:relative;z-index:1}
+.live-field{position:absolute;inset:0;z-index:0;pointer-events:none;line-height:0}
+.live-field canvas{display:block}
+/* legibility veils (hero ::before pattern) over treated cream/paper sections */
+.ll-veil::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 82% 66% at 50% 42%,rgba(251,241,228,.82) 0%,rgba(251,241,228,.5) 48%,rgba(251,241,228,0) 78%)}
+.ll-veil-paper::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 82% 66% at 50% 42%,rgba(253,253,251,.8) 0%,rgba(253,253,251,.48) 48%,rgba(253,253,251,0) 78%)}
+/* dark bands: rings ride the edges of the green inner panel */
+.band .inner{position:relative;overflow:hidden}
+.band .inner>*:not(.live-field){position:relative;z-index:1}
+
+/* footers: brand row + one large slow watermark ring behind the columns */
+.foot-brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.14em;font-size:19px;margin-bottom:24px;color:inherit}
+footer.site .foot-brand{font-weight:700;letter-spacing:.34em;font-size:14px}
+.hfoot,.site-footer-rel{position:relative}
+footer.site{position:relative;overflow:hidden}
+.hfoot{overflow:hidden}
+.hfoot>*:not(.ll-wm),footer.site .wrap>*:not(.ll-wm){position:relative;z-index:1}
+.ll-wm{position:absolute;right:-64px;top:6px;z-index:0;pointer-events:none}
+
+/* product pages */
+.bb-logo{display:flex;align-items:center;gap:9px;margin-bottom:14px;font-weight:800;letter-spacing:.1em;font-size:14px;color:#fff}
+.mn-stickybar .live-logo{margin-right:2px}
+.pdp-gal{position:relative}
+
+/* cart drawer (markup injected by assets/maanaa-cart.js) */
+.mn-dtitle{display:inline-flex;align-items:center;gap:9px}
+.mn-empty .live-logo{display:block;margin:0 auto 14px}
+
+/* assessment */
+.ll-mark{display:flex;flex-direction:column;align-items:center;gap:9px}
+.ll-row{display:flex;justify-content:center;margin-bottom:12px}
+.progress .live-logo,.progress-meta .live-logo{flex:none}
+
+/* 404 */
+.ll-404{text-align:center;padding:90px 24px 110px}
+.ll-404 .live-logo{display:block;margin:0 auto 26px}
+.ll-404 .wordmark{font-size:17px}
+.ll-404 p{color:var(--muted);margin:16px auto 26px;max-width:44ch}
