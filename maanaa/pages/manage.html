@@ -6,6 +6,8 @@
 <title>Manage your subscription | MAANAA</title>
 <meta name="description" content="Your MAANAA subscription, in plain words: next charge date and amount, pause, skip, or cancel in two taps. No chat, no gauntlet.">
 <link rel="stylesheet" href="../site.css">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../assets/live-logo.css">
 </head>
 <body>
 <div class="mn-ann" role="region" aria-label="Offers">
@@ -16,7 +18,7 @@
 <script>(function(){var m=document.querySelectorAll('.mn-ann-msg');if(m.length<2)return;var i=0;setInterval(function(){m[i].classList.remove('is-on');i=(i+1)%m.length;m[i].classList.add('is-on')},4200)})();</script>
 <header class="site">
   <div class="wrap">
-    <a class="wordmark" href="../index.html">MAANAA</a>
+    <a class="wordmark" href="../index.html"><span class="live-logo" style="--lls:30px" data-size="30" data-canonical><img src="../favicon.svg" alt="" aria-hidden="true"></span>MAANAA</a>
     <nav class="main">
       <a href="../products/flow.html">FLOW</a>
       <a href="../products/spark.html">SPARK</a>
@@ -29,10 +31,11 @@
   </div>
 </header>
 
-<section class="hero">
+<section class="hero ll-sec ll-veil-paper">
+  <div class="live-field" aria-hidden="true"></div>
   <div class="wrap">
     <p class="eyebrow">Your account</p>
-    <h1>Your subscription,<br>in plain words.</h1>
+    <h1><span class="live-logo" style="--lls:44px" data-size="44"><img src="../favicon.svg" alt="" aria-hidden="true"></span>Your subscription,<br>in plain words.</h1>
     <p class="lede" style="margin-top:16px">This is the page the industry hopes you'll never find. Here it's in the main navigation. When subscriptions open with Wave 1, this page shows your plan the way you'd explain it to a friend — and every control works the way its label says.</p>
   </div>
   <svg class="wave" viewBox="0 0 1200 54" preserveAspectRatio="none" aria-hidden="true"><path d="M0,27 C60,4 120,4 180,27 C240,50 300,50 360,27 C420,4 480,4 540,27 C600,50 660,50 720,27 C780,4 840,4 900,27 C960,50 1020,50 1080,27 C1140,4 1200,4 1200,27 L1200,54 L0,54 Z" fill="#5FA8A0"/></svg>
@@ -64,7 +67,9 @@
 </section>
 
 <footer class="site">
+  <span class="live-logo ll-wm" style="--lls:300px" data-size="300" data-variant="watermark"><img src="../favicon.svg" alt="" aria-hidden="true"></span>
   <div class="wrap">
+    <div class="foot-brand"><span class="live-logo" style="--lls:26px" data-size="26"><img src="../favicon.svg" alt="" aria-hidden="true"></span>MAANAA</div>
     <div class="cols">
       <div><h4>Shop</h4><ul><li><a href="../products/flow.html">FLOW</a></li><li><a href="../products/spark.html">SPARK</a></li><li><a href="../products/starter-kit.html">Starter Kit</a></li><li><a href="../assessment.html">The Assessment</a></li></ul></div>
       <div><h4>Proof</h4><ul><li><a href="doses.html">Doses — full tables</a></li><li><a href="testing.html">Testing — COA library</a></li><li><a href="guarantee.html">Guarantee</a></li></ul></div>
@@ -74,5 +79,6 @@
     <p class="fine">These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
   </div>
 </footer>
+<script src="../assets/live-logo.js" defer></script>
 </body>
 </html>
