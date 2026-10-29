@@ -20,7 +20,7 @@
   // the next family color, crossfading at the pulse's end (0.72 -> 1.0).
   function ringColor(t, ph) {
     var pp = t * 0.7 + ph * 2.0, fl = Math.floor(pp), fr = pp - fl;
-    var idx = fl + ph * 4.0;
+    var idx = fl + Math.floor(ph * 4.0); // integer palette offset per instance (fractional ph made PAL[idx] undefined -> mixc threw -> the shared rAF loop died on frame 1)
     var c = mixc(PAL[((idx % 4) + 4) % 4], PAL[(((idx + 1) % 4) + 4) % 4], sstep(0.72, 1.0, fr));
     var env = 0.5 + 0.5 * Math.sin(pp * TAU);
     return { c: c, env: env };
