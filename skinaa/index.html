@@ -62,20 +62,53 @@
   footer a:hover{color:var(--ink)}
   footer .brand{font-size:13.5px;color:var(--mute)}
   @media (max-width:760px){ nav{display:none} .hero{padding-top:56px} .reading .rhead,.reading .rbody{padding-left:24px;padding-right:24px} }
+  .authbar{background:#3A3A3C;text-align:center;font-size:12px;letter-spacing:.05em;padding:9px 16px;color:var(--soft);border-bottom:1px solid rgba(255,255,255,.14)}
+  .authbar b{color:#fff}
+  .hero .cta2{margin-top:30px}
+  .sect{max-width:1180px;margin:0 auto;padding:84px 28px 0;text-align:center}
+  .sect h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em}
+  .sect .lede{color:var(--soft);max-width:680px;margin:16px auto 0;line-height:1.62;font-size:16.5px}
+  .pillars{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:30px}
+  .pillars span{border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:9px 16px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+  .badges{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:38px;text-align:left}
+  .badges div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:22px 24px}
+  .badges .t{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+  .badges .s{color:var(--mute);font-size:13.5px;margin-top:7px;line-height:1.5}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px;text-align:left}
+  .stats div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:22px 24px}
+  .stats .v{font-size:30px;font-weight:800;letter-spacing:-.02em}
+  .stats .s{color:var(--mute);font-size:13px;margin-top:6px;line-height:1.5}
+  .board{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:38px;text-align:left}
+  .board .card{background:#fff;color:var(--cardink);border-radius:24px;padding:26px 28px;box-shadow:0 24px 54px rgba(0,0,0,.30)}
+  .board .role{font-size:19px;font-weight:800;letter-spacing:-.01em;margin-top:10px}
+  .board .foc{color:var(--greytext);font-size:14px;line-height:1.55;margin-top:8px}
+  .board .qt{font-size:15.5px;line-height:1.6;margin-top:14px;font-style:italic}
+  .board .bdg{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.16em;color:#B3392E;border:1.5px solid #B3392E;border-radius:6px;padding:4px 9px;transform:rotate(-1.5deg)}
+  .vprev{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:38px;text-align:left}
+  .vprev figure{border-radius:26px;overflow:hidden;position:relative;box-shadow:0 34px 70px rgba(0,0,0,.38)}
+  .vprev img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+  .vprev figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 22px 16px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.72));font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+  .codes{margin-top:26px;color:var(--mute);font-size:13.5px;line-height:2;letter-spacing:.06em}
+  .codes a{color:var(--soft);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25)}
+  @media(max-width:820px){.badges,.stats,.board,.vprev{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wm" aria-hidden="true"><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div></div>
 <canvas id="wm3d" aria-hidden="true"></canvas>
 
-<div class="bar">The Skin Reading is live — <b>begin yours</b></div>
+<div class="authbar">🏥 <b>Co-Founded by Board-Certified Dermatologists</b> &nbsp;|&nbsp; Official Esthetic Standard</div>
+<div class="bar">The Skin Reading is live. <b>Begin yours</b></div>
 
 <div class="hdr"><header>
   <a href="index.html"><img src="assets/skinaa-wordmark.png" alt="SKINAA"></a>
   <nav>
-    <a href="assessment.html">The Reading</a>
+    <a href="assessment.html">The Intake</a>
+    <a href="catalog.html">Catalog</a>
+    <a href="vault.html">The Vault</a>
+    <a href="stacks.html">Stacks</a>
+    <a href="portal.html">Ascension Plus</a>
     <a href="#waitlist">Waitlist</a>
-    <a href="#build">The Build</a>
   </nav>
   <a class="pill small" href="assessment.html">Begin The Skin Reading</a>
 </header></div>
@@ -84,6 +117,49 @@
   <div class="kicker">SKINAA by Maanaa</div>
   <h1>Your skin. Elevated.</h1>
   <p>Different skin. One goal. Formulated for all skin types. Visible results. Nothing unnecessary.</p>
+  <div class="cta2"><a class="pill" href="assessment.html">Start Your Virtual Clinical Intake (28 Steps) →</a></div>
+</section>
+
+<section class="sect">
+  <div class="kicker">The Positioning</div>
+  <h2>Clinical Dermatology Meets Facial Architecture.</h2>
+  <p class="lede">Board-certified active formulations prescribed directly through our 28-step diagnostic skin reading. Engineered for rapid 14-day visual transformation and long-term barrier maintenance.</p>
+  <div class="pillars"><span>Derm Authority</span><span>28-Step Intake</span><span>14-Day Attack Stack</span><span>28-Model Visual Vault</span><span>Ascension Plus Loop</span></div>
+  <div class="badges">
+    <div><div class="t">🩺 Dermatologist Co-Founded</div><div class="s">Board-Certified Formulations</div></div>
+    <div><div class="t">🎓 Beauty School #1 Recommended</div><div class="s">Tested in Top Esthetic Academies</div></div>
+    <div><div class="t">🔬 Duke Parameter Clinical Active</div><div class="s">Pure Free-Acid Potency</div></div>
+  </div>
+  <div class="stats">
+    <div><div class="v">100%</div><div class="s">Formulated under Board-Certified Dermatologist Direction</div></div>
+    <div><div class="v">#1</div><div class="s">Recommended Protocol Across Partner Esthetic Academies</div></div>
+    <div><div class="v">0%</div><div class="s">Fillers, Fragrances, Dyes, or Irritating Sulfates</div></div>
+    <div><div class="v">14 Days</div><div class="s">Average Time to Quantifiable Visual Skin Transformation</div></div>
+  </div>
+</section>
+
+<section class="sect">
+  <div class="kicker">The Dual-Engine Board</div>
+  <h2>Co-Founded by Medicine. Approved by Esthetics.</h2>
+  <p class="lede">"Medicine delivers cell turnover. Esthetics delivers immediate radiance." Most skincare brands are created by marketing executives using off-the-shelf white-label formulas. We built a different architecture: Board-Certified Clinical Dermatology and Master Esthetic Science, in the same room.</p>
+  <div class="board">
+    <div class="card"><span class="bdg">Board-Certified Dermatologist</span><div class="role">Dermatologist Co-Founder &amp; Chief Medical Officer</div><p class="foc">Focus: Molecule Stabilization, Duke Parameters, Barrier Integrity.</p><p class="qt">"We don't chase trends. We formulate active molecules at free-acid pH levels that fundamentally alter cell turnover."</p></div>
+    <div class="card"><span class="bdg">Dermatologic Oncology &amp; Barrier</span><div class="role">Medical Advisory Board</div><p class="foc">Focus: Photodamage Erasure, Melanin Safety, Sensitivity Thresholds.</p><p class="qt">"High-potency actives must protect the epidermal lipid mantle. Our protocols prevent rebound inflammation."</p></div>
+    <div class="card"><span class="bdg">Master Esthetician</span><div class="role">Lead LE — Head of Esthetic Protocols</div><p class="foc">Focus: Immediate Tactile Dew, Pore Refinement, Post-Needling Recovery.</p><p class="qt">"Dermatology provides the science, but esthetics delivers the immediate glow. Every batch is tested for camera-ready reflection."</p></div>
+    <div class="card"><span class="bdg">Clinical Facial Architect</span><div class="role">LE — Beauty Care Specialist</div><p class="foc">Focus: Lymphatic Drainage Mechanics, Surface Glaze Optics, De-Puffing.</p><p class="qt">"We evaluate how topicals interact with manual sculpting tools to maximize immediate jawline and cheekbone definition."</p></div>
+  </div>
+</section>
+
+<section class="sect">
+  <div class="kicker">The Visual Vault — Preview</div>
+  <h2>28 models. Day 0 → Day 14 → Day 28.</h2>
+  <p class="lede">Slide between Day 0 baseline, Day 14 peak transformation, and Day 28 Ascension maintenance across real model archetypes — filters: Guys | Girls | Debloat | Glass Skin | Hairline | Hyperpigmentation.</p>
+  <div class="vprev">
+    <figure><img src="assets/C05-8K.jpg" alt="Model 22 — C05, Day 0"><figcaption>Model 22 · C05 — High redness / sensitivity → calmed, restored barrier</figcaption></figure>
+    <figure><img src="assets/K04-8K.jpg" alt="Model 10 — K04, Day 0"><figcaption>Model 10 · K04 — Soft masseter → chiseled mandibular border</figcaption></figure>
+  </div>
+  <p class="codes">The directory: <a href="vault.html">C01</a> · <a href="vault.html">N1</a> · <a href="vault.html">K03</a> · <a href="vault.html">C28</a> · <a href="vault.html">N3</a> · <a href="vault.html">K01</a> · <a href="vault.html">C02</a> · <a href="vault.html">C11</a> · <a href="vault.html">N2</a> · <a href="vault.html">K04</a> · <a href="vault.html">C25</a> · <a href="vault.html">C08</a> · <a href="vault.html">C21</a> · <a href="vault.html">C23</a> · <a href="vault.html">N4</a> · <a href="vault.html">K02</a> · <a href="vault.html">C04</a> · <a href="vault.html">C20</a> · <a href="vault.html">C27</a> · <a href="vault.html">C03</a> · <a href="vault.html">C24</a> · <a href="vault.html">C05</a> · <a href="vault.html">C14</a> · <a href="vault.html">C07</a> · <a href="vault.html">C26</a> · <a href="vault.html">C09</a> · <a href="vault.html">C06</a> · <a href="vault.html">C12</a></p>
+  <div style="margin-top:26px"><a class="pill" href="vault.html">Enter the Visual Vault →</a></div>
 </section>
 
 
@@ -105,7 +181,7 @@
   </div>
   <div class="rbody">
     <div class="kick">Your skin now</div>
-    <h2>First — your years, as your skin tells them.</h2>
+    <h2>First: your years, as your skin tells them.</h2>
     <div class="opt"><span>18 – 24</span><span class="radio"></span></div>
     <div class="opt"><span>25 – 34</span><span class="radio"></span></div>
     <div class="opt"><span>35 – 44</span><span class="radio"></span></div>
@@ -122,8 +198,14 @@
 <footer>
   <span class="brand">SKINAA by Maanaa</span>
   <div class="fl">
-    <a href="assessment.html">The Reading</a>
-    <a href="#build">The Build</a>
+    <a href="assessment.html">The Intake</a>
+    <a href="catalog.html">Catalog</a>
+    <a href="vault.html">The Vault</a>
+    <a href="stacks.html">Stacks</a>
+    <a href="unboxing.html">Unboxing</a>
+    <a href="portal.html">Ascension Plus</a>
+    <a href="guide-male.html">Male Guide</a>
+    <a href="guide-female.html">Female Guide</a>
   </div>
 </footer>
 

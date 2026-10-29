@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The prescribed Attack Stacks — Phase 1 boxes and Ascension Plus refills, the quantity ladder, and the free member layer.">
+<meta name="theme-color" content="#4B4B4D">
+<title>Attack Stacks — SKINAA by Maanaa</title>
+<link rel="stylesheet" href="assets/skinaa.css">
+<style>
+  .stack-items{list-style:none;margin-top:14px;display:grid;gap:8px}
+  .stack-items li{font-size:15px}
+  .stack-items a{font-weight:600}
+  .claimrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;align-items:center}
+  .addon{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--cardline);border-radius:16px;padding:14px 18px;margin-top:12px;font-size:15px;line-height:1.5}
+  .addon input{width:20px;height:20px;margin-top:2px;accent-color:#B3392E;flex:none}
+  .member{background:#3A3A3C;border:1px solid var(--line);border-radius:24px;padding:34px;color:var(--ink)}
+  .member input{flex:1;min-width:200px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:14px 22px;font-size:15px;color:#fff;font-family:inherit}
+</style>
+</head>
+<body>
+<section class="pagehead">
+  <div class="kicker">Phase 1 · The Attack Stacks</div>
+  <h1>Prescribed. Boxed. Fourteen days.</h1>
+  <p>Days 1–14 you try everything: the full Attack Stack in hand, in the rigid collector's box. Day 15 is the iteration gate — a fresh assessment, your face photo, and the next batch is reformulated from it. Cycles run 30 days, anchored on the 28th.</p>
+</section>
+
+<section class="blk">
+  <div class="grid c2" id="bundles"></div>
+</section>
+
+<section class="blk">
+  <h2>The ladder — sized to the 30-day cycle</h2>
+  <p class="lede">One cycle, three cycles, or six. The middle tier is the prescribed default — the board's standing recommendation.</p>
+  <div class="card" style="max-width:720px;margin:36px auto 0"><div class="pad">
+    <div class="ladder" id="ladder">
+      <label data-c="1"><span><input type="radio" name="cyc"> &nbsp;1 cycle — one 30-day run</span><span class="save" data-t="cycles1"></span></label>
+      <label data-c="3" class="sel"><span><input type="radio" name="cyc" checked> &nbsp;3 cycles — a full season</span><span><span class="rec">Prescribed default</span> <span class="save" data-t="cycles3"></span></span></label>
+      <label data-c="6"><span><input type="radio" name="cyc"> &nbsp;6 cycles — the full ascension</span><span class="save" data-t="cycles6"></span></label>
+    </div>
+    <p class="note" style="margin-top:16px">Tier savings calibrate at claim — your board sets them per protocol. Subscription terms, in plain words: your refill auto-charges 3 days before each delivery date, and you can pause anytime — pausing triggers your esthetician's barrier-cycle review first (see the portal).</p>
+    <div class="price3"><span>Regular <b>Phase 1 band $118–$148</b></span><span>Ascension Plus <b>$28–$38 / week</b></span><span>Member <b id="memberPrice">Member tier — free to join</b></span></div>
+    <p class="note" style="margin-top:10px">Free shipping from $118 — set at the Phase 1 stack's entry price, not a round number above it.</p>
+  </div></div>
+</section>
+
+<section class="blk">
+  <h2>Checkout add-ons</h2>
+  <p class="lede">The two additions the board reaches for most.</p>
+  <div class="card" style="max-width:720px;margin:36px auto 0"><div class="pad">
+    <label class="addon"><input type="checkbox" id="addonPap" checked><span><b>Zero-Peroxide PAP+ Teeth Whitening Kit (MALE-11) — +$38</b><br><span class="note">Pre-selected at checkout, on the board's pattern: facial contrast is half teeth. PAP+ whitens without enamel pain or sensitivity.</span></span></label>
+    <label class="addon"><input type="checkbox" id="addonLed"><span><b>Dual-Wavelength LED Micro-Wand (HW-06) — $48 post-checkout, 1-click</b><br><span class="note">Offered once, after your stack is claimed: 630nm Red + 850nm NIR + 40°C heat for collagen induction.</span></span></label>
+    <div class="claimrow"><button class="pill dark" id="claimBtn">Claim your stack \u2192</button><span class="note" id="claimMsg">Your stack is prescribed through the intake — claiming reserves your matched protocol.</span></div>
+  </div></div>
+</section>
+
+<section class="blk">
+  <div class="member">
+    <div class="kicker">Ascension Plus — the free member layer</div>
+    <h2 style="font-size:clamp(24px,3.4vw,34px);font-weight:800;letter-spacing:-.02em;margin-top:14px;text-align:left">Joining is free. Subscribing is separate.</h2>
+    <p style="color:var(--soft);line-height:1.65;margin-top:14px;max-width:640px">Under the paid loop sits a free member layer: your account is its own price tier, you hold a member code, and a member deal refreshes on the 1st of every month. No subscription required — the Gundry rail, on SKINAA's terms.</p>
+    <form id="memberForm" style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap">
+      <input type="email" required placeholder="Email address" aria-label="Email address">
+      <button class="pill" type="submit">Create my free member account</button>
+    </form>
+    <p id="memberDone" style="display:none;margin-top:18px;font-size:16px"></p>
+    <p class="note" style="color:var(--mute);margin-top:16px" id="memberDeal">This month's member deal calibrates on the 1st.</p>
+  </div>
+</section>
+
+<section class="blk" style="text-align:center">
+  <h2>The guides are products, too</h2>
+  <p class="lede">The Male Looksmaxxing and Female Softmaxing protocols are sold standalone beside the stacks — the full hour-by-hour system, without the box.</p>
+  <div style="margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a class="pill" href="guide-male.html">Male Looksmaxxing Guide</a>
+    <a class="pill" href="guide-female.html">Female Softmaxing Guide</a>
+    <a class="pill ghosty" href="product.html?sku=DIG-01">DIG-01 — Protocol PDF</a>
+    <a class="pill ghosty" href="product.html?sku=DIG-02">DIG-02 — Harmony Report</a>
+  </div>
+</section>
+
+<script src="assets/skinaa-data.js"></script>
+<script>
+function skuName(code){ const s = skuByCode(code); return s ? s.name : code + " (protocol item)"; }
+document.getElementById("bundles").innerHTML = BUNDLES.map(b =>
+  '<article class="card"><div class="pad">'
+  + '<span class="tag">' + b.sex + ' Protocol</span> <span class="tag red">' + b.flag + '</span>'
+  + '<div class="sku-name" style="font-size:21px">' + b.name + '</div>'
+  + '<ul class="stack-items">' + b.items.map(c => '<li>\u2192 <a href="product.html?sku=' + c + '">' + skuName(c) + '</a> <span class="note">(' + c + ')</span></li>').join("") + '</ul>'
+  + '<div class="price3"><span>Phase 1 upfront <b>$' + b.upfront + '.00</b></span><span>Ascension Plus <b>$' + b.weekly + ' / week</b></span></div>'
+  + '<p class="note" style="margin-top:10px">Phase 2: ' + b.refill + '</p>'
+  + '<div class="claimrow"><a class="pill dark" href="assessment.html">Get prescribed this stack</a></div>'
+  + '</div></article>').join("");
+/* G-1 ladder: dormant tier-save config renders only when the owner sets it. */
+document.querySelectorAll(".save").forEach(el => {
+  const v = SKINAA_CONFIG.tierSave[el.dataset.t];
+  el.textContent = v ? "Save " + v + "%" : "";
+});
+document.querySelectorAll("#ladder label").forEach(l => {
+  l.addEventListener("click", () => {
+    document.querySelectorAll("#ladder label").forEach(x => x.classList.toggle("sel", x === l));
+  });
+});
+if (SKINAA_CONFIG.memberPrice) document.getElementById("memberPrice").textContent = SKINAA_CONFIG.memberPrice;
+if (SKINAA_CONFIG.memberDeal) document.getElementById("memberDeal").textContent = SKINAA_CONFIG.memberDeal;
+document.getElementById("claimBtn").onclick = function(){
+  const pap = document.getElementById("addonPap").checked, led = document.getElementById("addonLed").checked;
+  try { localStorage.setItem("skinaa_claim", JSON.stringify({ pap:pap, led:led, cycles:document.querySelector("#ladder label.sel").dataset.c, at:new Date().toISOString() })); } catch(_){}
+  document.getElementById("claimMsg").innerHTML = "<b style='color:var(--cardink)'>Reserved.</b> Complete your intake and your matched stack ships as one Phase 1 box" + (pap ? ", PAP+ kit included (+$38)" : "") + (led ? "; LED wand held for your 1-click post-checkout offer ($48)" : "") + ".";
+};
+document.getElementById("memberForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const em = this.querySelector("input").value.trim(); if (!em || em.indexOf("@") < 0) return;
+  const code = "SKN-M-" + Math.abs([...em].reduce((a,c)=>a*31 + c.charCodeAt(0) | 0, 7) % 90000 + 10000);
+  try { localStorage.setItem("skinaa_member", JSON.stringify({ email: em, code: code })); } catch(_){}
+  this.style.display = "none";
+  const d = document.getElementById("memberDone");
+  d.style.display = "block";
+  d.innerHTML = "Member account created. Your member code: <b>" + code + "</b> — your own price tier is active, and your first member deal lands on the 1st.";
+});
+</script>
+<script src="assets/skinaa-chrome.js"></script>
+</body>
+</html>

@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#4B4B4D">
-<title>The Skin Reading — SKINAA by Maanaa</title>
-<meta name="description" content="Twenty-two questions and one photograph. A reading of where your skin is today.">
+<title>The Virtual Clinical Intake — SKINAA by Maanaa</title>
+<meta name="description" content="The 28-step Virtual Clinical Intake: phenotype, fluid, barrier, goals — matched to 1 of 28 archetypes. Your photograph is read on your device, never uploaded.">
 <style>
   :root{--porc:#4B4B4D;--card:#FFFFFF;--ink:#1C1C1E;--smoke:#86868B;--champ:#B08D57;--line:#E5E5EA;--fill:#E9E9EC}
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -38,12 +38,10 @@
   .cta.ghost{background:rgba(255,255,255,.14);color:#FFFFFF;box-shadow:none;font-weight:500}
   .cta:disabled{opacity:.35;cursor:default;box-shadow:none}
   .back{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;margin-bottom:16px;color:var(--ink);font-size:22px;cursor:pointer;background:var(--card);border:none;border-radius:50%;box-shadow:0 1px 2px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.06)}
-  .inter{text-align:center;padding-top:14px}
-  .inter .face{width:min(300px,70vw);aspect-ratio:4/5;object-fit:cover;border-radius:24px;box-shadow:0 24px 54px rgba(0,0,0,.16);margin:24px auto 0;display:block}
-  .inter h2{font-size:clamp(25px,4.6vw,32px);font-weight:700;letter-spacing:-.02em;line-height:1.25;margin-top:20px;color:#FFFFFF}
-  .ticks{max-width:430px;margin:24px auto 0;text-align:left;display:grid;gap:12px}
-  .ticks div{display:flex;gap:11px;color:#EDEDEA;font-size:16px;line-height:1.55}
-  .ticks b{color:var(--champ);font-weight:600}
+  .notebox{background:var(--card);border-radius:20px;padding:20px 22px;margin-top:22px;box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 30px rgba(0,0,0,.05)}
+  .notebox .nk{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--champ)}
+  .notebox p{margin-top:9px;font-size:15.5px;line-height:1.6;color:#3A3A3C}
+  .notebox .sig{margin-top:9px;font-size:12.5px;letter-spacing:.08em;color:var(--smoke);text-transform:uppercase}
   input[type=date]{width:100%;margin-top:24px;padding:17px 18px;border:none;background:var(--card);font-family:inherit;font-size:17px;color:var(--ink);border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 30px rgba(0,0,0,.05)}
   .consent{background:var(--card);padding:26px;border-radius:24px;margin-top:24px;text-align:left;box-shadow:0 1px 2px rgba(0,0,0,.05),0 14px 34px rgba(0,0,0,.06)}
   .consent h3{font-weight:700;font-size:20px;letter-spacing:-.01em}
@@ -64,14 +62,22 @@
   .steps div.doing{color:#D8D8D3}
   .steps div.done{color:#FFFFFF}
   .result{text-align:center}
-  .bars{max-width:420px;margin:30px auto 0;display:grid;gap:15px;text-align:left}
-  .bar label{display:flex;justify-content:space-between;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C9C9C4}
-  .bar .track{height:6px;background:rgba(255,255,255,.22);margin-top:7px;border-radius:99px;overflow:hidden}
-  .bar .fill{height:100%;background:var(--champ);border-radius:99px;width:0;transition:width 1.1s cubic-bezier(.32,.72,.24,1)}
-
+  .refcard{background:var(--card);border-radius:24px;padding:24px 26px;margin-top:24px;text-align:left;box-shadow:0 14px 34px rgba(0,0,0,.06)}
+  .refcard .rk{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--champ)}
+  .refcard h3{font-size:22px;font-weight:800;letter-spacing:-.015em;margin-top:8px}
+  .refcard p{font-size:15.5px;line-height:1.62;color:#3A3A3C;margin-top:10px}
+  .refcard p b{color:var(--ink)}
+  .ba{position:relative;overflow:hidden;border-radius:18px;background:#333;margin-top:16px}
+  .ba img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+  .ba .after{position:absolute;inset:0}
+  .ba .after img{height:100%}
+  .ba input[type=range]{position:absolute;left:0;right:0;bottom:12px;width:calc(100% - 32px);margin:0 16px;accent-color:#fff;z-index:3}
+  .ba .lab{position:absolute;top:10px;font-size:10.5px;font-weight:800;letter-spacing:.16em;padding:5px 10px;border-radius:999px;background:rgba(0,0,0,.55);color:#fff;z-index:2}
+  .ba .lab.l{left:10px}.ba .lab.r{right:10px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .chips a{font-size:13px;font-weight:600;background:#F2F2F7;border-radius:999px;padding:8px 13px;color:var(--ink);text-decoration:none}
 .wm{position:fixed;inset:-12vh -12vw;z-index:0;pointer-events:none;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-weight:800;font-size:19vw;line-height:1.28;letter-spacing:-.015em;color:#515154;white-space:nowrap;user-select:none}
 .wm div:nth-child(even){transform:translateX(-10vw)}
-
   body{padding:20px 14px 34px}
   .sheet{position:relative;z-index:1;max-width:660px;margin:6px auto 0;background:#4B4B4D;border:1px solid rgba(255,255,255,.13);border-radius:38px;box-shadow:0 40px 90px rgba(0,0,0,.45),0 4px 18px rgba(0,0,0,.30);overflow:hidden}
   .sheet .wm{position:absolute;inset:-6% -10%;font-size:min(11vw,96px)}
@@ -87,98 +93,123 @@
 <div class="wm" aria-hidden="true"><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div><div>SKINAA SKINAA SKINAA</div></div>
 <header>
   <img src="assets/skinaa-wordmark.png" alt="SKINAA">
-  <div class="byline">The Skin Reading — 28 steps at most</div>
+  <div class="byline" id="byline">The Virtual Clinical Intake — 28 Steps</div>
 </header>
 <main>
   <div class="prog" id="prog"></div>
-  <div class="meta"><span id="stepLabel">The Reading</span><span id="stepCount"></span></div>
+  <div class="meta"><span id="stepLabel">The Intake</span><span id="stepCount"></span></div>
   <div id="stage"></div>
 </main>
 </div>
+
+<script src="assets/skinaa-data.js"></script>
 <script>
-const STATES = {
-  dry:      { name: "Dry & Tight",
-              body: "Your skin is asking for water before anything else. Tight after washing, quiet by noon, thirsty by night — this is where your reading begins." },
-  oily:     { name: "Oily & Congested",
-              body: "Shine by midday, pores with opinions, breakouts that arrive uninvited. Your skin is producing more than it can clear — a congestion reading, plainly stated." },
-  reactive: { name: "Reactive & Sensitive",
-              body: "It answers back — to products, to weather, to stress. Redness and sting are information, not flaws. This reading says your barrier is negotiating, loudly." },
-  dull:     { name: "Dull & Tired",
-              body: "Nothing is wrong, and nothing is lit. The glow you remember is a turnover problem, not an age problem — the surface is keeping the light instead of returning it." }
-};
+const MODE = new URLSearchParams(location.search).get("mode") === "day15" ? "day15" : "intake";
+const BLOCKS = ["Phenotype & Structural","Fluid & Sebum","Barrier & Sensitivity","Goals + Photo"];
+/* 28 steps in the master document's four blocks. Option tags feed the
+   archetype match (gender + the vault's four concern axes). Calibration
+   notes are AP-3: a derm-voice note on every step, mechanism named. */
 const Q = [
- { sec:"Your skin now", q:"First — your years, as your skin tells them.", a:[["18 – 24",null],["25 – 34",null],["35 – 44",null],["45 +",null]] },
- { sec:"Your skin now", q:"An hour after washing, your face feels…", a:[["Tight, like it shrank a size","dry"],["Shiny across the T-zone already","oily"],["Warm, a little prickly","reactive"],["Fine — just flat, no light in it","dull"]] },
- { sec:"Your skin now", q:"By midday, the shine is…", a:[["Nowhere — matte all day","dry"],["There by noon, forehead first","oily"],["There, and redness with it","reactive"],["No shine — just a grey cast","dull"]] },
- { sec:"Your skin now", q:"Your pores…", a:[["Barely visible","dry"],["Visible, and they fill up","oily"],["Visible where I flush","reactive"],["Look larger than they used to","dull"]] },
- { sec:"Your skin now", q:"Redness visits…", a:[["Rarely","dry"],["Around breakouts only","oily"],["Often, and without asking","reactive"],["My issue is sallowness, not redness","dull"]] },
- { sec:"Your skin now", q:"Tightness and flaking…", a:[["A weekly event","dry"],["Only if I over-cleanse","oily"],["Comes with stinging","reactive"],["My skin is smooth — just lifeless","dull"]] },
- { type:"inter", k:"Where this stands", h:"The line is still being built.",
-   body:"There are no products yet, and no product pictures — nothing to sell you today. What exists is this reading: twenty-eight questions and your photograph, taken seriously.",
-   ticks:["28 questions — the full reading, nothing skipped","Your photo is read on your device — never uploaded","When the line opens, readings are matched first"] },
- { sec:"History & actives", q:"Your main concern this week — pick the loudest.", a:[["Dryness and rough patches","dry"],["Breakouts and congestion","oily"],["Redness and reactivity","reactive"],["Dullness, no light","dull"]] },
- { sec:"History & actives", q:"Which of these have you tried for your skin?", multi:true, a:[["Retinol",null],["Vitamin C",null],["Acids — lactic, salicylic, glycolic",null],["Peptides",null],["LED masks",null],["Professional facials",null],["None of these",null]], sub:"We build on what you know — and skip what didn't work." },
- { sec:"History & actives", q:"Have you used skincare products with acids?", a:[["Yes, and my skin handles them","oily"],["Yes — they stung or flared me","reactive"],["No, but I'm open to it",null],["I'd rather not use acids",null]] },
- { sec:"History & actives", q:"A new product usually…", a:[["Sits on top and never quite sinks in","dry"],["Makes the shine worse by evening","oily"],["Stings or flushes within minutes","reactive"],["Does nothing I can point to","dull"]] },
- { sec:"History & actives", q:"Fragrance in products…", a:[["Never bothers me",null],["I avoid it — my skin objects","reactive"],["I love a scent, skin is fine",null],["Never paid attention",null]] },
- { sec:"Life", q:"Do you often feel stressed and tense?", sub:"Stress raises cortisol, and cortisol talks to skin — inflammation, breakouts, flare-ups.", a:[["Yes, every day","reactive"],["Often","dull"],["Rarely",null],["Never",null]] },
- { sec:"Life", q:"Your sleep, honestly…", a:[["Under six hours, most nights","dull"],["Six to seven, broken","dull"],["Seven to eight, decent",null],["Eight plus — sleep is sacred",null]] },
- { sec:"Life", q:"Water versus coffee…", a:[["Coffee wins by a mile","dry"],["About even","dull"],["Water wins",null],["I run on tea and intentions","dry"]] },
- { type:"inter", k:"The science, plainly", h:"Your barrier is a wall being rebuilt nightly.",
-   body:"Skin cells are bricks; lipids are the mortar. When the mortar thins, water leaves and irritants enter — and every reading in this survey is, underneath, a mortar story.",
-   ticks:["Dry = mortar too thin to hold water","Reactive = mortar letting the weather in","Dull = the wall's surface no longer turning over"] },
- { sec:"Life", q:"The sun finds your face…", a:[["Daily, and unprotected","dull"],["Daily, but I protect it",null],["Mostly through windows","dry"],["I am a creature of shade",null]] },
- { sec:"Life", q:"Your air is mostly…", a:[["City — traffic, heating, screens","reactive"],["Dry — desert or altitude","dry"],["Humid coast","oily"],["Green and quiet",null]] },
- { sec:"Your ritual", q:"Your current routine has how many steps?", a:[["Zero to one — water and hope","dry"],["Two to three — the essentials",null],["Four to six — a real ritual",null],["Seven plus — a laboratory","oily"]] },
- { sec:"Your ritual", q:"You exfoliate…", a:[["Never","dull"],["Weekly","dry"],["A few times a week",null],["Daily — smooth at any cost","reactive"]] },
- { sec:"Your ritual", q:"Makeup sits on your skin…", a:[["Most days, full face","oily"],["Most days, light",null],["Rarely",null],["Never — skin only","dry"]] },
- { sec:"Your ritual", q:"When I feel great about my skin, I'd like to…", multi:true, a:[["Go confidently makeup-free",null],["Feel my best at events",null],["Feel more attractive in photos",null],["Enjoy compliments on my skin",null],["Take more selfies",null]] },
- { sec:"Your ritual", q:"Is there a date your skin is getting ready for?", type:"date", sub:"A wedding, a shoot, a reunion — the reading keeps it in mind. Skip if there isn't one." },
- { sec:"Your ritual", q:"How fast do you want change?", a:[["Gentle — my skin sets the pace","reactive"],["Steady — visible in a month","dull"],["As fast as skin honestly allows","oily"]] }
+ {b:0, q:"The board calibrates two protocol families. Your presentation:", a:[["Male",["gM"]],["Female",["gF"]]], note:"Protocols diverge here. The male system is built around debloat, hairline density and razor mechanics; the female system around glass skin, V-line sculpting and barrier architecture."},
+ {b:0, q:"First — your years, as your skin tells them.", a:[["18 – 24",[]],["25 – 34",[]],["35 – 44",[]],["45 +",[]]], note:"Age sets the turnover baseline. Cell renewal slows measurably each decade, and your Phase 1 potency is calibrated against it — never against a generic jar."},
+ {b:0, q:"Your skin's relationship with the sun — pick the closest.", a:[["Burns fast, rarely tans",["barrier"]],["Burns, then tans",[]],["Tans easily, rarely burns",[]],["Deep tone, almost never burns",["hyperpigmentation"]]], note:"Your Fitzpatrick band governs melanin safety: how aggressively the board can run pigment actives without triggering rebound post-inflammatory hyperpigmentation."},
+ {b:0, q:"Your facial bone projection, honestly:", a:[["Soft — features sit back",["debloat"]],["Balanced",[]],["Strong — angles read first",[]]], note:"Structural baseline first, skin second. Projection tells the board how much of your contour is bone and how much is fluid sitting on top of it."},
+ {b:0, q:"Your jaw muscle — the masseter — feels:", a:[["Wide and strong — I clench or chew hard",[]],["Average",[]],["Narrow — my lower face is slim",["debloat"]]], note:"The masseter is trainable muscle. Width here decides whether your protocol builds hypertrophy with mastic resistance or works on relaxation and drainage."},
+ {b:0, q:"Your hairline pattern:", a:[["Full and straight",[]],["Temples receding — an M-shape forming",["hairline"]],["Thinning at the crown or along the part",["hairline"]],["My density question is my beard",["hairline"]]], note:"Follicle density is a circulation problem before it is a cosmetics problem: micro-needling opens the channels, copper peptides do the signaling."},
+ {b:0, q:"Your lip volume index:", a:[["Full",[]],["Balanced",[]],["Thin — volume is a goal",["glass"]]], note:"Lip volume is lipid synthesis, not filler alone. Perioral lines and volume loss are read together — the same barrier that holds water in the cheek holds it in the lip."},
+ {b:1, q:"An hour after waking, your face feels…", a:[["Puffy — the morning face is real",["debloat"]],["Slightly soft, gone by mid-morning",["debloat"]],["The same as the evening",[]]], note:"Morning puffiness is overnight fluid with nowhere to go. Its severity by hour two separates drainage protocols from maintenance ones."},
+ {b:1, q:"How severely does water retention affect your lower jawline and eye area within 2 hours of waking up?", a:[["Severe — Significant puffiness around submental angle and under-eyes.",["debloat"]],["Moderate — Visible softening of cheekbones; resolves by mid-day.",["debloat"]],["Minimal — Minor fluid accumulation on high-sodium days only.",[]]], note:"Facial fluid retention masks underlying bone structure. Identifying your sodium sensitivity allows us to calibrate your Phase 1 Debloat Electrolyte Drops and Cold-Steel Sculpting Roller frequency."},
+ {b:1, q:"Your sodium intake, honestly:", a:[["High — restaurant food, sauces, snacks most days",["debloat"]],["Moderate",[]],["Low — I cook plain",[]]], note:"Sodium is the fluid variable you control daily. A high baseline doesn't block debloat gains — it sets the electrolyte dose the board prescribes against it."},
+ {b:1, q:"By midday, the shine is…", a:[["Nowhere — matte all day",[]],["There by noon, forehead first",["texture"]],["There, and redness with it",["barrier"]],["No shine — just a grey cast",["glass"]]], note:"Midday sebum timing reads your T-zone production curve. Shine that arrives with redness is a barrier signal, not an oil signal — the two are treated oppositely."},
+ {b:1, q:"Your pores…", a:[["Barely visible",[]],["Visible, and they fill up",["texture"]],["Visible where I flush",["barrier"]],["Look larger than they used to",["texture"]]], note:"Pores don't open and close — they stretch around congestion. Filling speed tells the board your clearance cadence: daily gentle acid, or a weekly free-acid reset."},
+ {b:1, q:"Razor burn and ingrown hairs visit…", a:[["Every shave — bumps and ingrowns are my normal",["barrier"]],["Sometimes, along the neck",["barrier"]],["Rarely",[]],["I don't shave my face",[]]], note:"An ingrown is a follicle channel problem: the hair re-enters skin that keratin has sealed. AHA/BHA liquidity keeps the channel open — severity here sets the strength."},
+ {b:1, q:"An hour after washing, your face feels…", a:[["Tight, like it shrank a size",["barrier"]],["Shiny across the T-zone already",["texture"]],["Warm, a little prickly",["barrier"]],["Fine — just flat, no light in it",["glass"]]], note:"Post-wash tightness is stripped lipid, measured in minutes. If your face shrinks a size after cleansing, the cleanser — not your skin — is the first thing the board replaces."},
+ {b:2, q:"Has your skin previously experienced stinging or peeling when exposed to high-potency L-Ascorbic Acid or Free-Acid Glycolic?", a:[["Yes — stinging or peeling",["barrier"]],["A mild tingle, no peeling",[]],["No — my skin handles acids",[]],["Never used them",[]]], note:"Calibrating your acid tolerance allows us to adjust the pH buffer in your Phase 1 Transformation Box without compromising cell turnover."},
+ {b:2, q:"Which of these have you tried for your skin?", multi:true, sub:"We build on what you know — and skip what didn't work.", a:[["Retinol",[]],["Vitamin C",[]],["Acids — lactic, salicylic, glycolic",[]],["Peptides",[]],["LED masks",[]],["Professional facials",[]],["None of these",[]]], note:"History is dosage data. What your skin has already met, it tolerates at higher potency; what failed you is struck from your stack, not repeated at a new label."},
+ {b:2, q:"Redness visits…", a:[["Rarely",[]],["Around breakouts only",["texture"]],["Often, and without asking",["barrier"]],["My issue is sallowness, not redness",["hyperpigmentation"]]], note:"Redness without a trigger is vascular reactivity; redness around breakouts is inflammation doing its job. The board treats the first with barrier work and the second with clearance."},
+ {b:2, q:"Tightness and flaking…", a:[["A weekly event",["barrier"]],["Only if I over-cleanse",[]],["Comes with stinging",["barrier"]],["My skin is smooth — just lifeless",["glass"]]], note:"Flaking is the barrier shedding faster than it seals. With stinging, it reads as a compromised lipid mantle — actives pause until the mortar is rebuilt."},
+ {b:2, q:"After a breakout or irritation heals, it leaves…", a:[["A dark mark that stays for weeks",["hyperpigmentation"]],["A faint mark, gone in days",[]],["Nothing — it just heals",[]]], note:"A mark that outlives the breakout is post-inflammatory hyperpigmentation: melanocytes answering inflammation. It sets your tranexamic protocol and your sun discipline."},
+ {b:2, q:"A new product usually…", a:[["Sits on top and never quite sinks in",["barrier"]],["Makes the shine worse by evening",["texture"]],["Stings or flushes within minutes",["barrier"]],["Does nothing I can point to",["glass"]]], note:"A product that sits on top is meeting a sealed or saturated barrier; a product that stings is meeting a broken one. Your answer routes the first week of your stack."},
+ {b:2, q:"Fragrance in products…", a:[["Never bothers me",[]],["I avoid it — my skin objects",["barrier"]],["I love a scent, skin is fine",[]],["Never paid attention",[]]], note:"Fragrance is the most common contact sensitizer in cosmetics. SKINAA runs 0% fillers, fragrances and dyes across the line — your answer confirms the margin, it doesn't change it."},
+ {b:3, q:"Your primary goal — pick the one the board should optimize for.", a:[["Jawline Sharpening",["debloat"]],["Glass Skin Radiance",["glass"]],["Hunter Eye Clearance",["debloat"]],["Hairline Density",["hairline"]]], note:"One primary goal drives the match. Your archetype, your stack and your Day-28 maintenance target are all read off this answer first."},
+ {b:3, q:"And the second front:", a:[["Even tone — dark marks gone",["hyperpigmentation"]],["Barrier calm — no more reactivity",["barrier"]],["Texture — pores and bumps handled",["texture"]],["De-puffed, drained, defined",["debloat"]]], note:"The second front sequences Phase 2. Your weekly refill drip is built from what the second answer names — it is not a generic subscription."},
+ {b:3, q:"Your current routine has how many steps?", a:[["Zero to one — water and hope",[]],["Two to three — the essentials",[]],["Four to six — a real ritual",[]],["Seven plus — a laboratory",[]]], note:"The Attack Stack replaces, it doesn't accumulate. Your current step count tells the board what to retire on Day 1 so the protocol stays executable."},
+ {b:3, q:"You exfoliate…", a:[["Never",["glass"]],["Weekly",[]],["A few times a week",[]],["Daily — smooth at any cost",["barrier"]]], note:"Daily exfoliation against a 14-day transformation is the most common self-inflicted barrier injury the board sees. Frequency here can lower your prescribed acid strength."},
+ {b:3, q:"When I feel great about my skin, I'd like to…", multi:true, a:[["Go confidently makeup-free",[]],["Feel my best at events",[]],["Feel more attractive in photos",[]],["Enjoy compliments on my skin",[]],["Take more selfies",[]]], note:"This answer is kept verbatim in your file. Protocols are technical; outcomes are personal — the board prescribes against the outcome you named."},
+ {b:3, q:"Is there a date your skin is getting ready for?", type:"date", sub:"A wedding, a shoot, a reunion — the reading keeps it in mind. Skip if there isn't one.", a:[], note:"A fixed date turns the 14-day stack into a countdown and can pull your Day-15 iteration earlier. No date, no pressure — the cycle anchor stays the 28th."},
+ {b:3, q:"How fast do you want change?", a:[["Gentle — my skin sets the pace",["barrier"]],["Steady — visible in a month",[]],["As fast as skin honestly allows",[]]], note:"Pace is a potency instruction, not a personality question. Fourteen days is the transformation window either way — this sets how hard the board pushes inside it."}
 ];
-const TOTAL_STEPS = Q.length + 4; // + consent, photo, analyzing, result
-let idx = 0, phase = "quiz";
-const score = { dry:0, oily:0, reactive:0, dull:0 };
+/* AP-13 — the Day-15 iteration gate reuses this intake: usage, outcome, photo. */
+const D15 = [
+ {q:"Fifteen days in. What did you actually use?", multi:true, a:[["The full stack, daily",[]],["Most of it, most days",[]],["Mostly the hardware",[]],["Mostly the liquids",[]],["Barely started",[]]], note:"Usage is the first variable. A stack that wasn't run can't be judged — the board reformulates around the protocol you'll actually do."},
+ {q:"How is it going — the honest read:", a:[["Visible change already",[]],["Early shifts, nothing dramatic",[]],["No change yet",[]],["My skin is reacting",["barrier"]]], note:"Self-reported outcome calibrates the next batch's potency: advance, hold, or pull back to barrier work for one cycle."},
+ {q:"What does the mirror say is better?", multi:true, a:[["Jawline definition",["debloat"]],["Glow / light return",["glass"]],["Eye area",["debloat"]],["Texture",["texture"]],["Tone",["hyperpigmentation"]],["Nothing yet",[]]], note:"Your gains confirm which mechanisms are live. The next batch doubles down on what's measurably moving."},
+ {q:"What does the mirror say is stuck, or worse?", multi:true, a:[["Jawline still soft",["debloat"]],["Still dull",["glass"]],["Dark marks holding",["hyperpigmentation"]],["Breakouts / bumps",["texture"]],["Redness / reactivity",["barrier"]],["Nothing is worse",[]]], note:"The stuck front becomes the next batch's primary target — this answer is why the Day-15 gate exists."},
+ {q:"Any stinging, flaking, or new sensitivity?", a:[["None",[]],["Mild — a tingle, some flakes",["barrier"]],["Strong — my barrier is complaining",["barrier"]]], note:"Tolerance data overrides ambition. A strong reading routes you to barrier repair before any potency step-up."},
+ {q:"One instruction for the board:", a:[["Go stronger",[]],["Go gentler",["barrier"]],["More debloat",["debloat"]],["More glow",["glass"]],["Keep it exactly as it is",[]]], note:"Recorded verbatim on your protocol card. The reformulated batch ships against this instruction and your photograph."}
+];
+const TOTAL = 28;
+let idx = 0, phase = "intro";
+const tags = {};
+let gender = null;
 const picked = {};
 const stage = document.getElementById("stage"), prog = document.getElementById("prog"),
       stepCount = document.getElementById("stepCount"), stepLabel = document.getElementById("stepLabel");
-for (let i = 0; i < TOTAL_STEPS; i++) prog.appendChild(document.createElement("i"));
-function paint(stepNo, label){
-  [...prog.children].forEach((b,i)=>b.classList.toggle("on", i < stepNo));
-  stepCount.textContent = "Step " + stepNo + " of " + TOTAL_STEPS;
-  stepLabel.textContent = label || "The Skin Reading";
+const QUESTIONS = MODE === "day15" ? D15 : Q;
+const STEPS = QUESTIONS.length;
+for (let i = 0; i < 28; i++) prog.appendChild(document.createElement("i"));
+if (MODE === "day15") document.getElementById("byline").textContent = "Day-15 Re-Assessment — The Iteration Gate";
+function paint(n, label){
+  const frac = MODE === "day15" ? Math.round(n / STEPS * 28) : n;
+  [...prog.children].forEach((b,i)=>b.classList.toggle("on", i < frac));
+  stepCount.textContent = MODE === "day15" ? ("Step " + n + " of " + STEPS) : ("Step " + n + " of 28");
+  stepLabel.textContent = label || (MODE === "day15" ? "Day-15 Re-Assessment" : "The Virtual Clinical Intake");
 }
-function esc(s){ return s.replace(/"/g,"&quot;"); }
+function addTags(list, dir){ (list||[]).forEach(t => { tags[t] = (tags[t]||0) + dir; }); }
 function render(){
   window.scrollTo(0,0);
+  if (phase === "intro") return renderIntro();
   if (phase === "quiz") return renderQ();
   if (phase === "consent") return renderConsent();
   if (phase === "photo") return renderPhoto();
   if (phase === "analyzing") return renderAnalyzing();
   return renderResult();
 }
-function renderQ(){
-  const item = Q[idx];
-  paint(idx + 1, item.type === "inter" ? "Interlude" : "The Skin Reading");
-  if (item.type === "inter") {
-    stage.innerHTML = `<div class="screen live inter">
-      <div class="k">${item.k}</div><h2>${item.h}</h2>
-      ${item.face?`<img class="face" src="assets/${item.face}" alt="">`:''}
-      <p class="sub">${item.body}</p>
-      <div class="ticks">${item.ticks.map(t=>`<div><b>✓</b><span>${t}</span></div>`).join("")}</div>
-      <button class="cta" id="next">Continue</button></div>`;
-    document.getElementById("next").onclick = ()=>{ idx++; render(); };
-    return;
+function renderIntro(){
+  paint(0, MODE === "day15" ? "Day-15 Re-Assessment" : "Virtual Clinical Intake");
+  if (MODE === "day15") {
+    stage.innerHTML = `<div class="screen live">
+      <div class="k">Ascension Plus · AP-13</div><h2 class="q">Day 15. The iteration gate.</h2>
+      <p class="sub">A fresh assessment goes out on Day 15: what you used, how it's going, and your face — show us their face, the board says of every subscriber. We synthesize and iterate the next batch from it. Cycles run 30 days, anchored on the 28th.</p>
+      <button class="cta" id="start">Begin the re-assessment</button>
+      <a class="cta ghost" href="portal.html">Back to the portal</a></div>`;
+  } else {
+    stage.innerHTML = `<div class="screen live">
+      <div class="k">SKINAA Virtual Clinical Intake</div><h2 class="q">Managed by board-certified dermatologists &amp; licensed esthetic specialists.</h2>
+      <p class="sub">Answer 28 targeted diagnostic questions regarding your skin barrier, fluid retention, undertone, and texture flags. Our board logic will calibrate your custom active protocol — and match you to 1 of 28 model archetypes in the Visual Vault.</p>
+      <div class="notebox"><div class="nk">How the board reads you</div>
+      <p>Four blocks: Phenotype &amp; Structural · Fluid &amp; Sebum · Barrier &amp; Sensitivity · Goals + Photo. Every step carries a dermatological calibration note. Your photograph is read on this device — never uploaded.</p></div>
+      <button class="cta" id="start">Start Your Virtual Clinical Intake (28 Steps)</button>
+      <a class="cta ghost" href="vault.html">See the 28 archetypes first</a></div>`;
   }
+  document.getElementById("start").onclick = ()=>{ phase = "quiz"; render(); };
+}
+function noteHTML(item){
+  return item.note ? `<div class="notebox"><div class="nk">\u{1FA7A} Dermatological Calibration Note</div><p>${item.note}</p><div class="sig">— SKINAA Medical Advisory Board</div></div>` : "";
+}
+function renderQ(){
+  const item = QUESTIONS[idx];
+  paint(idx + 1, MODE === "day15" ? "Day-15 Re-Assessment" : ("Section: " + BLOCKS[item.b]));
   if (item.type === "date") {
     stage.innerHTML = `<div class="screen live">
       ${idx>0?'<button class="back" id="bk">‹</button>':""}
-      <div class="k">${item.sec}</div><h2 class="q">${item.q}</h2>
+      <div class="k">${BLOCKS[item.b]}</div><h2 class="q">${item.q}</h2>
       ${item.sub?`<p class="sub">${item.sub}</p>`:""}
       <input type="date" id="d">
+      ${noteHTML(item)}
       <button class="cta" id="next">Continue</button>
       <button class="cta ghost" id="skip">Skip — no date</button></div>`;
-    const go = ()=>{ idx++; render(); };
+    const go = ()=>{ idx++; idx >= STEPS ? (phase = "consent", render()) : render(); };
     document.getElementById("next").onclick = go;
     document.getElementById("skip").onclick = go;
     const bk = document.getElementById("bk"); if (bk) bk.onclick = ()=>{ idx--; render(); };
@@ -187,32 +218,35 @@ function renderQ(){
   const multi = !!item.multi, sel = new Set(picked[idx] || []);
   stage.innerHTML = `<div class="screen live">
     ${idx>0?'<button class="back" id="bk">‹</button>':""}
-    <div class="k">${item.sec}</div><h2 class="q">${item.q}</h2>
+    <div class="k">${MODE === "day15" ? "Iteration Gate" : BLOCKS[item.b]}</div><h2 class="q">${item.q}</h2>
     ${item.sub?`<p class="sub">${item.sub}</p>`:""}
-    <div class="opts">${item.a.map(([label,key],i)=>`<button class="opt${sel.has(i)?" sel":""}" data-i="${i}"><span>${label}</span><span class="dot"></span></button>`).join("")}</div>
+    <div class="opts">${item.a.map(([label],i)=>`<button class="opt${sel.has(i)?" sel":""}" data-i="${i}"><span>${label}</span><span class="dot"></span></button>`).join("")}</div>
+    ${noteHTML(item)}
     ${multi?'<button class="cta" id="next" disabled>Continue</button>':""}</div>`;
   stage.querySelectorAll(".opt").forEach(btn=>{
     btn.onclick = ()=>{
-      const i = +btn.dataset.i, key = item.a[i][1];
+      const i = +btn.dataset.i, t = item.a[i][1];
       if (multi) {
-        if (sel.has(i)) { sel.delete(i); if (key) score[key]--; btn.classList.remove("sel"); }
-        else { sel.add(i); if (key) score[key]++; btn.classList.add("sel"); }
+        if (sel.has(i)) { sel.delete(i); addTags(t,-1); btn.classList.remove("sel"); }
+        else { sel.add(i); addTags(t,1); btn.classList.add("sel"); }
         picked[idx] = [...sel];
         document.getElementById("next").disabled = sel.size === 0;
       } else {
-        (picked[idx]||[]).forEach(j=>{ const k2 = item.a[j][1]; if (k2) score[k2]--; });
-        if (key) score[key]++;
+        (picked[idx]||[]).forEach(j=>addTags(item.a[j][1],-1));
+        addTags(t,1);
+        if (t.includes("gM")) gender = "M";
+        if (t.includes("gF")) gender = "F";
         picked[idx] = [i]; idx++;
-        idx >= Q.length ? (phase = "consent", render()) : render();
+        idx >= STEPS ? (phase = "consent", render()) : render();
       }
     };
   });
-  if (multi) document.getElementById("next").onclick = ()=>{ idx++; idx >= Q.length ? (phase="consent", render()) : render(); };
+  if (multi) document.getElementById("next").onclick = ()=>{ idx++; idx >= STEPS ? (phase="consent", render()) : render(); };
   const bk = document.getElementById("bk"); if (bk) bk.onclick = ()=>{ idx--; render(); };
 }
 let photoData = null, consented = false;
 function renderConsent(){
-  paint(Q.length + 1, "The picture gate");
+  paint(STEPS, "The picture gate");
   stage.innerHTML = `<div class="screen live">
     <div class="k">The picture gate</div><h2 class="q">One photograph, read on your device.</h2>
     <div class="consent"><h3>We do not store your photograph</h3>
@@ -225,7 +259,7 @@ function renderConsent(){
   document.getElementById("skip").onclick = ()=>{ phase = "analyzing"; render(); };
 }
 function renderPhoto(){
-  paint(Q.length + 2, "The picture gate");
+  paint(STEPS, "The picture gate");
   stage.innerHTML = `<div class="screen live">
     <div class="k">The picture gate</div><h2 class="q">Take a selfie, or upload a picture.</h2>
     <div class="guide">
@@ -257,36 +291,75 @@ function renderPhoto(){
   document.getElementById("skip").onclick = ()=>{ photoData = null; phase = "analyzing"; render(); };
 }
 function renderAnalyzing(){
-  paint(Q.length + 3, "The reading");
+  paint(STEPS, MODE === "day15" ? "The iteration" : "The reading");
   const img = photoData
     ? `<div class="scanwrap"><img src="${photoData}" alt="Your photograph"><div class="scanline"></div></div>`
     : `<div class="scanwrap"><div style="height:220px;background:var(--card);border:1px solid var(--line)"></div><div class="scanline"></div></div>`;
+  const lines = MODE === "day15"
+    ? ["Reading your Day-15 photograph against Day 0","Weighing your usage and outcome answers","Comparing against your matched archetype","Reformulating your next batch"]
+    : ["Reading tone and light return","Reading texture and pores", photoData ? "Measuring Facial Thirds & Canthal Tilt" : "Weighing your twenty-eight answers","Matching 1 of 28 archetypes","Composing your prescription"];
   stage.innerHTML = `<div class="screen live">
-    <div class="k">The reading</div><h2 class="q">${photoData ? "Analyzing your picture…" : "Composing your reading…"}</h2>
+    <div class="k">${MODE === "day15" ? "The iteration" : "The reading"}</div><h2 class="q">${photoData ? "Analyzing your picture…" : "Composing your reading…"}</h2>
     ${img}
-    <div class="steps" id="steps">
-      <div>Reading tone and light return</div><div>Reading texture and pores</div>
-      <div>Weighing your twenty-two answers</div><div>Composing your reading</div>
-    </div></div>`;
+    <div class="steps" id="steps">${lines.map(l=>`<div>${l}</div>`).join("")}</div></div>`;
   const rows = [...document.getElementById("steps").children];
   rows.forEach((row,i)=>{
-    setTimeout(()=>row.classList.add("doing"), i*800);
-    setTimeout(()=>{ row.classList.remove("doing"); row.classList.add("done"); row.textContent = "✓ " + row.textContent; }, i*800 + 720);
+    setTimeout(()=>row.classList.add("doing"), i*700);
+    setTimeout(()=>{ row.classList.remove("doing"); row.classList.add("done"); row.textContent = "✓ " + row.textContent; }, i*700 + 620);
   });
-  setTimeout(()=>{ phase = "result"; render(); }, rows.length*800 + 500);
+  setTimeout(()=>{ phase = "result"; render(); }, rows.length*700 + 500);
+}
+function matchArchetype(){
+  const pool = MODELS.filter(m => !gender || m.gender === gender);
+  let best = pool[0], bestScore = -1;
+  pool.forEach(m => {
+    let s = 0;
+    m.tags.forEach(t => { s += (tags[t]||0) * 2; });
+    if (s > bestScore) { bestScore = s; best = m; }
+  });
+  return best;
+}
+function stackChips(p1){
+  const found = [...p1.matchAll(/\(([A-Z]+-\d+)\)/g)].map(x => x[1]);
+  return found.map(c => skuByCode(c) ? `<a href="product.html?sku=${c}">${c}</a>` : `<a href="catalog.html">${c}</a>`).join("");
 }
 function renderResult(){
-  paint(TOTAL_STEPS, "Your reading");
-  const order = Object.keys(score).sort((a,b)=>score[b]-score[a]);
-  const top = STATES[order[0]], max = Math.max(1, ...Object.values(score));
+  paint(28, MODE === "day15" ? "Iteration received" : "Your prescription");
+  if (MODE === "day15") {
+    stage.innerHTML = `<div class="screen live result">
+      <div class="k">AP-13 · Iteration Gate</div><h2 class="q" style="text-align:center">Iteration received.</h2>
+      <p class="sub" style="text-align:center">Your usage, your outcome, and your face are with the board. The next batch is reformulated from this gate — potency advanced, held, or pulled back to barrier work by what you reported — and your cycle stays anchored on the 28th.</p>
+      <div class="refcard"><div class="rk">What happens next</div>
+      <p><b>Day 15 \u2192 synthesis.</b> Your delta is measured against your matched archetype in the portal, and your dual-script Rx note is written from it.</p>
+      <p><b>Next batch.</b> Reformulated refills slot into your vanity tray — same slots, new calibration.</p></div>
+      <a class="cta" href="portal.html">See your delta in the portal</a>
+      <a class="cta ghost" href="index.html">Back to SKINAA</a></div>`;
+    try { localStorage.setItem("skinaa_day15", new Date().toISOString()); } catch(_){}
+    return;
+  }
+  const m = matchArchetype();
+  const ref = "SKN-" + Math.floor(10000 + Math.random() * 90000);
+  const weekly = m.gender === "M" ? 32 : 34;
+  const lc = m.code.toLowerCase();
+  try { localStorage.setItem("skinaa_intake", JSON.stringify({ ref: ref, model: m.code, at: new Date().toISOString() })); } catch(_){}
   stage.innerHTML = `<div class="screen live result">
-    <div class="k">Your reading</div><h2 class="q" style="text-align:center">${top.name}</h2>
-    <p class="sub" style="text-align:center">${top.body}</p>
-    <div class="bars">${order.map(k=>`<div class="bar"><label><span>${STATES[k].name}</span><span>${score[k]}</span></label><div class="track"><div class="fill" data-w="${Math.round(score[k]/max*100)}"></div></div></div>`).join("")}</div>
-    <p class="sub" style="text-align:center;margin-top:26px">SKINAA is under construction — the line is still being built. When it opens, this reading is your match.</p>
-    <a class="cta" href="index.html">Back to SKINAA</a>
-    <a class="cta ghost" href="assessment.html">Take the reading again</a></div>`;
-  requestAnimationFrame(()=>setTimeout(()=>stage.querySelectorAll(".fill").forEach(el=>el.style.width = el.dataset.w + "%"), 60));
+    <div class="k">Board Intake Complete</div><h2 class="q" style="text-align:center">Intake Analysis Complete.</h2>
+    <p class="sub" style="text-align:center">Board Verification Code: DERM-DIAG-8820<br>Intake Ref: #${ref} · Matched Archetype: Model ${m.n} (${m.code} — ${m.arch})</p>
+    <div class="refcard"><div class="rk">Your matched Before &amp; After benchmark</div>
+      <div class="ba"><img src="assets/vault/${lc}-day0.jpg" alt="Model ${m.n} Day 0">
+        <div class="after" style="clip-path:inset(0 0 0 50%)"><img src="assets/vault/${lc}-day14.webp" alt="Model ${m.n} Day 14" onerror="this.closest('.ba').querySelector('input').style.display='none';this.parentNode.style.display='none'"></div>
+        <span class="lab l">Day 0 Baseline</span><span class="lab r">Day 14 Peak</span>
+        <input type="range" min="0" max="100" value="50" aria-label="Before after slider" oninput="this.previousElementSibling.previousElementSibling.style.clipPath='inset(0 0 0 '+this.value+'%)'"></div>
+      <p><b>Day 0:</b> ${m.flaws}</p><p><b>Day 14:</b> ${m.gains}</p><p><b>Day 28 goal:</b> ${m.goal}</p></div>
+    <div class="refcard"><div class="rk">Prescribed Phase 1 — 14-Day Attack Stack Box</div>
+      <p>${m.p1}</p><div class="chips">${stackChips(m.p1)}</div>
+      <p style="margin-top:14px"><b>Upfront package:</b> inside the Phase 1 band, $118–$148 — your exact total is set with your matched stack at claim. Hardware drops off after the audit; the liquids continue.</p></div>
+    <div class="refcard"><div class="rk">Phase 2 Preview — Ascension Plus Weekly Refill Drip ($${weekly}/week)</div>
+      <p>${m.p2}</p>
+      <p>Auto-ships fresh liquid actives starting Day 14 · Includes Weekly Dual Rx Card · Auto-charge 3 days before delivery · Day-15 re-assessment reformulates every batch.</p></div>
+    <a class="cta" href="stacks.html">Claim Your 14-Day Attack Stack \u2192</a>
+    <a class="cta ghost" href="vault.html">Browse the full Vault</a>
+    <a class="cta ghost" href="assessment.html">Take the intake again</a></div>`;
 }
 render();
 </script>

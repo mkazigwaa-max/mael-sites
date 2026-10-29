@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SKINAA product — packaging architecture, formula grid, and protocol placement.">
+<meta name="theme-color" content="#4B4B4D">
+<title>Product — SKINAA by Maanaa</title>
+<link rel="stylesheet" href="assets/skinaa.css">
+<style>
+  .pdp{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+  @media(max-width:860px){.pdp{grid-template-columns:1fr}}
+  .pdp .views{display:grid;gap:14px}
+  .spec{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+  .spec div{background:#FBFAF7;border:1px solid var(--cardline);border-radius:16px;padding:16px}
+  .spec .k{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--champ2)}
+  .spec .v{font-weight:700;margin-top:7px;font-size:15px;line-height:1.4}
+  .appears a{color:var(--cardink);font-weight:600}
+  .appears li{margin-top:8px;font-size:15px}
+</style>
+</head>
+<body>
+<section class="blk" style="padding-top:48px">
+  <div id="pdp"></div>
+</section>
+
+<script src="assets/skinaa-data.js"></script>
+<script>
+const code = (new URLSearchParams(location.search).get("sku") || "FAB-01").toUpperCase();
+const s = skuByCode(code);
+const root = document.getElementById("pdp");
+if (!s) {
+  root.innerHTML = '<div class="card"><div class="pad"><h2 style="font-size:26px;font-weight:800">SKU not in the catalog</h2><p class="sku-meta">The 40-SKU catalog lives <a href="catalog.html">here</a>.</p></div></div>';
+} else {
+  document.title = s.code + " — " + s.name + " — SKINAA";
+  const views = s.pic
+    ? '<img class="prod-img" style="border-radius:20px" src="' + s.pic.portrait + '" alt="' + s.code + ' portrait">'
+      + '<img class="prod-img" style="border-radius:20px" src="' + s.pic.pack + '" alt="' + s.code + ' packshot">'
+    : '<div class="prod-noimg" style="border-radius:20px"><span class="code">' + s.code + '</span><span class="rule"></span><span>Product picture pending — this SKU is prescribed by specification.<br>Its packaging architecture is below.</span></div>';
+  const apps = skuAppearances(s.code);
+  root.innerHTML = '<div class="pdp">'
+    + '<div class="views">' + views + '</div>'
+    + '<div class="card"><div class="pad">'
+    +   '<span class="tag">' + s.code + '</span> <span class="tag">' + ({FAB:"FAB — Barrier & Prettymaxing",TOP:"TOP — Clinical Actives",MALE:"MALE — Tactical Optimization",HW:"Hardware",DIG:"Digital"})[s.line] + '</span>'
+    +   '<h1 style="font-size:clamp(28px,3.4vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.12;margin-top:14px">' + s.name + '</h1>'
+    +   '<p style="font-size:16.5px;line-height:1.65;margin-top:16px">' + s.detail + '</p>'
+    +   '<p class="sku-meta" style="margin-top:12px"><b style="color:var(--cardink)">Built for:</b> ' + s.concerns + '</p>'
+    +   '<div class="spec">'
+    +     '<div><div class="k">Component</div><div class="v">' + s.component + '</div></div>'
+    +     '<div><div class="k">Material &amp; Finish</div><div class="v">' + s.material + '</div></div>'
+    +     '<div><div class="k">Visual Anchor</div><div class="v">' + s.anchor + '</div></div>'
+    +   '</div>'
+    +   (apps.length ? '<h3 style="margin-top:26px;font-size:16px;font-weight:800">Prescribed in</h3><ul class="appears" style="list-style:none">' + apps.map(a => '<li>\u2192 ' + a + '</li>').join("") + '</ul>' : '')
+    +   '<p class="note" style="margin-top:22px">SKINAA is prescribed, not browsed into a cart: your stack is built by the 28-step intake and claimed as one Phase 1 box ($118\u2013$148), then refilled by Ascension Plus.</p>'
+    +   '<div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap"><a class="pill dark" href="assessment.html">Start Your Virtual Clinical Intake (28 Steps)</a><a class="pill" style="box-shadow:none;border:1.5px solid var(--cardline)" href="stacks.html">See the stacks</a></div>'
+    + '</div></div></div>';
+}
+</script>
+<script src="assets/skinaa-chrome.js"></script>
+</body>
+</html>

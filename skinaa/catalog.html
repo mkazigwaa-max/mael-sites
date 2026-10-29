@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The SKINAA catalog — all 40 SKUs of the collectible clinical system: FAB, TOP, MALE, hardware and digital.">
+<meta name="theme-color" content="#4B4B4D">
+<title>The Catalog — SKINAA by Maanaa</title>
+<link rel="stylesheet" href="assets/skinaa.css">
+</head>
+<body>
+<section class="pagehead">
+  <div class="kicker">The Catalog</div>
+  <h1>One system. Forty pieces.</h1>
+  <p>Every SKU is engineered as part of a modular, cohesive system — standardized dimensions, an Rx-style typographic grid, percentage-first labels. An incomplete set looks visually fractured; a full set forms one clean, geometric block.</p>
+</section>
+
+<div class="filters" id="filters">
+  <button data-f="ALL" class="on">All 40</button>
+  <button data-f="FAB">FAB — Barrier &amp; Prettymaxing</button>
+  <button data-f="TOP">TOP — Clinical Actives</button>
+  <button data-f="MALE">MALE — Tactical Optimization</button>
+  <button data-f="HW">Hardware</button>
+  <button data-f="DIG">Digital</button>
+</div>
+
+<section class="blk" style="padding-top:40px">
+  <div class="grid c3" id="grid"></div>
+  <p class="note" style="text-align:center;margin-top:34px;color:var(--mute)">Free shipping from $118 — the Phase 1 stack entry price. Every stack is prescribed through the <a href="assessment.html" style="color:#fff">28-step Virtual Clinical Intake</a>.</p>
+</section>
+
+<script src="assets/skinaa-data.js"></script>
+<script>
+const grid = document.getElementById("grid");
+function cardHTML(s){
+  const img = s.pic
+    ? '<a href="product.html?sku=' + s.code + '"><img class="prod-img" src="' + s.pic.pack + '" alt="' + s.code + ' — ' + s.name + '"></a>'
+    : '<a href="product.html?sku=' + s.code + '"><div class="prod-noimg"><span class="code">' + s.code + '</span><span class="rule"></span><span>' + s.component + '<br>' + s.material + '</span></div></a>';
+  return '<article class="card">' + img + '<div class="pad">'
+    + '<span class="tag">' + s.code + '</span>' + (s.pic ? '' : ' <span class="tag red">Picture pending</span>')
+    + '<div class="sku-name">' + s.name + '</div>'
+    + '<p class="sku-meta">' + s.component + ' · ' + s.material + ' · ' + s.anchor + '</p>'
+    + '<div class="sku-link"><a href="product.html?sku=' + s.code + '">View ' + s.code + ' \u2192</a></div>'
+    + '</div></article>';
+}
+function render(f){
+  const list = SKUS.filter(s => f === "ALL" || s.line === f);
+  grid.innerHTML = list.map(cardHTML).join("");
+}
+document.getElementById("filters").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("on", x === b));
+  render(b.dataset.f);
+});
+render("ALL");
+</script>
+<script src="assets/skinaa-chrome.js"></script>
+</body>
+</html>
