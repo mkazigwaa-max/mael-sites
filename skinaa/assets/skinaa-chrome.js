@@ -1,6 +1,6 @@
-/* SKINAA 2.0 chrome — AP-1 authority bar + header + footer on every page,
-   and the AP-7 exit-intent mini-intake. The one canonical chrome: every page
-   mounts this file; no page carries its own static header/footer. */
+/* SKINAA 2.0 chrome — AP-1 authority bar + header + footer on every 2.0 page,
+   and the AP-7 exit-intent mini-intake. Injected, so the approved homepage
+   keeps its own header untouched. */
 (function(){
   var path = location.pathname.split("/").pop() || "index.html";
   function here(p){ return path === p ? ' class="here"' : ""; }
@@ -19,9 +19,9 @@
     + '<a href="stacks.html"' + here("stacks.html") + '>Stacks</a>'
     + '<a href="unboxing.html"' + here("unboxing.html") + '>Unboxing</a>'
     + '<a href="portal.html"' + here("portal.html") + '>Ascension Plus</a>'
-    + '<a href="guide-female.html"' + here("guide-female.html") + '>Guides</a>'
+    + '<a href="guide-male.html"' + here("guide-male.html") + '>Guides</a>'
     + '</nav>'
-    + '<a class="pill small" href="assessment.html">Begin The Skin Reading</a>'
+    + '<a class="pill small" href="assessment.html">Start Your Intake</a>'
     + '</header>';
   bar.after(hdr);
   var ftr = document.createElement("footer");
