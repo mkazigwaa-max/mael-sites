@@ -1,9 +1,11 @@
-// MAANAA — THE FREQUENCY ROOM v3 — VIBRANT (custom build)
-// A true 3D terrain of light: 15,000 points in the four family colors.
-// Every 2.8 Hz cycle a shockwave ring is born at the center and rolls
-// outward through the field — the brand's frequency, visible.
-// The pointer raises a swell in the surface; hovering a constraint
-// card raises and brightens that family's whole band.
+// MAANAA — THE FREQUENCY ROOM v4 — THE LOGO MATTRESS (custom build)
+// 15,000 points in the four family colors. Tiled across the whole field,
+// the dots form repeated outlines of the brand's wave-ring symbol: the
+// ring dots are the bold ones, every other dot sits faint. Each ring
+// spins on its own center while the field pulses — and every pulse
+// lands the rings in the next brain color (lime, coral, teal, magenta),
+// never green alone. The 2.8 Hz shockwave still rolls from the center;
+// hovering a constraint card raises that family's whole band.
 import * as THREE from './vendor/three.module.js';
 const canvas = document.getElementById('field');
 if (canvas && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -15,7 +17,7 @@ if (canvas && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     cam.position.set(0, 6.8, 11.5);
     const COLS = 150, ROWS = 100, N = COLS * ROWS;
     const pos = new Float32Array(N * 3), col = new Float32Array(N * 3), fam = new Float32Array(N);
-    const palette = [[0.608,0.773,0.239],[1.000,0.420,0.341],[0.055,0.486,0.482],[0.690,0.188,0.478]]; // FUEL lime · GUARD coral · ANCHOR teal · CATALYST magenta — the authored family hues, full saturation
+    const palette = [[0.608,0.773,0.239],[1.000,0.420,0.341],[0.055,0.486,0.482],[0.690,0.188,0.478]]; // FUEL lime · GUARD coral · ANCHOR teal · CATALYST magenta
     let i = 0;
     for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) {
       const px = (x - COLS / 2) * 0.24, pz = (y - ROWS / 2) * 0.24;
@@ -40,9 +42,16 @@ if (canvas && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
         attribute vec3 aColor; attribute float aFam;
         uniform float uTime; uniform vec2 uPointer; uniform vec4 uBoost; uniform float uPx;
         varying vec3 vColor; varying float vGlow; varying float vFade; varying float vRing;
+        varying float vLogo; varying vec3 vLogoColor;
         float boostOf(float f){
           if (f < 0.5) return uBoost.x; if (f < 1.5) return uBoost.y;
           if (f < 2.5) return uBoost.z; return uBoost.w; }
+        vec3 brainColor(float idx){
+          float m = mod(idx, 4.0);
+          if (m < 0.5) return vec3(0.608, 0.773, 0.239);
+          if (m < 1.5) return vec3(1.000, 0.420, 0.341);
+          if (m < 2.5) return vec3(0.055, 0.486, 0.482);
+          return vec3(0.690, 0.188, 0.478); }
         void main(){
           vec3 p = position;
           float d = length(p.xz);
@@ -55,30 +64,51 @@ if (canvas && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
           float ring2 = exp(-pow((d - cyc2 * 19.0) * 0.9, 2.0)) * (1.0 - cyc2) * 0.55;
           h += ring * 1.3 + ring2 * 0.6;
           vRing = ring;
+          // — THE LOGO MATTRESS — wave-ring outlines tiled across the field
+          vec2 cellSize = vec2(9.0, 8.0);
+          vec2 shifted = p.xz + vec2(18.0, 12.0);
+          vec2 cell = floor(shifted / cellSize);
+          vec2 local = mod(shifted, cellSize) - cellSize * 0.5;
+          float hash = fract(sin(dot(cell, vec2(12.9898, 78.233))) * 43758.5453);
+          float ang = atan(local.y, local.x);
+          float rot = t * 0.22 + hash * 6.2831;
+          float ringR = 3.05 * (1.0 + 0.085 * cos(9.0 * (ang - rot)));
+          float logo = smoothstep(0.46, 0.08, abs(length(local) - ringR));
+          float pulsePhase = t * 0.7 + hash * 2.0;
+          float pulseEnv = 0.5 + 0.5 * sin(pulsePhase * 6.2831);
+          float stepIdx = floor(pulsePhase) + hash * 4.0;
+          vec3 lc = mix(brainColor(stepIdx), brainColor(stepIdx + 1.0),
+                        smoothstep(0.72, 1.0, fract(pulsePhase)));
+          vLogo = logo;
+          vLogoColor = lc * (0.85 + 0.45 * pulseEnv);
+          float logoPulse = 0.75 + 0.45 * pulseEnv;
+          h += logo * 0.38 * logoPulse;
           float pd = distance(p.xz, uPointer);
           h += exp(-pd * pd * 0.10) * 0.85;
           float bst = boostOf(aFam);
           h += bst * 0.55 * (0.6 + 0.4 * sin(t * 2.2 + p.x * 0.5));
           p.y += h;
-          vGlow = ring * 1.25 + ring2 * 0.6 + exp(-pd * pd * 0.10) * 0.8 + bst * 0.7;
+          vGlow = ring * 1.25 + ring2 * 0.6 + exp(-pd * pd * 0.10) * 0.8 + bst * 0.7 + logo * 1.1 * logoPulse;
           vec4 mv = modelViewMatrix * vec4(p, 1.0);
-          gl_PointSize = uPx * (4.3 + vGlow * 5.6) * (11.0 / -mv.z);
+          gl_PointSize = uPx * (4.3 + vGlow * 5.6) * mix(0.42, 1.45, logo) * (11.0 / -mv.z);
           vFade = smoothstep(26.0, 9.0, length(mv.xyz));
           vColor = aColor;
           gl_Position = projectionMatrix * mv;
         }`,
       fragmentShader: `
         varying vec3 vColor; varying float vGlow; varying float vFade; varying float vRing;
+        varying float vLogo; varying vec3 vLogoColor;
         void main(){
           vec2 q = gl_PointCoord - 0.5;
           float m = smoothstep(0.5, 0.08, length(q));
           vec3 c = mix(vColor, vec3(1.0), clamp(vRing, 0.0, 1.0) * 0.7);
-          c += vec3(0.894, 1.0, 0.592) * clamp(vGlow - vRing, 0.0, 1.0) * 0.22;
-          gl_FragColor = vec4(c, m * (0.88 + vGlow * 0.4) * vFade);
+          c = mix(c, vLogoColor, vLogo);
+          c += vec3(0.894, 1.0, 0.592) * clamp(vGlow - vRing, 0.0, 1.0) * 0.22 * (1.0 - vLogo);
+          float a = m * (0.88 + vGlow * 0.4) * vFade * mix(0.34, 1.0, vLogo);
+          gl_FragColor = vec4(c, a);
         }`
     });
     scene.add(new THREE.Points(geo, mat));
-    // family boost wiring — the constraint cards drive the field
     const boostTarget = [0, 0, 0, 0];
     const cards = document.querySelectorAll('.card');
     const order = ['fuel', 'guard', 'anchor', 'catalyst'];
