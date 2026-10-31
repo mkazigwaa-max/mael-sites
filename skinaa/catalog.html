@@ -86,7 +86,14 @@
 <section class="pagehead">
   <div class="kicker">The Catalog</div>
   <h1>One system. Forty pieces.</h1>
-  <p>Every SKU is engineered as part of a modular, cohesive system — standardized dimensions, an Rx-style typographic grid, percentage-first labels. An incomplete set looks visually fractured; a full set forms one clean, geometric block.</p>
+  <p>Shop any piece on its own — add it straight to the tray, no stack and no intake required. Or take the <a href="assessment.html">28-step Skin Reading</a> and let the house prescribe your Phase 1 box at the <a href="stacks.html">Prescription Counter</a> ($118–$148).</p>
+</section>
+<section class="seq-strip" aria-label="How buying works">
+  <div class="seq-strip__in">
+    <b>Two ways to buy</b>
+    <span><strong>1 · By the piece</strong> — every piece below adds to the tray on its own.</span>
+    <span><strong>2 · Prescribed</strong> — the <a href="assessment.html">Skin Reading</a> builds your stack; the <a href="stacks.html">Prescription Counter</a> dispenses it as one Phase 1 box, $118–$148.</span>
+  </div>
 </section>
 
 <div class="cat-wrap">
@@ -102,15 +109,7 @@
     </div></div>
   </section>
 
-  <!-- F-02 · FAB link-cards swiper rail (B74 init pattern; Swiper fetched D2) -->
-  <section class="custom-css__link-cards" aria-label="Family cards">
-    <div class="swiper" id="link-cards-swiper"><div class="swiper-wrapper">
-      <div class="swiper-slide custom-css__link-cards-slide"><a href="catalog.html" data-door="FAB"><img src="assets/products/fab-05.webp" alt="FAB — Barrier &amp; Prettymaxing"><span>FAB</span></a></div>
-      <div class="swiper-slide custom-css__link-cards-slide"><a href="catalog.html" data-door="TOP"><img src="assets/products/top-17.webp" alt="TOP — Clinical Actives"><span>TOP</span></a></div>
-      <div class="swiper-slide custom-css__link-cards-slide"><a href="catalog.html" data-door="MALE"><img src="assets/products/male-05.webp" alt="MALE — Tactical Optimization"><span>MALE</span></a></div>
-      <div class="swiper-slide custom-css__link-cards-slide"><a href="catalog.html" data-door="HW"><img src="assets/products/hw-06.webp" alt="Hardware"><span>Hardware</span></a></div>
-    </div><div class="swiper-pagination"></div></div>
-  </section>
+  
 
   <!-- P-08 · Prequel tabbed collections: several views of the room, in place -->
   <tabs-component class="tabs-wrapper">
@@ -413,7 +412,13 @@ function renderActivePills() {
   Object.entries(activeFacets).forEach(([k, set]) => set.forEach(v => pills.push([k, v])));
   host.innerHTML = pills.map(([k, v]) => '<button type="button" class="pill-x" data-uncheck="' + k + ':' + v + '">' + v + ' ×</button>').join("");
 }
-buildFacets(); render();
+buildFacets();
+(function(){ var q = new URLSearchParams(location.search);
+  var fams = q.get("for") === "her" ? ["FAB","TOP"] : q.get("for") === "him" ? ["MALE"] : q.get("family") ? [q.get("family")] : [];
+  fams.forEach(function(v){ activeFacets.family.add(v); document.querySelectorAll("[data-facet]").forEach(function(cb){ if(cb.dataset.facet==="family" && cb.value===v) cb.checked = true; }); });
+  if(fams.length) renderActivePills();
+})();
+render();
 document.getElementById("filter-form").addEventListener("change", e => {
   const cb = e.target.closest("[data-facet]"); if (!cb) return;
   cb.checked ? activeFacets[cb.dataset.facet].add(cb.value) : activeFacets[cb.dataset.facet].delete(cb.value);

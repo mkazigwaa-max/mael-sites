@@ -151,11 +151,11 @@ if (!s) {
   +   '</fieldset></div>'
   /* price + form */
   +   '<div class="product__block product__block--buttons"><p class="product__price" id="pdp-price">'
-  +     (typeof s.price === "number" ? "$" + s.price : "Prescribed as one Phase 1 box ($118–$148) — see its stacks below.") + '</p>'
+  +     (typeof s.price === "number" ? "$" + s.price : "Sold on its own — or prescribed as part of one Phase 1 box ($118–$148); see the stacks below.") + '</p>'
   +   '<form class="product__form__holder" id="pdp-form" onsubmit="return false">'
   +     '<label>Quantity <input type="number" data-quantity-input min="1" value="1" style="width:64px;padding:8px;border-radius:8px;border:1px solid var(--cardline)"></label>'
   +     '<div class="pdp-cta"><button class="pill dark" type="submit" id="pdp-add">Add to the tray</button>'
-  +     '<button class="pill" type="button" data-standard-add="' + s.code + '" style="box-shadow:none;border:1.5px solid var(--cardline)">Add via standard action</button>'
+  +
   +     '<a class="pill" style="box-shadow:none;border:1.5px solid var(--cardline)" href="assessment.html">Start Your Virtual Clinical Intake (28 Steps)</a>'
   +     '<a class="pill" style="box-shadow:none;border:1.5px solid var(--cardline)" href="stacks.html">See the stacks</a></div>'
   +   '</form>'
@@ -163,7 +163,7 @@ if (!s) {
   +   '<details class="product__notification"><summary>If this piece is held, leave word</summary>'
   +     '<form class="notification-form" onsubmit="return false"><input type="email" required placeholder="Correspondence address" aria-label="Correspondence address"><button class="qa-btn" type="submit" style="margin-top:8px"><span class="btn__label">Leave word</span></button><p class="note notification-done" hidden>Word left. The house will write when the piece is dispensed.</p></form></details>'
   +   '</div>'
-  +   '<p class="note" style="margin-top:22px">SKINAA is prescribed, not browsed into a cart: your stack is built by the 28-step intake and claimed as one Phase 1 box ($118–$148), then refilled by Ascension Plus.</p>'
+  +   '<p class="note" style="margin-top:22px">Buy this piece on its own — add it to the tray above. Or let the 28-step intake build your Phase 1 box ($118–$148) at the <a href="stacks.html">Prescription Counter</a>, then refill it through Ascension Plus.</p>'
   +   '</div></div></product-info></div></div>'
   /* G29 ctr-product lower composition */
   + '<div class="ctr-product"><div class="ctr-product__inner">'

@@ -26,6 +26,10 @@
   .doors{display:flex;gap:16px;flex-wrap:wrap;margin-top:38px}
   .door{display:flex;align-items:center;justify-content:space-between;gap:26px;min-width:min(320px,100%);background:var(--e-ivory);color:var(--plum-black);text-decoration:none;border-radius:6px;padding:22px 26px;box-shadow:0 30px 60px rgba(25,8,14,.38)}
   .door .dname{font-size:19px;font-weight:800;letter-spacing:-.01em}
+  .door .dtxt{display:flex;flex-direction:column;gap:5px}
+  .door .dsub{font-size:13px;line-height:1.45;color:#634f32;font-weight:600}
+  .door-shopall{margin-top:18px}
+  .door-shopall a{color:var(--e-ivory);font-weight:700;font-size:15px}
   .door .darrow{font-size:20px;color:var(--a-dusty-blue);font-weight:800}
   .door:hover .dname{color:var(--a-hazelnut)}
   .boardroom{max-width:1180px;margin:0 auto;padding:84px 28px 10px;text-align:center}
@@ -84,25 +88,7 @@
      The single azure kinetic word lives here, over the wing texture. -->
 <div class="ctr-initial-page-loader" aria-hidden="true"><div class="loading"><span class="loading__image__holder"></span><span class="kinetic-word">open</span></div></div>
 
-<!-- S-01 · sckenofficial password-gate door (HOUSE STOCK, PROVENANCE-CLEAN copy)
-     + S-02 · the owner's password-entry dialog -->
-<section class="password-gate section-password">
-  <div class="background-image-container"><img src="assets/skinaa-post-portrait.jpg" alt="SKINAA portrait"></div>
-  <div class="logo-block__image-wrapper"><img class="logo-block__image" src="assets/skinaa-wordmark.png" alt="SKINAA" style="height:30px;filter:brightness(0) invert(1)"></div>
-  <h2>Your skin. Elevated.</h2>
-  <p class="gate-sub">Different skin. One goal. Formulated for all skin types. Visible results. Nothing unnecessary.</p>
-  <button class="password-footer__button" type="button">Enter using password</button>
-</section>
-<dialog class="password-dialog" aria-labelledby="pw-title">
-  <div class="password-dialog__content">
-    <div class="password-dialog__header"><span class="password-dialog__title" id="pw-title">Enter password</span><button class="button-unstyled password-dialog__close-button" type="button" aria-label="Close">×</button></div>
-    <form class="storefront-password-form" method="dialog">
-      <label for="pw-field">Password</label>
-      <input class="field__input" id="pw-field" type="password" autocomplete="current-password">
-      <button class="button password-dialog__submit-button" type="submit">Submit</button>
-    </form>
-  </div>
-</dialog>
+
 
 <div class="authbar">🏥 <b>Co-Founded by Board-Certified Dermatologists</b> &nbsp;|&nbsp; Official Esthetic Standard</div>
 
@@ -214,9 +200,11 @@
   <h1>Your skin. Elevated.</h1>
   <p class="sub">Different skin. One goal. Formulated for all skin types. Visible results. Nothing unnecessary.</p>
   <div class="doors">
-    <a class="door" href="assessment.html"><span class="dname">The Intake</span><span class="darrow">→</span></a>
-    <a class="door" href="catalog.html"><span class="dname">The Collection</span><span class="darrow">→</span></a>
+    <a class="door" href="catalog.html?for=her"><span class="dtxt"><span class="dname">For Her</span><span class="dsub">Glass Skin Radiance · V-Line Sculpting · Lip &amp; Perioral Plumping</span></span><span class="darrow">→</span></a>
+    <a class="door" href="catalog.html?for=him"><span class="dtxt"><span class="dname">For Him</span><span class="dsub">Submental Debloating · Hunter Eye Frame · Hairline &amp; Beard Density</span></span><span class="darrow">→</span></a>
+    <a class="door" href="assessment.html"><span class="dtxt"><span class="dname">The Skin Reading</span><span class="dsub">The 28-step diagnostic skin reading — your prescribed Phase 1 box: $118–$148</span></span><span class="darrow">→</span></a>
   </div>
+  <p class="door-shopall"><a href="catalog.html">Or shop all 40 pieces, one by one →</a></p>
   </div>
 </section>
 
@@ -224,92 +212,6 @@
 <!-- P-39 · Prequel video-background: a moving texture field at the boardroom
      threshold. The player carries no house film file yet — named GAP. -->
 <div class="video-background"><div class="image__hero__frame"><img class="video__poster" src="assets/tex/wing-a.jpg" alt="The house wing, in motion"><video class="video__player" muted loop playsinline preload="none"></video><span class="video__frame">The Wing — House Texture</span></div></div>
-
-<section class="boardroom" id="board">
-  <div class="kicker">The Positioning</div>
-  <h2>Clinical Dermatology Meets Facial Architecture.</h2>
-  <p class="lede">Board-certified active formulations prescribed directly through our 28-step diagnostic skin reading. Engineered for rapid 14-day visual transformation and long-term barrier maintenance.</p>
-
-  <!-- G-10 · Gundry media authority bar, re-homed: linked board credentials, zero media logos -->
-  <div class="g10-authority-bar">
-    <a href="#board">Formulated by Board-Certified Dermatologists at Duke Parameter Active Potencies</a>
-    <a href="#board">The Official Clinical Protocol of Premier Esthetics Academies</a>
-    <a href="#board">Stress-Tested in 500+ Professional Esthetic Cabins Before Consumer Batching</a>
-  </div>
-
-  <div class="boardhead">
-    <div class="kicker">The Dual-Engine Board</div>
-    <h2>Co-Founded by Medicine. Approved by Esthetics.</h2>
-    <p class="lede">"Medicine delivers cell turnover. Esthetics delivers immediate radiance." Most skincare brands are created by marketing executives using off-the-shelf white-label formulas. We built a different architecture: Board-Certified Clinical Dermatology and Master Esthetic Science, in the same room.</p>
-  </div>
-
-  <!-- P-18 · Prequel board portrait columns (section_columns / column grammar):
-       credentials as records. No board face photography exists in the house
-       assets and the document carries name placeholders — faces are a NAMED SLOT.
-       Medallions are flat book tones, unlabeled (COLOR-NOT-MERCHANDISE fix,
-       2026-10-31): no texture crops or picture-like fills where people belong. -->
-  <div class="section_columns">
-    <div class="column"><div class="column__image column__image--circle column__tone--a" aria-hidden="true"></div><div class="column__heading">Dermatologist Co-Founder &amp; Chief Medical Officer</div><div class="column__subtitle">Board-Certified Dermatologist</div></div>
-    <div class="column"><div class="column__image column__image--circle column__tone--b" aria-hidden="true"></div><div class="column__heading">Medical Advisory Board</div><div class="column__subtitle">Dermatologic Oncology &amp; Barrier</div></div>
-    <div class="column"><div class="column__image column__image--circle column__tone--c" aria-hidden="true"></div><div class="column__heading">Lead LE — Head of Esthetic Protocols</div><div class="column__subtitle">Master Esthetician</div></div>
-    <div class="column"><div class="column__image column__image--circle column__tone--d" aria-hidden="true"></div><div class="column__heading">LE — Beauty Care Specialist</div><div class="column__subtitle">Clinical Facial Architect</div></div>
-  </div>
-  <div class="brick__section"><div class="brick__block brick__block--text"><div class="board">
-    <div class="card"><span class="bdg">Board-Certified Dermatologist</span><div class="role">Dermatologist Co-Founder &amp; Chief Medical Officer</div><p class="foc">Focus: Molecule Stabilization, Duke Parameters, Barrier Integrity.</p><p class="qt">"We don't chase trends. We formulate active molecules at free-acid pH levels that fundamentally alter cell turnover."</p></div>
-    <div class="card"><span class="bdg">Dermatologic Oncology &amp; Barrier</span><div class="role">Medical Advisory Board</div><p class="foc">Focus: Photodamage Erasure, Melanin Safety, Sensitivity Thresholds.</p><p class="qt">"High-potency actives must protect the epidermal lipid mantle. Our protocols prevent rebound inflammation."</p></div>
-    <div class="card"><span class="bdg">Master Esthetician</span><div class="role">Lead LE — Head of Esthetic Protocols</div><p class="foc">Focus: Immediate Tactile Dew, Pore Refinement, Post-Needling Recovery.</p><p class="qt">"Dermatology provides the science, but esthetics delivers the immediate glow. Every batch is tested for camera-ready reflection."</p></div>
-    <div class="card"><span class="bdg">Clinical Facial Architect</span><div class="role">LE — Beauty Care Specialist</div><p class="foc">Focus: Lymphatic Drainage Mechanics, Surface Glaze Optics, De-Puffing.</p><p class="qt">"We evaluate how topicals interact with manual sculpting tools to maximize immediate jawline and cheekbone definition."</p></div>
-  </div></div></div>
-
-  <!-- G16 · Graymatter evidence trio: backed-by band / medical board / scientific studies -->
-  <div class="evidence-band backed-by-band"><div class="kicker">Backed By</div><h3>The Stat-Driven Social Proof Bar</h3>
-    <div class="stats">
-      <div><b>100%</b><span>Formulated under Board-Certified Dermatologist Direction</span></div>
-      <div><b>#1</b><span>Recommended Protocol Across Partner Esthetic Academies</span></div>
-      <div><b>0%</b><span>Fillers, Fragrances, Dyes, or Irritating Sulfates</span></div>
-      <div><b>14 Days</b><span>Average Time to Quantifiable Visual Skin Transformation</span></div>
-    </div></div>
-  <div class="evidence-band medical-board-band"><div class="kicker">The Medical Board</div><h3>The Dual-Engine Philosophy</h3>
-    <p>"Most skincare brands are created by marketing executives using off-the-shelf white-label formulas. We built a different architecture. Our board brings together two distinct disciplines that rarely sit in the same room: Board-Certified Clinical Dermatology and Master Esthetic Science."</p></div>
-  <div class="evidence-band scientific-studies-band"><div class="kicker">Scientific Studies</div><h3>The Professional Esthetician Training Standard</h3>
-    <p>"Before any SKINAA formulation is approved for consumer release, it is supplied to premier Beauty &amp; Esthetics Academies as the baseline training protocol for licensed facialists. If a formula cannot pass the rigorous standards of professional esthetic instructors, it doesn't enter our lab."</p>
-    <h3>Dermatologist-Led Molecular Precision</h3>
-    <p>"Every serum, cleanser, and barrier glaze is developed under direct dermatological oversight. We strictly adhere to Duke Parameter guidelines for L-Ascorbic Acid stabilization, free-acid glycolic values, and 2:4:2 lipid ratios—delivering prescription-tier results directly to your vanity."</p></div>
-
-  <!-- G-11 · Gundry authority trio cards: three linked board cards -->
-  <div class="trio-cards">
-    <a href="#board"><span class="bdg">Board-Certified Dermatologist</span><div class="trole">Dermatologist Co-Founder &amp; Chief Medical Officer</div><p class="tfoc">Focus: Molecule Stabilization, Duke Parameters, Barrier Integrity.</p></a>
-    <a href="#board"><span class="bdg">Dermatologic Oncology &amp; Barrier</span><div class="trole">Medical Advisory Board</div><p class="tfoc">Focus: Photodamage Erasure, Melanin Safety, Sensitivity Thresholds.</p></a>
-    <a href="#board"><span class="bdg">Master Esthetician</span><div class="trole">Lead LE — Head of Esthetic Protocols</div><p class="tfoc">Focus: Immediate Tactile Dew, Pore Refinement, Post-Needling Recovery.</p></a>
-  </div>
-
-  <!-- BL-21 · Bloom pdp-image-text-split: the Board's seal panel -->
-  <div class="pdp-image-text-split image-text-split">
-    <div class="split-image image-text-split__container__image"><img src="assets/iter-fab07-spa.webp" alt="FAB-07, spa still life"></div>
-    <div class="split-text image-text-split__container__text"><p>"Skincare shouldn't force you to choose between medical barrier health and immediate aesthetic radiance. We engineered a dual-discipline system."</p></div>
-  </div>
-
-  <!-- S-05 · sckenofficial viewport-aware slideshow: the Board record, scrolled -->
-  <slideshow-component class="s05-slideshow"><div class="s05-track">
-    <div class="s05-slide"><p class="sq">"We don't chase trends. We formulate active molecules at free-acid pH levels that fundamentally alter cell turnover."</p><div class="sr">Dermatologist Co-Founder &amp; Chief Medical Officer</div></div>
-    <div class="s05-slide"><p class="sq">"High-potency actives must protect the epidermal lipid mantle. Our protocols prevent rebound inflammation."</p><div class="sr">Medical Advisory Board</div></div>
-    <div class="s05-slide"><p class="sq">"Dermatology provides the science, but esthetics delivers the immediate glow. Every batch is tested for camera-ready reflection."</p><div class="sr">Lead LE — Head of Esthetic Protocols</div></div>
-    <div class="s05-slide"><p class="sq">"We evaluate how topicals interact with manual sculpting tools to maximize immediate jawline and cheekbone definition."</p><div class="sr">LE — Beauty Care Specialist</div></div>
-  </div></slideshow-component>
-
-  <!-- G35 · Graymatter about blocks: high-performers + image-with-text + CTA -->
-  <div class="about-blocks">
-    <div class="high-performers"><div class="kicker">The House Record</div><h3>The Clinical Standard for High-Performance Skincare.</h3>
-      <p>"Built by a master panel of dermatologists and beauty care specialists. We combine clinical-grade active molecules with barrier-first pharmacology to deliver visible skin transformation in 14 days."</p></div>
-    <div class="image-with-text"><div class="kicker">The Diagnostic Intake</div><h3>Prescriptive Dermatology. Tailored for Facial Harmony.</h3>
-      <p>"Skip generic off-the-shelf formulas. Our dermatologist co-founded panel engineered a 28-step diagnostic reading that matches your skin barrier with clinical-grade, academy-recommended active protocols."</p>
-      <div class="cta-row"><a class="pill dark" href="assessment.html">Begin Board Diagnostic Intake ➔</a></div></div>
-  </div>
-
-  <!-- G-29 · Gundry philosophy card: the house philosophy, layered over texture -->
-  <div class="philosophy-card"><div class="kicker">The House Philosophy</div><h3>Dermatologist Formulated. Esthetician Perfected.</h3>
-    <p>"Co-founded by board-certified dermatologists and backed by premier esthetic academies, our clinical diagnostic engine prescribes precise active topicals tailored to your exact skin phenotype and facial proportions."</p></div>
-</section>
 
 <section class="preview">
   <div class="pin">
@@ -387,6 +289,79 @@
     <a class="dcta" href="catalog.html">The Collection →</a>
   </div>
 </section>
+
+<section class="boardroom" id="board">
+  <div class="kicker">The Positioning</div>
+  <h2>Clinical Dermatology Meets Facial Architecture.</h2>
+  <p class="lede">Board-certified active formulations prescribed directly through our 28-step diagnostic skin reading. Engineered for rapid 14-day visual transformation and long-term barrier maintenance.</p>
+
+  <!-- G-10 · Gundry media authority bar, re-homed: linked board credentials, zero media logos -->
+  <div class="g10-authority-bar">
+    <a href="#board">Formulated by Board-Certified Dermatologists at Duke Parameter Active Potencies</a>
+    <a href="#board">The Official Clinical Protocol of Premier Esthetics Academies</a>
+    <a href="#board">Stress-Tested in 500+ Professional Esthetic Cabins Before Consumer Batching</a>
+  </div>
+
+  <div class="boardhead">
+    <div class="kicker">The Dual-Engine Board</div>
+    <h2>Co-Founded by Medicine. Approved by Esthetics.</h2>
+    <p class="lede">"Medicine delivers cell turnover. Esthetics delivers immediate radiance." Most skincare brands are created by marketing executives using off-the-shelf white-label formulas. We built a different architecture: Board-Certified Clinical Dermatology and Master Esthetic Science, in the same room.</p>
+  </div>
+
+  <!-- P-18 · Prequel board portrait columns (section_columns / column grammar):
+       credentials as records. No board face photography exists in the house
+       assets and the document carries name placeholders — faces are a NAMED SLOT.
+       Medallions are flat book tones, unlabeled (COLOR-NOT-MERCHANDISE fix,
+       2026-10-31): no texture crops or picture-like fills where people belong. -->
+  <div class="section_columns">
+    <div class="column"><div class="column__image column__image--circle column__tone--a" aria-hidden="true"></div><div class="column__heading">Dermatologist Co-Founder &amp; Chief Medical Officer</div><div class="column__subtitle">Board-Certified Dermatologist</div></div>
+    <div class="column"><div class="column__image column__image--circle column__tone--b" aria-hidden="true"></div><div class="column__heading">Medical Advisory Board</div><div class="column__subtitle">Dermatologic Oncology &amp; Barrier</div></div>
+    <div class="column"><div class="column__image column__image--circle column__tone--c" aria-hidden="true"></div><div class="column__heading">Lead LE — Head of Esthetic Protocols</div><div class="column__subtitle">Master Esthetician</div></div>
+    <div class="column"><div class="column__image column__image--circle column__tone--d" aria-hidden="true"></div><div class="column__heading">LE — Beauty Care Specialist</div><div class="column__subtitle">Clinical Facial Architect</div></div>
+  </div>
+  <div class="brick__section"><div class="brick__block brick__block--text"><div class="board">
+    <div class="card"><span class="bdg">Board-Certified Dermatologist</span><div class="role">Dermatologist Co-Founder &amp; Chief Medical Officer</div><p class="foc">Focus: Molecule Stabilization, Duke Parameters, Barrier Integrity.</p><p class="qt">"We don't chase trends. We formulate active molecules at free-acid pH levels that fundamentally alter cell turnover."</p></div>
+    <div class="card"><span class="bdg">Dermatologic Oncology &amp; Barrier</span><div class="role">Medical Advisory Board</div><p class="foc">Focus: Photodamage Erasure, Melanin Safety, Sensitivity Thresholds.</p><p class="qt">"High-potency actives must protect the epidermal lipid mantle. Our protocols prevent rebound inflammation."</p></div>
+    <div class="card"><span class="bdg">Master Esthetician</span><div class="role">Lead LE — Head of Esthetic Protocols</div><p class="foc">Focus: Immediate Tactile Dew, Pore Refinement, Post-Needling Recovery.</p><p class="qt">"Dermatology provides the science, but esthetics delivers the immediate glow. Every batch is tested for camera-ready reflection."</p></div>
+    <div class="card"><span class="bdg">Clinical Facial Architect</span><div class="role">LE — Beauty Care Specialist</div><p class="foc">Focus: Lymphatic Drainage Mechanics, Surface Glaze Optics, De-Puffing.</p><p class="qt">"We evaluate how topicals interact with manual sculpting tools to maximize immediate jawline and cheekbone definition."</p></div>
+  </div></div></div>
+
+  <!-- G16 · Graymatter evidence trio: backed-by band / medical board / scientific studies -->
+  <div class="evidence-band backed-by-band"><div class="kicker">Backed By</div><h3>The Stat-Driven Social Proof Bar</h3>
+    <div class="stats">
+      <div><b>100%</b><span>Formulated under Board-Certified Dermatologist Direction</span></div>
+      <div><b>#1</b><span>Recommended Protocol Across Partner Esthetic Academies</span></div>
+      <div><b>0%</b><span>Fillers, Fragrances, Dyes, or Irritating Sulfates</span></div>
+      <div><b>14 Days</b><span>Average Time to Quantifiable Visual Skin Transformation</span></div>
+    </div></div>
+  <div class="evidence-band medical-board-band"><div class="kicker">The Medical Board</div><h3>The Dual-Engine Philosophy</h3>
+    <p>"Most skincare brands are created by marketing executives using off-the-shelf white-label formulas. We built a different architecture. Our board brings together two distinct disciplines that rarely sit in the same room: Board-Certified Clinical Dermatology and Master Esthetic Science."</p></div>
+  <div class="evidence-band scientific-studies-band"><div class="kicker">Scientific Studies</div><h3>The Professional Esthetician Training Standard</h3>
+    <p>"Before any SKINAA formulation is approved for consumer release, it is supplied to premier Beauty &amp; Esthetics Academies as the baseline training protocol for licensed facialists. If a formula cannot pass the rigorous standards of professional esthetic instructors, it doesn't enter our lab."</p>
+    <h3>Dermatologist-Led Molecular Precision</h3>
+    <p>"Every serum, cleanser, and barrier glaze is developed under direct dermatological oversight. We strictly adhere to Duke Parameter guidelines for L-Ascorbic Acid stabilization, free-acid glycolic values, and 2:4:2 lipid ratios—delivering prescription-tier results directly to your vanity."</p></div>
+
+  <!-- BL-21 · Bloom pdp-image-text-split: the Board's seal panel -->
+  <div class="pdp-image-text-split image-text-split">
+    <div class="split-image image-text-split__container__image"><img src="assets/iter-fab07-spa.webp" alt="FAB-07, spa still life"></div>
+    <div class="split-text image-text-split__container__text"><p>"Skincare shouldn't force you to choose between medical barrier health and immediate aesthetic radiance. We engineered a dual-discipline system."</p></div>
+  </div>
+
+  <!-- G35 · Graymatter about blocks: high-performers + image-with-text + CTA -->
+  <div class="about-blocks">
+    <div class="high-performers"><div class="kicker">The House Record</div><h3>The Clinical Standard for High-Performance Skincare.</h3>
+      <p>"Built by a master panel of dermatologists and beauty care specialists. We combine clinical-grade active molecules with barrier-first pharmacology to deliver visible skin transformation in 14 days."</p></div>
+    <div class="image-with-text"><div class="kicker">The Diagnostic Intake</div><h3>Prescriptive Dermatology. Tailored for Facial Harmony.</h3>
+      <p>"Skip generic off-the-shelf formulas. Our dermatologist co-founded panel engineered a 28-step diagnostic reading that matches your skin barrier with clinical-grade, academy-recommended active protocols."</p>
+      <div class="cta-row"><a class="pill dark" href="assessment.html">Begin Board Diagnostic Intake ➔</a></div></div>
+  </div>
+
+  <!-- G-29 · Gundry philosophy card: the house philosophy, layered over texture -->
+  <div class="philosophy-card"><div class="kicker">The House Philosophy</div><h3>Dermatologist Formulated. Esthetician Perfected.</h3>
+    <p>"Co-founded by board-certified dermatologists and backed by premier esthetic academies, our clinical diagnostic engine prescribes precise active topicals tailored to your exact skin phenotype and facial proportions."</p></div>
+</section>
+
+
 
 
 
