@@ -4,44 +4,330 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="The prescribed Attack Stacks — Phase 1 boxes and Ascension Plus refills, the quantity ladder, and the free member layer.">
-<meta name="theme-color" content="#4B4B4D">
+<meta name="theme-color" content="#83367a">
 <title>Attack Stacks — SKINAA by Maanaa</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/skinaa.css">
 <style>
+  /* ===== Story D · mulberry — the Prescription Counter (page scope) =====
+     Sealed combination D + shared neutrals only: mulberry #83367a,
+     tangerine #e3771a (the dispensary signal, rationed), ivory #ece7ea,
+     plum-black #19080e. This page scope re-themes the C defaults in
+     skinaa-products.css and the legacy aliases in skinaa.css for every
+     component this page uses — no C hex computes here (see report). */
+  body{
+    background-color:var(--d-mulberry);
+    --sk-ground:var(--e-ivory); --sk-ink:var(--e-plum-black);
+    --sk-panel:var(--d-mulberry); --sk-band:var(--d-mulberry);
+    --sk-accent:var(--d-tangerine); --sk-seal:var(--d-tangerine);
+    --sk-muted:rgba(25,8,14,.62); --sk-line:var(--d-mulberry);
+    --cardline:rgba(131,54,122,.45);
+  }
+  /* the room's ground material: cut figs under a mulberry veil */
+  .pagehead{
+    background-image:linear-gradient(rgba(131,54,122,.78),rgba(131,54,122,.90)),url(assets/tex/fig-d.jpg);
+    background-size:cover;background-position:center;
+    border-radius:0 0 32px 32px;padding-bottom:56px;
+    box-shadow:0 30px 60px rgba(25,8,14,.35);
+  }
+  .kicker{color:var(--e-ivory)}
+  section.blk > h2{color:var(--e-ivory)}
+  /* cards: ivory dispensations on the mulberry ground */
+  .card{box-shadow:0 24px 54px rgba(25,8,14,.38)}
+  .tag{color:var(--d-mulberry);border-color:rgba(131,54,122,.45)}
+  .tag.red{color:var(--d-tangerine);border-color:var(--d-tangerine)}
+  .note{color:rgba(25,8,14,.62)}
+  .sku-meta{color:rgba(25,8,14,.62)}
+  .price3{color:rgba(25,8,14,.62)}
+  .stack-strip a{background:var(--d-mulberry)}
   .stack-items{list-style:none;margin-top:14px;display:grid;gap:8px}
   .stack-items li{font-size:15px}
-  .stack-items a{font-weight:600}
+  .stack-items a{font-weight:600;color:var(--d-mulberry)}
+  /* the ladder: selected = the room's chip fills its band; sale grammar off */
+  .ladder label{border-color:rgba(131,54,122,.45)}
+  .ladder label.sel{border-color:var(--d-tangerine);background:rgba(227,119,26,.14)}
+  .ladder .rec{background:var(--d-tangerine);color:var(--e-plum-black)}
+  .ladder .save{display:none}
+  /* actions: tangerine is the dispensing moment, and nothing else shouts */
+  .pill.dark{background:var(--d-tangerine);color:var(--e-plum-black);box-shadow:0 10px 26px rgba(25,8,14,.28)}
   .claimrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;align-items:center}
-  .addon{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--cardline);border-radius:16px;padding:14px 18px;margin-top:12px;font-size:15px;line-height:1.5}
-  .addon input{width:20px;height:20px;margin-top:2px;accent-color:#B3392E;flex:none}
-  .member{background:#3A3A3C;border:1px solid var(--line);border-radius:24px;padding:34px;color:var(--ink)}
-  .member input{flex:1;min-width:200px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:14px 22px;font-size:15px;color:#fff;font-family:inherit}
+  .addon{display:flex;gap:12px;align-items:flex-start;border:1.5px solid rgba(131,54,122,.45);border-radius:16px;padding:14px 18px;margin-top:12px;font-size:15px;line-height:1.5}
+  .addon input{width:20px;height:20px;margin-top:2px;accent-color:#e3771a;flex:none}
+  /* ===== THE MOMENT: the Rx Protocol Card as the reel's chip, at
+     architectural scale — flat mulberry face, ivory band, the board's
+     stamps in tangerine. A kept artifact: thick, stamped, ceremonial. ===== */
+  .rxroom{
+    background-image:linear-gradient(rgba(25,8,14,.55),rgba(25,8,14,.72)),url(assets/tex/fig-d.jpg);
+    background-size:cover;background-position:center;
+    border-radius:32px;padding:56px 34px 64px;margin-top:72px;
+    box-shadow:0 34px 70px rgba(25,8,14,.42);
+  }
+  .rxroom > h2{color:var(--e-ivory);text-align:center}
+  .rxroom > .lede{color:var(--e-ivory);text-align:center;max-width:680px;margin:14px auto 0;line-height:1.6;font-size:16px}
+  .rxcard{
+    max-width:980px;margin:40px auto 0;background:var(--e-ivory);color:var(--e-plum-black);
+    border-radius:20px;overflow:hidden;transform:rotate(-.6deg);
+    box-shadow:0 44px 90px rgba(25,8,14,.55);border:1px solid rgba(25,8,14,.16);
+  }
+  .rxcard__face{background:var(--d-mulberry);color:var(--e-ivory);padding:38px 44px 44px}
+  .rxcard__face .rx-title{font-size:clamp(24px,3.6vw,40px);font-weight:800;letter-spacing:.1em;line-height:1.15;text-transform:uppercase}
+  .rxcard__face .rx-sealed{margin-top:12px;font-size:14px;line-height:1.6;color:var(--e-ivory)}
+  .rxcard__band{padding:34px 44px 40px}
+  .rxcard .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px 34px;font-size:16.5px;line-height:1.55}
+  @media(max-width:640px){.rxcard .grid2{grid-template-columns:1fr}.rxcard__face,.rxcard__band{padding-left:26px;padding-right:26px}.rxroom{padding:40px 16px 48px}}
+  .rxcard .sign{font-family:"Snell Roundhand","Segoe Script",cursive;font-size:23px}
+  .rxcard .sign.derm{color:var(--d-mulberry)}
+  .rxcard .stamp{border-color:var(--d-tangerine);color:var(--d-tangerine)}
+  /* the member room: plum-black deep panel over the fig ground */
+  .member{
+    background-image:linear-gradient(rgba(25,8,14,.88),rgba(25,8,14,.94)),url(assets/tex/fig-d.jpg);
+    background-size:cover;background-position:center;
+    border:1px solid rgba(236,231,234,.16);border-radius:24px;padding:34px;color:var(--e-ivory);
+  }
+  .member .kicker{color:var(--e-ivory)}
+  .member p{color:var(--e-ivory)}
+  .member input{flex:1;min-width:200px;background:rgba(236,231,234,.08);border:1px solid rgba(236,231,234,.25);border-radius:999px;padding:14px 22px;font-size:15px;color:var(--e-ivory);font-family:inherit}
+  #memberDeal{color:rgba(236,231,234,.72) !important}
 </style>
 <link rel="stylesheet" href="assets/skinaa-products.css">
+<link rel="stylesheet" href="assets/enrich/counter-extracts.css">
+<link rel="stylesheet" href="assets/enrich/counter.css">
+<link rel="stylesheet" href="assets/enrich/endcards-extracts.css">
+<link rel="stylesheet" href="assets/enrich/endcards.css">
 </head>
 <body>
+
+<!-- F-20 · FAB header shell (chrome rollout, copied from the landed
+     Collection build): dual regular/transparent logo mechanism, house
+     wordmark in both slots. G-01's mega-menu mounts inside it as this
+     room's header-context directory (stacks-first taxonomy). -->
+<div class="hdr enrich"><header class="header" id="site-header">
+  <span class="header__logo"><a class="header__logo-link" href="index.html" aria-label="SKINAA"><span class="header__logo-wrapper">
+    <span class="image regular-logo"><img src="assets/skinaa-wordmark.png" alt="SKINAA"></span>
+    <span class="image transparent-logo"><img src="assets/skinaa-wordmark.png" alt=""></span>
+  </span></a></span>
+  <nav class="site">
+    <span class="navitem--dropdown navitem--mega"><a href="stacks.html" class="navlink--toplevel">The Stacks</a>
+      <span class="mega-menu" aria-label="The dispensing directory">
+        <span class="mega-menu__grid" id="mega-menu-grid"></span>
+      </span>
+    </span>
+    <a href="catalog.html">The Collection</a>
+    <a href="vault.html">The Vault</a>
+    <a href="guide-female.html">Female Guide</a>
+    <a href="guide-male.html">Male Guide</a>
+    <a href="portal.html">Member's Room</a>
+  </nav>
+  <span class="header__icons">
+    <button class="header__icon-touch header__icon-touch--search" type="button" aria-label="Search">Search</button>
+    <a class="header__icon-touch header__icon-touch--account" href="portal.html">Account</a>
+    <button class="header__icon-touch header__icon-touch--cart" type="button" data-cart-open>Cart<span class="header__cart-link-count cart-count">0</span></button>
+    <button class="header__icon-touch" type="button" data-tray-open>Tray</button>
+  </span>
+  <div class="header-search-popdown search-popdown" hidden>
+    <form class="predictive-search-form" role="search" onsubmit="return false">
+      <input type="search" name="q" placeholder="Search the 40 pieces" aria-label="Search the collection">
+    </form>
+    <div class="predictive-search" aria-live="polite"></div>
+    <span class="search-status" role="status"></span>
+  </div>
+</header></div>
+
+<!-- P-28 drawer framework + P-13 · Prequel cart drawer (site-wide cart;
+     the discount-code field CUT on transplant, per its row) -->
+<div class="drawer__underlay underlay"></div>
+<aside class="cart-drawer drawer drawer--animated" aria-hidden="true" aria-label="Cart">
+  <div class="drawer__inner">
+    <div class="drawer__head"><span>The Collection Tray</span><button class="drawer__close" type="button" aria-label="Close cart">×</button></div>
+    <div class="drawer__body"><div class="cart-items"></div></div>
+    <div class="drawer__foot"><span class="cart-total">0 in the tray</span>
+      <p class="note">Free shipping from $118 — the Phase 1 stack entry price.</p></div>
+  </div>
+</aside>
+
+<!-- G-37 · kinetic signals -->
+<div class="toast-stack" aria-live="polite"></div>
+<div class="loading-overlay" aria-hidden="true"><span class="kinetic-word">open</span></div>
+
+<!-- F-23 · flash-alert toast mount (the dispensing room's signal) -->
+<div class="flash-alert" role="alert" aria-live="polite"></div>
+
 <section class="pagehead">
   <div class="kicker">Phase 1 · The Attack Stacks</div>
   <h1>Prescribed. Boxed. Fourteen days.</h1>
   <p>Days 1–14 you try everything: the full Attack Stack in hand, in the rigid collector's box. Day 15 is the iteration gate — a fresh assessment, your face photo, and the next batch is reformulated from it. Cycles run 30 days, anchored on the 28th.</p>
+  <p style="margin-top:18px"><button class="pill dark" type="button" data-tray-open>Open the dispensing tray</button> <button class="pill" type="button" data-availability-open>Collection points</button></p>
 </section>
 
 <section class="blk">
-  <div class="grid c2" id="bundles"></div>
+  <!-- G22 · Graymatter bundles collection view: subcollections + filter/sort over BUNDLES -->
+  <div class="collection" aria-label="The stacks, by subcollection">
+    <nav class="collection__nav" aria-label="Stack subcollections">
+      <button type="button" data-filter="All" class="current">All stacks</button>
+      <button type="button" data-filter="Female">Female protocols</button>
+      <button type="button" data-filter="Male">Male protocols</button>
+      <label class="note" style="color:var(--e-ivory)">Sort <select data-sort-select aria-label="Sort stacks">
+        <option value="featured">Prescribed order</option>
+        <option value="price-asc">Phase 1 price, low to high</option>
+        <option value="price-desc">Phase 1 price, high to low</option>
+        <option value="weekly-asc">Weekly, low to high</option>
+      </select></label>
+    </nav>
+    <div class="grid c2" id="bundles"></div>
+  </div>
 </section>
 
+<!-- P-02 · Prequel stacked bundle blocks: paired dispensing, in place -->
 <section class="blk">
+  <h2>Paired dispensing — the stack, in place</h2>
+  <p class="lede">Each stacked block dispenses its whole stack through the tray in one action — the pieces post together, as one bundle.</p>
+  <div class="stacked-bundles" id="stacked-bundles"></div>
+</section>
+
+<section class="blk rxroom">
+  <h2>On top of the box: your protocol card</h2>
+  <p class="lede">Printed on thick, textured off-white cardstock — a clinical prescription pad, signed by both disciplines.</p>
+  <div class="rxcard">
+    <div class="rxcard__face">
+      <div class="rx-title">Clinical Rx Protocol Card</div>
+      <p class="rx-sealed">Laboratory sealed — batch tested for active potency &amp; purity</p>
+    </div>
+    <div class="rxcard__band">
+      <div class="grid2">
+        <span><b>Patient phenotype:</b> set by your 28-step intake</span>
+        <span><b>Prescribed stack:</b> your matched Phase 1 box</span>
+        <span><b>Cycle:</b> 30 days, anchored on the 28th</span>
+        <span><b>Iteration gate:</b> Day 15 — re-assessment + face photo</span>
+      </div>
+      <div style="display:flex;gap:34px;flex-wrap:wrap;margin-top:26px;align-items:flex-end">
+        <div><div class="sign derm">Board-Certified Dermatology</div><div class="note">Board signature — Dermatologist Co-Founder</div></div>
+        <div><div class="sign">Esthetics, Master LE</div><div class="note">Esthetics chief — Head of Esthetic Protocols</div></div>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:22px">
+        <span class="stamp">Board Certified Formulation</span>
+        <span class="stamp">Academy Approved</span>
+      </div>
+      <p class="note" style="margin-top:20px">The card carries your step-by-step 14-day calendar grid — morning and evening application rules, day by day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- G14 · Graymatter performance_section: protocol stages beside the Rx Card -->
+<section class="blk performance_section">
+  <h2>The protocol, staged</h2>
+  <div class="card"><div class="pad">
+    <ol class="performance__stages">
+      <li class="performance__stage"><span class="performance__when">Days 1–14</span><p>You try everything: the full Attack Stack in hand, in the rigid collector's box — morning and evening application rules, day by day, on the card.</p></li>
+      <li class="performance__stage"><span class="performance__when">Day 15</span><p>The iteration gate — a fresh assessment, your face photo, and the next batch is reformulated from it.</p></li>
+      <li class="performance__stage"><span class="performance__when">Day 28</span><p>Cycles run 30 days, anchored on the 28th.</p></li>
+      <li class="performance__stage"><span class="performance__when">Each cycle</span><p>Your refill auto-charges 3 days before each delivery date, and you can pause anytime — pausing triggers your esthetician's barrier-cycle review first.</p></li>
+    </ol>
+  </div></div>
+</section>
+
+<section class="blk" id="dispense">
   <h2>The ladder — sized to the 30-day cycle</h2>
   <p class="lede">One cycle, three cycles, or six. The middle tier is the prescribed default — the board's standing recommendation.</p>
-  <div class="card" style="max-width:720px;margin:36px auto 0"><div class="pad">
-    <div class="ladder" id="ladder">
-      <label data-c="1"><span><input type="radio" name="cyc"> &nbsp;1 cycle — one 30-day run</span><span class="save" data-t="cycles1"></span></label>
-      <label data-c="3" class="sel"><span><input type="radio" name="cyc" checked> &nbsp;3 cycles — a full season</span><span><span class="rec">Prescribed default</span> <span class="save" data-t="cycles3"></span></span></label>
-      <label data-c="6"><span><input type="radio" name="cyc"> &nbsp;6 cycles — the full ascension</span><span class="save" data-t="cycles6"></span></label>
+  <div class="card dispense"><div class="pad">
+    <div class="bundle-picker" role="group" aria-label="Choose a stack">
+      <button type="button" data-bundle-pick="F-A">F-A</button>
+      <button type="button" data-bundle-pick="F-B">F-B</button>
+      <button type="button" data-bundle-pick="F-C">F-C</button>
+      <button type="button" data-bundle-pick="M-A">M-A</button>
+      <button type="button" data-bundle-pick="M-B">M-B</button>
+      <button type="button" data-bundle-pick="M-C">M-C</button>
     </div>
-    <p class="note" style="margin-top:16px">Tier savings calibrate at claim — your board sets them per protocol. Subscription terms, in plain words: your refill auto-charges 3 days before each delivery date, and you can pause anytime — pausing triggers your esthetician's barrier-cycle review first (see the portal).</p>
+    <p class="note" style="margin-bottom:14px">Dispensing: <b data-selected-bundle-name></b></p>
+    <!-- G10 · Graymatter ctr-tiers-bar: cycle tiers at a glance (page level) -->
+    <div class="ctr-tiers-bar">
+      <div class="ctr-tiers-bar__messages"><span class="ctr-tiers-bar__message"></span></div>
+      <div class="ctr-tiers-bar__track">
+        <div class="ctr-tiers-bar__track-fill"></div>
+        <span class="ctr-tiers-bar__track-marker" data-tier="1" style="left:16.6%"><span class="ctr-tiers-bar__track-marker-text">1 cycle</span></span>
+        <span class="ctr-tiers-bar__track-marker" data-tier="3" style="left:50%"><span class="ctr-tiers-bar__track-marker-text">3 cycles</span></span>
+        <span class="ctr-tiers-bar__track-marker" data-tier="6" style="left:97%"><span class="ctr-tiers-bar__track-marker-text">6 cycles</span></span>
+      </div>
+    </div>
+    <!-- G-05 · Gundry offer-selector rail: the captured data-* contract is the dispensing interface -->
+    <offer-selector-gmd id="gh-offer-selector">
+      <main class="offer-selector">
+        <ul style="list-style:none;display:grid;gap:10px">
+          <li class="offer-selector__option" data-qa="os-variant" data-selected="false" data-variant-id="F-C" data-quantity="1" data-price="118.00" tabindex="0">
+            <input type="radio" name="os-cycle" class="offer-selector__optionSelector" aria-label="1 cycle">
+            <span><span class="offer-selector__label">1 cycle</span><br><span class="offer-selector__cycle">One 30-day run</span></span>
+            <span class="offer-selector__price">$118.00</span></li>
+          <li class="offer-selector__option" data-qa="os-variant" data-selected="true" data-variant-id="F-C" data-quantity="3" data-price="354.00" tabindex="0">
+            <input type="radio" name="os-cycle" class="offer-selector__optionSelector" checked aria-label="3 cycles">
+            <span><span class="offer-selector__label">3 cycles</span><br><span class="offer-selector__cycle">A full season — the prescribed default</span></span>
+            <span class="offer-selector__price">$354.00</span></li>
+          <li class="offer-selector__option" data-qa="os-variant" data-selected="false" data-variant-id="F-C" data-quantity="6" data-price="708.00" tabindex="0">
+            <input type="radio" name="os-cycle" class="offer-selector__optionSelector" aria-label="6 cycles">
+            <span><span class="offer-selector__label">6 cycles</span><br><span class="offer-selector__cycle">The full ascension</span></span>
+            <span class="offer-selector__price">$708.00</span></li>
+        </ul>
+      </main>
+    </offer-selector-gmd>
+    <p class="ladder-price"></p>
+    <div class="claimrow"><button class="pill dark" type="button" data-dispense-selected>Dispense the selected stack →</button></div>
+    <!-- G-30 · Gundry bundle-progress-bar: stack completion, tracked beside the ladder -->
+    <bundle-progress-bar>
+      <div class="bundle-progress-bar__track"><div class="bundle-progress-bar__fill"></div></div>
+      <p class="bundle-progress-bar__text"></p>
+    </bundle-progress-bar>
+    <!-- G-06 · Gundry subscribe-benefits checklist: the standing-order checklist (document items only) -->
+    <ul class="ctr-checklist">
+      <li><span class="check">✓</span><span>Day 15 is the iteration gate — a fresh assessment, your face photo, and the next batch is reformulated from it.</span></li>
+      <li><span class="check">✓</span><span>Your refill auto-charges 3 days before each delivery date.</span></li>
+      <li><span class="check">✓</span><span>You can pause anytime — pausing triggers your esthetician's barrier-cycle review first.</span></li>
+      <li><span class="check">✓</span><span>Cycles run 30 days, anchored on the 28th.</span></li>
+      <li><span class="check">✓</span><span>Joining the member layer is free; subscribing is separate.</span></li>
+    </ul>
+    <p class="note" style="margin-top:16px">Tier savings calibrate at claim — your board sets them per protocol.</p>
     <div class="price3"><span>Regular <b>Phase 1 band $118–$148</b></span><span>Ascension Plus <b>$28–$38 / week</b></span><span>Member <b id="memberPrice">Member tier — free to join</b></span></div>
     <p class="note" style="margin-top:10px">Free shipping from $118 — set at the Phase 1 stack's entry price, not a round number above it.</p>
+    <!-- S-19 · sckenofficial price-per-item: per-item presentation for single-piece adds -->
+    <div class="ctr-subscription-qty-limit" data-limit-message="This item is limited to 3 per order." style="margin-top:22px;border-top:1px solid rgba(131,54,122,.3);padding-top:18px">
+      <p><b>A single piece, dispensed on its own</b></p>
+      <price-per-item data-at-text="at" data-each-text="stack" data-min-quantity="1" data-variant-price="$118.00" data-price-breaks="[]">
+        <span class="price-per-item__text" data-ref="pricePerItemText"></span>
+      </price-per-item>
+      <div class="piece-add">
+        <select data-piece-select aria-label="Choose a piece"></select>
+        <span class="qty-stepper"><button type="button" data-ppi-minus aria-label="Less">−</button><b data-ppi-qty>1</b><button type="button" data-ppi-plus aria-label="More">+</button></span>
+        <button class="pill dark" type="button" data-piece-add>Add the piece</button>
+        <span class="qty-limit-msg" hidden>This item is limited to 3 per order.</span>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- the room's two kept tables: G06 dispensed-vs-not · G-07 single-vs-standing -->
+<section class="blk th_compare_section">
+  <h2>Dispensed, or not</h2>
+  <div class="card"><div class="pad">
+    <table class="table-section">
+      <thead><tr><th></th><th>Dispensed as a stack</th><th>Pieces on their own</th></tr></thead>
+      <tbody>
+        <tr><td>The box</td><td>The full Attack Stack in hand, in the rigid collector's box</td><td>Pieces arrive on their own</td></tr>
+        <tr><td>The card</td><td>Your protocol card on top of the box — the 14-day calendar grid, morning and evening</td><td>No protocol card</td></tr>
+        <tr><td>Day 15</td><td>The iteration gate: re-assessment + face photo, the next batch reformulated from it</td><td>No iteration gate</td></tr>
+        <tr><td>The cycle</td><td>30 days, anchored on the 28th, refills on the standing cycle</td><td>Reorder piece by piece</td></tr>
+      </tbody>
+    </table>
+  </div></div>
+</section>
+<section class="blk modes-table-wrap">
+  <h2>Single, or standing</h2>
+  <div class="card"><div class="pad">
+    <table class="table-section">
+      <thead><tr><th></th><th>Single dispensing</th><th>Standing — Ascension Plus</th></tr></thead>
+      <tbody>
+        <tr><td>Money</td><td>Phase 1 upfront, $118–$148 by stack</td><td>$28–$38 / week by stack</td></tr>
+        <tr><td>Refills</td><td>Ordered as needed</td><td>Auto-ship refills of the stack's refill set; auto-charges 3 days before each delivery date</td></tr>
+        <tr><td>Pausing</td><td>Nothing to pause</td><td>Pause anytime — pausing triggers your esthetician's barrier-cycle review first</td></tr>
+        <tr><td>Membership</td><td>Not required</td><td>The free member layer sits under the paid loop — joining is free, subscribing is separate</td></tr>
+      </tbody>
+    </table>
   </div></div>
 </section>
 
@@ -51,7 +337,7 @@
   <div class="card" style="max-width:720px;margin:36px auto 0"><div class="pad">
     <label class="addon"><input type="checkbox" id="addonPap" checked><span><b>Zero-Peroxide PAP+ Teeth Whitening Kit (MALE-11) — +$38</b><br><span class="note">Pre-selected at checkout, on the board's pattern: facial contrast is half teeth. PAP+ whitens without enamel pain or sensitivity.</span></span></label>
     <label class="addon"><input type="checkbox" id="addonLed"><span><b>Dual-Wavelength LED Micro-Wand (HW-06) — $48 post-checkout, 1-click</b><br><span class="note">Offered once, after your stack is claimed: 630nm Red + 850nm NIR + 40°C heat for collagen induction.</span></span></label>
-    <div class="claimrow"><button class="pill dark" id="claimBtn">Claim your stack \u2192</button><span class="note" id="claimMsg">Your stack is prescribed through the intake — claiming reserves your matched protocol.</span></div>
+    <div class="claimrow"><button class="pill dark" id="claimBtn">Claim your stack →</button><span class="note" id="claimMsg">Your stack is prescribed through the intake — claiming reserves your matched protocol.</span></div>
   </div></div>
 </section>
 
@@ -59,7 +345,7 @@
   <div class="member">
     <div class="kicker">Ascension Plus — the free member layer</div>
     <h2 style="font-size:clamp(24px,3.4vw,34px);font-weight:800;letter-spacing:-.02em;margin-top:14px;text-align:left">Joining is free. Subscribing is separate.</h2>
-    <p style="color:var(--soft);line-height:1.65;margin-top:14px;max-width:640px">Under the paid loop sits a free member layer: your account is its own price tier, you hold a member code, and a member deal refreshes on the 1st of every month. No subscription required — the Gundry rail, on SKINAA's terms.</p>
+    <p style="color:var(--soft);line-height:1.65;margin-top:14px;max-width:640px">Under the paid loop sits a free member layer: your account is its own price tier, you hold a member code, and a member deal refreshes on the 1st of every month. No subscription required.</p>
     <form id="memberForm" style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap">
       <input type="email" required placeholder="Email address" aria-label="Email address">
       <button class="pill" type="submit">Create my free member account</button>
@@ -80,29 +366,77 @@
   </div>
 </section>
 
+
+<!-- BL-28 · Bloom cart-next: THE dispensing tray (the room's cart, on the
+     one shim state). P-07's meter at its head, BL-17's ladder, G11's
+     upgrade + sample rows, G28's ceiling, BL-04's ready band inside. -->
+<aside class="cart-next" aria-hidden="true" aria-label="Dispensing tray">
+  <div class="cart-next__head"><span>The Prescription Tray</span><button class="cart-next__close" type="button" aria-label="Close tray">×</button></div>
+  <div class="cart-next__body">
+    <!-- P-07 · Prequel free-shipping meter (donor --progress-value-bg swapped to tangerine) -->
+    <p class="cart__message free-shipping" data-free-shipping style="--progress-value-bg:#e3771a;--progress-bg:#ece7ea">
+      <span class="free-shipping__graph" data-progress-graph><svg viewBox="0 0 36 36" width="40" height="40" aria-hidden="true">
+        <circle cx="18" cy="18" r="15.9155" fill="none" stroke="#ece7ea" stroke-width="3"></circle>
+        <circle class="free-shipping__graph-progress" cx="18" cy="18" r="15.9155" fill="none" stroke="#e3771a" stroke-width="3" stroke-dasharray="100" stroke-dashoffset="100" transform="rotate(-90 18 18)"></circle>
+      </svg></span>
+      <span class="free-shipping__default-message">You are $118.00 away from free shipping</span>
+      <span class="free-shipping__success-message"></span>
+      <span class="free-shipping__progress"><span class="free-shipping__progress-bar" data-progress-bar style="width:0%"></span></span>
+    </p>
+    <div class="cart-next__lines"></div>
+    <!-- BL-17 · the tier ladder INSIDE the tray -->
+    <div class="cart-next__ladder">
+      <b>Next cycle tier</b>
+      <div class="cart-next__ladder-rungs">
+        <button type="button" class="cart-next__ladder-rung" data-rung="1">1 cycle</button>
+        <button type="button" class="cart-next__ladder-rung" data-rung="3">3 cycles</button>
+        <button type="button" class="cart-next__ladder-rung" data-rung="6">6 cycles</button>
+      </div>
+      <p class="cart-next__ladder-note note"></p>
+    </div>
+    <!-- G11 · Graymatter in-tray cycle upgrade (mechanics only — no offer copy) -->
+    <div class="ctr-cart-upgrade" hidden>
+      <div class="ctr-cart-upgrade__card">
+        <div class="ctr-cart-upgrade__heading"><b>Move this line to the next cycle</b></div>
+        <p class="ctr-cart-upgrade__pricing-compare"></p>
+        <div class="claimrow"><button class="pill dark" type="button" data-upgrade>Upgrade the line</button></div>
+      </div>
+    </div>
+    <!-- G11 · the house sample included with a dispensing -->
+    <div class="cart-next__samples" hidden></div>
+    <div class="cart-next__plans note">Plans: the standing cycle runs 30 days, anchored on the 28th; refills auto-charge 3 days before each delivery date.</div>
+    <div class="cart-next__recs"></div>
+    <!-- BL-04 · Bloom cart-is-ready: the tray-is-ready confirmation band -->
+    <div class="cart-is-ready">
+      <div class="cart-is-ready__inner">
+        <div class="cart-is-ready__heading"><b>The tray is ready</b></div>
+        <div class="cart-is-ready__grid"></div>
+        <a class="cart-is-ready__cta pill dark" href="assessment.html">Complete the intake →</a>
+      </div>
+    </div>
+  </div>
+  <div class="cart-next__foot"></div>
+</aside>
+
+<!-- F-15 · FAB store-availability drawer: the house-service door.
+     Rows render from the house data slot — the document carries no
+     locations, so the slot state is named, never invented addresses. -->
+<aside class="store-availability-drawer animation--store-availability-drawer" aria-hidden="true" aria-label="Store availability">
+  <div class="store-availability-drawer__head"><span>Collection points</span><button class="drawer__close store-availability-drawer__close" type="button" aria-label="Close availability">×</button></div>
+  <div class="store-availability-drawer__body"></div>
+</aside>
+
 <script src="assets/skinaa-data.js"></script>
 <script>
+document.getElementById("mega-menu-grid").innerHTML = BUNDLES.map(b => { const f = skuByCode(b.items[0]); return '<a class="mega-menu__tile" href="stacks.html"><img src="' + (f && f.pic ? f.pic.pack : "") + '" alt="">' + "<b>" + b.id + "</b> — " + b.name + "<br>$" + b.upfront + " Phase 1 · $" + b.weekly + "/week</a>"; }).join("");
 function skuName(code){ const s = skuByCode(code); return s ? s.name : code + " (protocol item)"; }
-document.getElementById("bundles").innerHTML = BUNDLES.map(b =>
-  '<article class="card"><div class="pad">'
-  + '<span class="tag">' + b.sex + ' Protocol</span> <span class="tag red">' + b.flag + '</span>'
-  + '<div class="sku-name" style="font-size:21px">' + b.name + '</div>'
-  + (() => { const pics = b.items.map(c => skuByCode(c)).filter(x => x && x.pic); return pics.length ? '<div class="stack-strip" style="grid-template-columns:repeat(' + pics.length + ',1fr)">' + pics.map(x => '<a href="product.html?sku=' + x.code + '"><img src="' + x.pic.pack + '" alt="' + x.code + ' — ' + x.name + '"></a>').join("") + '</div>' : ''; })()
-  + '<ul class="stack-items">' + b.items.map(c => '<li>\u2192 <a href="product.html?sku=' + c + '">' + skuName(c) + '</a> <span class="note">(' + c + ')</span></li>').join("") + '</ul>'
-  + '<div class="price3"><span>Phase 1 upfront <b>$' + b.upfront + '.00</b></span><span>Ascension Plus <b>$' + b.weekly + ' / week</b></span></div>'
-  + '<p class="note" style="margin-top:10px">Phase 2: ' + b.refill + '</p>'
-  + '<div class="claimrow"><a class="pill dark" href="assessment.html">Get prescribed this stack</a></div>'
-  + '</div></article>').join("");
+/* Bundle grid + ladder are rendered and driven by assets/enrich/counter.js (G22 / G-05). */
 /* G-1 ladder: dormant tier-save config renders only when the owner sets it. */
 document.querySelectorAll(".save").forEach(el => {
   const v = SKINAA_CONFIG.tierSave[el.dataset.t];
   el.textContent = v ? "Save " + v + "%" : "";
 });
-document.querySelectorAll("#ladder label").forEach(l => {
-  l.addEventListener("click", () => {
-    document.querySelectorAll("#ladder label").forEach(x => x.classList.toggle("sel", x === l));
-  });
-});
+/* (built ladder handlers retired — G-05 rail in counter.js) */
 if (SKINAA_CONFIG.memberPrice) document.getElementById("memberPrice").textContent = SKINAA_CONFIG.memberPrice;
 if (SKINAA_CONFIG.memberDeal) document.getElementById("memberDeal").textContent = SKINAA_CONFIG.memberDeal;
 document.getElementById("claimBtn").onclick = function(){
@@ -121,6 +455,75 @@ document.getElementById("memberForm").addEventListener("submit", function(e){
   d.innerHTML = "Member account created. Your member code: <b>" + code + "</b> — your own price tier is active, and your first member deal lands on the 1st.";
 });
 </script>
-<script src="assets/skinaa-chrome.js"></script>
+<script src="assets/enrich/cart-shim.js"></script>
+<script src="assets/enrich/prequel/simple-bundles-v2.min.js"></script>
+<script src="assets/enrich/counter.js"></script>
+<!-- THE END CARD — propagated from the Admission landing (build-admission.md):
+     P-37 divider → BL-29 column chassis → F-18 six groups + legal → P-21
+     supporting-menu strip → G24 wordmark lockup → P-20 single correspondence
+     line → BL-01 quiet line. BL-24 currency modal inside the register;
+     S-13 overflow behaviour on the strip at mobile widths. -->
+<div class="divider"><div class="divider-holder"></div></div>
+<footer class="site end-card footer footer--fab" id="end-card">
+  <section-footer-component class="footer__container">
+    <div class="footer__container__inner footer__fab-top">
+      <div class="footer__group"><h4>The Collection</h4>
+        <a href="catalog.html">All 40 pieces</a><a href="product.html">The piece page</a><a href="stacks.html">Attack Stacks</a></div>
+      <div class="footer__group"><h4>The Rooms</h4>
+        <a href="index.html">The Door</a><a href="vault.html">Visual Vault</a><a href="unboxing.html">Unboxing</a></div>
+      <div class="footer__group"><h4>Admission</h4>
+        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a><a href="vault.html">The 28 archetypes</a></div>
+      <div class="footer__group"><h4>The Gallery</h4>
+        <a href="vault.html">Before &amp; After Vault</a><a href="guide-female.html">Female Guide</a><a href="guide-male.html">Male Guide</a></div>
+      <div class="footer__group"><h4>Membership</h4>
+        <a href="portal.html">Ascension Plus Portal</a><a href="portal.html">Manage the drip</a><a href="assessment.html?mode=day15">The iteration gate</a></div>
+      <div class="footer__group"><h4>House Service</h4>
+        <a href="help.html">Help</a><a href="authenticity.html">Authenticity</a><a href="wholesale.html">Wholesale</a><a href="contact.html">Contact</a><a href="policies.html">Policies</a></div>
+    </div>
+    <div class="footer__fab-legal"><span>SKINAA by Maanaa — Clinical Dermatology Meets Facial Architecture.</span><span class="footer-stamp">Official Esthetic Standard</span></div>
+    <overflow-list class="supporting-overflow" minimum-items="3">
+      <div class="supporting-menu">
+        <a href="index.html">The Door</a><a href="catalog.html">The Collection</a><a href="assessment.html">Admission</a><a href="stacks.html" data-overflow-extra>Prescription Counter</a><a href="vault.html" data-overflow-extra>Members' Gallery</a><a href="portal.html" data-overflow-extra>Member's Room</a><a href="unboxing.html" data-overflow-extra>Unboxing</a>
+        <button type="button" class="currency-open">Currency / locale</button>
+        <span class="payment-icon" title="Named slot">Payment marks — NAMED SLOT</span>
+        <button type="button" class="supporting-more" aria-expanded="false">More rooms</button>
+      </div>
+    </overflow-list>
+    <div class="footer__brand-strip"><img class="footer-wordmark" src="assets/skinaa-wordmark.png" alt="SKINAA"></div>
+    <div class="newsletter-component">
+      <form class="newsletter-form" data-newsletter-form>
+        <span class="correspondence-line">The weekly drip, in one quiet line — your Dual Rx note, every seven days.</span>
+        <span class="input-group"><input type="email" name="email" required placeholder="Your email" aria-label="Your email"><button type="submit">Correspond</button></span>
+      </form>
+    </div>
+    <div class="announcement-bar"><div class="announcement-bar__container"><div class="announcement-bar__slides"><div class="announcement-bar__slide">Cycles run 30 days, anchored on the 28th. Days 1–14: the full Attack Stack. Day 15: the iteration gate.</div></div></div></div>
+  </section-footer-component>
+  <modal-currency-root>
+    <div class="currency-modal" role="dialog" aria-modal="true" aria-label="Currency and locale">
+      <div class="currency-modal__card">
+        <span class="currency-modal__close-btn" aria-label="Close">×</span>
+        <div class="front-modal">
+          <h3>Currency &amp; locale</h3>
+          <p>The house's localization choice, kept on this device. Prices stay as the house sets them — no rate is invented here.</p>
+          <form id="modal--localization" modal-side="front">
+            <select name="country_code" aria-label="Country"><option value="US">United States</option></select>
+            <select name="locale_code" aria-label="Language"><option value="en">English</option></select>
+            <select name="currency" aria-label="Currency"><option value="USD">USD</option></select>
+            <button type="submit" class="modal-apply">Apply</button>
+          </form>
+        </div>
+        <div class="back-modal">
+          <h3>Kept</h3>
+          <p class="localization-status" role="status"></p>
+          <form id="modal--localization" modal-side="back">
+            <button type="submit" class="modal-apply">Confirm</button>
+          </form>
+          <span class="close_modal">Close</span>
+        </div>
+      </div>
+    </div>
+  </modal-currency-root>
+</footer>
+<script src="assets/enrich/endcards.js"></script>
 </body>
 </html>

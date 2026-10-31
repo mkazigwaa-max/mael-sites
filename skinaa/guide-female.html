@@ -4,26 +4,144 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="The Female Softmaxing / Prettymaxing Master Guide — the Ascension Plus protocol: pillars, hour-by-hour sequences, weekly drip, step-ups.">
-<meta name="theme-color" content="#4B4B4D">
+<meta name="theme-color" content="#6f0705">
 <title>Female Softmaxing Guide — SKINAA by Maanaa</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/skinaa.css">
+<link rel="stylesheet" href="assets/enrich/reading-extracts.css">
+<link rel="stylesheet" href="assets/enrich/reading.css">
 <style>
+  /* ===== Story B \u00b7 chartreuse \u2014 The Reading Room (page scope) =====
+     Sealed B + shared neutrals only: leaf texture (assets/tex/leaf-b.jpg) as
+     chapter plates, oxblood #6f0705 rules and headings, chartreuse #a8a147
+     marginalia, ivory #ece7ea page ground and card faces, plum-black
+     #19080e ink. Presentation only \u2014 every line of copy is verbatim. */
+  body{background:#ece7ea;color:#19080e;--greytext:rgba(25,8,14,.66);--champ2:#6f0705;--cardline:rgba(111,7,5,.35)}
+  /* The opening plate: the veined leaf, whole, with the title set on it */
+  .pagehead{max-width:none;margin:0;padding:96px 28px 84px;text-align:center;background:linear-gradient(rgba(25,8,14,.55),rgba(25,8,14,.76)),url("assets/tex/leaf-b.jpg") center/cover no-repeat;border-bottom:4px solid #6f0705}
+  .pagehead h1{color:#ece7ea}
+  .pagehead p{color:#ece7ea}
+  .pagehead .kicker{color:#a8a147}
+  .pagehead .pill{background:#ece7ea;color:#19080e;box-shadow:0 14px 34px rgba(25,8,14,.35)}
+  .pagehead .pill:hover{background:#6f0705;color:#ece7ea}
+  /* Each movement opens with a leaf chapter plate over an oxblood rule */
+  section.blk{max-width:940px;padding:60px 28px 0}
+  section.blk::before{content:"";display:block;height:72px;background:url("assets/tex/leaf-b.jpg") center 32%/cover no-repeat;border-bottom:3px solid #6f0705;margin-bottom:34px}
+  section.blk>h2{color:#6f0705;text-align:left}
+  section.blk>.lede{color:rgba(25,8,14,.72);text-align:left;margin-left:0;margin-right:0}
+  /* Bound-volume faces: ivory on ivory, held by an oxblood hairline */
+  .card{background:#ece7ea;border:1px solid rgba(111,7,5,.30);box-shadow:0 18px 42px rgba(25,8,14,.14)}
+  .card a{color:#6f0705;text-decoration-color:#a8a147;text-underline-offset:3px}
+  .note{color:rgba(25,8,14,.66)}
+  /* The sequence: a ruled page, chartreuse in the margin, oxblood times */
   .seq{display:grid;gap:12px;margin-top:20px}
-  .seq div{background:#fff;color:var(--cardink);border-radius:16px;padding:18px 22px;box-shadow:0 14px 34px rgba(0,0,0,.22);font-size:15.5px;line-height:1.6}
-  .seq b{color:var(--champ2)}
-  .pillar{background:#fff;color:var(--cardink);border-radius:20px;padding:24px 26px;box-shadow:0 24px 54px rgba(0,0,0,.30)}
-  .pillar li{margin-top:7px;font-size:15px;color:var(--greytext);list-style:none}
+  .seq div{background:#ece7ea;color:#19080e;border:1px solid rgba(111,7,5,.22);border-left:4px solid #a8a147;border-radius:6px;padding:18px 22px;box-shadow:0 10px 26px rgba(25,8,14,.10);font-size:15.5px;line-height:1.6}
+  .seq b{color:#6f0705}
+  /* Pillars: ivory plates, a chartreuse mark on each list line */
+  .pillar{background:#ece7ea;color:#19080e;border:1px solid rgba(111,7,5,.25);border-top:4px solid #a8a147;border-radius:8px;padding:24px 26px;box-shadow:0 18px 42px rgba(25,8,14,.14)}
+  .pillar li{position:relative;margin-top:7px;font-size:15px;color:rgba(25,8,14,.66);list-style:none;padding-left:19px}
+  .pillar li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;background:#a8a147;transform:rotate(45deg)}
+  /* chapter plates vary down the volume \u2014 five movements, five crops */
+  section.blk:nth-of-type(3)::before{background-position:center 58%}
+  section.blk:nth-of-type(4)::before{background-position:center 8%}
+  section.blk:nth-of-type(5)::before{background-position:center 82%}
+  section.blk:nth-of-type(6)::before{background-position:center 44%}
+  @media(max-width:640px){
+    .pagehead{padding:70px 22px 58px}
+    section.blk{padding:44px 22px 0}
+    section.blk::before{height:52px;margin-bottom:26px}
+  }
 </style>
+<link rel="stylesheet" href="assets/enrich/endcards-extracts.css">
+<link rel="stylesheet" href="assets/enrich/endcards.css">
 </head>
 <body>
+<!-- F-20 · FAB header shell (chrome rollout, copied from the landed Vault
+     build): dual regular/transparent logo mechanism, house wordmark in both
+     slots. P-13 drawer + G-37 kinetic layer copied with it. -->
+<div class="hdr enrich"><header class="header" id="site-header">
+  <span class="header__logo"><a class="header__logo-link" href="index.html" aria-label="SKINAA"><span class="header__logo-wrapper">
+    <span class="image regular-logo"><img src="assets/skinaa-wordmark.png" alt="SKINAA"></span>
+    <span class="image transparent-logo"><img src="assets/skinaa-wordmark.png" alt=""></span>
+  </span></a></span>
+  <nav class="site">
+    <a href="catalog.html">The Collection</a>
+    <a href="vault.html">The Vault</a>
+    <a href="index.html#board">The Board</a>
+    <a href="guide-female.html">Female Guide</a>
+    <a href="guide-male.html">Male Guide</a>
+    <a href="portal.html">Member's Room</a>
+  </nav>
+  <span class="header__icons">
+    <button class="header__icon-touch header__icon-touch--search" type="button" aria-label="Search" data-library-search>Search</button>
+    <a class="header__icon-touch header__icon-touch--account" href="portal.html">Account</a>
+    <button class="header__icon-touch header__icon-touch--cart" type="button" data-cart-open>Cart<span class="header__cart-link-count cart-count">0</span></button>
+  </span>
+</header></div>
+
+<!-- P-28 drawer framework + P-13 · Prequel cart drawer (site-wide cart;
+     the discount-code field CUT on transplant, per its row) -->
+<div class="drawer__underlay underlay"></div>
+<aside class="cart-drawer drawer drawer--animated" aria-hidden="true" aria-label="Cart">
+  <div class="drawer__inner">
+    <div class="drawer__head"><span>The Collection Tray</span><button class="drawer__close" type="button" aria-label="Close cart">×</button></div>
+    <div class="drawer__body"><div class="cart-items"></div></div>
+    <div class="drawer__foot"><span class="cart-total">0 in the tray</span>
+      <p class="note">Free shipping from $118 — the Phase 1 stack entry price.</p></div>
+  </div>
+</aside>
+
+<!-- G-37 · kinetic signals -->
+<div class="toast-stack" aria-live="polite"></div>
+<div class="loading-overlay" aria-hidden="true"><span class="kinetic-word">open</span></div>
+
 <section class="pagehead">
   <div class="kicker">Ascension Plus Protocol · DIG-01</div>
   <h1>Female Softmaxing Master Guide</h1>
   <p>Glass skin, V-line, lip architecture — one hour-by-hour system. This guide is the DIG-01 protocol — given inside the loop, and sold standalone beside the stacks.</p>
   <div style="margin-top:26px"><a class="pill" href="assessment.html">Start Your Virtual Clinical Intake (28 Steps)</a></div>
 </section>
+<!-- BL-02 · Bloom mobile scroll-link banner — the mobile chapter track -->
+<div class="scroll-link-banner"><div class="scroll-link-banner__track"><a class="scroll-link-banner__link" href="#ch-pillars">The Pillars</a><a class="scroll-link-banner__link" href="#ch-phase1">Phase 1 — the 14-Day Attack Stack configuration</a><a class="scroll-link-banner__link" href="#ch-am">AM — Glass Skin &amp; V-Shape</a><a class="scroll-link-banner__link" href="#ch-pm">PM — Barrier &amp; Lip Architecture</a><a class="scroll-link-banner__link" href="#ch-phase2">Phase 2 — the Ascension Plus weekly loop ($34/week)</a><a class="scroll-link-banner__link" href="#ingredient-log">The Ingredient Log</a></div></div>
 
-<section class="blk">
+<!-- BL-22 · Bloom journal index grid (main-blog-hub + article-card) — the
+     library's card index; P-19 tag chips filter the catalogue below -->
+<section class="main-blog-hub">
+  <div class="hub-head"><span class="hub-title">The Library Index</span>
+    <button class="search-open" type="button" data-library-search>Search the library</button></div>
+  <div class="tag-chips" style="margin-top:16px"><button class="tag-chip is-active" type="button" data-filter="all">All entries</button><button class="tag-chip" type="button" data-filter="phase1">Phase 1</button><button class="tag-chip" type="button" data-filter="stepup">Step-ups</button></div>
+  <div class="hub-grid"><article class="article-card"><div class="article-card__category">Chapter</div><h3 class="article-card__title"><a href="#ch-phase1">Phase 1 — the 14-Day Attack Stack configuration</a></h3><p class="article-card__excerpt">Hardware, active topicals, targeted specialty topicals, digital.</p><div class="article-card__meta"><a class="article-card__link" href="#ch-phase1">Open the entry</a></div></article>
+<article class="article-card"><div class="article-card__category">Chapter</div><h3 class="article-card__title"><a href="#ch-am">AM — Glass Skin &amp; V-Shape</a></h3><p class="article-card__excerpt">Non-Stripping Cleansing · Multi-Depth Dew Hydration · V-Line Stainless Gua Sha Sculpting · Camera-Ready Eye Brightening.</p><div class="article-card__meta"><a class="article-card__link" href="#ch-am">Open the entry</a></div></article>
+<article class="article-card"><div class="article-card__category">Chapter</div><h3 class="article-card__title"><a href="#ch-pm">PM — Barrier &amp; Lip Architecture</a></h3><p class="article-card__excerpt">Barrier Restoration · LED Collagen Induction · Non-Invasive Lip Plumping · Anti-Microbial Reset.</p><div class="article-card__meta"><a class="article-card__link" href="#ch-pm">Open the entry</a></div></article>
+<article class="article-card"><div class="article-card__category">Chapter</div><h3 class="article-card__title"><a href="#ch-phase2">Phase 2 — the Ascension Plus weekly loop ($34/week)</a></h3><p class="article-card__excerpt">The refill drip, the monthly step-up program, the Day-15 gate.</p><div class="article-card__meta"><a class="article-card__link" href="#ch-phase2">Open the entry</a></div></article>
+<article class="article-card"><div class="article-card__category">Catalogue</div><h3 class="article-card__title"><a href="#ingredient-log">The Ingredient Log</a></h3><p class="article-card__excerpt">One bound entry per ingredient in this volume.</p><div class="article-card__meta"><a class="article-card__link" href="#ingredient-log">Open the entry</a></div></article>
+<article class="article-card"><div class="article-card__category">Companion Volume</div><h3 class="article-card__title"><a href="guide-male.html">Male Looksmaxxing Master Guide</a></h3><p class="article-card__excerpt">Three performance pillars, one hour-by-hour system.</p><div class="article-card__meta"><a class="article-card__link" href="guide-male.html">Open the entry</a></div></article>
+</div>
+  <!-- F-06 · FAB blog scroll-slider (scroll-slider-component; the fetched
+       scroll-slider.js rides unbanked ES-module imports, so its selector
+       contract is re-driven in reading.js — named in the room report) -->
+  <scroll-slider-component style="--columns:3;--peek:1;--gap:14px">
+    <div class="scroll-slider__head">
+      <span class="scroll-slider__counter"><span class="scroll-slider__counter--current">1</span> / <span class="scroll-slider__counter--total">1</span></span>
+      <button class="scroll-slider__btn" type="button" data-scroll-slider-prev-button aria-label="Previous entries">‹</button>
+      <button class="scroll-slider__btn" type="button" data-scroll-slider-next-button aria-label="Next entries">›</button>
+    </div>
+    <div class="scroll-slider__slider"><article class="article-card article-item"><div class="article-card__category">Chapter</div><h3 class="article-card__title"><a href="#ch-phase1">Phase 1 — the 14-Day Attack Stack configuration</a></h3><p class="article-card__excerpt">Hardware, active topicals, targeted specialty topicals, digital.</p></article>
+<article class="article-card article-item"><div class="article-card__category">Chapter</div><h3 class="article-card__title"><a href="#ch-am">AM — Glass Skin &amp; V-Shape</a></h3><p class="article-card__excerpt">Non-Stripping Cleansing · Multi-Depth Dew Hydration · V-Line Stainless Gua Sha Sculpting · Camera-Ready Eye Brightening.</p></article>
+<article class="article-card article-item"><div class="article-card__category">Chapter</div><h3 class="article-card__title"><a href="#ch-pm">PM — Barrier &amp; Lip Architecture</a></h3><p class="article-card__excerpt">Barrier Restoration · LED Collagen Induction · Non-Invasive Lip Plumping · Anti-Microbial Reset.</p></article>
+<article class="article-card article-item"><div class="article-card__category">Chapter</div><h3 class="article-card__title"><a href="#ch-phase2">Phase 2 — the Ascension Plus weekly loop ($34/week)</a></h3><p class="article-card__excerpt">The refill drip, the monthly step-up program, the Day-15 gate.</p></article>
+<article class="article-card article-item"><div class="article-card__category">Catalogue</div><h3 class="article-card__title"><a href="#ingredient-log">The Ingredient Log</a></h3><p class="article-card__excerpt">One bound entry per ingredient in this volume.</p></article>
+<article class="article-card article-item"><div class="article-card__category">Companion Volume</div><h3 class="article-card__title"><a href="guide-male.html">Male Looksmaxxing Master Guide</a></h3><p class="article-card__excerpt">Three performance pillars, one hour-by-hour system.</p></article>
+</div>
+    <div class="scroll-slider__dots"><button class="scroll-slider-page-dot" type="button" data-scroll-slider-page-dot aria-label="Entry page"></button><button class="scroll-slider-page-dot" type="button" data-scroll-slider-page-dot aria-label="Entry page"></button><button class="scroll-slider-page-dot" type="button" data-scroll-slider-page-dot aria-label="Entry page"></button><button class="scroll-slider-page-dot" type="button" data-scroll-slider-page-dot aria-label="Entry page"></button><button class="scroll-slider-page-dot" type="button" data-scroll-slider-page-dot aria-label="Entry page"></button><button class="scroll-slider-page-dot" type="button" data-scroll-slider-page-dot aria-label="Entry page"></button></div>
+  </scroll-slider-component>
+</section>
+
+
+<!-- S-29 sticky content column + G-15 · Gundry table-of-contents rail
+     (migrated-toc / toc-item / toc-bullet classes from the capture) -->
+<div class="reading-frame"><aside class="reading-aside"><div class="sticky-content sticky-content--desktop"><nav class="migrated-toc"><div class="toc-title">Contents</div><ol><li class="toc-item"><a href="#ch-pillars"><span class="toc-bullet">·</span>The Pillars</a></li><li class="toc-item"><a href="#ch-phase1"><span class="toc-bullet">·</span>Phase 1 — the 14-Day Attack Stack configuration</a></li><li class="toc-item"><a href="#ch-am"><span class="toc-bullet">·</span>AM — Glass Skin &amp; V-Shape</a></li><li class="toc-item"><a href="#ch-pm"><span class="toc-bullet">·</span>PM — Barrier &amp; Lip Architecture</a></li><li class="toc-item"><a href="#ch-phase2"><span class="toc-bullet">·</span>Phase 2 — the Ascension Plus weekly loop ($34/week)</a></li><li class="toc-item"><a href="#ingredient-log"><span class="toc-bullet">·</span>The Ingredient Log</a></li></ol></nav></div></aside><div class="reading-main">
+<section class="blk" id="ch-pillars">
   <div class="grid c3">
     <div class="pillar"><div class="sku-name">1 · Glass Skin Radiance</div><ul><li>Stratum Corneum Smoothing</li><li>High-Humectant Hydration</li><li>Light-Reflection Index</li></ul></div>
     <div class="pillar"><div class="sku-name">2 · V-Line Sculpting</div><ul><li>Zygomatic Contouring</li><li>Submental Drainage</li><li>Masseter Relaxation</li></ul></div>
@@ -31,19 +149,45 @@
   </div>
 </section>
 
-<section class="blk">
+
+<!-- F-21 · FAB section heading block (section-blocks) heading the catalogue -->
+<div class="section-blocks">
+  <div class="section-blocks__accent">Reading Rooms · The Catalogue</div>
+  <h2 class="section-blocks__heading" style="font-size:34px">The Ingredient Log</h2>
+  <div class="section-blocks__text"><p>One bound entry per ingredient in this volume, cross-linked from the pieces that carry it.</p></div>
+  <div class="section-blocks__button"><a href="guide-male.html">Male Looksmaxxing Master Guide</a></div>
+</div>
+<!-- P-19 · Prequel ingredient-log articles (article + widget rail) — the
+     library's catalogue; S-12 show-more expander governs the long tail -->
+<div class="ingredient-log" id="ingredient-log"><article class="article" id="ing-0" data-tags="phase1"><h3 class="article__title">Glycerin</h3><div class="article__meta">50% · TOP-17 — 50% Glycerin High-Humectant Jelly Cleanser</div><p class="article__body">Massage 1 pump onto damp skin for 60 seconds. Rinse with cold water to lock in epidermal hydration.</p><aside class="widget">In this volume: <a href="product.html?sku=TOP-17">TOP-17</a> · <a href="#ch-phase1">Phase 1 configuration</a></aside></article>
+<article class="article" id="ing-1" data-tags="phase1"><h3 class="article__title">Polyglutamic Acid</h3><div class="article__meta">1% · TOP-18 — 1% Polyglutamic Acid + Ectoin Dew Serum</div><p class="article__body">Apply 3 drops of 1% Polyglutamic Acid Dew Serum, followed by the glaze, to form an ultra-smooth glide surface.</p><aside class="widget">In this volume: <a href="product.html?sku=TOP-18">TOP-18</a> · <a href="#ch-phase1">Phase 1 configuration</a></aside></article>
+<article class="article" id="ing-2" data-tags="phase1"><h3 class="article__title">Ectoin</h3><div class="article__meta">TOP-18 — 1% Polyglutamic Acid + Ectoin Dew Serum</div><p class="article__body">Carried in the Dew Serum of the Phase 1 configuration, in the multi-depth dew hydration step.</p><aside class="widget">In this volume: <a href="product.html?sku=TOP-18">TOP-18</a> · <a href="#ch-phase1">Phase 1 configuration</a></aside></article>
+<article class="article" id="ing-3" data-tags="phase1"><h3 class="article__title">Plant Squalane</h3><div class="article__meta">TOP-05 — Plant Squalane “Glass-Skin” Glaze</div><p class="article__body">Apply 2 drops of Plant Squalane Glass-Skin Glaze after the Dew Serum.</p><aside class="widget">In this volume: <a href="product.html?sku=TOP-05">TOP-05</a> · <a href="#ch-phase1">Phase 1 configuration</a></aside></article>
+<article class="article" id="ing-4" data-tags="phase1"><h3 class="article__title">Volufiline</h3><div class="article__meta">5% · TOP-08 — Volufiline 5% Lip Architecture Serum</div><p class="article__body">Click the pen and massage the formula directly into the lip body and vermilion border to stimulate local lipid accumulation.</p><aside class="widget">In this volume: <a href="product.html?sku=TOP-08">TOP-08</a> · <a href="#ch-phase1">Phase 1 configuration</a></aside></article>
+<article class="article" id="ing-5" data-tags="phase1"><h3 class="article__title">Hypochlorous Acid</h3><div class="article__meta">0.015% · TOP-19 — 0.015% Hypochlorous Acid Skin Rescue Mist</div><p class="article__body">Mist the entire face to neutralize bacteria and calm daily skin redness.</p><aside class="widget">In this volume: <a href="product.html?sku=TOP-19">TOP-19</a> · <a href="#ch-phase1">Phase 1 configuration</a></aside></article>
+<article class="article show-more__item is-collapsed" id="ing-6" data-tags="phase1"><h3 class="article__title">Hydroxyethyl Urea</h3><div class="article__meta">10% · TOP-20 — 10% Hydroxyethyl Urea Barrier Cream</div><p class="article__body">Apply across the face and neck to dissolve dead keratin cells while repairing lipid integrity.</p><aside class="widget">In this volume: <a href="product.html?sku=TOP-20">TOP-20</a> · <a href="#ch-phase1">Phase 1 configuration</a></aside></article>
+<article class="article show-more__item is-collapsed" id="ing-7" data-tags="stepup"><h3 class="article__title">Saccharomyces Ferment</h3><div class="article__meta">30% · Day 30 step-up — 30% Saccharomyces Ferment Milky Exfoliating Toner</div><p class="article__body">Introduction at Day 30 to accelerate cellular turnover.</p><aside class="widget">In this volume: the step-up program · <a href="#ch-phase1">Phase 1 configuration</a></aside></article>
+<article class="article show-more__item is-collapsed" id="ing-8" data-tags="stepup"><h3 class="article__title">Tranexamic Acid</h3><div class="article__meta">3% · Day 60 step-up — 3% Tranexamic + 5% Niacinamide Correcting Serum</div><p class="article__body">Addition at Day 60 to eliminate subtle hyperpigmentation and maximize overall glass-skin luminosity.</p><aside class="widget">In this volume: the step-up program · <a href="#ch-phase1">Phase 1 configuration</a></aside></article>
+<article class="article show-more__item is-collapsed" id="ing-9" data-tags="stepup"><h3 class="article__title">Niacinamide</h3><div class="article__meta">5% · Day 60 step-up — 3% Tranexamic + 5% Niacinamide Correcting Serum</div><p class="article__body">Paired with tranexamic acid in the Day 60 correcting serum.</p><aside class="widget">In this volume: the step-up program · <a href="#ch-phase1">Phase 1 configuration</a></aside></article>
+<button class="show-more__btn" type="button" data-show-more data-open="false">Show more entries</button></div>
+
+<section class="blk" id="ch-phase1">
   <h2>Phase 1 — the 14-Day Attack Stack configuration</h2>
-  <div class="card" style="max-width:820px;margin:36px auto 0"><div class="pad">
+  <div class="card" style="max-width:820px;margin:36px auto 0"><div class="pad"><toggle-ellipsis style="--height:190px"><toggle-ellipsis__content><div class="rich-text-columns__wrapper rte"><div class="rich-text-columns__left">
     <p style="font-size:15.5px;line-height:1.7"><b>Hardware:</b> 304 Stainless Steel Gua Sha (<a href="product.html?sku=HW-02">HW-02</a>) + Dual-Wavelength LED Micro-Wand (<a href="product.html?sku=HW-06">HW-06</a>).</p>
-    <p style="font-size:15.5px;line-height:1.7;margin-top:12px"><b>Active topicals:</b> 50% Glycerin High-Humectant Jelly Cleanser (<a href="product.html?sku=TOP-17">TOP-17</a>) + 1% Polyglutamic Acid + Ectoin Dew Serum (<a href="product.html?sku=TOP-18">TOP-18</a>) + Plant Squalane \u201CGlass-Skin\u201D Glaze (TOP-05) + Hydrogel Under-Eye Patches 30 Pairs (TOP-04).</p>
+    <p style="font-size:15.5px;line-height:1.7;margin-top:12px"><b>Active topicals:</b> 50% Glycerin High-Humectant Jelly Cleanser (<a href="product.html?sku=TOP-17">TOP-17</a>) + 1% Polyglutamic Acid + Ectoin Dew Serum (<a href="product.html?sku=TOP-18">TOP-18</a>) + Plant Squalane “Glass-Skin” Glaze (TOP-05) + Hydrogel Under-Eye Patches 30 Pairs (TOP-04).</p></div><div class="rich-text-columns__divider"><span class="rich-text-columns__divider-line"></span></div><div class="rich-text-columns__right">
     <p style="font-size:15.5px;line-height:1.7;margin-top:12px"><b>Targeted specialty topicals:</b> Volufiline 5% Lip Architecture Serum (TOP-08) + 0.015% Hypochlorous Acid Skin Rescue Mist (<a href="product.html?sku=TOP-19">TOP-19</a>) + 10% Hydroxyethyl Urea Barrier Cream (<a href="product.html?sku=TOP-20">TOP-20</a>).</p>
     <p style="font-size:15.5px;line-height:1.7;margin-top:12px"><b>Digital:</b> AI Facial Harmony &amp; Golden Ratio Analysis (<a href="product.html?sku=DIG-02">DIG-02</a>) + Custom Female Softmaxing Blueprint PDF (<a href="product.html?sku=DIG-01">DIG-01</a>).</p>
-  </div></div>
+  </div></div></toggle-ellipsis__content></toggle-ellipsis></div></div>
+<!-- G-19 · Gundry ingredient resource entry — the door into P-19's log -->
+<div class="ingredient-entry"><span>The library's ingredient resource door:</span><a href="#ingredient-log">Open the Ingredient Log</a></div>
 </section>
 
-<section class="blk">
+
+<section class="blk"><div class="sc-landing"><h2>The Companion Sessions</h2><div class="sc-landing__grid"><div class="sc-landing__portrait"><img src="assets/skinaa-post-portrait.jpg" alt="The house portrait"></div><div class="session-cards"><div class="session-card"><b>AM — Glass Skin &amp; V-Shape</b><p style="margin-top:6px;font-size:14.5px;line-height:1.6">07:30 · 07:35 · 07:40 · 08:00 — cleansing, dew hydration, gua sha sculpting, eye brightening.</p></div><div class="session-card"><b>PM — Barrier &amp; Lip Architecture</b><p style="margin-top:6px;font-size:14.5px;line-height:1.6">09:00 PM · 09:05 PM · 09:15 PM · 09:20 PM — barrier restoration, LED induction, lip plumping, anti-microbial reset.</p></div></div></div></div></section>
+<section class="blk" id="ch-am">
   <h2>AM — Glass Skin &amp; V-Shape</h2>
-  <div class="seq" style="max-width:820px;margin-left:auto;margin-right:auto">
+  <div class="seq numbered-methods" style="max-width:820px;margin-left:auto;margin-right:auto">
     <div><b>07:30 — Non-Stripping Cleansing:</b> Massage 1 pump of 50% Glycerin High-Humectant Jelly Cleanser onto damp skin for 60 seconds. Rinse with cold water to lock in epidermal hydration.</div>
     <div><b>07:35 — Multi-Depth Dew Hydration:</b> Apply 3 drops of 1% Polyglutamic Acid Dew Serum followed by 2 drops of Plant Squalane Glass-Skin Glaze to form an ultra-smooth glide surface.</div>
     <div><b>07:40 — V-Line Stainless Gua Sha Sculpting:</b> Hold the 304 Stainless Steel Gua Sha at a 15-degree angle. Perform 10 firm upward strokes from the center of the chin along the jawline to the earlobe. Perform 10 upward strokes along the cheekbones toward the hairline to carve out a V-line contour.</div>
@@ -51,34 +195,158 @@
   </div>
 </section>
 
-<section class="blk">
+
+<section class="blk"><!-- BL-11 · Bloom multi-video embeds — HOUSE films only.
+     No house film embed exists for either slot: both slots are NAMED
+     SLOTS (per the unit brief), never stock embeds. -->
+<div class="multi-video-embeds"><svg class="seamless__top" aria-hidden="true"></svg><div class="multi-video-embeds__outer"><div class="multi-video-embeds__header"><span class="multi-video-embeds__title">The House Films</span></div><div class="multi-video-embeds__embed"><div class="film-slot"><b>House Film — AM — Glass Skin &amp; V-Shape</b><span>Named slot — no embed banked for this chapter.</span></div></div><div class="multi-video-embeds__embed"><div class="film-slot"><b>House Film — PM — Barrier &amp; Lip Architecture</b><span>Named slot — no embed banked for this chapter.</span></div></div></div></div></section>
+
+<!-- BL-09 · Bloom marquee strip (scroll-banner) — chapter names, pure rhythm -->
+<div class="scroll-banner"><div class="scroll-banner__marquee"><div class="scroll-banner__track"><span class="scroll-banner__item">Phase 1 — the 14-Day Attack Stack<i>·</i></span><span class="scroll-banner__item">AM — Glass Skin &amp; V-Shape<i>·</i></span><span class="scroll-banner__item">PM — Barrier &amp; Lip Architecture<i>·</i></span><span class="scroll-banner__item">Phase 2 — the Ascension Plus weekly loop<i>·</i></span><span class="scroll-banner__item">Phase 1 — the 14-Day Attack Stack<i>·</i></span><span class="scroll-banner__item">AM — Glass Skin &amp; V-Shape<i>·</i></span><span class="scroll-banner__item">PM — Barrier &amp; Lip Architecture<i>·</i></span><span class="scroll-banner__item">Phase 2 — the Ascension Plus weekly loop<i>·</i></span></div></div></div>
+<section class="blk" id="ch-pm">
   <h2>PM — Barrier &amp; Lip Architecture</h2>
-  <div class="seq" style="max-width:820px;margin-left:auto;margin-right:auto">
+  <div class="seq numbered-methods" style="max-width:820px;margin-left:auto;margin-right:auto">
     <div><b>09:00 PM — Barrier Restoration:</b> Apply a layer of 10% Hydroxyethyl Urea Barrier Cream across the face and neck to dissolve dead keratin cells while repairing lipid integrity.</div>
-    <div><b>09:05 PM — LED Collagen Induction:</b> Glide the Dual-Wavelength LED Micro-Wand (setting: 630nm Red + 850nm NIR Light + 40\u00B0C Heat) over the face for 5 minutes to boost dermal collagen synthesis.</div>
+    <div><b>09:05 PM — LED Collagen Induction:</b> Glide the Dual-Wavelength LED Micro-Wand (setting: 630nm Red + 850nm NIR Light + 40°C Heat) over the face for 5 minutes to boost dermal collagen synthesis.</div>
     <div><b>09:15 PM — Non-Invasive Lip Plumping:</b> Click the Volufiline 5% Lip Architecture Serum pen and massage the formula directly into the lip body and vermilion border to stimulate local lipid accumulation.</div>
     <div><b>09:20 PM — Anti-Microbial Reset:</b> Mist the entire face with 0.015% Hypochlorous Acid Skin Rescue Mist to neutralize bacteria and calm daily skin redness.</div>
   </div>
 </section>
 
-<section class="blk">
+
+<section class="blk"><h2>The Wall Chart</h2><!-- G-16 · Gundry yes/no taxonomy form:
+     two-list grouped taxonomy with footnotes, groups = this volume's own movements -->
+<div class="wall-chart"><div class="wall-chart__list"><h3>AM — Glass Skin &amp; V-Shape</h3><ul><li>Non-Stripping Cleansing</li><li>Multi-Depth Dew Hydration</li><li>V-Line Stainless Gua Sha Sculpting</li><li>Camera-Ready Eye Brightening</li></ul></div><div class="wall-chart__list"><h3>PM — Barrier &amp; Lip Architecture</h3><ul><li>Barrier Restoration</li><li>LED Collagen Induction</li><li>Non-Invasive Lip Plumping</li><li>Anti-Microbial Reset</li></ul></div><p class="wall-chart__notes">Grouped from the sequences in this volume; the times and measures stand as written there.</p></div></section>
+<section class="blk" id="ch-phase2">
   <h2>Phase 2 — the Ascension Plus weekly loop ($34/week)</h2>
   <p class="lede">Following the Day 10 Ascension Audit, the subscriber transitions into the Female Ascension Plus Refill Drip ($34.00/week auto-ship):</p>
-  <div class="card" style="max-width:820px;margin:36px auto 0"><div class="pad">
-    <ul style="list-style:none;font-size:15.5px;line-height:1.7">
-      <li>\u2192 1x 30ml 1% Polyglutamic Acid Dew Serum</li>
-      <li>\u2192 1x 30ml Plant Squalane Glass-Skin Glaze</li>
-      <li>\u2192 1x 10ml Volufiline 5% Lip Architecture Click-Pen</li>
-      <li>\u2192 1x 100ml 50% Glycerin Jelly Cleanser Refill</li>
-      <li>\u2192 The Dual Clinical Progress Note — blue cursive derm note (barrier &amp; lipid synthesis score), black fine-liner esthetician note (gua sha angles &amp; light reflection)</li>
-    </ul>
-    <h3 style="margin-top:24px;font-size:16px;font-weight:800">Monthly step-up program</h3>
-    <p style="font-size:15.5px;line-height:1.7;margin-top:10px"><b>Day 30:</b> Introduction of 30% Saccharomyces Ferment Milky Exfoliating Toner to accelerate cellular turnover; Volufiline lip pen upgraded with multi-peptide plumping complexes.</p>
-    <p style="font-size:15.5px;line-height:1.7;margin-top:8px"><b>Day 60:</b> Addition of 3% Tranexamic + 5% Niacinamide Correcting Serum to eliminate subtle hyperpigmentation and maximize overall glass-skin luminosity.</p>
-    <p class="note" style="margin-top:16px">SKINAA runs the loop on a 30-day cycle anchored on the 28th: your Day-15 re-assessment (usage + outcome + face photo) is the gate that reformulates the next batch. <a href="portal.html">Open the portal \u2192</a></p>
+  <!-- G20 · Graymatter science stat counters — documented values only -->
+<div class="stat-counters"><div class="stat-counter"><div class="stat-counter__value" data-count="14">0</div><div class="stat-counter__label">days — Phase 1, the 14-Day Attack Stack</div></div><div class="stat-counter"><div class="stat-counter__value" data-count="34">0</div><div class="stat-counter__label">$/week — the Female Ascension Plus Refill Drip</div></div><div class="stat-counter"><div class="stat-counter__value" data-count="30">0</div><div class="stat-counter__label">day cycle, anchored on the 28th</div></div><div class="stat-counter"><div class="stat-counter__value" data-count="15">0</div><div class="stat-counter__label">Day-15 re-assessment — the gate</div></div></div>
+<div class="card" style="max-width:820px;margin:36px auto 0"><div class="pad">
+    <!-- S-11 · sckenofficial details accordion (escape-close; S-25 auto-close ships bodily) --><details class="guide-fold" data-auto-close-details="desktop mobile" data-close-with-escape><summary>The weekly drip, item by item</summary><div><ul style="list-style:none;font-size:15.5px;line-height:1.7">
+      <li>→ 1x 30ml 1% Polyglutamic Acid Dew Serum</li>
+      <li>→ 1x 30ml Plant Squalane Glass-Skin Glaze</li>
+      <li>→ 1x 10ml Volufiline 5% Lip Architecture Click-Pen</li>
+      <li>→ 1x 100ml 50% Glycerin Jelly Cleanser Refill</li>
+      <li>→ The Dual Clinical Progress Note — blue cursive derm note (barrier &amp; lipid synthesis score), black fine-liner esthetician note (gua sha angles &amp; light reflection)</li>
+    </ul></div></details>
+    <!-- BL-31 · Bloom compiled accordion-custom — its Reading Rooms instance -->
+<accordion-custom><details><summary>Monthly step-up program</summary><div data-ref="details-content">
+    <div class="protocol-card"><div class="protocol-card__measure">Day 30</div><div class="protocol-card__body"><p style="font-size:15.5px;line-height:1.7"><b>Day 30:</b> Introduction of 30% Saccharomyces Ferment Milky Exfoliating Toner to accelerate cellular turnover; Volufiline lip pen upgraded with multi-peptide plumping complexes.</p></div></div>
+    <div class="protocol-card"><div class="protocol-card__measure">Day 60</div><div class="protocol-card__body"><p style="font-size:15.5px;line-height:1.7"><b>Day 60:</b> Addition of 3% Tranexamic + 5% Niacinamide Correcting Serum to eliminate subtle hyperpigmentation and maximize overall glass-skin luminosity.</p></div></div></div></details></accordion-custom>
+    <p class="note" style="margin-top:16px">SKINAA runs the loop on a 30-day cycle anchored on the 28th: your Day-15 re-assessment (usage + outcome + face photo) is the gate that reformulates the next batch. <a href="portal.html">Open the portal →</a></p>
   </div></div>
+
+<!-- S-22 · sckenofficial RTE table formatter — the volume's days, kept as a table -->
+<div class="rte"><div class="rte-table-wrapper"><table><thead><tr><th>Day</th><th>The movement</th></tr></thead><tbody><tr><td>Day 10</td><td>The Ascension Audit — the subscriber transitions into the Female Ascension Plus Refill Drip.</td></tr><tr><td>Day 15</td><td>Re-assessment (usage + outcome + face photo) — the gate that reformulates the next batch.</td></tr><tr><td>Day 30</td><td>Introduction of 30% Saccharomyces Ferment Milky Exfoliating Toner to accelerate cellular turnover.</td></tr><tr><td>Day 60</td><td>Addition of 3% Tranexamic + 5% Niacinamide Correcting Serum to maximize glass-skin luminosity.</td></tr></tbody></table></div></div>
 </section>
 
-<script src="assets/skinaa-chrome.js"></script>
+<section class="blk"><div class="section-resource-list"><div class="section-resource-list__header"><h2>The Library Shelves</h2></div><div class="section-resource-list__content"><a class="resource-card" href="guide-male.html"><b>Male Looksmaxxing Master Guide</b><span>The companion volume in this library.</span></a><a class="resource-card" href="#ingredient-log"><b>The Ingredient Log</b><span>One bound entry per ingredient in this volume.</span></a><a class="resource-card" href="stacks.html"><b>Attack Stacks</b><span>The Prescription Counter — the stacks beside the guides.</span></a><a class="resource-card" href="portal.html"><b>Ascension Plus Portal</b><span>The Member's Room — the loop, run.</span></a><a class="resource-card" href="assessment.html"><b>Virtual Clinical Intake</b><span>Admission — 28 steps.</span></a></div></div></section>
+</div></div><!-- /reading-frame -->
+
+
+<!-- G-32 · Gundry builder product grid shell — pieces related to this chapter, at its foot -->
+<section class="builder-grid builder-product-grid"><div class="builder-grid__title">Related Pieces — From Phase 1</div><div class="builder-grid__layout"><div class="builder-card"><a href="product.html?sku=TOP-17">TOP-17</a><p>50% Glycerin High-Humectant Jelly Cleanser</p></div><div class="builder-card"><a href="product.html?sku=TOP-18">TOP-18</a><p>1% Polyglutamic Acid + Ectoin Dew Serum</p></div><div class="builder-card"><a href="product.html?sku=TOP-19">TOP-19</a><p>0.015% Hypochlorous Acid Skin Rescue Mist</p></div><div class="builder-card"><a href="product.html?sku=TOP-20">TOP-20</a><p>10% Hydroxyethyl Urea Barrier Cream</p></div></div></section>
+
+<!-- G-33 · Gundry builder blog grid — the library's foot index -->
+<section class="builder-grid"><div class="builder-grid__title">The Index, Again — By Builder Grid</div>
+<div class="builder-grid__layout"><div class="builder-card"><a href="#ch-phase1">Phase 1 — the 14-Day Attack Stack configuration</a><p>Hardware, active topicals, targeted specialty topicals, digital.</p></div><div class="builder-card"><a href="#ch-am">AM — Glass Skin &amp; V-Shape</a><p>Non-Stripping Cleansing · Multi-Depth Dew Hydration · V-Line Stainless Gua Sha Sculpting · Camera-Ready Eye Brightening.</p></div><div class="builder-card"><a href="#ch-pm">PM — Barrier &amp; Lip Architecture</a><p>Barrier Restoration · LED Collagen Induction · Non-Invasive Lip Plumping · Anti-Microbial Reset.</p></div><div class="builder-card"><a href="#ch-phase2">Phase 2 — the Ascension Plus weekly loop ($34/week)</a><p>The refill drip, the monthly step-up program, the Day-15 gate.</p></div><div class="builder-card"><a href="#ingredient-log">The Ingredient Log</a><p>One bound entry per ingredient in this volume.</p></div><div class="builder-card"><a href="guide-male.html">Male Looksmaxxing Master Guide</a><p>Three performance pillars, one hour-by-hour system.</p></div></div></section>
+
+<!-- G-31 · Gundry article next/prev navigator -->
+<nav class="article-navigator">
+  <a class="article-navigator__prev" href="guide-male.html">← Male Looksmaxxing Master Guide</a>
+  <a class="article-navigator__next" href="#ingredient-log">The Ingredient Log →</a>
+</nav>
+
+<!-- G-21 · Gundry article-end stack — next entry + the chapter's stack +
+     the residence door (three navigation parts, zero deal copy) -->
+<div class="article-end-stack">
+  <div class="stack-part"><b>The Next Bound Entry</b><a href="#ingredient-log">The Ingredient Log</a><p>Every ingredient in this volume, bound as a catalogue entry.</p></div>
+  <div class="stack-part"><b>The Chapter's Stack</b><a href="stacks.html">Attack Stacks</a><p>The dispensing this volume configures, at the Prescription Counter.</p></div>
+  <div class="stack-part"><b>The Residence Door</b><a href="portal.html">Ascension Plus Portal</a><p>The Member's Room, where the weekly loop runs.</p></div>
+</div>
+
+<!-- BL-30 · Bloom predictive search overlay (b__search) — the library's own
+     search, over bound entries only -->
+<div class="b__search" hidden>
+  <div class="b__search__backdrop"></div>
+  <div class="b__search__panel">
+    <button class="b__search__panel__close" type="button" aria-label="Close search">×</button>
+    <form role="search" onsubmit="return false"><input type="search" placeholder="Search the bound entries" aria-label="Search the library"></form>
+    <div class="b__search__results"></div>
+    <p class="b__search__status" role="status"></p>
+  </div>
+</div>
+<script src="assets/skinaa-data.js"></script>
+<script src="assets/enrich/cart-shim.js"></script>
+<script src="assets/enrich/scken-auto-close-details.js"></script>
+<script src="assets/enrich/reading.js"></script>
+<!-- THE END CARD — propagated from the Admission landing (build-admission.md):
+     P-37 divider → BL-29 column chassis → F-18 six groups + legal → P-21
+     supporting-menu strip → G24 wordmark lockup → P-20 single correspondence
+     line → BL-01 quiet line. BL-24 currency modal inside the register;
+     S-13 overflow behaviour on the strip at mobile widths. -->
+<div class="divider"><div class="divider-holder"></div></div>
+<footer class="site end-card footer footer--fab" id="end-card">
+  <section-footer-component class="footer__container">
+    <div class="footer__container__inner footer__fab-top">
+      <div class="footer__group"><h4>The Collection</h4>
+        <a href="catalog.html">All 40 pieces</a><a href="product.html">The piece page</a><a href="stacks.html">Attack Stacks</a></div>
+      <div class="footer__group"><h4>The Rooms</h4>
+        <a href="index.html">The Door</a><a href="vault.html">Visual Vault</a><a href="unboxing.html">Unboxing</a></div>
+      <div class="footer__group"><h4>Admission</h4>
+        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a><a href="vault.html">The 28 archetypes</a></div>
+      <div class="footer__group"><h4>The Gallery</h4>
+        <a href="vault.html">Before &amp; After Vault</a><a href="guide-female.html">Female Guide</a><a href="guide-male.html">Male Guide</a></div>
+      <div class="footer__group"><h4>Membership</h4>
+        <a href="portal.html">Ascension Plus Portal</a><a href="portal.html">Manage the drip</a><a href="assessment.html?mode=day15">The iteration gate</a></div>
+      <div class="footer__group"><h4>House Service</h4>
+        <a href="help.html">Help</a><a href="authenticity.html">Authenticity</a><a href="wholesale.html">Wholesale</a><a href="contact.html">Contact</a><a href="policies.html">Policies</a></div>
+    </div>
+    <div class="footer__fab-legal"><span>SKINAA by Maanaa — Clinical Dermatology Meets Facial Architecture.</span><span class="footer-stamp">Official Esthetic Standard</span></div>
+    <overflow-list class="supporting-overflow" minimum-items="3">
+      <div class="supporting-menu">
+        <a href="index.html">The Door</a><a href="catalog.html">The Collection</a><a href="assessment.html">Admission</a><a href="stacks.html" data-overflow-extra>Prescription Counter</a><a href="vault.html" data-overflow-extra>Members' Gallery</a><a href="portal.html" data-overflow-extra>Member's Room</a><a href="unboxing.html" data-overflow-extra>Unboxing</a>
+        <button type="button" class="currency-open">Currency / locale</button>
+        <span class="payment-icon" title="Named slot">Payment marks — NAMED SLOT</span>
+        <button type="button" class="supporting-more" aria-expanded="false">More rooms</button>
+      </div>
+    </overflow-list>
+    <div class="footer__brand-strip"><img class="footer-wordmark" src="assets/skinaa-wordmark.png" alt="SKINAA"></div>
+    <div class="newsletter-component">
+      <form class="newsletter-form" data-newsletter-form>
+        <span class="correspondence-line">The weekly drip, in one quiet line — your Dual Rx note, every seven days.</span>
+        <span class="input-group"><input type="email" name="email" required placeholder="Your email" aria-label="Your email"><button type="submit">Correspond</button></span>
+      </form>
+    </div>
+    <div class="announcement-bar"><div class="announcement-bar__container"><div class="announcement-bar__slides"><div class="announcement-bar__slide">Cycles run 30 days, anchored on the 28th. Days 1–14: the full Attack Stack. Day 15: the iteration gate.</div></div></div></div>
+  </section-footer-component>
+  <modal-currency-root>
+    <div class="currency-modal" role="dialog" aria-modal="true" aria-label="Currency and locale">
+      <div class="currency-modal__card">
+        <span class="currency-modal__close-btn" aria-label="Close">×</span>
+        <div class="front-modal">
+          <h3>Currency &amp; locale</h3>
+          <p>The house's localization choice, kept on this device. Prices stay as the house sets them — no rate is invented here.</p>
+          <form id="modal--localization" modal-side="front">
+            <select name="country_code" aria-label="Country"><option value="US">United States</option></select>
+            <select name="locale_code" aria-label="Language"><option value="en">English</option></select>
+            <select name="currency" aria-label="Currency"><option value="USD">USD</option></select>
+            <button type="submit" class="modal-apply">Apply</button>
+          </form>
+        </div>
+        <div class="back-modal">
+          <h3>Kept</h3>
+          <p class="localization-status" role="status"></p>
+          <form id="modal--localization" modal-side="back">
+            <button type="submit" class="modal-apply">Confirm</button>
+          </form>
+          <span class="close_modal">Close</span>
+        </div>
+      </div>
+    </div>
+  </modal-currency-root>
+</footer>
+<script src="assets/enrich/endcards.js"></script>
 </body>
 </html>

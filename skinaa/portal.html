@@ -4,50 +4,308 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="The Ascension Plus Portal — your living delta, the dual-script Rx note archive, check-ins, and potency step status.">
-<meta name="theme-color" content="#4B4B4D">
+<meta name="theme-color" content="#19080e">
 <title>Ascension Plus Portal — SKINAA by Maanaa</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/skinaa.css">
 <style>
-  #delta3d{width:100%;height:520px;display:block;border-radius:26px;background:radial-gradient(120% 120% at 50% 20%,#5A5A5C,#3C3C3E)}
-  .metric{background:#fff;color:var(--cardink);border-radius:20px;padding:22px 24px;box-shadow:0 24px 54px rgba(0,0,0,.30)}
+  /* Story E — the Member's Room: plum-black ground, ivory records,
+     scarlet rationed to ceremony (stamps, the scan readout). */
+  body{background:#19080e}
+  .pagehead{margin-top:34px;padding:64px 28px 52px;border-radius:26px;
+    background:linear-gradient(rgba(25,8,14,.84),rgba(25,8,14,.93)),url("assets/tex/feather-e.jpg") center/cover no-repeat;
+    border:1px solid rgba(236,231,234,.16)}
+  .pagehead .kicker{color:#ece7ea;opacity:.72}
+  #delta3d{width:100%;height:520px;display:block}
+  .metric{background:#ece7ea;color:var(--cardink);border-radius:20px;padding:22px 24px;box-shadow:0 24px 54px rgba(25,8,14,.5)}
   .metric .v{font-size:34px;font-weight:800;letter-spacing:-.02em}
-  .metric input[type=range]{width:100%;margin-top:12px;accent-color:#B08D57}
-  .rxnote{background:#FBF7EE;color:var(--cardink);border-radius:20px;padding:26px 28px;box-shadow:0 24px 54px rgba(0,0,0,.30);margin-top:22px}
-  .rxnote .derm{font-family:"Snell Roundhand","Segoe Script",cursive;font-size:19.5px;line-height:1.55;color:#27356E}
-  .rxnote .est{font-family:"Segoe Print","Bradley Hand",cursive;font-size:16px;line-height:1.6;color:#232323;margin-top:16px}
+  .metric input[type=range]{width:100%;margin-top:12px;accent-color:#19080e}
+  .rxnote{background:#ece7ea;color:var(--cardink);border-radius:20px;padding:26px 28px;box-shadow:0 24px 54px rgba(25,8,14,.5);margin-top:22px}
+  .rxnote .derm{font-family:"Snell Roundhand","Segoe Script",cursive;font-size:19.5px;line-height:1.55;color:#19080e}
+  .rxnote .est{font-family:"Segoe Print","Bradley Hand",cursive;font-size:16px;line-height:1.6;color:rgba(25,8,14,.78);margin-top:16px}
+  .rxnote .stamp.teal{border-color:#19080e;color:#19080e}
   .rxnote .who{font-family:-apple-system,system-ui,sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--greytext);margin-top:8px}
-  .modal{position:fixed;inset:0;background:rgba(20,20,22,.66);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+  .modal{position:fixed;inset:0;background:rgba(25,8,14,.72);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
   .modal.open{display:flex}
-  .modal .box{background:#fff;color:var(--cardink);border-radius:26px;max-width:520px;width:100%;padding:32px;box-shadow:0 44px 90px rgba(0,0,0,.5)}
+  .modal .box{background:#ece7ea;color:var(--cardink);border-radius:26px;max-width:520px;width:100%;padding:32px;box-shadow:0 44px 90px rgba(25,8,14,.55)}
 </style>
+<link rel="manifest" href="assets/enrich/member-manifest.webmanifest">
+<link rel="stylesheet" href="assets/skinaa-portal3d.css">
+<link rel="stylesheet" href="assets/enrich/member-extracts.css">
+<link rel="stylesheet" href="assets/enrich/member.css">
+<link rel="stylesheet" href="assets/enrich/endcards-extracts.css">
+<link rel="stylesheet" href="assets/enrich/endcards.css">
 </head>
 <body>
+
+<div class="authbar">🏥 <b>Co-Founded by Board-Certified Dermatologists</b> &nbsp;|&nbsp; Official Esthetic Standard</div>
+
+<!-- F-20 header shell hosting F-07 · FAB meganav — the RESIDENCE header:
+     its secondary panel shows current pieces (member directory, distinct
+     job vs the Door's visitor directory). Promo-banner half of the donor
+     meganav is CUT, per its row. -->
+<div class="hdr enrich"><header class="header" id="site-header">
+  <span class="header__logo"><a class="header__logo-link" href="index.html" aria-label="SKINAA"><span class="header__logo-wrapper">
+    <span class="image regular-logo"><img src="assets/skinaa-wordmark.png" alt="SKINAA"></span>
+    <span class="image transparent-logo"><img src="assets/skinaa-wordmark.png" alt=""></span>
+  </span></a></span>
+  <nav class="meganav-nav" aria-label="Member directory"><div class="meganav__nav">
+    <ul class="meganav__primary">
+      <li class="has-secondary"><a href="portal.html" aria-haspopup="true">The Residence</a>
+        <div class="meganav meganav__secondary">
+          <div class="meganav-promoted-products" data-meganav-pieces></div>
+          <div class="meganav__roomlinks">
+            <a href="portal.html">Member's Room</a><a href="catalog.html">The Collection</a>
+            <a href="stacks.html">Prescription Counter</a><a href="vault.html">The Vault</a>
+            <a href="assessment.html">Admission</a><a href="guide-female.html">Female Guide</a>
+            <a href="guide-male.html">Male Guide</a><a href="unboxing.html">Unboxing</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="catalog.html">The Collection</a></li>
+      <li><a href="stacks.html">Prescription Counter</a></li>
+      <li><a href="vault.html">The Vault</a></li>
+    </ul>
+  </div></nav>
+  <span class="header__icons">
+    <button class="header__icon-touch" type="button" data-mobile-menu-open>Menu</button>
+    <a class="header__icon-touch header__icon-touch--account" href="portal.html#account">Account</a>
+    <button class="header__icon-touch header__icon-touch--cart" type="button" data-cart-open>Cart<span class="header__cart-link-count cart-count">0</span></button>
+    <button class="header__icon-touch" type="button" data-so-open>Standing Order</button>
+  </span>
+</header></div>
+
+<!-- F-19 · FAB mobile menu system — the residence's mobile menu;
+     contents delivered by its captured template. -->
+<div class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu__overlay"></div>
+  <div class="mobile-menu__panel"><div class="mobile-menu__viewport">
+    <button class="mobile-menu__close" type="button" data-mobile-menu-close>Close</button>
+    <nav class="mobile-menu__contents" aria-label="Member surfaces"></nav>
+  </div></div>
+  <template data-template-key="mobile-menu-contents">
+    <a href="portal.html#instrument">Your Delta</a>
+    <a href="portal.html#program">Ascension Plus Program</a>
+    <a href="portal.html#standing">Standing Order</a>
+    <a href="portal.html#register">Membership Register</a>
+    <a href="portal.html#notes">Rx Note Archive</a>
+    <a href="portal.html#account">Account &amp; Sign-In</a>
+    <a href="catalog.html">The Collection</a>
+    <a href="stacks.html">Prescription Counter</a>
+    <a href="vault.html">The Vault</a>
+  </template>
+</div>
+
+<!-- P-28 drawer framework + P-13 · the site cart drawer, kept alongside
+     G09's standing-order drawer (two drawers, two jobs) -->
+<div class="drawer__underlay underlay"></div>
+<aside class="cart-drawer drawer drawer--animated" aria-hidden="true" aria-label="Cart">
+  <div class="drawer__inner">
+    <div class="drawer__head"><span>The Collection Tray</span><button class="drawer__close" type="button" aria-label="Close cart">×</button></div>
+    <div class="drawer__body"><div class="cart-items"></div></div>
+    <div class="drawer__foot"><span class="cart-total">0 in the tray</span>
+      <p class="note">Free shipping from $118 — the Phase 1 stack entry price.</p></div>
+  </div>
+</aside>
+
+<!-- G09 · Graymatter Alpine cart drawer — the STANDING-ORDER drawer -->
+<aside class="ctr-cart-drawer" aria-hidden="true" aria-label="Standing order">
+  <div class="ctr-cart-head"><span>Your Standing Order</span><button class="drawer__close ctr-cart-close" type="button" aria-label="Close standing order">×</button></div>
+  <div class="ctr-cart-items"></div>
+  <div class="ctr-cart-foot"><span>Weekly loop total</span><span class="ctr-cart-total">$32/week</span></div>
+</aside>
+
+<!-- G-37 · kinetic signals -->
+<div class="toast-stack" aria-live="polite"></div>
+<div class="loading-overlay" aria-hidden="true"><span class="kinetic-word">open</span></div>
+
+<!-- P-31 · Prequel shared tooltip — one node for the instrument readouts -->
+<tooltip-component><div class="tooltip-default" role="tooltip"><span class="tooltip-default__arrow"></span><span class="tooltip-default__inner"><span class="tooltip-default__text"></span></span></div></tooltip-component>
+
 <section class="pagehead">
   <div class="kicker">Ascension Plus · Portal</div>
   <h1>Your delta, alive.</h1>
   <p>The loop visibly happens here: your Day 0 baseline against your current scan, rendered as a living scene. Subscriber: Alex M. · Status: Week 2 Active · Current refill shipment: en route. Cycles run 30 days, anchored on the 28th — your Day-15 re-assessment is the gate.</p>
 </section>
 
-<section class="blk">
-  <canvas id="delta3d" aria-label="Your 3D visual delta — Day 0 morphing to today"></canvas>
+<!-- G01 · Graymatter announcement slider — member notices (the weekly
+     note's arrival is announced here, in scarlet) -->
+<div class="announcement"><div class="announcement__slider" data-active="note">
+  <div class="announcement__slide is-active" data-notice="note"><span class="ann-k">Member notice</span>Your Week 2 Rx note has arrived — it waits in the archive below.</div>
+  <div class="announcement__slide" data-notice="gate"><span class="ann-k">Member notice</span>Day 15 is your iteration gate — the re-assessment opens your next cycle.</div>
+  <div class="announcement__slide" data-notice="cycle"><span class="ann-k">Member notice</span>Cycles run 30 days, anchored on the 28th — your current refill shipment is en route.</div>
+</div></div>
+
+<section class="blk" id="instrument">
+  <div class="scanframe"> id="scanframe">
+    <canvas id="delta3d" aria-label="Your 3D visual delta — Day 0 morphing to today"></canvas>
+    <div class="ticks t"></div><div class="ticks b"></div>
+    <i class="brk tl"></i><i class="brk tr"></i><i class="brk bl"></i><i class="brk br"></i>
+    <div class="hud hud-tl"><span class="k">Visage Topography</span><span class="v" id="hudScan" data-tooltip="The scan plane's position as it sweeps your field, top to chin.">SCAN 000%</span></div>
+    <div class="hud hud-tr"><span class="k">Delta · Day 0 / Current</span><span class="v" id="hudDelta" data-tooltip="Your Day 0 baseline blended to your current scan — driven by the width slider below.">35%</span></div>
+    <div class="hud hud-bl" id="hudBL">
+      <div class="row">
+        <span class="m"><i>Width</i><b id="hudW">−15%</b></span>
+        <span class="m"><i>Darkness CLR</i><b id="hudD">40%</b></span>
+        <span class="m"><i>Light</i><b id="hudL">+18%</b></span>
+      </div>
+      <div class="legend"><span><i class="dot ghost"></i>Day 0 Baseline</span><span><i class="dot cur"></i>Current Scan</span></div>
+    </div>
+    <div class="hud hud-br"><span id="hudPts">FIELD — PTS</span><span id="hudFps">— FPS</span></div>
+  </div>
   <div class="grid c3" style="margin-top:22px">
     <div class="metric"><div class="tag">Facial width reduction</div><div class="v" id="vWidth">15%</div><input type="range" id="rWidth" min="0" max="40" value="15"><p class="note">Submental drainage, measured against your matched archetype.</p></div>
     <div class="metric"><div class="tag">Under-eye darkness clearance</div><div class="v" id="vDark">40%</div><input type="range" id="rDark" min="0" max="100" value="40"><p class="note">Vascular dark circle clearance across the infraorbital frame.</p></div>
     <div class="metric"><div class="tag">Light reflection score</div><div class="v" id="vGlow">+18%</div><input type="range" id="rGlow" min="0" max="100" value="45"><p class="note">Surface glow on the high points — cheekbones, brow, bridge.</p></div>
   </div>
-  <p class="note" style="text-align:center;margin-top:20px;color:var(--mute)">Drag the metrics — the scene is your scan, not a diagram. Weekly AI delta: facial width reduction, darkness clearance, and light scores, confirmed before the next billing cycle.</p>
+  <p class="note" style="text-align:center;margin-top:20px;color:rgba(236,231,234,.72)">Drag the metrics — the scene is your scan, not a diagram. Weekly AI delta: facial width reduction, darkness clearance, and light scores, confirmed before the next billing cycle.</p>
 </section>
+
+
+<!-- F-08 · FAB membership dual tiles — two photographic doors into the
+     residence (membership / standing order). Points/tiers framing of the
+     donor does NOT transfer; destinations are the member surfaces. -->
+<section class="blk"><div class="member-tiles">
+  <a class="image-overlay" data-image-overlay-tint-style="dark" style="--overlay-opacity:.45" href="#program">
+    <img src="assets/tex/feather-e.jpg" alt="Black cherry feather — the membership door">
+    <span class="image-overlay-content"><b>Ascension Plus</b><span>The program, the Day-15 gate, and your progression — enter the residence.</span></span>
+  </a>
+  <a class="image-overlay" data-image-overlay-tint-style="dark" style="--overlay-opacity:.45" href="#standing">
+    <img src="assets/products/fab-01-pack.webp" alt="The standing order door">
+    <span class="image-overlay-content"><b>Your Standing Order</b><span>The weekly loop, dispensed on your cycle — review what arrives next.</span></span>
+  </a>
+</div></section>
 
 <section class="blk">
   <h2>Your check-in</h2>
   <p class="lede">Day 15 is the iteration gate: a fresh assessment — what you used, how it's going, and your face — and the next batch is reformulated from it.</p>
   <div style="text-align:center;margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-    <a class="pill" href="assessment.html?mode=day15">Take the Day-15 Re-Assessment \u2192</a>
+    <a class="pill" href="assessment.html?mode=day15">Take the Day-15 Re-Assessment →</a>
     <a class="pill ghosty" href="assessment.html">Retake the 28-step intake</a>
   </div>
 </section>
 
-<section class="blk">
+
+<section class="blk" id="program"><div class="member-layout">
+  <!-- G-02 · Gundry account sidebar menu — rooms within the room -->
+  <aside class="account-sidebar" aria-label="Residence rooms">
+    <span class="side-k">The Residence</span>
+    <hr class="sidebar-rule">
+    <a class="sidebar-text-link" href="#instrument">Your Delta</a>
+    <a class="sidebar-text-link" href="#program">The Program</a>
+    <a class="sidebar-text-link" href="#standing">Standing Order</a>
+    <a class="sidebar-text-link" href="#register">Membership Register</a>
+    <a class="sidebar-text-link" href="#notes">Rx Note Archive</a>
+    <a class="sidebar-text-link" href="#account">Account &amp; Sign-In</a>
+    <hr class="sidebar-rule">
+    <span class="side-k">Week 2 · Active</span>
+  </aside>
+
+  <div class="member-main">
+    <!-- G19 · Graymatter challenge system → the Ascension Plus program:
+         challenge / activity / progression / feature cards -->
+    <div class="member-section ctr-challenge">
+      <span class="k">Ascension Plus · The Program</span>
+      <h3>A program that progresses, not a subscription that repeats.</h3>
+      <p>Days 1–14: the full Attack Stack. Day 15: the iteration gate — a fresh assessment, and the next batch is reformulated from it. Active formula adaptation every 30 days: an evolving protocol, not a static shipment.</p>
+      <div class="ctr-progression" data-pct="35%">
+        <div class="ctr-progression__track"><div class="ctr-progression__fill" style="width:35%"></div></div>
+        <div class="ctr-progression__steps"><span>Day 0 · Baseline</span><span class="ctr-progression__pct">35%</span><span>Day 15 · The Gate</span></div>
+      </div>
+      <div class="ctr-activity"><div class="ctr-activity__cards">
+        <div class="ctr-activity__card"><span class="ctr-activity__card-title">This week</span><p class="ctr-activity__description">Your Week 2 Rx note is in the archive — two voices, one protocol: your dermatologist's calibration and your esthetician's passes.</p></div>
+        <div class="ctr-activity__card"><span class="ctr-activity__card-title">The weekly loop</span><p class="ctr-activity__description">Refills ride the weekly loop inside your 30-day cycle, anchored on the 28th. Your current refill shipment is en route.</p></div>
+        <div class="ctr-activity__card"><span class="ctr-activity__card-title">At the gate</span><p class="ctr-activity__description">Bring what you used and how it's going. Reformulation is free — it's what the gate is for.</p></div>
+      </div></div>
+      <div class="ctr-feature-cards">
+        <div class="ctr-feature-card"><b>The delta, alive</b><p>Your instrument above is your scan, not a diagram — drag the metrics and the field answers.</p></div>
+        <div class="ctr-feature-card"><b>Potency steps</b><p>Day 30 and Day 60 advances are already written into your record, below.</p></div>
+        <div class="ctr-feature-card"><b>Two scripts</b><p>Every refill box carries a hand-stamped note in two hands. The archive keeps them all.</p></div>
+      </div>
+      <!-- G27 · the credit artifact: a record, not a bounty. Renders the
+           recorded credit state only; absent state renders nothing. -->
+      <div class="ctr-credit-artifact" aria-label="Member credit record"></div>
+    </div>
+
+    <!-- BL-19 · Bloom subscription landing system → the standing-order
+         presentation (hero + quick-buy + lines). memberPrice/memberDeal
+         are dormant owner-input nulls: their slots render nothing. -->
+    <div class="member-section subscription-landing" id="standing">
+      <span class="k">The Standing Order</span>
+      <h3>The weekly loop, standing.</h3>
+      <p>Your prescribed stack dispenses on the loop: the full Attack Stack for Days 1–14, refills through the cycle, reformulated at every Day-15 gate. The Male Jawline Sharpening &amp; Anti-Bloat Protocol — $128 to start, $32/week on the loop (documented stack prices).</p>
+      <span data-member-price></span><span data-member-deal></span>
+      <div class="so-lines">
+        <div class="so-line"><span>MALE-03 — Dandelion &amp; Potassium Facial Debloat Drops (refill)</span><button class="member-btn" type="button" data-quick-buy="MALE-03">Quick-buy refill</button></div>
+        <div class="so-line"><span>MALE-06 — Pure Chios Mastic Gum Refill</span><button class="member-btn" type="button" data-quick-buy="MALE-06">Quick-buy refill</button></div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+        <button class="member-btn scarlet" type="button" data-so-open>Manage the standing order</button>
+        <button class="member-btn" type="button" data-rebill-open>Confirm the card on file</button>
+      </div>
+    </div>
+
+    <!-- G18 · Graymatter loyalty/subscriber band → the weekly loop's
+         standing panel. memberDeal dormant null: the deal slot is empty. -->
+    <div class="member-dark loyality_subscriber">
+      <span class="k">The Weekly Loop</span>
+      <h3>Held for you, every week.</h3>
+      <p>Subscriber: Alex M. · Status: Week 2 Active · Current refill shipment: en route. Your tray slots stay yours — the loop holds your place in the cycle whether a week is taken or passed.</p>
+      <span data-member-deal></span>
+    </div>
+
+    <div id="register">
+    <!-- BL-20 · Bloom tier comparison table — tiers as a kept table.
+         tierSave is a dormant null: no save value renders, ever. -->
+    <div class="rewards-compare-table"><div class="rewards-compare-table__container">
+      <div class="rewards-compare-table__header"><h3>Membership, compared</h3></div>
+      <table style="width:100%;border-collapse:collapse;font-size:14px">
+        <tr class="rewards-compare-table__header-row">
+          <th class="rewards-compare-table__header-cell" style="text-align:left;padding:10px">The record</th>
+          <th class="rewards-compare-table__header-cell" style="padding:10px">The Collection</th>
+          <th class="rewards-compare-table__header-cell" style="padding:10px">Ascension Plus</th>
+        </tr>
+        <tr><td class="rewards-compare-table__cell-value" style="padding:10px">The living delta instrument</td><td style="padding:10px;text-align:center">—</td><td style="padding:10px;text-align:center">Held</td></tr>
+        <tr><td class="rewards-compare-table__cell-value" style="padding:10px">Dual-script Rx note with every refill</td><td style="padding:10px;text-align:center">—</td><td style="padding:10px;text-align:center">Held</td></tr>
+        <tr><td class="rewards-compare-table__cell-value" style="padding:10px">Day-15 reformulation gate</td><td style="padding:10px;text-align:center">—</td><td style="padding:10px;text-align:center">Held</td></tr>
+        <tr><td class="rewards-compare-table__cell-value" style="padding:10px">Potency step-ups at Day 30 / Day 60</td><td style="padding:10px;text-align:center">—</td><td style="padding:10px;text-align:center">Held</td></tr>
+        <tr><td class="rewards-compare-table__cell-value" style="padding:10px">Tier saving <span data-tier-save></span></td><td style="padding:10px;text-align:center">—</td><td style="padding:10px;text-align:center">On your record</td></tr>
+      </table>
+    </div></div>
+
+    <!-- G08 · Graymatter become-a-member section — the room explaining
+         residence, inside the room -->
+    <div class="member-section become-member-section">
+      <span class="k">Residence</span>
+      <h3>Why a room, not an account page.</h3>
+      <p>Ascension Plus is a residence: a measured face, a program that progresses, two handwritten voices, and a record that is kept. Membership is not points and it is not tiers of spend — it is the protocol, kept alive between shipments.</p>
+    </div>
+    </div>
+
+    <!-- G-22 · Gundry account benefits panel + G-23 · passwordless login -->
+    <div class="member-section" id="account">
+      <span class="k">Account</span>
+      <h3>Your second door.</h3>
+      <div class="account-grid">
+        <div>
+          <p>No password lives here. Enter the email on your membership and the house sends a sign-in link — the member's second door.</p>
+          <input class="gh-input member-input" type="email" data-login-email placeholder="The email on your membership" aria-label="Membership email">
+          <button class="member-btn scarlet" type="button" data-passwordless-login>Email me a sign-in link</button>
+          <p class="member-note" data-login-msg></p>
+        </div>
+        <div class="account-benefits-panel">
+          <b>Kept with your residence</b>
+          <div class="artifact"><span>✦</span><span>Your stamped verification card — the code your intake issued, kept on file.</span></div>
+          <div class="artifact"><span>✦</span><span>The dual-script Rx notes — every refill's two hands, archived in this room.</span></div>
+          <div class="artifact"><span>✦</span><span>Your delta record — Day 0 against today, measured, never rounded.</span></div>
+          <div class="artifact"><span>✦</span><span>Your tray slots — held through a pause, on your word alone.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="blk" id="notes">
   <h2>The dual-script Rx note archive</h2>
   <p class="lede">Every refill box carries a hand-stamped progress note: blue cursive from your dermatologist, black fine-liner from your esthetician. Your archive:</p>
 
@@ -79,10 +337,10 @@
 <section class="blk">
   <h2>Potency step status</h2>
   <div class="grid c2" style="margin-top:36px">
-    <div class="card"><div class="pad"><span class="tag">Day 30 Step-Up</span><div class="sku-name">Potency advances</div><p class="sku-meta" style="font-size:14.5px">Vitamin C 15% \u2192 20% L-Ascorbic Acid · Derma-Stamp depth 0.5mm \u2192 0.75mm · Ferment Toner introduced (female protocol) · Volufiline pen upgraded with multi-peptide complexes.</p></div></div>
-    <div class="card"><div class="pad"><span class="tag">Day 60 Step-Up</span><div class="sku-name">The second advance</div><p class="sku-meta" style="font-size:14.5px">0.015% HOCl Post-Shave Reset Mist added · Copper Peptide \u2192 3% GHK-Cu · 3% Tranexamic + 5% Niacinamide Correcting Serum added (female protocol).</p></div></div>
+    <div class="card"><div class="pad"><span class="tag">Day 30 Step-Up</span><div class="sku-name">Potency advances</div><p class="sku-meta" style="font-size:14.5px">Vitamin C 15% → 20% L-Ascorbic Acid · Derma-Stamp depth 0.5mm → 0.75mm · Ferment Toner introduced (female protocol) · Volufiline pen upgraded with multi-peptide complexes.</p></div></div>
+    <div class="card"><div class="pad"><span class="tag">Day 60 Step-Up</span><div class="sku-name">The second advance</div><p class="sku-meta" style="font-size:14.5px">0.015% HOCl Post-Shave Reset Mist added · Copper Peptide → 3% GHK-Cu · 3% Tranexamic + 5% Niacinamide Correcting Serum added (female protocol).</p></div></div>
   </div>
-  <p class="note" style="text-align:center;margin-top:26px;color:var(--mute)">Active formula adaptation every 30 days — an evolving protocol, not a static shipment. Full sequences: <a href="guide-male.html" style="color:#fff">Male Guide</a> · <a href="guide-female.html" style="color:#fff">Female Guide</a></p>
+  <p class="note" style="text-align:center;margin-top:26px;color:rgba(236,231,234,.72)">Active formula adaptation every 30 days — an evolving protocol, not a static shipment. Full sequences: <a href="guide-male.html" style="color:#ece7ea">Male Guide</a> · <a href="guide-female.html" style="color:#ece7ea">Female Guide</a></p>
 </section>
 
 <section class="blk" style="text-align:center">
@@ -91,17 +349,32 @@
   <div style="margin-top:26px"><button class="pill ghosty" id="pauseBtn">Request a pause</button></div>
 </section>
 
-<div class="modal" id="pauseModal"><div class="box">
-  <div class="kicker" style="color:#B08D57">From your Lead Esthetician</div>
+<popup-component><div class="modal modal-wrapper modal--newsletter popup-component" id="pauseModal"><div class="box">
+  <div class="kicker" style="color:#19080e">From your Lead Esthetician</div>
   <h3 style="font-size:23px;font-weight:800;line-height:1.25;margin-top:12px">Pausing your protocol resets your barrier adaptation cycle.</h3>
-  <p style="line-height:1.65;margin-top:14px">Here is your current visual delta score if you stay on track this week: <b>width \u221215% · darkness clearance 40% · light reflection +18%</b>. Your barrier took fourteen days to adapt to this potency — a pause spends that adaptation, and the next cycle starts from the barrier you have today, not the one you're building.</p>
+  <p style="line-height:1.65;margin-top:14px">Here is your current visual delta score if you stay on track this week: <b>width −15% · darkness clearance 40% · light reflection +18%</b>. Your barrier took fourteen days to adapt to this potency — a pause spends that adaptation, and the next cycle starts from the barrier you have today, not the one you're building.</p>
   <p class="note" style="margin-top:12px">If it's the formula, not the protocol, say so at your Day-15 gate — reformulation is free, and it's what the gate is for.</p>
-  <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap"><button class="pill dark" id="stayBtn">Stay on track</button><button class="pill" style="box-shadow:none;border:1.5px solid var(--cardline)" id="pauseConfirm">Pause anyway</button></div>
+  <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap"><button class="pill dark" id="stayBtn">Stay on track</button><button class="pill" style="box-shadow:none;border:1.5px solid rgba(25,8,14,.4)" id="pauseConfirm">Pause anyway</button></div>
   <p class="note" id="pauseMsg" style="margin-top:14px"></p>
-</div></div>
+</div></div></popup-component>
+
+
+<!-- G-39 · Gundry rebill card-confirm modal [donor spelling preserved] -->
+<div class="subsciption-rebill-card-confirm-modal" role="dialog" aria-modal="true" aria-label="Confirm the card on file">
+  <div class="box">
+    <span class="k" style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#bf3533;font-weight:800">Standing Order · Card</span>
+    <h3 style="font-size:21px;font-weight:800;margin-top:10px">Confirm the card on file.</h3>
+    <p style="line-height:1.6;margin-top:10px">The next loop charge rides the card on your membership record. Confirming here records that confirmation at the house billing slot — this page takes no charge.</p>
+    <p class="member-note" data-rebill-msg></p>
+    <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
+      <button class="member-btn scarlet" type="button" data-rebill-confirm>Confirm the card</button>
+      <button class="member-btn" type="button" data-rebill-cancel>Not now</button>
+    </div>
+  </div>
+</div>
 
 <script src="assets/skinaa-data.js"></script>
-<script type="module" src="assets/portal3d.js"></script>
+<script type="module" src="assets/skinaa-portal3d.js"></script>
 <script>
 function bind(rangeId, valId, fmt, apply){
   const r = document.getElementById(rangeId), v = document.getElementById(valId);
@@ -120,6 +393,76 @@ document.getElementById("pauseConfirm").onclick = () => {
 };
 pm.addEventListener("click", e => { if (e.target === pm) pm.classList.remove("open"); });
 </script>
-<script src="assets/skinaa-chrome.js"></script>
+
+<script src="assets/enrich/cart-shim.js"></script>
+<script src="assets/enrich/member.js"></script>
+
+<!-- THE END CARD — propagated from the Admission landing (build-admission.md):
+     P-37 divider → BL-29 column chassis → F-18 six groups + legal → P-21
+     supporting-menu strip → G24 wordmark lockup → P-20 single correspondence
+     line → BL-01 quiet line. BL-24 currency modal inside the register;
+     S-13 overflow behaviour on the strip at mobile widths. -->
+<div class="divider"><div class="divider-holder"></div></div>
+<footer class="site end-card footer footer--fab" id="end-card">
+  <section-footer-component class="footer__container">
+    <div class="footer__container__inner footer__fab-top">
+      <div class="footer__group"><h4>The Collection</h4>
+        <a href="catalog.html">All 40 pieces</a><a href="product.html">The piece page</a><a href="stacks.html">Attack Stacks</a></div>
+      <div class="footer__group"><h4>The Rooms</h4>
+        <a href="index.html">The Door</a><a href="vault.html">Visual Vault</a><a href="unboxing.html">Unboxing</a></div>
+      <div class="footer__group"><h4>Admission</h4>
+        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a><a href="vault.html">The 28 archetypes</a></div>
+      <div class="footer__group"><h4>The Gallery</h4>
+        <a href="vault.html">Before &amp; After Vault</a><a href="guide-female.html">Female Guide</a><a href="guide-male.html">Male Guide</a></div>
+      <div class="footer__group"><h4>Membership</h4>
+        <a href="portal.html">Ascension Plus Portal</a><a href="portal.html">Manage the drip</a><a href="assessment.html?mode=day15">The iteration gate</a></div>
+      <div class="footer__group"><h4>House Service</h4>
+        <a href="help.html">Help</a><a href="authenticity.html">Authenticity</a><a href="wholesale.html">Wholesale</a><a href="contact.html">Contact</a><a href="policies.html">Policies</a></div>
+    </div>
+    <div class="footer__fab-legal"><span>SKINAA by Maanaa — Clinical Dermatology Meets Facial Architecture.</span><span class="footer-stamp">Official Esthetic Standard</span></div>
+    <overflow-list class="supporting-overflow" minimum-items="3">
+      <div class="supporting-menu">
+        <a href="index.html">The Door</a><a href="catalog.html">The Collection</a><a href="assessment.html">Admission</a><a href="stacks.html" data-overflow-extra>Prescription Counter</a><a href="vault.html" data-overflow-extra>Members' Gallery</a><a href="portal.html" data-overflow-extra>Member's Room</a><a href="unboxing.html" data-overflow-extra>Unboxing</a>
+        <button type="button" class="currency-open">Currency / locale</button>
+        <span class="payment-icon" title="Named slot">Payment marks — NAMED SLOT</span>
+        <button type="button" class="supporting-more" aria-expanded="false">More rooms</button>
+      </div>
+    </overflow-list>
+    <div class="footer__brand-strip"><img class="footer-wordmark" src="assets/skinaa-wordmark.png" alt="SKINAA"></div>
+    <div class="newsletter-component">
+      <form class="newsletter-form" data-newsletter-form>
+        <span class="correspondence-line">The weekly drip, in one quiet line — your Dual Rx note, every seven days.</span>
+        <span class="input-group"><input type="email" name="email" required placeholder="Your email" aria-label="Your email"><button type="submit">Correspond</button></span>
+      </form>
+    </div>
+    <div class="announcement-bar"><div class="announcement-bar__container"><div class="announcement-bar__slides"><div class="announcement-bar__slide">Cycles run 30 days, anchored on the 28th. Days 1–14: the full Attack Stack. Day 15: the iteration gate.</div></div></div></div>
+  </section-footer-component>
+  <modal-currency-root>
+    <div class="currency-modal" role="dialog" aria-modal="true" aria-label="Currency and locale">
+      <div class="currency-modal__card">
+        <span class="currency-modal__close-btn" aria-label="Close">×</span>
+        <div class="front-modal">
+          <h3>Currency &amp; locale</h3>
+          <p>The house's localization choice, kept on this device. Prices stay as the house sets them — no rate is invented here.</p>
+          <form id="modal--localization" modal-side="front">
+            <select name="country_code" aria-label="Country"><option value="US">United States</option></select>
+            <select name="locale_code" aria-label="Language"><option value="en">English</option></select>
+            <select name="currency" aria-label="Currency"><option value="USD">USD</option></select>
+            <button type="submit" class="modal-apply">Apply</button>
+          </form>
+        </div>
+        <div class="back-modal">
+          <h3>Kept</h3>
+          <p class="localization-status" role="status"></p>
+          <form id="modal--localization" modal-side="back">
+            <button type="submit" class="modal-apply">Confirm</button>
+          </form>
+          <span class="close_modal">Close</span>
+        </div>
+      </div>
+    </div>
+  </modal-currency-root>
+</footer>
+<script src="assets/enrich/endcards.js"></script>
 </body>
 </html>

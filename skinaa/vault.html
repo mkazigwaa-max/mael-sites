@@ -4,24 +4,144 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="The Before & After Visual Vault — Day 0 Baseline, Day 14 Transformation Peak, Day 28 Ascension Maintenance.">
-<meta name="theme-color" content="#4B4B4D">
+<meta name="theme-color" content="#634f32">
 <title>The Before & After Visual Vault — SKINAA by Maanaa</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/skinaa.css">
+<link rel="stylesheet" href="assets/enrich/vault-extracts.css">
+<link rel="stylesheet" href="assets/enrich/vault.css">
 <style>
+  /* The Vault — Story A · hazelnut, the Members' Gallery (page-scoped only).
+     Ground: hazelnut. Records: ivory. Arcs: dusty blue ring motifs, drawn as
+     thin concentric circles at low presence — the bronze wing's powder-blue
+     arcs as the house pattern. Gold lives only inside the wing photograph
+     (assets/tex/wing-a.jpg), never as a flat color here. */
+  body{background:#634f32;color:#ece7ea}
+  /* Wing band — the wing texture photograph is the header ground, veiled in
+     hazelnut so the ivory inscription stays legible on the texture. */
+  .pagehead{position:relative;max-width:none;margin:0;padding:88px 28px 72px;background:linear-gradient(rgba(99,79,50,.62),rgba(99,79,50,.88)),url("assets/tex/wing-a.jpg") center 38%/cover no-repeat;overflow:hidden}
+  .pagehead h1{color:#ece7ea;position:relative;z-index:1}
+  .pagehead p{color:#ece7ea;position:relative;z-index:1}
+  .pagehead .kicker{color:#66a0b5;position:relative;z-index:1}
+  /* Concentric ring arcs over the wing band — quiet, thin, dusty blue. */
+  .pagehead::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;right:4%;top:-40px;background:repeating-radial-gradient(circle at center,transparent 0,transparent 33px,rgba(102,160,181,.38) 33px,rgba(102,160,181,.38) 34px);pointer-events:none}
+  .pagehead::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;left:3%;bottom:-110px;background:repeating-radial-gradient(circle at center,transparent 0,transparent 25px,rgba(102,160,181,.28) 25px,rgba(102,160,181,.28) 26px);pointer-events:none}
+  /* Gallery discipline — space around the plates, no shouting. */
+  .filters{margin-top:40px;padding:0 20px}
+  .filters button{border-color:rgba(236,231,234,.38);color:#ece7ea}
+  .filters button:hover{border-color:#66a0b5;color:#ece7ea}
+  .filters button.on{background:#66a0b5;border-color:#66a0b5;color:#19080e}
+  section.blk{position:relative;padding-top:64px;padding-bottom:24px}
+  /* Large quiet arcs behind the hung plates. */
+  section.blk::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;left:-210px;top:120px;background:repeating-radial-gradient(circle at center,transparent 0,transparent 41px,rgba(102,160,181,.16) 41px,rgba(102,160,181,.16) 42px);pointer-events:none}
+  #grid{gap:48px 40px;position:relative;z-index:1}
+  /* Ivory records hung in the dark room. */
+  .vcard{position:relative;background:#ece7ea;color:#19080e}
+  .vcard::before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-40px;top:-40px;background:repeating-radial-gradient(circle at center,transparent 0,transparent 17px,rgba(102,160,181,.22) 17px,rgba(102,160,181,.22) 18px);pointer-events:none;z-index:0}
+  .vcard .pad{padding:34px 36px 38px;position:relative;z-index:1}
   .vcard .pad h3{font-size:20px;font-weight:800;letter-spacing:-.01em}
-  .vrow{margin-top:12px;font-size:14.5px;line-height:1.6}
-  .vrow .k{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--champ2);display:block;margin-bottom:3px}
-  .vrow .k.g{color:#2E7D74}
-  .ba-wrap{margin-top:14px}
+  .vcard .tag{color:#634f32;border-color:rgba(102,160,181,.60)}
+  .vcard .pill.dark{background:#634f32;color:#ece7ea}
+  .panels3{gap:14px}
+  .vrow{margin-top:20px;font-size:14.5px;line-height:1.65}
+  .vrow .k{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#634f32;display:block;margin-bottom:4px}
+  .vrow .k.g{color:#66a0b5}
+  .ba-wrap{margin-top:20px}
+  @media(max-width:640px){
+    .pagehead{padding:64px 22px 54px}
+    .pagehead::before{right:-70px;top:22px}
+    section.blk{padding-top:44px}
+    #grid{gap:34px}
+    .vcard .pad{padding:26px 22px 30px}
+  }
 </style>
+<link rel="stylesheet" href="assets/enrich/endcards-extracts.css">
+<link rel="stylesheet" href="assets/enrich/endcards.css">
 </head>
 <body>
+
+<!-- F-20 · FAB header shell (chrome rollout, copied from the landed Counter
+     build): dual regular/transparent logo mechanism, house wordmark in both
+     slots. P-13 drawer + G-37 kinetic layer copied with it. -->
+<div class="hdr enrich"><header class="header" id="site-header">
+  <span class="header__logo"><a class="header__logo-link" href="index.html" aria-label="SKINAA"><span class="header__logo-wrapper">
+    <span class="image regular-logo"><img src="assets/skinaa-wordmark.png" alt="SKINAA"></span>
+    <span class="image transparent-logo"><img src="assets/skinaa-wordmark.png" alt=""></span>
+  </span></a></span>
+  <nav class="site">
+    <a href="catalog.html">The Collection</a>
+    <a href="vault.html">The Vault</a>
+    <a href="index.html#board">The Board</a>
+    <a href="guide-female.html">Female Guide</a>
+    <a href="guide-male.html">Male Guide</a>
+    <a href="portal.html">Member's Room</a>
+  </nav>
+  <span class="header__icons">
+    <button class="header__icon-touch header__icon-touch--search" type="button" aria-label="Search">Search</button>
+    <a class="header__icon-touch header__icon-touch--account" href="portal.html">Account</a>
+    <button class="header__icon-touch header__icon-touch--cart" type="button" data-cart-open>Cart<span class="header__cart-link-count cart-count">0</span></button>
+  </span>
+  <div class="header-search-popdown search-popdown" hidden>
+    <form class="predictive-search-form" role="search" onsubmit="return false">
+      <input type="search" name="q" placeholder="Search the 40 pieces" aria-label="Search the collection">
+    </form>
+    <div class="predictive-search" aria-live="polite"></div>
+    <span class="search-status" role="status"></span>
+  </div>
+</header></div>
+
+<!-- P-28 drawer framework + P-13 · Prequel cart drawer (site-wide cart;
+     the discount-code field CUT on transplant, per its row) -->
+<div class="drawer__underlay underlay"></div>
+<aside class="cart-drawer drawer drawer--animated" aria-hidden="true" aria-label="Cart">
+  <div class="drawer__inner">
+    <div class="drawer__head"><span>The Collection Tray</span><button class="drawer__close" type="button" aria-label="Close cart">×</button></div>
+    <div class="drawer__body"><div class="cart-items"></div></div>
+    <div class="drawer__foot"><span class="cart-total">0 in the tray</span>
+      <p class="note">Free shipping from $118 — the Phase 1 stack entry price.</p></div>
+  </div>
+</aside>
+
+<!-- G-37 · kinetic signals -->
+<div class="toast-stack" aria-live="polite"></div>
+<div class="loading-overlay" aria-hidden="true"><span class="kinetic-word">open</span></div>
+
 <section class="pagehead">
   <div class="kicker">The Before &amp; After Visual Vault</div>
   <h1>Day 0. Day 14. Day 28.</h1>
   <p>Slide between Day 0 baseline, Day 14 peak transformation, and Day 28+ Ascension maintenance across real model archetypes.</p>
 </section>
 
+
+<!-- G02 · Graymatter hero banner slider (coffee-section slider chassis,
+     ctr-banner-slider.css) over exemplar photography -->
+<section class="coffee-section ctr-banner" aria-label="Presented exemplars">
+  <div class="overlay-block"></div>
+  <div class="stack-container">
+    <div class="setion-title"><div class="kicker" style="color:#634f32">The presented six</div></div>
+    <div class="coffee-section__slider-clip"><div class="coffee-section__slider-bleed">
+      <div class="coffee-section-swiper-container">
+        <div class="swiper-wrapper" id="banner-slides"></div>
+      </div>
+    </div></div>
+    <div class="coffee-section__slider-nav">
+      <button type="button" class="swiper-button-prev" id="banner-prev" aria-label="Previous exemplar" style="color:#634f32">←</button>
+      <span class="coffee-section__slider-nav-label" id="banner-label" style="color:#634f32"></span>
+      <button type="button" class="swiper-button-next" id="banner-next" aria-label="Next exemplar" style="color:#634f32">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- G-08 · Gundry aggregate strip, re-homed: numbers COMPUTED from the
+     MODELS census by vault.js (28 records / 6 presented), never claimed -->
+<above-os-gmd><div class="archive-strip" id="archive-strip" aria-label="Archive census"></div></above-os-gmd>
+
+<div class="vault-layout">
+<aside class="timeline-rail">
+<!-- G05 · Graymatter process-progress timeline: the line draws as the member scrolls -->
+<div class="process-progress" id="process-progress-wrap"><div class="process-progress-box" id="process-progress"></div></div>
+</aside>
+<div class="room-col">
 <div class="filters" id="filters">
   <button data-f="ALL" class="on">All</button>
   <button data-f="M">Guys</button>
@@ -33,60 +153,153 @@
 </div>
 
 <section class="blk" style="padding-top:40px">
-  <div class="grid c2" id="grid"></div>
+  <!-- G07 · Graymatter reviews__grid chassis → record plates (records, never star claims) -->
+  <div class="reviews reviews--section reviews--have-images"><div class="reviews__grid grid c2" id="grid"></div></div>
 </section>
 
+<!-- S-04 · sckenofficial layered slideshow: the handled Day deck -->
+<section class="blk">
+  <h2>Handle the days</h2>
+  <p class="lede">Day 0, Day 14, Day 28 — the selected exemplar's panels as a deck you handle. Drag a panel aside to send it to the back.</p>
+  <div class="exemplar-picker" data-picker></div>
+  <layered-slideshow-component><div class="layered-slideshow__container" id="deck-container"></div></layered-slideshow-component>
+  <p class="deck-note">Panels: Day 0 baseline · Day 14 result · Day 28 goal — fields verbatim from the record.</p>
+</section>
+
+<!-- G-09 · Gundry named carousel (swiper-slider-reviews) → named exemplars -->
+<section class="blk">
+  <h2>One exemplar at a time</h2>
+  <div class="swiper-slider-reviews"><div class="swiper-slider-reviews-container"><div class="swiper-wrapper" id="named-slides"></div></div></div>
+  <div class="carousel-nav"><button type="button" class="swiper-button-prev" id="carousel-prev" aria-label="Previous exemplar">←</button>
+  <span class="cur" id="carousel-cur"></span>
+  <button type="button" class="swiper-button-next" id="carousel-next" aria-label="Next exemplar">→</button></div>
+</section>
+
+<!-- BL-08 · Bloom image-text split for the selected exemplar -->
+<section class="blk" id="split-section">
+  <h2>The selected record</h2>
+  <div class="exemplar-picker" data-picker></div>
+  <div class="image-text-split"><div class="image-text-split__container flex-column-reverse lg:flex-row">
+    <div class="image-text-split__container__image"><div class="picture-container"><picture><img id="split-img" src="assets/vault/c01-day14.webp" alt="Model 01 Day 14"></picture></div>
+    <span class="image-text-split__container__sticker tag" id="split-sticker">C01</span></div>
+    <div class="image-text-split__container__text z-3"><div class="image-text-split__container__text__secondary" id="split-record"></div></div>
+  </div></div>
+</section>
+
+<!-- S-06 · sckenofficial media-gallery + zoom dialog (template unbanked — markup authored against the banked JS/CSS + class citations, named) -->
+<section class="blk">
+  <h2>Look closer</h2>
+  <div class="exemplar-picker" data-picker></div>
+  <media-gallery><div class="media-gallery__grid" id="gallery-grid"></div></media-gallery>
+</section>
+<dialog class="media-gallery__zoom-dialog" id="zoom-dialog" aria-label="Plate zoom">
+  <button type="button" class="media-gallery__zoom-close" id="zoom-close" aria-label="Close zoom">×</button>
+  <img id="zoom-img" src="" alt="Zoomed plate"><p id="zoom-caption" style="padding:14px 20px;font-weight:700"></p>
+</dialog>
+
+<!-- P-25 · Prequel native-scrollbar rail: the plate row, all 28 records (mobile rail, served at every width as the archive index) -->
+<section class="blk">
+  <h2>The full archive — 28 records</h2>
+  <native-scrollbar>
+    <button type="button" data-scrollbar-arrow-prev id="rail-prev" aria-label="Scroll plates back">←</button>
+    <div data-scrollbar data-scrollbar-slider id="plate-rail"></div>
+    <button type="button" data-scrollbar-arrow-next id="rail-next" aria-label="Scroll plates forward">→</button>
+  </native-scrollbar>
+  <p class="rail-note">Every record in the archive, Day 14 plates — tap a plate to zoom it.</p>
+</section>
+
+<!-- G25 · Graymatter predictive search + popular panel, re-pointed to the static MODELS index (named) -->
+<section class="blk archive-search">
+  <h2>Search the archive</h2>
+  <div class="predictive-search">
+    <input type="search" id="archive-q" placeholder="Search records — a code, a concern, a field" aria-label="Search the archive">
+    <div class="predictive-search__popular" id="archive-popular"></div>
+    <p class="predictive-search__status" id="archive-status" role="status"></p>
+    <div class="predictive-search__results" id="archive-results"></div>
+  </div>
+</section>
+
+<!-- G30 · Graymatter ctr-reviews: tabulated records, tracks = documented deltas only (JS/CSS in the 53-file absent register — house re-drive, named) -->
+<section class="blk">
+  <div class="ctr-reviews">
+    <div class="ctr-reviews__header"><span class="ctr-reviews__title">Records, tabulated</span><span class="ctr-reviews__subtitle">Sets from the archive's own tags</span></div>
+    <div class="ctr-reviews__tabs" id="ctr-tabs"></div>
+    <div class="ctr-reviews__cards" id="ctr-cards"></div>
+    <p class="ctr-reviews__footnote">Tracks render only where a record's gains field documents a percentage delta, verbatim. A record without one renders no track — numbers are never padded.</p>
+  </div>
+</section>
+</div><!-- /room-col -->
+</div><!-- /vault-layout -->
+
 <script src="assets/skinaa-data.js"></script>
-<script>
-const grid = document.getElementById("grid");
-const lc = c => c.toLowerCase();
-function panel(src, label){
-  return '<figure><img src="' + src + '" alt="' + label + '" onerror="this.parentNode.innerHTML=\'<div class=&quot;panel-missing&quot;>' + label + '<br>panel in generation</div>\'"><figcaption>' + label + '</figcaption></figure>';
-}
-function baSlider(m){
-  return '<div class="ba-wrap"><div class="ba">'
-    + '<img src="assets/vault/' + lc(m.code) + '-day0.jpg" alt="Model ' + m.n + ' Day 0">'
-    + '<div class="after" style="clip-path:inset(0 0 0 50%)"><img src="assets/vault/' + lc(m.code) + '-day14.webp" alt="Model ' + m.n + ' Day 14" onerror="this.closest(\'.ba\').style.display=\'none\'"></div>'
-    + '<span class="lab l">Day 0</span><span class="lab r">Day 14</span>'
-    + '<input type="range" min="0" max="100" value="50" aria-label="Before after slider" oninput="this.previousElementSibling.previousElementSibling.style.clipPath=\'inset(0 0 0 \'+this.value+\'%)\'">'
-    + '</div></div>';
-}
-function cardHTML(m){
-  return '<article class="card vcard"><div class="pad">'
-    + '<span class="tag">Model ' + String(m.n).padStart(2,"0") + ' · ' + m.code + '</span> <span class="tag">' + m.arch + '</span>'
-    + '<div class="panels3" style="margin-top:16px">'
-    +   panel("assets/vault/" + lc(m.code) + "-day0.jpg", "Day 0 — Baseline")
-    +   panel("assets/vault/" + lc(m.code) + "-condition.webp", "Condition Panel")
-    +   panel("assets/vault/" + lc(m.code) + "-day14.webp", "Day 14 — Result")
-    + '</div>'
-    + baSlider(m)
-    + '<div class="vrow"><span class="k">Day 0 — Flaws</span>' + m.flaws + '</div>'
-    + '<div class="vrow"><span class="k g">Day 14 — Gains</span>' + m.gains + '</div>'
-    + '<div class="vrow"><span class="k">Day 28 — Ascension Goal</span>' + m.goal + '</div>'
-    + '<div class="vrow"><span class="k">Phase 1 — Attack Stack</span>' + m.p1 + '</div>'
-    + '<div class="vrow"><span class="k">Phase 2 — Weekly Refill</span>' + m.p2 + '</div>'
-    + '<div style="margin-top:18px"><a class="pill dark" href="assessment.html">Match my phenotype \u2192</a></div>'
-    + '</div></article>';
-}
-/* Character presentation gate (owner ruling, FULL-PRODUCT-RUN-ADDENDUM-CHARACTERS):
-   the site presents a small exemplar set, not the cast directory. Each presented
-   character follows a direct donor example — campaign character crop
-   (prequelskin: Prequel_Skin_250307_March_Campaign_Bianca_AMPMCream_3650-1x1.jpg),
-   studio headshot (prequelskin: PRQL_SamHeadshot-1500px.jpg), clinical skin macro
-   (prequelskin: PRQL_HP_SkinMacros_*). All 28 models stay in the data and on disk;
-   only presentation is gated. */
-const PRESENTED = ["C01", "C11", "K04", "C05", "K03", "N1"];
-function render(f){
-  const list = MODELS.filter(m => PRESENTED.includes(m.code)).filter(m => f === "ALL" || (f === "M" || f === "F" ? m.gender === f : m.tags.includes(f)));
-  grid.innerHTML = list.map(cardHTML).join("");
-}
-document.getElementById("filters").addEventListener("click", e => {
-  const b = e.target.closest("button"); if (!b) return;
-  document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("on", x === b));
-  render(b.dataset.f);
-});
-render("ALL");
-</script>
-<script src="assets/skinaa-chrome.js"></script>
+<script src="assets/enrich/cart-shim.js"></script>
+<script src="assets/enrich/vault.js"></script>
+<!-- THE END CARD — propagated from the Admission landing (build-admission.md):
+     P-37 divider → BL-29 column chassis → F-18 six groups + legal → P-21
+     supporting-menu strip → G24 wordmark lockup → P-20 single correspondence
+     line → BL-01 quiet line. BL-24 currency modal inside the register;
+     S-13 overflow behaviour on the strip at mobile widths. -->
+<div class="divider"><div class="divider-holder"></div></div>
+<footer class="site end-card footer footer--fab" id="end-card">
+  <section-footer-component class="footer__container">
+    <div class="footer__container__inner footer__fab-top">
+      <div class="footer__group"><h4>The Collection</h4>
+        <a href="catalog.html">All 40 pieces</a><a href="product.html">The piece page</a><a href="stacks.html">Attack Stacks</a></div>
+      <div class="footer__group"><h4>The Rooms</h4>
+        <a href="index.html">The Door</a><a href="vault.html">Visual Vault</a><a href="unboxing.html">Unboxing</a></div>
+      <div class="footer__group"><h4>Admission</h4>
+        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a><a href="vault.html">The 28 archetypes</a></div>
+      <div class="footer__group"><h4>The Gallery</h4>
+        <a href="vault.html">Before &amp; After Vault</a><a href="guide-female.html">Female Guide</a><a href="guide-male.html">Male Guide</a></div>
+      <div class="footer__group"><h4>Membership</h4>
+        <a href="portal.html">Ascension Plus Portal</a><a href="portal.html">Manage the drip</a><a href="assessment.html?mode=day15">The iteration gate</a></div>
+      <div class="footer__group"><h4>House Service</h4>
+        <a href="help.html">Help</a><a href="authenticity.html">Authenticity</a><a href="wholesale.html">Wholesale</a><a href="contact.html">Contact</a><a href="policies.html">Policies</a></div>
+    </div>
+    <div class="footer__fab-legal"><span>SKINAA by Maanaa — Clinical Dermatology Meets Facial Architecture.</span><span class="footer-stamp">Official Esthetic Standard</span></div>
+    <overflow-list class="supporting-overflow" minimum-items="3">
+      <div class="supporting-menu">
+        <a href="index.html">The Door</a><a href="catalog.html">The Collection</a><a href="assessment.html">Admission</a><a href="stacks.html" data-overflow-extra>Prescription Counter</a><a href="vault.html" data-overflow-extra>Members' Gallery</a><a href="portal.html" data-overflow-extra>Member's Room</a><a href="unboxing.html" data-overflow-extra>Unboxing</a>
+        <button type="button" class="currency-open">Currency / locale</button>
+        <span class="payment-icon" title="Named slot">Payment marks — NAMED SLOT</span>
+        <button type="button" class="supporting-more" aria-expanded="false">More rooms</button>
+      </div>
+    </overflow-list>
+    <div class="footer__brand-strip"><img class="footer-wordmark" src="assets/skinaa-wordmark.png" alt="SKINAA"></div>
+    <div class="newsletter-component">
+      <form class="newsletter-form" data-newsletter-form>
+        <span class="correspondence-line">The weekly drip, in one quiet line — your Dual Rx note, every seven days.</span>
+        <span class="input-group"><input type="email" name="email" required placeholder="Your email" aria-label="Your email"><button type="submit">Correspond</button></span>
+      </form>
+    </div>
+    <div class="announcement-bar"><div class="announcement-bar__container"><div class="announcement-bar__slides"><div class="announcement-bar__slide">Cycles run 30 days, anchored on the 28th. Days 1–14: the full Attack Stack. Day 15: the iteration gate.</div></div></div></div>
+  </section-footer-component>
+  <modal-currency-root>
+    <div class="currency-modal" role="dialog" aria-modal="true" aria-label="Currency and locale">
+      <div class="currency-modal__card">
+        <span class="currency-modal__close-btn" aria-label="Close">×</span>
+        <div class="front-modal">
+          <h3>Currency &amp; locale</h3>
+          <p>The house's localization choice, kept on this device. Prices stay as the house sets them — no rate is invented here.</p>
+          <form id="modal--localization" modal-side="front">
+            <select name="country_code" aria-label="Country"><option value="US">United States</option></select>
+            <select name="locale_code" aria-label="Language"><option value="en">English</option></select>
+            <select name="currency" aria-label="Currency"><option value="USD">USD</option></select>
+            <button type="submit" class="modal-apply">Apply</button>
+          </form>
+        </div>
+        <div class="back-modal">
+          <h3>Kept</h3>
+          <p class="localization-status" role="status"></p>
+          <form id="modal--localization" modal-side="back">
+            <button type="submit" class="modal-apply">Confirm</button>
+          </form>
+          <span class="close_modal">Close</span>
+        </div>
+      </div>
+    </div>
+  </modal-currency-root>
+</footer>
+<script src="assets/enrich/endcards.js"></script>
 </body>
 </html>
