@@ -21,22 +21,22 @@ body.is-loaded .ctr-initial-page-loader .loading{opacity:0;visibility:hidden;poi
 .loading__image__holder{position:absolute;inset:0;font-size:0}
 .kinetic-word{position:relative;font-size:clamp(56px,11vw,132px);font-weight:800;letter-spacing:-.02em;text-transform:lowercase;color:#02a1fd;text-shadow:0 4px 34px rgba(25,8,14,.45)}
 /* ---------- S-01 / S-02 password gate (sckenofficial threshold) ---------- */
-.password-gate{position:relative;background:#19080e url("../tex/feather-e.jpg") center/cover no-repeat;color:#ece7ea;padding:84px 28px 72px;text-align:center;overflow:hidden}
+.password-gate{position:relative;background:#19080e url("../tex/feather-e.jpg") center/cover no-repeat;color:#ece7ea;padding:89px 34px 55px;text-align:center;overflow:hidden}
 .password-gate::before{content:"";position:absolute;inset:0;background:rgba(99,79,50,.55)}
 .password-gate>*{position:relative}
 .password-gate .background-image-container img{width:min(300px,62vw);aspect-ratio:4/5;object-fit:cover;border-radius:18px;box-shadow:0 30px 60px rgba(25,8,14,.42);display:block;margin:0 auto}
-.password-gate h2{font-size:clamp(34px,5.4vw,58px);font-weight:800;letter-spacing:-.025em;line-height:1.04;margin-top:30px;text-transform:uppercase}
-.password-gate .gate-sub{font-size:16.5px;line-height:1.62;max-width:560px;margin:16px auto 0}
-.password-footer__button{margin-top:28px;background:#ece7ea;color:#19080e;border:none;font:inherit;font-weight:800;font-size:14.5px;padding:13px 28px;border-radius:999px;cursor:pointer;box-shadow:0 10px 26px rgba(25,8,14,.28)}
+.password-gate h2{font-size:clamp(34px,5.4vw,58px);font-weight:800;letter-spacing:-.025em;line-height:1.04;margin-top:34px;text-transform:uppercase}
+.password-gate .gate-sub{font-size:16.5px;line-height:1.62;max-width:560px;margin:13px auto 0}
+.password-footer__button{margin-top:34px;background:#ece7ea;color:#19080e;border:none;font:inherit;font-weight:800;font-size:14.5px;padding:13px 34px;border-radius:999px;cursor:pointer;box-shadow:0 10px 26px rgba(25,8,14,.28)}
 .password-dialog{border:none;border-radius:20px;padding:0;max-width:min(440px,92vw);background:#ece7ea;color:#19080e;box-shadow:0 40px 90px rgba(25,8,14,.5)}
 .password-dialog::backdrop{background:rgba(25,8,14,.62)}
-.password-dialog__content{padding:30px 32px 32px}
-.password-dialog__header{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.password-dialog__content{padding:34px 34px 34px}
+.password-dialog__header{display:flex;justify-content:space-between;align-items:center;gap:13px}
 .password-dialog__title{font-size:21px;font-weight:800;letter-spacing:-.01em}
 .password-dialog__close-button{background:none;border:none;font-size:20px;cursor:pointer;color:#634f32}
-.storefront-password-form{display:flex;flex-direction:column;gap:12px;margin-top:18px}
-.storefront-password-form .field__input{font:inherit;font-size:15px;padding:13px 16px;border:1.5px solid #66a0b5;border-radius:10px;background:#ece7ea;color:#19080e}
-.password-dialog__submit-button{background:#634f32;color:#ece7ea;border:none;font:inherit;font-weight:800;font-size:14.5px;padding:13px 22px;border-radius:999px;cursor:pointer}
+.storefront-password-form{display:flex;flex-direction:column;gap:13px;margin-top:21px}
+.storefront-password-form .field__input{font:inherit;font-size:15px;padding:13px 13px;border:1.5px solid #66a0b5;border-radius:10px;background:#ece7ea;color:#19080e}
+.password-dialog__submit-button{background:#634f32;color:#ece7ea;border:none;font:inherit;font-weight:800;font-size:14.5px;padding:13px 21px;border-radius:999px;cursor:pointer}
 body.gate-open .password-gate{display:none}
 /* ---------- P-04 ticker (Prequel ticker-bar contract) ---------- */
 announcement-bar{display:block;background:#66a0b5;color:#ece7ea;border-bottom:1px solid rgba(102,160,181,.45)}
@@ -44,18 +44,18 @@ announcement-bar{display:block;background:#66a0b5;color:#ece7ea;border-bottom:1p
 [data-ticker-text]{display:inline-flex;white-space:nowrap}
 .ticker--animated{animation:door-ticker-scroll var(--animation-time,18s) linear infinite}
 @keyframes door-ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
-.announcement__text p{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:9px 0}
+.announcement__text p{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:8px 0}
 /* ---------- G03 USP bar (Graymatter ctr-usp-bar contract) ---------- */
-.ctr-usp-bar{display:block;background:#ece7ea;color:#19080e;border-bottom:1.5px solid #634f32;padding:14px 16px}
-.ctr-usp-bar .usp-items{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;max-width:1180px;margin:0 auto}
-.ctr-usp-bar .usp-item{text-align:center;font-size:12.5px;line-height:1.5;padding:4px 18px}
+.ctr-usp-bar{display:block;background:#ece7ea;color:#19080e;border-bottom:1.5px solid #634f32;padding:13px 13px}
+.ctr-usp-bar .usp-items{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;max-width:1180px;margin:0 auto}
+.ctr-usp-bar .usp-item{text-align:center;font-size:12.5px;line-height:1.5;padding:8px 21px}
 .ctr-usp-bar .usp-item b{display:block;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#634f32}
 /* ---------- F-20 header shell (FAB header contract) ---------- */
-.header{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1240px;margin:0 auto;padding:10px 20px;min-height:74px}
-.header nav.site{flex-wrap:nowrap;gap:12px}
-.header__icon-touch{padding:9px 6px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:13px;max-width:1240px;margin:0 auto;padding:8px 21px;min-height:74px}
+.header nav.site{flex-wrap:nowrap;gap:13px}
+.header__icon-touch{padding:8px 8px}
 @media(max-width:820px){.header .drawer-open,.header .header__icon-touch--account{display:none}}
-@media(max-width:640px){.header .header__icon-touch--search{display:none}.header .pill.small{padding:8px 11px;font-size:12px}.header{gap:6px;padding:10px 10px}}
+@media(max-width:640px){.header .header__icon-touch--search{display:none}.header .pill.small{padding:8px 13px;font-size:12px}.header{gap:8px;padding:8px 8px}}
 .header nav.site a{font-size:10.5px;white-space:nowrap}
 .header .pill.small{white-space:nowrap}
 .header__logo-link{text-decoration:none;display:block}
@@ -66,16 +66,16 @@ announcement-bar{display:block;background:#66a0b5;color:#ece7ea;border-bottom:1p
 .header.is-scrolled .header__logo .transparent-logo{opacity:1}
 .header.is-scrolled .header__logo .regular-logo{opacity:0}
 .header__icons{display:flex;gap:8px;align-items:center}
-.header__icon-touch{background:none;border:none;color:#ece7ea;cursor:pointer;font:inherit;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:9px 10px;text-decoration:none}
+.header__icon-touch{background:none;border:none;color:#ece7ea;cursor:pointer;font:inherit;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:8px 8px;text-decoration:none}
 .header__icon-touch:hover{color:#66a0b5}
-.header__cart-link-count{display:inline-block;min-width:19px;text-align:center;background:#ece7ea;color:#19080e;border-radius:999px;font-size:11px;font-weight:800;padding:1px 5px;margin-left:5px}
+.header__cart-link-count{display:inline-block;min-width:19px;text-align:center;background:#ece7ea;color:#19080e;border-radius:999px;font-size:11px;font-weight:800;padding:1px 8px;margin-left:8px}
 .header nav.site a.navlink--toplevel{position:relative}
-.header__dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#ece7ea;color:#19080e;border-radius:16px;box-shadow:0 30px 60px rgba(25,8,14,.38);padding:22px;z-index:80;min-width:520px}
+.header__dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#ece7ea;color:#19080e;border-radius:16px;box-shadow:0 30px 60px rgba(25,8,14,.38);padding:21px;z-index:80;min-width:520px}
 .navitem--dropdown{position:static}
 .navitem--dropdown:hover .header__dropdown,.navitem--dropdown:focus-within .header__dropdown{display:block}
-.header__dropdown__wrapper{display:flex;gap:22px}
+.header__dropdown__wrapper{display:flex;gap:21px}
 .header__dropdown__image img{width:170px;height:170px;object-fit:cover;border-radius:12px;display:block}
-.header__grandparent__links{display:flex;flex-direction:column;gap:9px}
+.header__grandparent__links{display:flex;flex-direction:column;gap:8px}
 .header__dropdown .navlink{color:#19080e;text-decoration:none;font-size:14px;font-weight:700;letter-spacing:.02em;text-transform:none}
 .header__dropdown .navlink:hover{color:#634f32}
 /* search popdown (G-35 trigger target: the P-06 popdown surface) */
@@ -85,15 +85,15 @@ announcement-bar{display:block;background:#66a0b5;color:#ece7ea;border-bottom:1p
 .search-popdown input{flex:1;font:inherit;font-size:15px;padding:12px 16px;border:1.5px solid #66a0b5;border-radius:10px;background:#ece7ea;color:#19080e}
 .search-popdown [data-search-status]{max-width:760px;margin:10px auto 0;font-size:13px;color:#634f32}
 /* BL-23 mega drawer (Bloom navbar-drawer contract) */
-.navbar-drawer{position:fixed;top:0;right:0;height:100dvh;width:min(430px,94vw);background:#ece7ea;color:#19080e;z-index:120;transform:translateX(105%);transition:transform .32s ease;box-shadow:-30px 0 60px rgba(25,8,14,.4);padding:28px;overflow:auto}
+.navbar-drawer{position:fixed;top:0;right:0;height:100dvh;width:min(430px,94vw);background:#ece7ea;color:#19080e;z-index:120;transform:translateX(105%);transition:transform .32s ease;box-shadow:-30px 0 60px rgba(25,8,14,.4);padding:34px;overflow:auto}
 .navbar-drawer.active{transform:translateX(0)}
 .navbar-drawer-backdrop{position:fixed;inset:0;background:rgba(25,8,14,.55);z-index:110}
-.drawer-menu{display:flex;flex-direction:column;gap:6px;margin-top:20px}
-.drawer-menu a{color:#19080e;text-decoration:none;font-size:19px;font-weight:800;letter-spacing:-.01em;padding:11px 6px;border-bottom:1px solid rgba(99,79,50,.35)}
+.drawer-menu{display:flex;flex-direction:column;gap:8px;margin-top:21px}
+.drawer-menu a{color:#19080e;text-decoration:none;font-size:19px;font-weight:800;letter-spacing:-.01em;padding:13px 8px;border-bottom:1px solid rgba(99,79,50,.35)}
 .drawer-menu a:hover{color:#634f32}
 .navbar-drawer .drawer-close{background:none;border:none;font:inherit;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;color:#634f32}
 /* mobile menu: P-16 sliderule + G-26 accordion */
-.mobile-menu{display:none;background:#634f32;border-top:1px solid rgba(102,160,181,.45);padding:16px 20px 22px}
+.mobile-menu{display:none;background:#634f32;border-top:1px solid rgba(102,160,181,.45);padding:13px 21px 21px}
 .mobile-menu.open{display:block}
 .sliderule__panel{display:none;visibility:hidden;opacity:0}
 .sliderule__panel.current{display:block;visibility:visible;opacity:1}
@@ -101,15 +101,15 @@ announcement-bar{display:block;background:#66a0b5;color:#ece7ea;border-bottom:1p
    animation engine; in the house mobile sheet the re-driven panels sit in
    flow (the slide contract — current panel only — is unchanged) */
 .mobile-menu .sliderule__panel{position:relative;inset:auto;transform:none}
-.sliderow{display:flex;width:100%;justify-content:space-between;align-items:center;background:none;border:none;border-bottom:1px solid rgba(236,231,234,.18);color:#ece7ea;font:inherit;font-size:16px;font-weight:700;padding:13px 4px;cursor:pointer;text-align:left}
+.sliderow{display:flex;width:100%;justify-content:space-between;align-items:center;background:none;border:none;border-bottom:1px solid rgba(236,231,234,.18);color:#ece7ea;font:inherit;font-size:16px;font-weight:700;padding:13px 8px;cursor:pointer;text-align:left}
 .sliderow--back{color:#66a0b5;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
 .mobile-nav-accordion{border-bottom:1px solid rgba(236,231,234,.18);color:#ece7ea}
-.mobile-nav-accordion>button{display:flex;width:100%;justify-content:space-between;background:none;border:none;color:inherit;font:inherit;font-size:16px;font-weight:700;padding:13px 4px;cursor:pointer}
+.mobile-nav-accordion>button{display:flex;width:100%;justify-content:space-between;background:none;border:none;color:inherit;font:inherit;font-size:16px;font-weight:700;padding:13px 8px;cursor:pointer}
 .mobile-nav-accordion svg{transition:transform .25s ease}
 .mobile-nav-accordion.is-open svg{transform:rotate(180deg)}
 .mobile-nav-accordion-content:not(.is-open){display:none}
-.mobile-nav-accordion-content.is-open{display:flex;flex-direction:column;gap:4px;padding:0 4px 13px}
-.mobile-nav-accordion-content a{color:#ece7ea;text-decoration:none;font-size:14.5px;padding:5px 0}
+.mobile-nav-accordion-content.is-open{display:flex;flex-direction:column;gap:8px;padding:0 8px 13px}
+.mobile-nav-accordion-content a{color:#ece7ea;text-decoration:none;font-size:14.5px;padding:8px 0}
 .menu-toggle{display:none}
 @media(max-width:820px){.menu-toggle{display:inline-block}.header nav.site{display:none}}
 /* ---------- P-14 slideshow (Prequel slider-component contract) ---------- */
@@ -123,7 +123,7 @@ slider-component{display:block;position:relative}
 /* ---------- boardroom enrichments ---------- */
 /* P-18 portrait columns: the donor columns.css grammar (circle crop,
    heading, subtitle) laid out as the captured 4-up column row */
-.section_columns{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:38px}
+.section_columns{display:grid;grid-template-columns:repeat(4,1fr);gap:21px;margin-top:34px}
 .section_columns .column{text-align:center}
 .section_columns .column__image{border-radius:50%;overflow:hidden;aspect-ratio:1/1;max-width:88px;margin:0 auto}
 /* Board medallions: flat book tones, unlabeled — deliberate placeholders
@@ -134,20 +134,20 @@ slider-component{display:block;position:relative}
 .section_columns .column__tone--b{background:#a8a147}
 .section_columns .column__tone--c{background:#ecc47f}
 .section_columns .column__tone--d{background:#83367a}
-.section_columns .column__heading{font-size:15.5px;font-weight:800;line-height:1.35;margin-top:14px;color:#ece7ea}
-.section_columns .column__subtitle{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#66a0b5;margin-top:6px}
+.section_columns .column__heading{font-size:15.5px;font-weight:800;line-height:1.35;margin-top:13px;color:#ece7ea}
+.section_columns .column__subtitle{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#66a0b5;margin-top:8px}
 @media(max-width:820px){.section_columns{grid-template-columns:repeat(2,1fr)}}
-.g10-authority-bar{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:34px}
-.g10-authority-bar a{background:#ece7ea;color:#19080e;text-decoration:none;border:1.5px solid #66a0b5;border-radius:12px;padding:13px 18px;font-size:13.5px;font-weight:700;line-height:1.45;max-width:330px;text-align:left}
+.g10-authority-bar{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-top:34px}
+.g10-authority-bar a{background:#ece7ea;color:#19080e;text-decoration:none;border:1.5px solid #66a0b5;border-radius:12px;padding:13px 21px;font-size:13.5px;font-weight:700;line-height:1.45;max-width:330px;text-align:left}
 .g10-authority-bar a:hover{border-color:#634f32}
-.evidence-band{max-width:1180px;margin:44px auto 0;background:#ece7ea;color:#19080e;border-radius:24px;padding:30px 32px;text-align:left;box-shadow:0 24px 54px rgba(25,8,14,.30)}
+.evidence-band{max-width:1180px;margin:34px auto 0;background:#ece7ea;color:#19080e;border-radius:24px;padding:34px 34px;text-align:left;box-shadow:0 24px 54px rgba(25,8,14,.30)}
 .evidence-band h3{font-size:20px;font-weight:800;letter-spacing:-.01em;margin-top:8px}
-.evidence-band p{font-size:15px;line-height:1.62;margin-top:10px;color:#634f32}
-.evidence-band .stats{display:flex;gap:26px;flex-wrap:wrap;margin-top:14px}
+.evidence-band p{font-size:15px;line-height:1.62;margin-top:8px;color:#634f32}
+.evidence-band .stats{display:flex;gap:21px;flex-wrap:wrap;margin-top:13px}
 .evidence-band .stats div b{display:block;font-size:26px;font-weight:800;color:#19080e}
 .evidence-band .stats div span{font-size:12.5px;color:#634f32;line-height:1.45;display:block;max-width:210px}
-.trio-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px;text-align:left}
-.trio-cards a{background:#634f32;color:#ece7ea;text-decoration:none;border-radius:20px;padding:24px 26px;display:block;box-shadow:0 24px 54px rgba(25,8,14,.30)}
+.trio-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:21px;margin-top:34px;text-align:left}
+.trio-cards a{background:#634f32;color:#ece7ea;text-decoration:none;border-radius:20px;padding:21px 21px;display:block;box-shadow:0 24px 54px rgba(25,8,14,.30)}
 .trio-cards a:hover{background:#19080e}
 .trio-cards .trole{font-size:17px;font-weight:800;margin-top:8px}
 .trio-cards .tfoc{font-size:13.5px;line-height:1.55;margin-top:8px;color:#ece7ea}
@@ -157,28 +157,28 @@ slider-component{display:block;position:relative}
 .pdp-image-text-split .split-text{background:#ece7ea;color:#19080e;padding:34px 36px;display:flex;flex-direction:column;justify-content:center}
 .pdp-image-text-split .split-text p{font-size:19px;line-height:1.55;font-style:italic}
 @media(max-width:820px){.pdp-image-text-split{grid-template-columns:1fr}}
-.s05-slideshow{display:block;margin-top:44px;overflow:hidden;border-radius:24px;background:#634f32;color:#ece7ea;box-shadow:0 24px 54px rgba(25,8,14,.30)}
+.s05-slideshow{display:block;margin-top:34px;overflow:hidden;border-radius:24px;background:#634f32;color:#ece7ea;box-shadow:0 24px 54px rgba(25,8,14,.30)}
 .s05-track{display:flex;transition:transform .5s ease}
-.s05-slide{min-width:100%;padding:34px 38px;text-align:left}
+.s05-slide{min-width:100%;padding:34px 34px;text-align:left}
 .s05-slide .sq{font-size:19px;line-height:1.6;font-style:italic}
-.s05-slide .sr{margin-top:14px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#66a0b5}
-.philosophy-card{position:relative;overflow:hidden;border-radius:24px;margin-top:44px;padding:64px 38px;background:#634f32 url("../tex/leaf-b.jpg") center/cover no-repeat;color:#ece7ea;text-align:left;box-shadow:0 24px 54px rgba(25,8,14,.30)}
+.s05-slide .sr{margin-top:13px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#66a0b5}
+.philosophy-card{position:relative;overflow:hidden;border-radius:24px;margin-top:34px;padding:55px 34px;background:#634f32 url("../tex/leaf-b.jpg") center/cover no-repeat;color:#ece7ea;text-align:left;box-shadow:0 24px 54px rgba(25,8,14,.30)}
 .philosophy-card::before{content:"";position:absolute;top:0;right:0;width:45%;height:100%;pointer-events:none;background-image:url("../tex/fig-d.jpg");background-repeat:no-repeat;background-size:205% auto;background-position:left 10% center;opacity:.5}
 .philosophy-card>*{position:relative}
 .philosophy-card h3{font-size:clamp(26px,3.6vw,38px);font-weight:800;letter-spacing:-.02em}
-.philosophy-card p{margin-top:14px;font-size:16px;line-height:1.62;max-width:620px}
-.video-background{position:relative;max-width:1180px;margin:64px auto 0;border-radius:24px;overflow:hidden;box-shadow:0 24px 54px rgba(25,8,14,.30)}
+.philosophy-card p{margin-top:13px;font-size:16px;line-height:1.62;max-width:620px}
+.video-background{position:relative;max-width:1180px;margin:55px auto 0;border-radius:24px;overflow:hidden;box-shadow:0 24px 54px rgba(25,8,14,.30)}
 .video-background .video__poster{width:100%;aspect-ratio:16/7;object-fit:cover;display:block}
 .video-background .video__player{width:100%;aspect-ratio:16/7;display:none}
-.video-background .video__frame{position:absolute;inset:auto 18px 18px auto;background:#ece7ea;color:#19080e;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border-radius:999px}
-.about-blocks{margin-top:44px;text-align:left}
-.about-blocks .high-performers,.about-blocks .image-with-text{background:#ece7ea;color:#19080e;border-radius:24px;padding:30px 32px;box-shadow:0 24px 54px rgba(25,8,14,.30);margin-top:18px}
+.video-background .video__frame{position:absolute;inset:auto 18px 18px auto;background:#ece7ea;color:#19080e;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:8px 13px;border-radius:999px}
+.about-blocks{margin-top:34px;text-align:left}
+.about-blocks .high-performers,.about-blocks .image-with-text{background:#ece7ea;color:#19080e;border-radius:24px;padding:34px 34px;box-shadow:0 24px 54px rgba(25,8,14,.30);margin-top:21px}
 .about-blocks h3{font-size:20px;font-weight:800;margin-top:8px}
-.about-blocks p{font-size:15px;line-height:1.62;margin-top:10px;color:#634f32}
-.about-blocks .cta-row{margin-top:18px}
+.about-blocks p{font-size:15px;line-height:1.62;margin-top:8px;color:#634f32}
+.about-blocks .cta-row{margin-top:21px}
 /* ---------- G-37 toast + loading overlay (Gundry toast contract, azure word) ---------- */
-.toast-stack{position:fixed;right:18px;bottom:18px;z-index:150;display:flex;flex-direction:column;gap:10px}
-.toast{background:#ece7ea;color:#19080e;border-radius:14px;box-shadow:0 24px 54px rgba(25,8,14,.42);padding:14px 18px;display:flex;gap:12px;align-items:baseline;max-width:min(360px,90vw)}
+.toast-stack{position:fixed;right:18px;bottom:18px;z-index:150;display:flex;flex-direction:column;gap:8px}
+.toast{background:#ece7ea;color:#19080e;border-radius:14px;box-shadow:0 24px 54px rgba(25,8,14,.42);padding:13px 21px;display:flex;gap:13px;align-items:baseline;max-width:min(360px,90vw)}
 .toast .toast-word{color:#02a1fd;font-weight:800;letter-spacing:.06em;text-transform:lowercase}
 .toast-message{font-size:13.5px;line-height:1.5}
 .loading-overlay{position:fixed;inset:0;z-index:190;display:none;align-items:center;justify-content:center;background:#19080e}
@@ -186,7 +186,7 @@ slider-component{display:block;position:relative}
 .loading-overlay::before{content:"";position:absolute;inset:0;background:rgba(25,8,14,.38)}
 .loading-overlay .kinetic-word{position:relative}
 /* ---------- L-08 noscript ---------- */
-.noscript-door{background:#634f32;color:#ece7ea;text-align:center;padding:34px 24px;font-size:15px;line-height:1.6}
+.noscript-door{background:#634f32;color:#ece7ea;text-align:center;padding:34px 21px;font-size:15px;line-height:1.6}
 /* ---------- MOBILE FIRST-SCREEN (2026-10-31) — the Door on a phone.
    First viewport = announcement line + slim header + hero. Three kills:
    (1) The authority trio leaves the first screen: hidden in place, and
@@ -208,5 +208,12 @@ slider-component{display:block;position:relative}
   .arrival .announcement__text{display:block;width:auto;white-space:normal;justify-content:center;text-align:center;min-height:0}
   .arrival .announcement__text>div{display:block}
   .arrival [data-ticker-text]{white-space:normal;display:block}
-  .arrival .announcement__text p{padding:7px 10px;line-height:1.55;white-space:normal}
+  .arrival .announcement__text p{padding:8px 8px;line-height:1.55;white-space:normal}
+}
+
+/* THE EXPENSIVE STANDARD (2026-10-31) — the marquee band measured from
+   the graded spec: 10.5px / 700 / .34em uppercase, 13px of air. */
+announcement-bar .announcement__text p{font-size:10.5px;font-weight:700;letter-spacing:.34em;padding:13px 0}
+@media (max-width:749px){
+  .arrival .announcement__text p{padding:13px 8px}
 }
