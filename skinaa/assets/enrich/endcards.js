@@ -128,7 +128,7 @@
       if (!code) { out.textContent = "Enter a code to check it."; return; }
       if (!H.authenticity) {
         out.textContent = "Unresolved: the house verification registry carries no entry for “" +
-          code + "” — the registry slot is unset, so no code can be confirmed from this page yet.";
+          code + "” — the registry is still being set by the house, so no code can be confirmed from this page yet.";
         return;
       }
       var hit = H.authenticity[code.toUpperCase()];
@@ -143,7 +143,7 @@
     e.preventDefault();
     var st = document.getElementById("wholesale-login-status");
     if (!H.endpoint) {
-      st.textContent = "The trade login posts to the house endpoint slot, which is unset — no account was signed in and no credentials were sent anywhere.";
+      st.textContent = "Trade accounts open by correspondence with the house — no account was signed in here, and no credentials were sent anywhere. Write through Contact and the desk will open your door.";
     }
   });
 
@@ -155,7 +155,7 @@
       try { localStorage.setItem("skinaa_contact_draft", new Date().toISOString()); } catch (_) {}
       gm.classList.add("is-sent");
       var sent = gm.querySelector(".gm-sent");
-      if (sent) sent.textContent = "Held on this device: the form submits to the house endpoint slot, which is unset — nothing was sent. The correspondence line in the register below is the house's live channel.";
+      if (sent) sent.textContent = "Kept on this device, with your correspondence — nothing was sent anywhere from this static page. The correspondence line in the register below is the house's live channel.";
     }
   });
 
@@ -168,5 +168,51 @@
     a.setAttribute("data-qa", "speak-to-agent-btn");
     a.innerHTML = "<span class=\"agent-dot\"></span>Speak to the house";
     agentSlot.appendChild(a);
+  }
+
+  /* ---------- (6) F-20 scroll state for the shared header ------------- */
+  var siteHeader = document.getElementById("site-header");
+  if (siteHeader) addEventListener("scroll", function () { siteHeader.classList.toggle("is-scrolled", scrollY > 24); }, { passive: true });
+
+  /* ---------- (2) THE TRAY OPENS ON EVERY PAGE (fix, 2026-10-31) --------
+     The end-card propagation carried the P-13 drawer markup + the cart
+     button to every page, but the open wiring + drawer CSS only ever landed
+     in the per-room layers (collection / counter / member / admission).
+     Pages served by this layer alone (the service rooms, guides, unboxing,
+     the vault) had a dead button and an unstyled drawer strip in the flow.
+     This module is the shared wiring for those pages, on the same contract
+     as collection.js: open = render + .open + aria + underlay + body class.
+     It stands down wherever a room layer already provides SKINAAOpenCart. */
+  var drawerEl = document.querySelector(".cart-drawer");
+  var openBtns = document.querySelectorAll("[data-cart-open]");
+  if (drawerEl && openBtns.length && !window.SKINAAOpenCart && !window.__skinaaDrawerBound) {
+    window.__skinaaDrawerBound = true;
+    var underlayEl = document.querySelector(".drawer__underlay");
+    var paintTray = function () {
+      var c = {}; try { c = JSON.parse(localStorage.getItem("skinaa-cart-v1") || "{}"); } catch (_) {}
+      var items = drawerEl.querySelector(".cart-items"), total = drawerEl.querySelector(".cart-total");
+      var n = (c.items || []).reduce(function (s, i) { return s + (i.quantity || 0); }, 0);
+      if (items) items.innerHTML = (c.items && c.items.length)
+        ? c.items.map(function (i) { return '<div class="cart-line"><span>' + i.title + '</span><span>× ' + i.quantity + "</span></div>"; }).join("")
+        : "<p>Nothing in the tray yet — the Collection dispenses from its room.</p>";
+      if (total) total.textContent = n + " in the tray";
+    };
+    var openTray = function () {
+      paintTray();
+      drawerEl.classList.add("open"); drawerEl.setAttribute("aria-hidden", "false");
+      if (underlayEl) underlayEl.classList.add("open");
+      document.body.classList.add("drawer-open");
+    };
+    var closeTray = function () {
+      drawerEl.classList.remove("open"); drawerEl.setAttribute("aria-hidden", "true");
+      if (underlayEl) underlayEl.classList.remove("open");
+      document.body.classList.remove("drawer-open");
+    };
+    window.SKINAAOpenCart = openTray;
+    document.addEventListener("skinaa:open-cart", openTray);
+    openBtns.forEach(function (b) { b.addEventListener("click", function (e) { e.preventDefault(); openTray(); }); });
+    drawerEl.querySelectorAll(".drawer__close").forEach(function (b) { b.addEventListener("click", closeTray); });
+    if (underlayEl) underlayEl.addEventListener("click", closeTray);
+    document.addEventListener("skinaa:cart-changed", paintTray);
   }
 })();
