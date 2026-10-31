@@ -1,0 +1,81 @@
+/* SKINAA — product surfaces spatial system (catalog / product / stacks).
+   A SYNTHESIS of the two donor captures, closed corpus:
+   [P] Prequel — ~/workspace/site-copy-switch/prequelskin/ (raw/cdn/shop/t/66/assets/theme.css
+       incl. its custom tail block, raw/collections/full-collection/index.html)
+   [F] First Aid Beauty — ~/workspace/site-copy-switch/firstaidbeauty/
+       (raw/collections/best-sellers/index.html markup + image size attributes)
+   SKINAA's own colors, type family and card identity (white card, radius 24,
+   champagne/signal accents) are unchanged — only the spatial system moved.
+
+   Parentage of the atoms:
+   - Grid columns 4 desktop / 2 tablet / 2 phone ......... [P] sizes calc + [F] sizes calc (convergent)
+   - Grid gap 22px desktop ............................... [P] 32px per-item deduction + [F] 12px gutter, combined (mean)
+   - Grid gap 12px at <=1020px ........................... [F] 12px gutter (mobile calc (90vw - 12px)/2)
+   - Card stage aspect 11/12 (0.9167) .................... [P] 0.8333 figure aspect + [F] 1.0 (800x800), combined (mean)
+   - Info padding 12px ................................... [P] .product-item__info{padding:12px} custom override
+   - Title 18px, margin-bottom 4px, min-height 2.6em ..... [P] .product-item__title + custom block; [F] fs-product-title base 18 (convergent)
+   - Quick-add padding-top 12px, margin-top auto ......... [P] .quick-add__holder.product-grid-atc
+   - Quick-add full-width button beneath the card ........ [F] .product-item__quick-add-beneath .btn--full
+   - Quick-add stacked text (label / sub-line) ........... [P] product-grid-atc .btn__text column, 12px over 11px
+   - Badge box over stage, top-left, 10px inset .......... [P] .badge-box-container + quick-add 10px offset; [F] .product-badges top-left (convergent)
+   - PDP submit stack: 1 column, gap 10px ................ [P] .product__submit__buttons
+   - Spacing atom 20px (pads, PDP column gap) ............ [P] --inner:20px standard context
+   - Bundle CTA offset margin-top 12px ................... [P] .quick-add__holder.product-bundle-atc
+*/
+
+/* ---------- catalog grid ---------- */
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:1020px){.pgrid{grid-template-columns:repeat(2,1fr);gap:12px}}
+
+/* ---------- the synthesized product card ---------- */
+.product-item{background:#fff;color:var(--cardink);border-radius:24px;overflow:hidden;
+  box-shadow:0 24px 54px rgba(0,0,0,.30);display:flex;flex-direction:column;position:relative}
+.product-item__image{position:relative;aspect-ratio:11/12;overflow:hidden;background:var(--calm)}
+.product-item__image .product-link{position:absolute;inset:0;display:block}
+.product-item__bg{position:absolute;inset:0}
+.product-item__bg img,.product-item__bg__slide img{width:100%;height:100%;object-fit:cover;display:block}
+.product-item__bg__under{position:absolute;inset:0;opacity:0;transition:opacity .25s ease-in-out;background:var(--calm)}
+.product-item:hover .product-item__bg__under{opacity:1}
+.product-item__bg__slider{height:100%}
+.product-item__bg__slide{width:100%;height:100%}
+@media(hover:none){
+  .product-item__bg__under{opacity:1}
+  .product-item__bg__slider{display:flex;flex-flow:row nowrap;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .product-item__bg__slider::-webkit-scrollbar{display:none}
+  .product-item__bg__slide{min-width:100%;scroll-snap-align:start}
+  .product-item__bg{display:none}
+}
+.badge-box-container{position:absolute;top:10px;left:10px;z-index:3;display:flex;gap:5px;flex-wrap:wrap}
+.product-information{display:flex;flex-direction:column;flex:1}
+.product-item__info{padding:12px;text-align:center;display:flex;flex-direction:column;flex:1}
+.product-item__info .product-link{text-decoration:none;color:inherit;display:block}
+.product-item__title{font-size:18px;font-weight:800;letter-spacing:-.01em;line-height:1.3;
+  margin:0 0 4px;min-height:2.6em;display:flex;align-items:flex-start;justify-content:center}
+.product_custom_description{color:var(--greytext);font-size:13.5px;line-height:1.55}
+.product-item__price__holder{margin-top:8px;font-size:10.5px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--champ2)}
+.product-item__spacer{flex:1}
+.product-item__quick-add-beneath{padding-top:12px;margin-top:auto}
+.product-item__quick-add{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  width:100%;background:var(--cardink);color:#fff;border-radius:999px;padding:10px 14px;
+  text-decoration:none;cursor:pointer}
+.product-item__quick-add .btn__text{display:inline-flex;flex-direction:column;align-items:center;gap:1px;line-height:1.3}
+.product-item__quick-add .btn__label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.product-item__quick-add .btn__price{font-size:11px;color:var(--soft)}
+
+/* ---------- PDP rhythm ---------- */
+.pdp{gap:20px}
+.pdp .views{gap:12px}
+.pdp .prod-img{aspect-ratio:11/12}
+.pdp .card .pad{padding:20px}
+.pdp .spec{gap:12px;margin-top:20px}
+.pdp .spec div{padding:20px}
+.pdp-cta{margin-top:20px;display:grid;grid-template-columns:1fr;gap:10px}
+.pdp-cta .pill{text-align:center}
+
+/* ---------- stacks rhythm ---------- */
+#bundles .card .pad, .blk .card .pad{padding:20px}
+.stack-strip{display:grid;gap:12px;margin:20px 0 4px}
+.stack-strip a{display:block;border-radius:14px;overflow:hidden;background:var(--calm)}
+.stack-strip img{width:100%;aspect-ratio:11/12;object-fit:cover;display:block}
+.stack-items{gap:12px}
