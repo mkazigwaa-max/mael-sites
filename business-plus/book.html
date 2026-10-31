@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a 45-Minute Call | Business +</title>
+
+<link rel="canonical" href="https://getbusinessplus.com/book">
+<meta name="description" content="Five short questions, then pick a time. Forty-five minutes, no cost, nothing to prepare.">
+
+<meta name="robots" content="noindex,nofollow">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="/assets/site.css?v=8f1efb5828">
+
+<style>
+
+:root{
+
+  --paper:#130606;--paper-deep:#130606;--ink-soft:#bfb8b5;--accent-lift:#a78464;
+  --border:#39291f;--border-soft:#39291f;--tint:#130606;--r-panel:1rem;
+  --serif:"Bricolage Grotesque",system-ui,sans-serif;
+
+  --bg:#ece8e9;--panel:#ece8e9;--line:rgba(19,6,6,.12);--line-strong:rgba(19,6,6,.24);--ink:#130606;--text:#130606;--soft:#5f5647;--muted:#5f5647;
+  --green:#2f3c68;--mint:#b79d7a;--sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;--display:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --box:rgba(19,6,6,.22);--soft-bg:#ece8e9;--picked:#ece8e9;--no:#39291f;
+  --nav:58px;--gut-l:max(16px,4vw,env(safe-area-inset-left,0px));--gut-r:max(16px,4vw,env(safe-area-inset-right,0px));color-scheme:light}
+body{background:#ece8e9;color:var(--ink)}
+
+.tarpit{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#ts-box:not(:empty){margin:18px 0 0}
+
+.demo-bar{background:#bfb8b5;color:#130606;padding:12px var(--gut-r) 12px var(--gut-l);font-size:15px;font-weight:650}
+
+main.bk{position:relative;padding:clamp(28px,4vw,56px) 0 clamp(56px,7vw,104px)}
+.bk-in{max-width:1180px;margin:0 auto;padding:0 var(--gut-r) 0 var(--gut-l)}
+
+main.bk section.step{display:none;padding:0}
+main.bk section.step.is-on{display:block}
+
+.bk-cols{display:grid;gap:clamp(24px,3vw,32px)}
+@media (min-width:1180px){
+  .bk-in{max-width:1360px}
+  main.bk{padding-top:24px}
+  .progress{margin-bottom:20px}
+  .bk-card{padding:24px 28px}
+  .bk-cols{grid-template-columns:minmax(0,1fr) minmax(0,500px);gap:52px;align-items:start}
+  .bk-cols.is-wide{grid-template-columns:minmax(0,1fr);gap:32px;max-width:1100px}
+
+  .bk-cols:not(.is-wide) > .bk-head{container-type:inline-size}
+  .bk-cols:not(.is-wide) > .bk-head h1{font-size:min(5.2cqi,54px)}
+}
+
+.progress{display:flex;gap:10px;margin:0 0 clamp(22px,3vw,36px);padding:0;list-style:none;max-width:600px}
+.progress li{flex:1 1 0;min-width:0;font:700 12.5px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;
+  color:#5f5647;padding-top:10px;border-top:3px solid rgba(19,6,6,.1)}
+.progress li[data-state="now"]{color:var(--green);border-top-color:var(--mint)}
+.progress li[data-state="done"]{color:var(--green);border-top-color:rgba(183,157,122,.45)}
+.progress[hidden]{display:none}
+@media (max-width:560px){.progress{gap:6px}.progress li{font-size:11px;letter-spacing:.04em}}
+
+.bk-head{max-width:820px}
+.bk-cols.is-wide .bk-head{max-width:760px}
+.bk-eyebrow{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:6px 14px;border-radius:999px;
+  font:700 15px var(--display);color:var(--green);background:rgba(183,157,122,.14);border:1px solid rgba(167,132,100,.25)}
+.bk-eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(183,157,122,.18)}
+.bk-head h1{font:800 clamp(34px,3.6vw,54px)/1.04 var(--display);letter-spacing:-.025em;color:var(--ink);margin:0}
+.bk-head h1:focus{outline:none}
+.bk-head .lede{color:var(--muted);font-size:clamp(16px,1.5vw,19px);line-height:1.55;margin:16px 0 0;max-width:30em}
+.with{display:flex;align-items:center;gap:12px;font-weight:600;color:var(--ink);font-size:16px;margin:20px 0 0}
+.with .faces{display:flex;flex:none}
+.with img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #ece8e9}
+.with img + img{margin-left:-14px}
+
+.bk-card{position:relative;background:#ece8e9;border:1px solid var(--line);border-radius:18px;padding:28px;color:var(--soft);
+  box-shadow:0 18px 40px rgba(19,6,6,.08),0 2px 6px rgba(19,6,6,.04)}
+.bk-card .dr{max-width:none}
+.bk-card a:not(.btn){color:var(--green)}
+.bk-card strong{color:var(--ink)}
+
+.qtop{display:flex;align-items:center;gap:14px;margin:0 0 22px}
+.qcount{flex:none;margin:0;font:700 13px/1 var(--sans);letter-spacing:.02em;color:var(--green);font-variant-numeric:tabular-nums}
+.qbar{flex:1 1 auto;height:4px;border-radius:4px;background:rgba(19,6,6,.08);overflow:hidden}
+.qbar i{display:block;height:100%;width:calc(var(--p,1) / 6 * 100%);border-radius:inherit;background:var(--mint);
+  transition:width .35s cubic-bezier(.2,.9,.3,1)}
+
+.qstage > .q{display:none;min-width:0}
+.qstage > .q.is-now{display:block}
+.qstage.is-moving{pointer-events:none}
+.q{border:0;margin:0;padding:0}
+.q::after{content:"";display:table;clear:both}
+
+.q legend{float:left;width:100%;padding:0;margin:0 0 18px;font:700 clamp(21px,1.9vw,25px)/1.25 var(--display);
+  letter-spacing:-.015em;color:var(--ink)}
+.q legend .dr-opt{display:block;margin-top:6px;font:500 15px/1.4 var(--sans);letter-spacing:0;color:var(--soft)}
+.q legend .dr-opt.pill{display:block;width:fit-content;margin:8px 0 0;padding:4px 10px;border-radius:999px;font:600 12.5px/1 var(--sans);
+  background:rgba(19,6,6,.05);border:1px solid rgba(19,6,6,.08)}
+.q.is-missing legend{color:var(--no)}
+
+.opts{clear:both;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opts.wide{grid-template-columns:minmax(0,1fr)}
+.opts.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.opt{position:relative;display:flex;align-items:center;gap:12px;min-height:58px;padding:12px 14px;border-radius:14px;
+  font:600 16px/1.3 var(--sans);color:var(--ink);background:#ece8e9;border:1px solid var(--box);cursor:pointer;
+  -webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+.opt::before{content:"";flex:none;width:20px;height:20px;box-sizing:border-box;border-radius:50%;border:2px solid rgba(19,6,6,.28);
+  background:#ece8e9 center / 12px 12px no-repeat}
+.opts[data-type="checkbox"] .opt::before{border-radius:6px}
+@media (hover:hover){.opt:hover{border-color:rgba(19,6,6,.45);background:#ece8e9}}
+.opt input{position:absolute;left:14px;top:50%;width:1px;height:1px;margin:0;opacity:0;pointer-events:none}
+.opt.is-on,.opt.is-on:hover{background:var(--picked);border-color:var(--green);box-shadow:inset 0 0 0 1px var(--green)}
+.opt.is-on::before{border-color:var(--green);background-color:var(--green);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2 5 8.6l4.6-5.2' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.opt:has(input:focus-visible){outline:3px solid var(--green);outline-offset:2px}
+.q.is-missing .opt{border-color:#bfb8b5}
+.opts.wide .opt{align-items:flex-start;font-size:15.5px;line-height:1.4}
+.opts.wide .opt::before{margin-top:1px}
+.opt span{min-width:0;text-wrap:balance}
+@media (max-width:720px){
+
+  .opt{min-height:52px;padding:10px 12px;gap:10px;font-size:15px}
+  .opts{gap:8px}
+  .opts.wide .opt{font-size:14.5px;line-height:1.35;padding:10px 12px}
+  .q legend{font-size:19px;margin-bottom:12px}
+  .q legend .dr-opt{font-size:14.5px;margin-top:4px}
+  .qtop{margin-bottom:16px}
+  .actions.qnav{margin-top:16px;padding-top:0}
+}
+@media (max-width:520px){.opts.three{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+@media (min-width:721px){
+  .opts.many{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .opts.wide{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .opts.many .opt{font-size:15px;padding:11px 12px;gap:10px}
+}
+
+@media (max-width:520px){.opts.stack{grid-template-columns:minmax(0,1fr)}}
+
+.dr-pair{align-items:start;gap:0 12px}
+@media (max-width:520px){.bk-card .dr-pair{grid-template-columns:minmax(0,1fr)}}
+.bk-card .dr-field{margin-bottom:16px}
+.bk-card .dr-field label{display:block;font:600 14px var(--sans);color:var(--ink);margin:0 0 6px}
+.bk-card .dr-field label .dr-opt{font-weight:500;color:var(--soft)}
+.bk-card .dr-field .hint{font-size:14px;color:var(--soft);margin:-2px 0 8px}
+.bk-card .dr-field input{min-height:48px;padding:11px 14px;font:500 16px var(--sans);color:var(--ink);background:#ece8e9;border:1px solid var(--box);border-radius:10px}
+.bk-card .dr-field input:focus{outline:2px solid var(--green);outline-offset:1px;border-color:var(--green)}
+.bk-card .dr-field input[aria-invalid="true"]{border-color:var(--no);border-width:2px}
+.field-err{margin-top:6px;font-size:14.5px;font-weight:600;color:var(--no)}
+.field-err:empty{display:none}
+.assure{background:var(--soft-bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:4px 0 0;font-size:15px;line-height:1.55;color:var(--soft)}
+.assure p + p{margin-top:8px}
+
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
+.dr .actions .btn{margin-top:0}
+.bk-card .btn{min-height:52px;padding:0 24px;border-radius:100px;font:700 16px var(--sans);cursor:pointer;animation:none;filter:none;transform:none}
+.bk-card .btn::before,.bk-card .btn::after{display:none}
+.bk-card .btn-primary{background:var(--mint);color:var(--ink);border:0;box-shadow:0 10px 22px -12px rgba(167,132,100,.55)}
+.bk-card .btn-primary:hover{background:#b79d7a;filter:none}
+.bk-card .btn-primary:focus-visible,.bk-card .btn-ghost:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.bk-card .btn-ghost,.bk-card button.btn-ghost{background:#ece8e9;color:var(--ink);border:1px solid rgba(19,6,6,.18);box-shadow:none}
+.bk-card .btn-ghost:hover{background:var(--soft-bg);border-color:rgba(19,6,6,.3)}
+.actions .btn-primary{flex:1 1 240px;min-height:54px;font-size:17px}
+.bk-card .btn-primary:disabled{opacity:1;background:#ece8e9;color:#5f5647;box-shadow:none;cursor:not-allowed}
+.leave{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;font-size:15px;font-weight:650;color:var(--green);text-decoration:none}
+.bk-card a.leave{color:var(--green)}
+.leave:hover{text-decoration:underline}
+@media (max-width:520px){.actions .btn{flex:1 1 100%}.actions .leave{margin-inline:auto}}
+
+.dr .btn-primary.is-waiting,.dr .btn-primary.is-waiting:hover{animation:none;filter:none;opacity:1;transform:none;
+  background:#ece8e9;color:#5f5647;border:1px solid #bfb8b5;box-shadow:none}
+.dr .btn-primary.is-waiting::before,.dr .btn-primary.is-waiting::after{display:none}
+
+.actions.qnav{flex-wrap:nowrap;justify-content:space-between;margin-top:20px;padding-top:0;border-top:0}
+.qnav .btn-ghost{flex:0 0 auto;min-width:104px}
+.qnav .btn-primary{flex:0 1 220px;margin-left:auto}
+.qnav [hidden]{display:none}
+@media (max-width:520px){
+  .qnav .btn-ghost{flex:0 0 auto;min-width:96px}
+  .qnav .btn-primary{flex:1 1 auto}
+  .qnav .leave{margin-inline:0}
+}
+
+.err{margin-top:14px;font-size:15px;font-weight:650;color:var(--no)}
+.err:empty{display:none}
+
+.weekbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 4px}
+.weekbar h2{font:700 21px var(--display);letter-spacing:-.01em;color:var(--ink);text-align:center}
+.nudge{min-width:48px;min-height:48px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(19,6,6,.18);
+  border-radius:999px;background:#ece8e9;color:var(--ink);font-size:20px;font-weight:700;cursor:pointer}
+@media (hover:hover){.nudge:hover:not(:disabled){border-color:var(--green);background:var(--soft-bg)}}
+.nudge:disabled{opacity:.35;cursor:not-allowed}
+.nudge:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+@media (max-width:520px){.weekbar{gap:8px}.weekbar h2{font-size:17px}.nudge{min-width:44px;min-height:44px}}
+.tz{font-size:14.5px;color:var(--soft);margin-bottom:18px;text-align:center}
+
+.grid{display:grid;grid-template-columns:repeat(var(--cols,5),minmax(0,1fr));gap:12px}
+.day{min-width:0}
+.day h3{font:700 13px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-align:center;
+  padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--line)}
+.day .stack{display:grid;gap:8px}
+@media (max-width:700px){
+  .grid{grid-template-columns:1fr;gap:18px}
+  .day h3{text-align:left}
+
+  .day .stack{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .day .stack .none{grid-column:1 / -1}
+}
+.slot{width:100%;min-height:48px;padding:10px 4px;font:650 15px var(--sans);border:1px solid var(--box);border-radius:999px;
+  background:#ece8e9;color:var(--ink);cursor:pointer;text-align:center;white-space:nowrap}
+
+@media (hover:hover){.slot:not([aria-disabled="true"]):not([aria-pressed="true"]):hover{border-color:var(--green);background:var(--soft-bg)}}
+.slot:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.slot[aria-pressed="true"]{background:var(--mint);border-color:var(--mint);color:var(--ink);font-weight:750}
+.slot[aria-pressed="true"]::before{content:"\2713\00a0";font-weight:800}
+
+.slot[aria-disabled="true"]{background:#ece8e9;border-style:dashed;border-color:#bfb8b5;color:#766e6a;
+  cursor:not-allowed;text-decoration:line-through;font-weight:500}
+.slot .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.none{font-size:15px;color:var(--soft);text-align:center;padding:12px 4px}
+@media (max-width:700px){.none{text-align:left}}
+.key{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:20px;font-size:14.5px;color:var(--soft)}
+.key span{display:inline-flex;align-items:center;gap:8px}
+.key i{display:inline-block;width:32px;height:20px;border-radius:999px;border:1px solid var(--box);background:#ece8e9}
+.key .k-taken{background:#ece8e9;border-style:dashed;border-color:#bfb8b5}
+
+.state{background:var(--soft-bg);border:1px solid var(--line);border-radius:16px;padding:clamp(20px,3vw,28px);color:var(--soft)}
+.state h2{font:700 21px var(--display);letter-spacing:-.01em;color:var(--ink);margin-bottom:8px}
+.state p + p{margin-top:10px}
+.state .btn{margin-top:18px}
+
+.done-top{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.done-top .done-check{flex:none;width:56px;height:56px;background:var(--mint);box-shadow:0 0 0 8px rgba(183,157,122,.18)}
+.done-top .done-check::before{border-color:var(--ink)}
+.when{font:800 clamp(24px,3vw,32px)/1.15 var(--display);letter-spacing:-.02em;color:var(--ink)}
+#doneWho{margin-top:4px;color:var(--soft)}
+.done-list{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);display:grid;gap:10px;list-style:none;padding-left:0}
+.done-list li{position:relative;padding-left:28px;font-size:16px;line-height:1.55;color:var(--soft)}
+.done-list li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--green);font-weight:800}
+
+@media (max-width:720px){
+  .bk-card{padding:18px}
+  .bk-head h1{font-size:clamp(28px,7.4vw,34px)}
+  .bk-head .lede{margin-top:12px;font-size:16px}
+  .with{margin-top:14px}
+  .bk-eyebrow{margin-bottom:12px}
+  .progress{margin-bottom:20px}
+  .actions{margin-top:20px;padding-top:18px}
+}
+
+.opt,.slot,.nudge{transition:transform .09s ease,background-color .2s ease .05s,border-color .2s ease .05s,color .2s ease .05s,box-shadow .2s ease .05s}
+.opt:active,.slot:not([aria-disabled="true"]):active,.nudge:not(:disabled):active{transform:scale(.97)}
+@keyframes fx-yes{0%{transform:scale(.97)}55%{transform:scale(1.025)}100%{transform:scale(1)}}
+@keyframes fx-no{0%,100%{transform:translateX(0)}18%{transform:translateX(-4px)}38%{transform:translateX(4px)}60%{transform:translateX(-3px)}82%{transform:translateX(2px)}}
+@keyframes fx-done{0%{transform:translateY(9px);opacity:0}100%{transform:translateY(0);opacity:1}}
+@keyframes fx-step{0%{transform:translateY(8px);opacity:0}100%{transform:translateY(0);opacity:1}}
+@keyframes fx-week-next{0%{transform:translateX(14px);opacity:0}100%{transform:translateX(0);opacity:1}}
+@keyframes fx-week-prev{0%{transform:translateX(-14px);opacity:0}100%{transform:translateX(0);opacity:1}}
+
+@keyframes q-in-next{0%{transform:translateX(18px);opacity:0}100%{transform:none;opacity:1}}
+@keyframes q-in-prev{0%{transform:translateX(-18px);opacity:0}100%{transform:none;opacity:1}}
+.fx-yes{animation:fx-yes .2s cubic-bezier(.2,.9,.3,1)}
+.fx-no{animation:fx-no .19s ease-out}
+.fx-done{animation:fx-done .55s cubic-bezier(.2,.9,.3,1)}
+.fx-step{animation:fx-step .3s cubic-bezier(.2,.9,.3,1)}
+.fx-week-next{animation:fx-week-next .26s ease-out}
+.fx-week-prev{animation:fx-week-prev .26s ease-out}
+.qstage > .q.q-in-next{animation:q-in-next .3s cubic-bezier(.2,.9,.3,1) .06s both}
+.qstage > .q.q-in-prev{animation:q-in-prev .3s cubic-bezier(.2,.9,.3,1) .06s both}
+
+@media (prefers-reduced-motion:reduce){.opt,.slot,.nudge,.step,#grid,.qstage > .q,.qbar i{transition:none!important;animation:none!important}}
+
+.hn{position:sticky;top:0;z-index:50;height:58px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 max(16px,4vw,env(safe-area-inset-right,0px)) 0 max(16px,4vw,env(safe-area-inset-left,0px));background:#ece8e9;border-bottom:1px solid var(--line)}
+.hn-brand{font:700 20px/1 var(--display);letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.hn-cta{font:700 14px/1 var(--sans);color:var(--ink);background:var(--mint);border-radius:100px;padding:11px 18px;text-decoration:none;white-space:nowrap}
+.hn-links{display:flex;gap:30px;margin-left:auto;margin-right:28px}
+.hn-links a{font:600 14px/1 var(--sans);color:var(--ink);text-decoration:none;opacity:.78;white-space:nowrap;transition:opacity .15s}
+.hn-links a:hover,.hn-links a:focus-visible{opacity:1}
+.hn-menu{display:none}
+
+@media (max-width:720px){
+  .hn-brand{font-size:17px;white-space:nowrap}
+  .hn-cta{padding:10px 13px;font-size:13px}
+}
+@media (max-width:860px){
+  .hn-menu{display:grid;place-items:center;width:40px;height:40px;margin-left:auto;margin-right:6px;padding:0;border:0;background:none;color:var(--ink);cursor:pointer}
+  .hn-menu span,.hn-menu span::before{display:block;width:18px;height:2px;border-radius:2px;background:currentColor;transition:transform .2s}
+  .hn-menu span::before{content:"";transform:translateY(5px)}
+  .hn-menu span{transform:translateY(-2.5px)}
+  .hn-menu[aria-expanded="true"] span{transform:translateY(0) rotate(45deg)}
+  .hn-menu[aria-expanded="true"] span::before{transform:rotate(-90deg)}
+  .hn-links{position:absolute;top:100%;left:0;right:0;margin:0;flex-direction:column;gap:0;background:#ece8e9;border-bottom:1px solid var(--line);
+    box-shadow:0 14px 28px rgba(19,6,6,.10);padding:4px max(16px,4vw) 10px;visibility:hidden;opacity:0;transform:translateY(-6px);
+    transition:opacity .18s,transform .18s,visibility 0s .18s}
+  .hn-links.open{visibility:visible;opacity:1;transform:none;transition:opacity .18s,transform .18s}
+  .hn-links a{font-size:17px;opacity:1;padding:14px 0;border-top:1px solid var(--line)}
+  .hn-links a:first-child{border-top:0}
+}
+
+.hf{width:min(1200px,calc(100% - 2*max(16px,4vw)));margin:0 auto;padding:24px 0 40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font:500 14px var(--sans);color:var(--soft);border-top:1px solid var(--line)}
+.hf b{font:700 18px var(--display);color:var(--ink)}
+.hf .hf-links{display:flex;flex-wrap:wrap;gap:12px 20px}
+.hf a{color:inherit;text-decoration:none}.hf a:hover{color:var(--green);text-decoration:underline}
+@media (max-width:720px){html{scrollbar-width:none}html::-webkit-scrollbar{display:none}}
+
+h1,h2,h3{text-wrap:balance}
+p,li,label,legend{text-wrap:pretty}
+</style>
+</head>
+
+<body data-turnstile="">
+
+<div class="demo-bar" id="demoBar" hidden>
+  DEMO MODE. These times are invented and nothing can be booked. Remove <code>?demo=1</code> from the address for the real thing.
+</div>
+
+<nav class="hn" aria-label="Main">
+  <a class="hn-brand" href="/">Business +</a>
+  <div class="hn-links" id="hn-links" data-links>
+    <a href="/#fall">How It Works</a><a href="/#desk">Try It</a><a href="/#work">Our Work</a><a href="/#about">Team</a><a href="/#book">Book a Demo</a>
+  </div>
+  <button class="hn-menu" type="button" aria-expanded="false" aria-controls="hn-links" aria-label="Sections" data-menu><span></span></button>
+  <a class="hn-cta" href="/start.html">Get a FREE Demo</a>
+</nav>
+
+<main class="bk" data-form-start="book">
+  <div class="bk-in">
+
+    <ol class="progress" id="progress">
+      <li data-state="now">1 · About&nbsp;You</li>
+      <li>2 · Contact</li>
+      <li>3 · Pick&nbsp;a&nbsp;Time</li>
+    </ol>
+
+    <section class="step is-on" data-step="1" aria-labelledby="h-q">
+      <div class="bk-cols">
+      <div class="bk-head">
+        <p class="bk-eyebrow">Book a 45-Minute&nbsp;Call</p>
+        <h1 id="h-q">Want a More Personalized FREE Demo?<br>Book a Call NOW.</h1>
+        <p class="with"><span class="faces" aria-hidden="true"><img src="/assets/people/founder-700.webp?v=ef506d898b" alt="" width="44" height="44"></span>With Mael and the Build Desk</p>
+        <p class="lede">45 minutes. We&rsquo;ll ask how your team&rsquo;s week actually goes, then build a demo around&nbsp;what&nbsp;you&nbsp;tell&nbsp;us.</p>
+      </div>
+
+      <div class="bk-card start-form"><div class="dr">
+      <form id="qform" novalidate>
+
+        <div class="qtop">
+          <p class="qcount" id="qcount">1 of 6</p>
+          <div class="qbar" aria-hidden="true"><i id="qfill"></i></div>
+        </div>
+
+        <div class="qstage" id="qstage">
+        <fieldset class="q">
+          <legend>What&rsquo;s your role in&nbsp;the&nbsp;business?</legend>
+          <div class="opts stack" data-name="role" data-type="radio"></div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend>How big is it? <span class="dr-opt">People, including&nbsp;you</span></legend>
+          <div class="opts three" data-name="headcount" data-type="radio"></div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend>Which jobs that repeat every week cost you the most&nbsp;time? <span class="dr-opt">Tick everything that&nbsp;applies.</span></legend>
+          <div class="opts many" data-name="bottleneck" data-type="checkbox"></div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend>What do you use for those jobs&nbsp;today? <span class="dr-opt">Tick everything that&nbsp;applies.</span></legend>
+          <div class="opts" data-name="sources" data-type="checkbox"></div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend>The call and the demo are both FREE. If the demo points at something worth building, where are you on paying&nbsp;for&nbsp;that?</legend>
+          <div class="opts wide" data-name="readiness" data-type="radio"></div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend>Roughly, last&nbsp;year&rsquo;s&nbsp;revenue <span class="dr-opt pill">Optional</span></legend>
+          <div class="opts" data-name="revenue" data-type="radio" data-optional></div>
+        </fieldset>
+        </div>
+
+        <p class="err" id="qerr" role="alert"></p>
+
+        <div class="actions qnav">
+          <a class="leave" id="qleave" href="index.html">Never mind, back to the site</a>
+          <button class="btn btn-ghost" type="button" id="qback" hidden>Back</button>
+          <button class="btn btn-primary" type="button" id="qnext" hidden>Next</button>
+          <button class="btn btn-primary" type="submit" id="qdone" hidden>Continue</button>
+        </div>
+      </form>
+      </div></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="2" aria-labelledby="h-c">
+      <div class="bk-cols">
+      <div class="bk-head">
+        <p class="bk-eyebrow">Step 2 of&nbsp;3</p>
+        <h1 id="h-c">Where Should We Reach&nbsp;You?</h1>
+        <p class="lede">So we know who&rsquo;s coming, and so we can get hold of you&nbsp;if&nbsp;something&nbsp;moves.</p>
+      </div>
+
+      <div class="bk-card start-form"><div class="dr">
+      <form id="cform" novalidate>
+        <div class="dr-pair">
+          <div class="dr-field">
+            <label for="f-name">Your Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+            <p class="field-err" id="e-name"></p>
+          </div>
+          <div class="dr-field">
+            <label for="f-company">Business Name</label>
+            <input id="f-company" name="company" type="text" autocomplete="organization" required aria-describedby="e-company">
+            <p class="field-err" id="e-company"></p>
+          </div>
+        </div>
+        <div class="dr-field">
+          <label for="f-email">Email Address</label>
+          <p class="hint" id="h-email">This is where the calendar&nbsp;invitation&nbsp;goes.</p>
+          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="h-email e-email">
+          <p class="field-err" id="e-email"></p>
+        </div>
+        <div class="dr-field">
+          <label for="f-phone">Phone Number <span class="dr-opt">(optional)</span></label>
+          <p class="hint" id="h-phone">Only used if we need to reach you&nbsp;about&nbsp;this&nbsp;call.</p>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="h-phone">
+        </div>
+
+        <div class="tarpit" aria-hidden="true">
+          <label for="f-website">Do not fill this in</label>
+          <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="assure">
+          <p><strong>You will not be put&nbsp;on&nbsp;a&nbsp;mailing&nbsp;list.</strong> There is no automated follow-up sequence, no newsletter, and no drip campaign (we don&rsquo;t run any). Any message you get from us is written by Joe or Fritz, to&nbsp;you.</p>
+          <p>The one automatic thing is the calendar invitation for the call itself, which Google sends the moment you book. That&rsquo;s it. <a href="privacy.html">What we do with&nbsp;your&nbsp;details</a>.</p>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary is-waiting" type="submit">See Available Times</button>
+          <button class="btn btn-ghost" type="button" data-back="1">Back</button>
+        </div>
+      </form>
+      </div></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="3" aria-labelledby="h-t">
+      <div class="bk-cols is-wide">
+      <div class="bk-head">
+        <p class="bk-eyebrow">Step 3 of&nbsp;3</p>
+        <h1 id="h-t">Pick a Time</h1>
+        <p class="lede">Forty-five minutes. Times we&rsquo;re already booked are still shown, grayed out, so you can&nbsp;see&nbsp;the&nbsp;whole&nbsp;week.</p>
+      </div>
+
+      <div class="bk-card start-form"><div class="dr">
+      <div id="calLoading" class="state">
+        <h2>Checking the Calendar&hellip;</h2>
+        <p>One moment.</p>
+      </div>
+
+      <div id="calError" class="state" hidden>
+        <h2>We Can&rsquo;t Reach Our Calendar Right&nbsp;Now</h2>
+        <p>This is on our end, not yours, and we&rsquo;d rather tell you than show you times we can&rsquo;t stand behind. You can book through Google instead. It&rsquo;s the same 45 minutes with&nbsp;the&nbsp;same&nbsp;people.</p>
+        <p>Or email <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a> and we&rsquo;ll sort a time by&nbsp;hand.</p>
+        <a class="btn btn-primary" id="fallbackLink" href="#" target="_blank" rel="noopener">Book Through Google&nbsp;Instead</a>
+      </div>
+
+      <div id="calBody" hidden>
+        <div class="weekbar">
+          <button class="nudge" type="button" id="prevWeek" aria-label="Previous week">&larr;</button>
+          <h2 id="weekLabel">&nbsp;</h2>
+          <button class="nudge" type="button" id="nextWeek" aria-label="Next week">&rarr;</button>
+        </div>
+        <p class="tz" id="tzNote"></p>
+
+        <div class="grid" id="grid"></div>
+
+        <div class="key">
+          <span><i class="k-free"></i> Free (click to choose)</span>
+          <span><i class="k-taken"></i> <s>Already booked</s></span>
+        </div>
+
+        <p class="err" id="terr" role="alert"></p>
+
+        <div id="ts-box" class="turnstile"></div>
+
+        <div class="actions">
+          <button class="btn btn-primary" type="button" id="confirmBtn" disabled>Choose a Time First</button>
+          <button class="btn btn-ghost" type="button" data-back="2">Back</button>
+        </div>
+      </div>
+      </div></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="4" aria-labelledby="h-d">
+      <div class="bk-cols">
+      <div class="bk-head">
+        <p class="bk-eyebrow">Booked</p>
+        <h1 id="h-d">You&rsquo;re on the&nbsp;Calendar</h1>
+      </div>
+
+      <div class="bk-card start-form"><div class="dr">
+        <div class="done-top">
+          <span class="done-check" aria-hidden="true"></span>
+          <div>
+            <p class="when" id="doneWhen"></p>
+            <p id="doneWho"></p>
+          </div>
+        </div>
+        <ul class="done-list">
+          <li>A calendar invitation is on its way to <strong id="doneEmail"></strong>. If it isn&rsquo;t there in a few minutes, check the spam&nbsp;folder.</li>
+          <li>Nothing to prepare. No forms,&nbsp;no&nbsp;slide&nbsp;deck.</li>
+          <li>Need to move it? Reply to the invitation, or email <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a>.</li>
+        </ul>
+        <div class="actions">
+          <a class="btn btn-ghost" href="index.html">Back to the Site</a>
+        </div>
+      </div></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="hf"><b>Business +</b><span>Bloomington–Normal, IL</span><div class="hf-links">
+  <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a>
+  <a href="tel:+13095550147">(309) 555-0147</a>
+  <a href="tools/index.html">Resources</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="terms.html">Terms</a>
+</div></footer>
+<script>
+  // The section links' menu on phones: opens below the bar, closes on a pick, a tap elsewhere or Escape.
+  (function(){
+    var btn = document.querySelector('[data-menu]'), list = document.querySelector('[data-links]');
+    function set(on){ list.classList.toggle('open', on); btn.setAttribute('aria-expanded', on ? 'true' : 'false'); }
+    btn.addEventListener('click', function(e){ e.stopPropagation(); set(!list.classList.contains('open')); });
+    list.addEventListener('click', function(e){ if(e.target.closest('a')) set(false); });
+    document.addEventListener('click', function(e){ if(list.classList.contains('open') && !e.target.closest('.hn')) set(false); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && list.classList.contains('open')){ set(false); btn.focus(); } });
+  })();
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* Where the calendar program lives. Same origin by default, so the site and
+     the program can sit behind one address. Set data-api on <body> to point
+     somewhere else while testing. */
+  var API = document.body.getAttribute('data-api') || '/api';
+
+  /* The Google booking page, used only when our own calendar can't be reached.
+     Keep it in step with the link in index.html. */
+  var GOOGLE_FALLBACK = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0VIdLqV0zmuJuqH_2EHLuS8B0RqiCaBxK01-Lw9d2Lg7HhIZBucR1Xz5zSB9iumle9JFUv3qJm';
+
+  var DEMO = new URLSearchParams(location.search).get('demo') === '1';
+
+  /* Someone pressed "Apply for Your Spot" on the AI Concierge card. Same six
+     questions and the same calendar - only the heading changes, and
+     answers.interest tells admin@ (via describe() in worker.js) that this is
+     an application, not an ordinary call. */
+  var FOR_CONCIERGE = new URLSearchParams(location.search).get('for') === 'concierge';
+  if (FOR_CONCIERGE) {
+    // This script runs after the markup above it has already been parsed, so
+    // the elements exist now - no need to wait for DOMContentLoaded.
+    var hq = document.getElementById('h-q');
+    if (hq) hq.textContent = 'Apply for the AI Concierge';
+    var lede1 = document.querySelector('.step[data-step="1"] .lede');
+    if (lede1) lede1.textContent = 'Answer six quick questions and pick a time. We’ll talk through whether it’s a fit.';
+  }
+
+  /* ---------------- the questions ----------------
+     Structure follows the pattern every qualifying form uses — role, size,
+     the painful jobs, where the information sits, and how ready they are to
+     spend. The wording and the ranges are written for
+     THIS business: under 25 people, under $5MM, a free assessment. Deliberately
+     not lifted from anyone else's page. */
+  var QUESTIONS = {
+    /* Answer labels in Title Case and "Other", not "Something else" (the site's
+       rule, 2026-10-09). Nothing downstream matches on the words: answers
+       saved with the old labels still show as they were sent. */
+    role: [
+      'Owner or Founder',
+      'President or General Manager',
+      'Operations Lead',
+      'I Run One Part of the Business',
+      'Other'
+    ],
+    headcount: ['Just Me', '2–5', '6–10', '11–25', '26–50', 'More Than 50'],
+    revenue: [
+      'Under $250K',
+      '$250K – $1M',
+      '$1M – $3M',
+      '$3M – $5M',
+      'Over $5M',
+      'I’d Rather Not Say'
+    ],
+    bottleneck: [
+      'Following Up with Leads',
+      'Building Quotes or Estimates',
+      'Scheduling and Dispatch',
+      'Invoices and Payment',
+      'Repeated Customer Questions',
+      'Reports/Spreadsheet Updates',
+      'Marketing',
+      'Payroll',
+      'Other'
+    ],
+    /* Question 4 since 2026-10-08: the same six answers, word for word,
+       as the Free Demo form's "What do you use for this today?" (TOOLS in
+       assets/demo-request.js; a test keeps the two lists equal). The key stays
+       "sources" so the sheet column, the calendar notice and every answer saved
+       before the change still line up. Nothing downstream matches on the
+       words: they are passed along as text, old ones and new ones alike. */
+    sources: [
+      'Excel or Sheets',
+      'QuickBooks',
+      'Email',
+      'A CRM',
+      'Paper',
+      'Other'
+    ],
+    readiness: [
+      'It’s costing us real money and I’d spend to fix it if the case is there',
+      'I’m looking, but I need to see the opportunity before deciding anything',
+      'I mostly want to know which tools are worth having',
+      'I want one specific thing built, not a plan',
+      'Just researching for now'
+    ]
+  };
+
+  var answers = {};
+  var contact = {};
+  var chosen = null;
+  var weekStart = null;
+  var cache = {};
+
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  /* ---------------- how a tap feels ----------------
+     Three answers and only three: yes, no, done. Each is a movement everybody
+     sees, plus a vibration for the phones that can produce one.
+
+     Most visitors are not on such a phone. Safari has never supported
+     navigator.vibrate and Apple has kept it that way deliberately, so on an
+     iPhone every call below is the movement alone. Android gets both. That is
+     the reason the movement is written to stand up by itself rather than as
+     decoration on top of a buzz.
+
+     One preference silences both halves: a visitor who has asked for reduced
+     motion gets no animation (the CSS switches it off) and no vibration (the
+     check below). Reduced motion is an accessibility setting, not a styling
+     one, and a buzz is exactly the kind of thing it is asked for. */
+  var FEEL = (function () {
+    var calm = window.matchMedia('(prefers-reduced-motion:reduce)');
+
+    /* Milliseconds on, milliseconds off. Short is the whole point — anything
+       long enough to notice as a buzz reads as a phone call, not a tap. */
+    var PATTERN = {
+      yes:  [8],                     // a tick: something was taken
+      no:   [12, 60, 12],            // two beats: the page saying no
+      done: [10, 70, 10, 70, 26]     // short, short, long. Booking only.
+    };
+
+    /* Restarting an animation needs the class taken off, the browser forced to
+       notice, and the class put back — otherwise a second tap inside a fifth of
+       a second does nothing at all, which is precisely the tap that most needs
+       to feel answered. */
+    function move(el, cls) {
+      if (!el || calm.matches) return;
+      el.classList.remove(cls);
+      void el.offsetWidth;
+      el.classList.add(cls);
+    }
+
+    function play(kind, el) {
+      if (calm.matches) return;
+      move(el, 'fx-' + kind);
+      /* Wrapped, because some browsers throw when the page is in the
+         background. A decoration must never be able to break a booking. */
+      if (navigator.vibrate) { try { navigator.vibrate(PATTERN[kind]); } catch (e) {} }
+    }
+
+    return {
+      yes:  function (el) { play('yes', el); },
+      no:   function (el) { play('no', el); },
+      done: function (el) { play('done', el); },
+      move: move
+    };
+  })();
+
+  /* ---------------- build the option lists ----------------
+     Each answer is a card. Underneath it is still a real radio or checkbox
+     inside a <label>, so the browser's own keyboard and screen-reader behavior
+     is untouched: Tab moves to the answers and on to the buttons, the arrow
+     keys between one question's answers, Space picks. Enter picks as well (by
+     default it would send the form half-filled). The card's look follows its
+     input through the "is-on" class.
+
+     A tap on a one-answer question moves on by itself after a short beat
+     (see tapped, under step 1). The arrow keys never do: they walk through
+     the answers, and jumping away on the first one would make the rest
+     unreachable. byArrow marks the pick the arrow keys just made. */
+  var byArrow = false;
+
+  /* The last words of a long answer are held together on screen, so no line
+     ends with one or two words alone (the no-orphan rule, as glue-orphans.mjs
+     does for the fixed text): about 20 characters, never more than 28, never
+     more than half the words. Only the words shown; the answer sent is the
+     original text. */
+  function glueTail(t) {
+    var w = t.split(' ');
+    if (w.length < 4) return t;
+    var n = 1, len = w[w.length - 1].length, limit = Math.ceil(w.length / 2);
+    while (n < limit && len < 20 && len + 1 + w[w.length - 1 - n].length <= 28) { len += 1 + w[w.length - 1 - n].length; n++; }
+    return w.slice(0, w.length - n).join(' ') + ' ' + w.slice(w.length - n).join(' ');
+  }
+  function paint(name) {
+    $$('input[name="' + name + '"]').forEach(function (i) { i.parentNode.classList.toggle('is-on', i.checked); });
+  }
+
+  $$('.opts').forEach(function (box) {
+    var name = box.getAttribute('data-name');
+    var type = box.getAttribute('data-type');
+    var optional = box.hasAttribute('data-optional');
+    var picked = null;   // the optional question's current answer, so a second tap can clear it
+    QUESTIONS[name].forEach(function (text, i) {
+      var id = name + '-' + i;
+      var lab = document.createElement('label');
+      lab.className = 'opt';
+      lab.setAttribute('for', id);
+      var input = document.createElement('input');
+      input.type = type;
+      input.name = name;
+      input.id = id;
+      input.value = text;
+      var span = document.createElement('span');
+      /* A line may break after a slash ("Reports/Spreadsheet Updates" is one
+         unbreakable word otherwise, and ran out of its chip on a phone). Only
+         the words on screen get the break; the answer sent is unchanged. */
+      span.textContent = glueTail(text).replace(/\//g, '/\u200B');
+      /* The lightest of the three, and the most often felt: six questions,
+         several of them multiple choice. Anything heavier turns into a nag. */
+      input.addEventListener('change', function () { answered(name); FEEL.yes(lab); });
+      if (optional && type === 'radio') {
+        /* A radio cannot normally be un-picked, and an optional question has
+           to allow "no answer". Tapping (or Space on) the picked one clears it. */
+        input.addEventListener('click', function () {
+          if (picked === input.value) { input.checked = false; picked = null; answered(name); FEEL.yes(lab); }
+          else picked = input.value;
+        });
+      }
+      /* After the optional question's own click above, so a tap that just
+         cleared an answer is seen as cleared. */
+      if (type === 'radio') input.addEventListener('click', function () { tapped(name, input); });
+      input.addEventListener('keydown', function (e) {
+        if (/^Arrow/.test(e.key)) { byArrow = true; setTimeout(function () { byArrow = false; }, 0); }
+        /* Space on a radio that is already picked does nothing in a browser
+           (no click), so the optional question clears it here instead. */
+        if (optional && type === 'radio' && e.key === ' ' && input.checked) {
+          e.preventDefault();
+          input.checked = false; picked = null; answered(name); FEEL.yes(lab);
+          /* Chromium keeps treating the group as picked for Tab until the
+             focus moves, and Tab then walks through every answer instead of
+             leaving the question. Blur and refocus resets that. */
+          input.blur(); input.focus();
+          return;
+        }
+        if (e.key !== 'Enter') return;
+        e.preventDefault();
+        input.click();
+      });
+      lab.appendChild(input);
+      lab.appendChild(span);
+      box.appendChild(lab);
+    });
+  });
+
+  /* ---------------- moving between steps ---------------- */
+  function show(n) {
+    document.body.style.paddingBottom = '';   // showQ's spacer belongs to the questions only
+    $$('.step').forEach(function (s) {
+      s.classList.toggle('is-on', s.getAttribute('data-step') === String(n));
+    });
+    $$('#progress li').forEach(function (li, i) {
+      var step = i + 1;
+      li.removeAttribute('data-state');
+      if (step < n) li.setAttribute('data-state', 'done');
+      if (step === n) li.setAttribute('data-state', 'now');
+    });
+    $('#progress').hidden = n > 3;
+    /* Straight to the top, not the site's smooth scroll: a new step should
+       simply be there, not roll past the old one on its way. */
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    /* The step arriving. Step 4 is left out on purpose: the booking itself
+       plays the 'done' movement over the whole section, and two movements
+       stacked on one section is the sort of thing that reads as a glitch. */
+    if (n < 4) FEEL.move($('.step.is-on'), 'fx-step');
+    var h = $('.step.is-on h1');
+    if (h) { h.setAttribute('tabindex', '-1'); h.focus(); }
+  }
+
+  /* Each step is a step in the browser's history (bug hunt 2026-10-09): the
+     browser's Back went to the previous page and every answer was lost. Forward
+     moves push a step, the page's own Back buttons are the browser's Back, and
+     popstate draws whichever step the history entry names, never one whose
+     earlier answers are missing (after a reload the page starts at step 1). */
+  function go(n, how) {
+    history[how === 'replace' ? 'replaceState' : 'pushState']({ bk: n }, '');
+    show(n);
+  }
+  function reachable(n) {
+    if (n >= 4) n = booked ? 4 : 3;
+    if (n >= 2 && !Object.keys(answers).length) return 1;
+    if (n >= 3 && !contact.email) return 2;
+    return n;
+  }
+  var booked = false;
+  /* Each question in step 1 is a history step too (2026-10-26), so the
+     browser's Back on question 4 goes to question 3, as the page's own Back
+     does, instead of leaving the page. The entry carries q, the question's
+     place (0 to 5); one whose earlier answers are missing is never shown. */
+  window.addEventListener('popstate', function (e) {
+    var st = e.state;
+    // A jump to an #anchor arrives with no state: same step, new entry.
+    if (!st || typeof st.bk !== 'number') { history.replaceState(stateNow(), ''); return; }
+    var n = reachable(st.bk);
+    var q = n === 1 ? reachableQ(typeof st.q === 'number' ? st.q : 0) : 0;
+    if (n !== st.bk || (n === 1 && q !== st.q)) history.replaceState(n === 1 ? { bk: 1, q: q } : { bk: n }, '');
+    if (n === 1 && currentStep() === 1) { showQ(q, true); return; }
+    show(n);
+    if (n === 1) showQ(q, false);
+  });
+  function currentStep() { var on = $('.step.is-on'); return on ? Number(on.getAttribute('data-step')) : 1; }
+  function stateNow() { var n = currentStep(); return n === 1 ? { bk: 1, q: qAt } : { bk: n }; }
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  history.replaceState({ bk: 1, q: 0 }, '');
+
+  $$('[data-back]').forEach(function (b) {
+    b.addEventListener('click', function () { FEEL.yes(); history.back(); });
+  });
+
+  /* ---------------- step 1 ---------------- */
+
+  /* The first answer anybody gives is the signal that a person is really here,
+     and it is the earliest honest moment to start fetching the calendar. See
+     warmCalendar. `once` so it costs exactly one set of requests per visit. */
+  $('#qform').addEventListener('change', function () { warmCalendar(); }, { once: true });
+
+  /* The questions that must be answered, with the number each shows on the
+     page. Revenue (question 6) is not here on purpose: it is optional since
+     2026-10-08, and is sent only when it was answered. Keep these numbers in
+     step with the legends; a test checks them. */
+  var REQUIRED = [
+    { name: 'role', q: 1 }, { name: 'headcount', q: 2 }, { name: 'bottleneck', q: 3 },
+    { name: 'sources', q: 4 }, { name: 'readiness', q: 5 }
+  ];
+  var OPTIONAL = ['revenue'];
+
+  function pickedIn(name) {
+    return $$('input[name="' + name + '"]:checked').map(function (i) { return i.value; });
+  }
+
+  /* ---------------- one question at a time (2026-10-26) ----------------
+     All six questions stay in the form, so what is sent is worked out exactly
+     as before; only the one at qAt is shown. The way forward depends on the
+     question:
+       - one answer (1, 2, 5): tapping an answer moves on after a short beat,
+         long enough to see the tick. Coming back to one already answered, a
+         Next button shows (and tapping the answer again moves on too).
+       - several answers (3, 4): a Next button, resting until one is ticked.
+       - revenue (6, optional): tapping an answer moves on; Skip moves on
+         without one, and reads Continue once an answer is picked. Tapping
+         the picked answer again still clears it.
+     Moving on from 6 is the form's submit, so step 2 is reached exactly as
+     Continue reached it before. */
+  var QS = $$('#qstage > .q').map(function (fs) {
+    var box = $('.opts', fs);
+    return { fs: fs, name: box.getAttribute('data-name'), type: box.getAttribute('data-type'), optional: box.hasAttribute('data-optional') };
+  });
+  var LAST = QS.length - 1;
+  var qAt = 0;
+  var BEAT = 420;               // ms between the tick showing and the next question
+  var advanceTimer = null;
+  var calmQ = window.matchMedia('(prefers-reduced-motion:reduce)');
+
+  function numberOf(name) { for (var i = 0; i < QS.length; i++) if (QS[i].name === name) return i + 1; return 0; }
+  function isRequired(name) { return REQUIRED.some(function (f) { return f.name === name; }); }
+
+  /* The furthest question that may be shown: none whose earlier required
+     answers are missing (Forward after a change, or an old history entry). */
+  function reachableQ(t) {
+    t = Math.max(0, Math.min(LAST, t | 0));
+    for (var i = 0; i < t; i++) if (isRequired(QS[i].name) && !pickedIn(QS[i].name).length) return i;
+    return t;
+  }
+
+  function cancelAdvance() { if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; } }
+
+  /* Draw question i. animate: a move the visitor made (slide, focus the
+     question); false on arrival from another step or the first draw.
+
+     The card is as tall as the question in it, so only its bottom edge moves;
+     its top stays put. The page never scrolls on a question change: if the new
+     question is shorter and the page would end above where the visitor is
+     scrolled to (the browser would then pull the page up), a spacer at the
+     very end of the page, under the footer, holds the page where it was, all
+     before anything is painted. The footer stays right under the card. */
+  var pageEnd = document.body;
+  function holdScroll(y) {
+    pageEnd.style.paddingBottom = '';
+    var short = y + window.innerHeight - document.documentElement.scrollHeight;
+    if (short > 0) pageEnd.style.paddingBottom = (parseFloat(getComputedStyle(pageEnd).paddingBottom) + short) + 'px';
+    if (window.scrollY !== y) window.scrollTo({ top: y, left: 0, behavior: 'instant' });
+  }
+  /* The spacer only ever covers what is needed to hold the page where the
+     visitor is; once they scroll up, the part now below the screen goes, so
+     it never lingers as an empty band above the footer. */
+  window.addEventListener('scroll', function () {
+    var extra = parseFloat(pageEnd.style.paddingBottom);
+    if (!extra) return;
+    var y = window.scrollY;
+    pageEnd.style.paddingBottom = '';
+    var base = parseFloat(getComputedStyle(pageEnd).paddingBottom);
+    var need = y + window.innerHeight - document.documentElement.scrollHeight;
+    if (need > 0) pageEnd.style.paddingBottom = Math.min(extra, base + need) + 'px';
+    if (window.scrollY !== y) window.scrollTo({ top: y, left: 0, behavior: 'instant' });
+  }, { passive: true });
+  function showQ(i, animate) {
+    cancelAdvance();
+    var from = qAt;
+    var y = window.scrollY;
+    qAt = i;
+    var dir = i < from ? 'prev' : 'next';
+    QS.forEach(function (q, n) {
+      q.fs.classList.remove('q-in-next', 'q-in-prev');
+      q.fs.classList.toggle('is-now', n === i);
+    });
+    $('#qcount').textContent = (i + 1) + ' of ' + QS.length;
+    $('#qfill').style.setProperty('--p', String(i + 1));
+    $('#qerr').textContent = '';
+    QS.forEach(function (q) { q.fs.classList.remove('is-missing'); });
+    syncNav();
+    if (!animate) return;
+    holdScroll(y);
+    if (i !== from && !calmQ.matches) {
+      FEEL.move(QS[i].fs, 'q-in-' + dir);
+      /* No taps while the new question settles: a quick second tap meant for
+         the old one must not land on the new one. */
+      var stage = $('#qstage');
+      stage.classList.add('is-moving');
+      setTimeout(function () { stage.classList.remove('is-moving'); }, 250);
+    }
+    /* Keyboard and screen readers start on the new question's answers. No
+       scroll from that: the card stays where it is. */
+    var target = $('input:checked', QS[i].fs) || $('input', QS[i].fs);
+    if (target) target.focus({ preventScroll: true });
+    // chat.js moves its round button aside when a button sits under it; it
+    // listens for scroll, so tell it the card under it changed.
+    window.dispatchEvent(new Event('scroll'));
+  }
+
+  /* A forward move the visitor made: a new history step, then the question. */
+  function toQ(i) {
+    history.pushState({ bk: 1, q: i }, '');
+    showQ(i, true);
+  }
+
+  /* Which buttons the current question shows, and their words. */
+  function syncNav() {
+    var q = QS[qAt];
+    var has = pickedIn(q.name).length > 0;
+    var waiting = !!advanceTimer;
+    $('#qleave').hidden = qAt !== 0;
+    $('#qback').hidden = qAt === 0;
+    var next = $('#qnext'), done = $('#qdone');
+    if (qAt === LAST) {
+      next.hidden = true;
+      done.hidden = false;
+      done.textContent = has ? 'Continue' : 'Skip';
+    } else {
+      done.hidden = true;
+      next.hidden = q.type === 'radio' ? (!has || waiting) : false;
+      next.classList.toggle('is-waiting', !has);
+    }
+  }
+  /* Kept under its old name: answered() and the first draw call it. */
+  function syncContinue() { syncNav(); }
+
+  function answered(name) {
+    paint(name);
+    var q = $('input[name="' + name + '"]').closest('.q');
+    if (pickedIn(name).length) q.classList.remove('is-missing');
+    if (!$('.q.is-missing')) $('#qerr').textContent = '';
+    syncContinue();
+  }
+
+  /* A tap (or Space, or Enter) on a one-answer question. */
+  function tapped(name, input) {
+    if (name !== QS[qAt].name) return;
+    if (byArrow) { syncNav(); return; }           // walking with the arrows: stay
+    if (!input.checked) { cancelAdvance(); syncNav(); return; }   // the optional answer, cleared
+    cancelAdvance();
+    var at = qAt;
+    advanceTimer = setTimeout(function () {
+      advanceTimer = null;
+      if (qAt !== at || currentStep() !== 1) return;
+      moveOn();
+    }, calmQ.matches ? 250 : BEAT);
+    syncNav();
+  }
+
+  /* Forward from the current question: Next, Skip, Continue or a tap. */
+  function moveOn() {
+    var q = QS[qAt];
+    if (isRequired(q.name) && !pickedIn(q.name).length) {
+      $('#qerr').textContent = 'Question ' + (qAt + 1) + ' still needs an answer.';
+      q.fs.classList.add('is-missing');
+      FEEL.no(q.fs);
+      return;
+    }
+    if (qAt < LAST) { FEEL.yes(); toQ(qAt + 1); return; }
+    var form = $('#qform');
+    if (form.requestSubmit) form.requestSubmit($('#qdone')); else $('#qdone').click();
+  }
+
+  $('#qnext').addEventListener('click', moveOn);
+  $('#qback').addEventListener('click', function () { cancelAdvance(); FEEL.yes(); history.back(); });
+
+  $('#qform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    cancelAdvance();
+    var missing = REQUIRED.filter(function (f) { return !pickedIn(f.name).length; });
+    $$('#qform .q').forEach(function (q) { q.classList.remove('is-missing'); });
+    if (missing.length) {
+      var qs = missing.map(function (f) { return f.q; });
+      /* Go to the first one still to answer, then say so on it. */
+      var firstAt = numberOf(missing[0].name) - 1;
+      if (firstAt !== qAt) toQ(firstAt);
+      $('#qerr').textContent = qs.length === 1
+        ? 'Question ' + qs[0] + ' still needs an answer.'
+        : qs.length + ' questions still need an answer: ' +
+          (qs.slice(0, -1).join(', ') + ' and ' + qs[qs.length - 1] + '.').replace(/ /g, '\u00a0');
+      missing.forEach(function (f) { $('input[name="' + f.name + '"]').closest('.q').classList.add('is-missing'); });
+      var first = $('input[name="' + missing[0].name + '"]').closest('.q');
+      /* Shake the question that is missing, not the error message: the
+         point of the movement is to say which one. */
+      FEEL.no(first);
+      return;
+    }
+    $('#qerr').textContent = '';
+    var got = {};
+    REQUIRED.map(function (f) { return f.name; }).concat(OPTIONAL).forEach(function (name) {
+      var picked = pickedIn(name);
+      if (picked.length) got[name] = picked.length === 1 ? picked[0] : picked;
+    });
+    if (FOR_CONCIERGE) got.interest = 'concierge';
+    answers = got;
+    FEEL.yes();
+    go(2);
+  });
+
+  showQ(0, false);
+
+  /* ---------------- step 2 ---------------- */
+  function looksLikeEmail(v) {
+    // Deliberately loose. The job here is to catch a typo, not to police
+    // what a valid address may look like.
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
+  }
+
+  /* What each box still needs, in the page's own words. Empty means fine.
+     The last three words are held together so a narrow box never ends its
+     message with one word alone ("We still need your / name."). */
+  function keepTail(t) { return t ? t.replace(/ (\S+) (\S+) (\S+)$/, ' $1\u00a0$2\u00a0$3') : t; }
+  function contactProblems() {
+    var email = $('#f-email').value.trim();
+    return {
+      name: keepTail($('#f-name').value.trim() ? '' : 'We still need your name.'),
+      company: keepTail($('#f-company').value.trim() ? '' : 'We still need your business name.'),
+      email: keepTail(looksLikeEmail(email) ? '' : (email ? 'We still need an email address that looks right.' : 'We still need your email address.'))
+    };
+  }
+
+  function syncSeeTimes() {
+    var p = contactProblems();
+    $('#cform button[type="submit"]').classList.toggle('is-waiting', !!(p.name || p.company || p.email));
+  }
+
+  /* A box's message sits right under it (not one line far below by the
+     button), and goes away as soon as that box is changed. */
+  ['name', 'company', 'email'].forEach(function (k) {
+    $('#f-' + k).addEventListener('input', function () {
+      $('#f-' + k).removeAttribute('aria-invalid');
+      $('#e-' + k).textContent = '';
+      syncSeeTimes();
+    });
+  });
+
+  $('#cform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var p = contactProblems();
+    var firstBad = null;
+    ['name', 'company', 'email'].forEach(function (k) {
+      var box = $('#f-' + k);
+      box.setAttribute('aria-invalid', p[k] ? 'true' : 'false');
+      $('#e-' + k).textContent = p[k];
+      if (p[k] && !firstBad) firstBad = box;
+    });
+
+    if (firstBad) {
+      /* Put the box in the middle of the screen ourselves: the browser's own
+         focus scroll can leave it under the sticky header. */
+      firstBad.focus({ preventScroll: true });
+      firstBad.closest('.dr-field').scrollIntoView({ block: 'center' });
+      FEEL.no(firstBad.closest('.dr-field'));
+      return;
+    }
+    contact = {
+      name: $('#f-name').value.trim(), company: $('#f-company').value.trim(),
+      email: $('#f-email').value.trim(), phone: $('#f-phone').value.trim()
+    };
+
+    /* Save the person now, before they see the calendar. Someone who fills this
+       in and then walks away is still a lead worth having. Best effort: if it
+       fails, it must not stop them booking. */
+    post('/lead', { contact: contact, answers: answers }).catch(function () {});
+
+    FEEL.yes();
+    go(3);
+    weekStart = startOfWeek(new Date());
+    openCalendar();
+  });
+
+  /* Someone who just sent the homepage form already gave their name, business
+     and email. That form leaves them in this tab's sessionStorage (never the
+     address); fill only the boxes that are still empty, so nothing typed here
+     is replaced. Kept until this tab closes, so a reload fills them again. */
+  try {
+    var carried = JSON.parse(sessionStorage.getItem('bo-home-contact') || 'null');
+    if (carried && typeof carried === 'object') {
+      ['name', 'company', 'email'].forEach(function (k) {
+        var box = $('#f-' + k);
+        if (box && !box.value && typeof carried[k] === 'string') box.value = carried[k].slice(0, 200);
+      });
+    }
+  } catch (e) {}
+
+  syncSeeTimes();
+  /* ---------------- dates ---------------- */
+  function startOfWeek(d) {
+    var x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    var day = x.getDay();                     // 0 Sun … 6 Sat
+    var back = day === 0 ? -1 : day - 1;      // Sunday shows the week ahead
+    x.setDate(x.getDate() - back);
+    return x;
+  }
+  function addDays(d, n) { var x = new Date(d); x.setDate(x.getDate() + n); return x; }
+  function iso(d) { return d.toISOString(); }
+  function key(d) { return d.toISOString().slice(0, 10); }
+
+  var fmtDay = new Intl.DateTimeFormat(undefined, { weekday: 'short', day: 'numeric' });
+  var fmtTime = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit' });
+  var fmtLong = new Intl.DateTimeFormat(undefined, {
+    weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit'
+  });
+  var fmtRange = new Intl.DateTimeFormat(undefined, { month: 'long', day: 'numeric' });
+
+  /* ---------------- talking to the calendar program ---------------- */
+
+  /* When this page was opened. Sent with every request so the program can tell
+     a person filling in a form from something that submitted it in a few
+     milliseconds. It is only a hint - a script can send any number it likes -
+     which is why it is the cheapest layer and not the one we rely on. */
+  var LOADED_AT = Date.now();
+
+  /* Turnstile. The site key is public and lives on <body data-turnstile>; the
+     matching secret lives only in the program's settings and never comes near
+     this file.
+
+     If no key is set, everything below quietly does nothing and booking carries
+     on without it. That is the state between this shipping and the key being
+     created - deliberate, and the program says so in its log. */
+  var TS_KEY = document.body.getAttribute('data-turnstile') || '';
+  var tsWidget = null;
+
+  function loadTurnstile() {
+    if (!TS_KEY || document.getElementById('ts-script')) return;
+    var sc = document.createElement('script');
+    sc.id = 'ts-script';
+    sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+    sc.async = true;
+    sc.defer = true;
+    sc.onload = function () {
+      if (!window.turnstile || typeof window.turnstile.render !== 'function') {
+        if (window.console) console.error('Turnstile API did not load - bookings will be refused');
+        return;
+      }
+      tsWidget = window.turnstile.render('#ts-box', { sitekey: TS_KEY, action: 'book' });
+    };
+    document.head.appendChild(sc);
+  }
+
+  /* The token is single-use and expires after a few minutes, so it is taken at
+     the moment of booking rather than held. */
+  function turnstileToken() {
+    if (!TS_KEY || !window.turnstile || typeof window.turnstile.getResponse !== 'function' || tsWidget === null) return '';
+    try { return window.turnstile.getResponse(tsWidget) || ''; } catch (e) { return ''; }
+  }
+
+  /* A visitor who picks a time the moment the calendar appears can press Book
+     before the check has a token; that empty token was refused and shown as
+     "the time may have just been taken" (bug hunt 2026-10-09). Wait for it, up
+     to ten seconds, then let the server decide as before. */
+  function turnstileTokenWhenReady(maxMs) {
+    if (!TS_KEY) return Promise.resolve('');
+    loadTurnstile();
+    var waited = 0;
+    return new Promise(function (resolve) {
+      (function poll() {
+        var t = turnstileToken();
+        if (t || waited >= maxMs) { resolve(t); return; }
+        waited += 200;
+        setTimeout(poll, 200);
+      })();
+    });
+  }
+
+  function turnstileReset() {
+    if (!TS_KEY || !window.turnstile || typeof window.turnstile.reset !== 'function' || tsWidget === null) return;
+    try { window.turnstile.reset(tsWidget); } catch (e) {}
+  }
+
+  /* Which of our own links brought them, if any: the three campaign tags on the
+     address, kept for this browser session so a click from a tool page to
+     this one does not lose them. Nothing else is read or kept. */
+  function utmTags() {
+    var o = {};
+    try {
+      var p = new URLSearchParams(location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { var v = p.get(k); if (v) o[k] = v.slice(0, 80); });
+      if (Object.keys(o).length) sessionStorage.setItem('bo-utm', JSON.stringify(o));
+      else o = JSON.parse(sessionStorage.getItem('bo-utm') || '{}') || {};
+    } catch (e) { o = {}; }
+    return o;
+  }
+
+  function post(path, body) {
+    /* Demo mode must reach nothing real - not the booking, and not the lead
+       write either. Guarded here rather than at each call site so that a call
+       added later cannot forget. */
+    if (DEMO) return Promise.resolve({ ok: false, error: 'demo mode sends nothing' });
+
+    var payload = {};
+    for (var k in body) if (Object.prototype.hasOwnProperty.call(body, k)) payload[k] = body[k];
+    payload.loadedAt = LOADED_AT;
+    payload.source = utmTags();
+    var trap = document.getElementById('f-website');
+    payload.website = trap ? trap.value : '';
+    return fetch(API + path, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    });
+  }
+
+  function fetchSlots(from, to) {
+    if (DEMO) return Promise.resolve({ slots: fakeSlots(from, to) });
+    var url = API + '/availability?from=' + encodeURIComponent(iso(from)) + '&to=' + encodeURIComponent(iso(to));
+    return fetch(url, { headers: { 'Accept': 'application/json' } }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).then(function (data) {
+      if (!data || !Array.isArray(data.slots)) throw new Error('bad shape');
+      return data;
+    });
+  }
+
+  /* Sample times, for judging the design only. Reachable solely via ?demo=1,
+     and the banner at the top of the page is on whenever this runs. */
+  function fakeSlots(from) {
+    var out = [];
+    var times = [[9, 0], [9, 45], [10, 30], [11, 15], [12, 0], [12, 45], [13, 30], [14, 15], [15, 0], [15, 45]];
+    for (var d = 0; d < 5; d++) {
+      var day = addDays(from, d);
+      times.forEach(function (t, i) {
+        var s = new Date(day.getFullYear(), day.getMonth(), day.getDate(), t[0], t[1]);
+        out.push({
+          start: s.toISOString(),
+          end: new Date(s.getTime() + 45 * 6e4).toISOString(),
+          available: s > new Date() && (d + i) % 4 !== 0
+        });
+      });
+    }
+    return out;
+  }
+
+  /* ---------------- drawing the week ---------------- */
+
+  /* Which way the visitor travelled, so the new week can arrive from that
+     side. Cleared as soon as it is spent; a week drawn for any other reason
+     simply appears. */
+  var slideDir = null;
+
+  /* How long a week's times may be trusted before we ask Google again.
+
+     There used to be no limit: a week was fetched once and kept for the whole
+     visit. That was fine while nothing was fetched until the moment the
+     calendar opened. It is not fine now that we fetch ahead (see warmCalendar),
+     because a visitor who takes ten minutes over the questions would be shown
+     ten-minute-old availability and could pick a time somebody else had taken.
+     Five minutes is comfortably shorter than anyone's answering time and
+     comfortably longer than the walk from one week to the next and back. */
+  var WEEK_TTL = 5 * 60 * 1000;
+
+  /* Requests already on their way, so that asking for the same week twice
+     before the first answer arrives sends one request and not two. This is what
+     lets fetching ahead be free: when the calendar finally opens and asks for a
+     week that is still in flight, it waits on the request already made rather
+     than starting a second one. */
+  var inflight = {};
+
+  function weekData(from) {
+    var k = key(from);
+    var have = cache[k];
+    if (have && (Date.now() - have.at) < WEEK_TTL) return Promise.resolve(have.data);
+    if (inflight[k]) return inflight[k];
+    var p = fetchSlots(from, addDays(from, 5)).then(function (d) {
+      cache[k] = { data: d, at: Date.now() };
+      delete inflight[k];
+      return d;
+    }, function (err) {
+      delete inflight[k];
+      throw err;
+    });
+    inflight[k] = p;
+    return p;
+  }
+
+  /* Ask for the weeks the calendar is most likely to open on, before anybody
+     has asked to see it.
+
+     WHY. Every one of these is a round trip to Google, and until now the first
+     one did not start until the visitor had answered five questions AND typed
+     their name, business, email and phone — at which point they sat watching
+     "Loading times" for as long as Google took. Worse, the search for a week
+     with something free in it went one week at a time, so a Friday afternoon
+     cost two round trips end to end and a fully booked fortnight cost three.
+
+     Now all three start together, the moment a real person answers the first
+     question — a minute or more before the calendar is needed. By the time it
+     opens the answers are already here and it draws immediately.
+
+     It is fired from a click on a radio button rather than from page load on
+     purpose: a search engine or a link preview never clicks anything, so it
+     never costs us a call to Google. Failures are ignored on purpose too —
+     this is a head start, not the real attempt. If a request fails here, the
+     calendar makes it again for real and reports the trouble itself. */
+  var warmed = false;
+  function warmCalendar() {
+    if (warmed || DEMO) return;
+    warmed = true;
+    var week = startOfWeek(new Date());
+    for (var i = 0; i < 3; i++) {
+      weekData(addDays(week, i * 7)).catch(function () {});
+    }
+  }
+
+  function calendarUnreachable(err) {
+    if (window.console) console.error('availability failed:', err);
+    slideDir = null;
+    $('#calLoading').hidden = true;
+    $('#calBody').hidden = true;
+    $('#calError').hidden = false;
+    $('#fallbackLink').href = GOOGLE_FALLBACK;
+  }
+
+  /* Draw exactly the week weekStart points at. This is what the arrows use:
+     the visitor asked for this week, so this week is what they get, empty or
+     not. Where they LAND before asking anything is openCalendar's job. */
+  function loadWeek() {
+    $('#calLoading').hidden = false;
+    $('#calBody').hidden = true;
+    $('#calError').hidden = true;
+
+    weekData(weekStart).then(function (data) {
+      $('#calLoading').hidden = true;
+      $('#calBody').hidden = false;
+      render(data.slots);
+      if (slideDir) { FEEL.move($('#grid'), 'fx-week-' + slideDir); slideDir = null; }
+    }).catch(calendarUnreachable);
+  }
+
+  /* ---------------- opening on a week worth looking at ----------------
+
+     WHAT THIS FIXES, because it is not visible from the code.
+
+     The calendar used to open on the current week, always. On a Friday
+     afternoon every time in that week has already been, so the first thing a
+     visitor saw after filling in the whole form was one dead day and the words
+     "Nothing left" — with a full week of free times hidden behind an arrow
+     they had no reason to press. For the last day or two of every week, and
+     for any week we manage to fill, the booking page looked shut.
+
+     So the opening view steps forward until it finds a week with something
+     that can actually be clicked, and draws only that one — no empty weeks
+     flashing past on the way.
+
+     THE ARROWS ARE DELIBERATELY NOT PART OF THIS. If a visitor walks into an
+     empty or fully booked week themselves, they see it exactly as it is. That
+     is them asking a question and getting an honest answer, and the grayed-out
+     times are the whole point of this page. This governs only where they land
+     before they have asked anything. */
+
+  /* The program refuses to offer anything more than 56 days out, so eight
+     weeks is the whole of what could ever exist. Looking past that is a
+     request that cannot find anything. */
+  var SEEK_WEEKS = 8;
+
+  /* What the visitor could actually click, which is not the same as what came
+     back. A time can be free and still have already been — render drops those
+     rather than drawing them, and a week made only of them is exactly the
+     empty Friday this exists to skip. A fully booked week is nothing to click
+     for the same reason, so it is skipped by the same rule. */
+  function bookable(slots) {
+    var now = new Date();
+    return slots.filter(function (s) {
+      return s && s.available && new Date(s.start) > now;
+    });
+  }
+
+  function openCalendar() {
+    $('#calLoading').hidden = false;
+    $('#calBody').hidden = true;
+    $('#calError').hidden = true;
+
+    var opened = weekStart;   // where to fall back to if nothing is free at all
+    var looked = 0;
+
+    function attempt() {
+      return weekData(weekStart).then(function (data) {
+        if (bookable(data.slots).length) return data;
+        if (looked >= SEEK_WEEKS) {
+          /* Nothing bookable anywhere we are allowed to look. Go back to the
+             week they would have seen anyway and let the page say so plainly,
+             rather than stranding them in an empty week two months out with
+             nothing to explain how they got there. */
+          weekStart = opened;
+          return weekData(weekStart);
+        }
+        looked++;
+        weekStart = addDays(weekStart, 7);
+        /* Ask for the week after next at the same time as the next one.
+
+           The search used to go strictly one week at a time: ask, wait for the
+           answer, and only then ask about the following week. Each of those is
+           a round trip to Google, so a fortnight with nothing free in it cost
+           two waits end to end and a month cost four - all of it with the
+           visitor watching a spinner.
+
+           Asking one week further ahead than we are about to look at means the
+           answer is usually already on its way by the time we want it. It
+           cannot ask for more than the search was going to ask for anyway,
+           because the moment a week comes back with something free the search
+           stops and the extra request is simply never waited on. Requests
+           already in flight are not repeated (see weekData), so nothing is
+           fetched twice. */
+        if (looked < SEEK_WEEKS) weekData(addDays(weekStart, 7)).catch(function () {});
+        return attempt();
+      });
+    }
+
+    attempt().then(function (data) {
+      $('#calLoading').hidden = true;
+      $('#calBody').hidden = false;
+      render(data.slots);
+    }).catch(calendarUnreachable);
+  }
+
+  function render(slots) {
+    var grid = $('#grid');
+    grid.innerHTML = '';
+    chosen = null;
+    setConfirm();
+
+    $('#tzNote').textContent = 'Times shown in ' +
+      (Intl.DateTimeFormat().resolvedOptions().timeZone || 'your local time zone') + '.';
+    $('#prevWeek').disabled = key(weekStart) <= key(startOfWeek(new Date()));
+
+    var byDay = {};
+    slots.forEach(function (s) {
+      var d = new Date(s.start);
+      (byDay[key(d)] = byDay[key(d)] || []).push(s);
+    });
+
+    var now0 = new Date();
+    var today = new Date(now0.getFullYear(), now0.getMonth(), now0.getDate());
+    var days = [];
+    for (var n = 0; n < 5; n++) {
+      var candidate = addDays(weekStart, n);
+      if (candidate >= today) days.push(candidate);
+    }
+    grid.style.setProperty('--cols', String(days.length || 1));
+
+    /* Label what's actually on screen. Saying "17 – 21" above three columns
+       starting on the 19th reads as a bug. */
+    $('#weekLabel').textContent = days.length
+      ? (days.length === 1 ? fmtRange.format(days[0])
+                           : fmtRange.format(days[0]) + '\u00a0– ' + fmtRange.format(days[days.length - 1]))
+      : fmtRange.format(weekStart) + '\u00a0– ' + fmtRange.format(addDays(weekStart, 4));
+
+    if (!days.length) {
+      var gone = document.createElement('p');
+      gone.className = 'none';
+      gone.textContent = 'This week has already been. Use the arrow for next week.';
+      grid.appendChild(gone);
+      return;
+    }
+
+    for (var i = 0; i < days.length; i++) {
+      var day = days[i];
+      var col = document.createElement('div');
+      col.className = 'day';
+
+      var h = document.createElement('h3');
+      h.textContent = fmtDay.format(day);
+      col.appendChild(h);
+
+      var stack = document.createElement('div');
+      stack.className = 'stack';
+
+      /* A time that has already been is not "already booked" — it's gone, and
+         striking it through says something untrue. Drop it. Only real
+         conflicts get grayed out; that distinction is the point of this page. */
+      var now = new Date();
+      var list = (byDay[key(day)] || [])
+        .filter(function (s) { return new Date(s.start) > now; })
+        .sort(function (a, b) { return new Date(a.start) - new Date(b.start); });
+
+      if (!list.length) {
+        var none = document.createElement('p');
+        none.className = 'none';
+        none.textContent = 'Nothing left';
+        stack.appendChild(none);
+      } else {
+        list.forEach(function (s) {
+          stack.appendChild(slotButton(s));
+        });
+      }
+      col.appendChild(stack);
+      grid.appendChild(col);
+    }
+  }
+
+  function slotButton(s) {
+    var start = new Date(s.start);
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'slot';
+    b.textContent = fmtTime.format(start);
+    b.setAttribute('data-start', s.start);
+    b.setAttribute('data-end', s.end);
+
+    if (!s.available) {
+      /* aria-disabled rather than the browser's own disabled, for two reasons.
+         A disabled button is never told about the tap, so it cannot answer —
+         and the whole point of leaving taken slots on the page is that they
+         answer. It is also the only way the sr text below is reachable by
+         keyboard at all: a disabled button cannot be tabbed to, so today the
+         reason a slot is unavailable can be seen but never landed on.
+         The cost is honest: every taken slot is now a tab stop. That is the
+         trade for the reason being reachable rather than decorative. */
+      b.setAttribute('aria-disabled', 'true');
+      /* Two different reasons a slot can't be taken, and they must not be
+         confused: one of us is booked, or it's too close to now to book online.
+         Saying "already booked" for the second would be a small lie. */
+      var soon = start < new Date(Date.now() + 2 * 3600 * 1000);
+      var why = soon ? 'too soon to book online' : 'already booked';
+      /* Grey and a line through it are both visual. Say it in words too, so it
+         reaches a screen reader and anyone the color doesn't reach. */
+      var sr = document.createElement('span');
+      sr.className = 'sr';
+      sr.textContent = ', ' + why;
+      b.appendChild(sr);
+      b.setAttribute('aria-label', fmtTime.format(start) + ', ' + why);
+      b.title = why.charAt(0).toUpperCase() + why.slice(1);
+      /* The refusal. Without this the tap is simply swallowed and nothing on
+         screen explains why, which is the moment this whole layer exists for. */
+      b.addEventListener('click', function () { FEEL.no(b); });
+      return b;
+    }
+
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () {
+      $$('.slot[aria-pressed]').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      chosen = { start: s.start, end: s.end };
+      /* The moment of commitment, and the one worth getting right. */
+      FEEL.yes(b);
+      setConfirm();
+    });
+    return b;
+  }
+
+  function setConfirm() {
+
+    loadTurnstile();
+    var btn = $('#confirmBtn');
+    if (!chosen) {
+      btn.disabled = true;
+      btn.textContent = 'Choose a Time First';
+      return;
+    }
+    btn.disabled = false;
+    /* Everything after the weekday stays on one line ("Book Friday, /
+       October 9 at 9:00 AM"), so a phone never leaves "AM" or a lone date
+       on the button's second line. */
+    var when = fmtLong.format(new Date(chosen.start)).split(', ');
+    btn.textContent = 'Book ' + (when.length > 1
+      ? when[0] + ', ' + when.slice(1).join(', ').replace(/ /g, '\u00a0')
+      : when[0]);
+  }
+
+  $('#prevWeek').addEventListener('click', function () {
+    weekStart = addDays(weekStart, -7);
+    if (key(weekStart) < key(startOfWeek(new Date()))) weekStart = startOfWeek(new Date());
+    /* One tap, one vibration — the grid sliding in is a second movement but
+       not a second answer, so it is FEEL.move rather than another FEEL.yes. */
+    FEEL.yes(this);
+    slideDir = 'prev';
+    loadWeek();
+  });
+  $('#nextWeek').addEventListener('click', function () {
+    weekStart = addDays(weekStart, 7);
+    FEEL.yes(this);
+    slideDir = 'next';
+    loadWeek();
+  });
+
+  /* ---------------- booking it ---------------- */
+  $('#confirmBtn').addEventListener('click', function () {
+    if (!chosen) return;
+    var btn = this;
+
+    if (DEMO) {
+      $('#terr').textContent = 'Demo mode does not book anything. This is where the real booking would happen.';
+      FEEL.no($('#terr'));
+      return;
+    }
+
+    /* Pressed, and 'done' when the server agrees. Two answers because there
+       are two events a second or so apart — the press being received, and the
+       booking actually existing. Not two answers to one tap. */
+    FEEL.yes(btn);
+    btn.disabled = true;
+    btn.textContent = 'Booking…';
+    $('#terr').textContent = '';
+
+    turnstileTokenWhenReady(10000)
+      .then(function (token) { return post('/book', { start: chosen.start, end: chosen.end, contact: contact, answers: answers, turnstileToken: token }); })
+      .then(function (res) {
+        if (!res || res.ok !== true) throw new Error(res && res.error ? res.error : 'refused');
+        var at = fmtLong.format(new Date(chosen.start)).split(', ');
+        $('#doneWhen').textContent = at.length > 1 ? at[0] + ', ' + at.slice(1).join(', ').replace(/ /g, '\u00a0') : at[0];
+        $('#doneWho').textContent = 'Forty-five minutes with Joe and Fritz.';
+        $('#doneEmail').textContent = contact.email;
+        booked = true;
+        go(4, 'replace');
+        /* The payoff, and the only place anything longer than a tick fires. */
+        FEEL.done($('.step[data-step="4"]'));
+      })
+      .catch(function (err) {
+        if (window.console) console.error('booking failed:', err);
+        btn.disabled = false;
+        /* A Turnstile token can only be spent once. Without this reset the
+           second attempt would fail for a reason the visitor cannot see. */
+        turnstileReset();
+        setConfirm();
+        /* Someone else may have taken it while this page was open. Reload the
+           week so they are choosing from what's actually free. */
+        $('#terr').textContent = 'That didn’t go through. The time may have just been taken. ' +
+          'We’ve refreshed the week; please pick again, or email hello@getbusinessplus.com.';
+        FEEL.no($('#terr'));
+        /* Drop the request that is on its way as well as the answer we
+           already have. Without the first line, a refresh started while a
+           fetch was still in flight would be handed that same in-flight
+           answer - the stale one we are trying to get rid of. */
+        delete inflight[key(weekStart)];
+        delete cache[key(weekStart)];
+        loadWeek();
+      });
+  });
+
+  /* ---------------- demo mode is loud on purpose ---------------- */
+  if (DEMO) {
+    $('#demoBar').hidden = false;
+    document.title = '[DEMO] ' + document.title;
+  }
+})();
+</script>
+
+<script src="/assets/site.js?v=deb611b9cb" defer></script>
+<script src="/assets/form-start.js?v=dc889ba199" defer></script>
+<script src="/assets/chat.js?v=9dcd602d12" defer></script>
+
+</body>
+</html>

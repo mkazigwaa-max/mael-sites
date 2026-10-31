@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unsubscribe | Business +</title>
+<meta name="description" content="Take your address off the Business + newsletter list.">
+
+<meta name="robots" content="noindex,nofollow">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=8f1efb5828">
+
+<style>
+:root{--sheet-ink:#39291f;--sheet-soft:#5f5647;--sheet-line:#bfb8b5;--green:#635032;--no:#39291f}
+.tarpit{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#ts-box:not(:empty){margin:0 0 18px}
+.un-wrap{--max:620px}
+main.page{padding:clamp(28px,4vw,48px) 0 clamp(64px,8vw,104px)}
+.bk-head{margin-bottom:clamp(20px,3vw,28px)}
+.bk-head h1{font-family:var(--display);font-weight:800;font-size:clamp(32px,3.6vw,48px);line-height:1.04;letter-spacing:-.035em;text-wrap:balance}
+.panel.bk-sheet{padding:clamp(20px,3vw,34px)}
+.bk-sheet a:not(.btn){color:var(--green)}
+.sheet-sub{font-size:15.5px;color:var(--sheet-soft);margin:0 0 18px;text-wrap:pretty}
+.actions{margin-top:6px}
+.actions .btn-primary{width:100%;min-height:54px;font-size:17px}
+.actions .btn-primary:disabled{opacity:.7;cursor:progress}
+.err{margin-top:14px;font-size:15px;font-weight:650;color:var(--no)}
+.err:empty{display:none}
+.done{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.3;color:var(--sheet-ink);margin:0 0 14px}
+.done:focus{outline:none}
+.back{font-weight:650}
+@media (max-width:620px){.bk-head h1{font-size:29px}.panel.bk-sheet{padding:20px 16px}}
+</style>
+</head>
+
+<body data-turnstile="">
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="Business + home"></a>
+    <nav class="nav-links" id="site-nav" aria-label="Main">
+      <a href="work.html">Our Work</a><a href="custom-builds.html">Custom Builds</a><a href="concierge.html">AI Concierge</a><a href="book.html">Book a Call</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="start.html">Get a FREE Demo</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
+  </div>
+</header>
+<main class="page">
+  <div class="wrap un-wrap">
+    <div class="bk-head"><h1>Unsubscribe from the&nbsp;Newsletter</h1></div>
+    <div class="panel start-form bk-sheet"><div class="dr" id="box">
+      <form id="uf" novalidate>
+        <p class="sheet-sub">Type the address our newsletter reaches and we&rsquo;ll take&nbsp;it&nbsp;off&nbsp;the&nbsp;list.</p>
+        <div class="dr-field"><label for="email">Your Email</label><input id="email" name="email" type="email" autocomplete="email" maxlength="200" required></div>
+        <div class="tarpit" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <div id="ts-box"></div>
+        <div class="actions"><button id="go" class="btn btn-primary" type="submit">Unsubscribe</button></div>
+        <p class="err" id="error" role="alert"></p>
+      </form>
+    </div></div>
+  </div>
+</main>
+<footer class="foot">
+  <div class="wrap foot-in">
+    
+    <span>Bloomington–Normal, Illinois</span>
+    <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a>
+    <a href="tel:+13095550147">(309) 555-0147</a>
+    <a href="tools/index.html">Resources</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+</footer>
+<script>
+(function () {
+  var loadedAt = Date.now();
+  var form = document.getElementById('uf');
+  var box = document.getElementById('box');
+  var err = document.getElementById('error');
+  var go = document.getElementById('go');
+  var input = document.getElementById('email');
+  var busy = false;
+  // The words the program answers with, said here too so the page reads the
+  // same if a reply ever comes back without them.
+  var DONE = "Done. If that address was on our list, it’s off now.";
+
+  /* Turnstile: the same public site key and the same "wait for the token" as
+     the quiz (bug hunt 2026-10-09). Verified by the program, not here. */
+  var tsWidget = null;
+  function loadTurnstile() {
+    var key = document.body.getAttribute('data-turnstile') || '';
+    var holder = document.getElementById('ts-box');
+    if (!key || !holder) return;
+    var draw = function () { try { tsWidget = window.turnstile.render(holder, { sitekey: key, appearance: 'interaction-only' }); } catch (e) {} };
+    if (window.turnstile) return draw();
+    var sc = document.createElement('script');
+    sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; sc.async = true; sc.onload = draw;
+    document.head.appendChild(sc);
+  }
+  function tsToken() { try { return tsWidget !== null ? window.turnstile.getResponse(tsWidget) || '' : ''; } catch (e) { return ''; } }
+  function tsReset() { try { if (tsWidget !== null) window.turnstile.reset(tsWidget); } catch (e) {} }
+  function tsTokenReady(maxMs) {
+    return new Promise(function (resolve) {
+      if (!document.body.getAttribute('data-turnstile')) return resolve('');
+      var waited = 0;
+      (function tick() { var t = tsToken(); if (t || waited >= maxMs) return resolve(t); waited += 200; setTimeout(tick, 200); })();
+    });
+  }
+
+  function fail(msg) { err.textContent = msg; input.focus(); }
+  function done() {
+    box.innerHTML = '<p class="done" id="done" tabindex="-1" role="status"></p><p><a class="back" href="index.html">Back to the Site</a></p>';
+    var p = document.getElementById('done');
+    p.textContent = DONE;
+    p.focus();
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (busy) return;
+    err.textContent = '';
+    var email = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return fail('That email address doesn’t look right.');
+    busy = true; go.disabled = true; go.setAttribute('aria-busy', 'true');
+    tsTokenReady(10000).then(function (token) {
+      return fetch('/api/newsletter/unsubscribe', {
+        method: 'POST', headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ email: email, website: document.getElementById('website').value, loadedAt: loadedAt, turnstile: token }),
+      });
+    }).then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (data) { return { res: res, data: data }; });
+    }).then(function (r) {
+      if (r.res.ok && r.data.ok) return done();
+      tsReset();
+      busy = false; go.disabled = false; go.removeAttribute('aria-busy');
+      if (r.res.status === 400) return fail('That email address doesn’t look right.');
+      if (r.res.status === 403) return fail('That didn’t go through. Please try the check above and press Unsubscribe again.');
+      fail('That didn’t go through. Please try again in a moment, or email hello@getbusinessplus.com.');
+    }).catch(function () {
+      tsReset();
+      busy = false; go.disabled = false; go.removeAttribute('aria-busy');
+      fail('That didn’t go through. Please check your connection and try again.');
+    });
+  });
+  loadTurnstile();
+})();
+</script>
+<script src="/assets/site.js?v=deb611b9cb" defer></script>
+</body>
+</html>

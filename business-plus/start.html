@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get a FREE Demo | Business +</title>
+<link rel="canonical" href="https://getbusinessplus.com/start">
+<meta name="description" content="Send a voice memo or detailed message explaining your problem, and we'll send you a FREE demo fixing it. The only limitation is your imagination.">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Get a FREE Demo | Business +">
+<meta property="og:description" content="Send a voice memo or detailed message explaining your problem, and we'll send you a FREE demo fixing it. The only limitation is your imagination.">
+<meta property="og:url" content="https://getbusinessplus.com/start">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://getbusinessplus.com/assets/og-card-2026-10.jpg">
+
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script type="importmap">
+  {"imports":{"three":"/assets/home/vendor/three-0.170.0/three.js",
+              "three/addons/":"/assets/home/vendor/three-0.170.0/addons/"}}
+</script>
+<link rel="modulepreload" href="/assets/home/vendor/three-0.170.0/three.js">
+<link rel="modulepreload" href="/assets/home/vendor/three-0.170.0/chunks/chunk-4ZY2DUWE.js">
+<link rel="modulepreload" href="/assets/home/vendor/three-0.170.0/addons/utils/BufferGeometryUtils.js">
+<link rel="modulepreload" href="/assets/home/vendor/three-0.170.0/chunks/chunk-AOPSGFYW.js">
+<link rel="stylesheet" href="/assets/site.css?v=8f1efb5828">
+
+<style>
+
+:root{--bg:#ece8e9;--panel:#ece8e9;--line:rgba(19,6,6,.12);--line-strong:rgba(19,6,6,.24);--ink:#130606;--text:#130606;--soft:#5f5647;--muted:#5f5647;
+  --green:#2f3c68;--mint:#b79d7a;--sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;--display:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --nav:58px;--top:var(--nav);--gut-l:max(16px,4vw,env(safe-area-inset-left,0px));--gut-r:max(16px,4vw,env(safe-area-inset-right,0px));color-scheme:light}
+body{background:#ece8e9;color:var(--ink)}
+canvas.gl{position:fixed;left:0;top:0;width:100%;height:100vh;height:100lvh;z-index:0;display:block;pointer-events:none}
+main{position:relative}
+
+.bsec{position:relative;padding:0;touch-action:pan-y}
+.book{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:80px var(--gut-r) 100px var(--gut-l);display:grid;
+  grid-template-columns:minmax(0,560px);justify-content:center;gap:120px;align-items:center}
+.bk-copy{position:relative}
+.start-eyebrow{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:6px 14px;border-radius:999px;
+  font:700 15px var(--display);color:var(--green);background:rgba(183,157,122,.14);border:1px solid rgba(167,132,100,.25)}
+.start-eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(183,157,122,.18)}
+.book h1{font:800 clamp(38px,5vw,68px)/1 var(--display);letter-spacing:-.025em;white-space:nowrap;color:var(--ink);margin:0}
+.book .lede{color:var(--muted);font-size:clamp(16px,1.5vw,19px);line-height:1.55;margin:16px 0 0;max-width:24em}
+.book .lede2{color:var(--green);font-weight:600;font-size:clamp(16px,1.4vw,18px);margin:12px 0 0;max-width:24em}
+.side-with{display:flex;align-items:center;gap:12px;font-weight:600;color:var(--ink);font-size:16px;margin:24px 0 0}
+.side-with .faces{display:flex;flex:none}
+.side-with img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #ece8e9}
+.side-with img + img{margin-left:-14px}
+
+.bk-card{position:relative;background:#ece8e9;border:1px solid var(--line);box-shadow:0 18px 40px rgba(19,6,6,.08),0 2px 6px rgba(19,6,6,.04);
+  border-radius:18px;padding:24px;color:var(--soft)}
+.bk-3d .bk-card{background-clip:content-box;box-shadow:none}
+.bk-3d .bk-card.bk-see{background:transparent}
+.bk-card .dr{max-width:none}
+
+.dr-short form{display:grid;gap:14px}
+.dr-short .dr-lab,.dr-short .dr-field label{display:block;font:600 14px var(--sans);color:var(--ink);margin:0 0 6px}
+.dr-short .dr-lab{margin:0 0 -8px}
+.dr-short .dr-field{margin:0}
+.dr-short .dr-pair{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px 12px}
+.dr-short .dr-field input{min-height:46px;padding:11px 14px;font:500 16px var(--sans);color:var(--ink);background:#ece8e9;border:1px solid rgba(19,6,6,.22);border-radius:10px}
+.dr-short .dr-field input:focus{outline:2px solid var(--green);outline-offset:1px;border-color:var(--green)}
+.dr-box{border:1px solid rgba(19,6,6,.22);border-radius:12px;background:#ece8e9}
+.dr-box:focus-within{outline:2px solid var(--green);outline-offset:1px;border-color:var(--green)}
+.dr-short .dr-message{display:block;width:100%;margin:0;border:0;outline:0;background:transparent;padding:12px 14px 4px;resize:none;min-height:100px;max-height:340px;overflow-y:auto;
+  font:500 16px/1.45 var(--sans);color:var(--ink)}
+.dr-short .dr-message:focus{outline:0}
+.dr-short .dr-message::placeholder{color:#756c6d}
+.dr-short .memo{padding:6px 10px 0}
+.dr-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 8px 8px}
+.dr-mic{display:inline-flex;align-items:center;gap:8px;font:700 14px/1 var(--sans);color:var(--ink);background:var(--mint);border:0;border-radius:100px;
+  padding:10px 15px 10px 12px;cursor:pointer;transition:transform .15s,background .15s}
+.dr-mic:hover{transform:translateY(-1px)}
+.dr-mic:focus-visible,.dr-clip:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.dr-mic-ico{display:inline-grid;place-items:center}
+.dr-mic .rec-label{color:inherit;font-weight:700}
+.dr-rec .rec-time{display:none;font-variant-numeric:tabular-nums;color:inherit;font-size:14px}
+.dr-rec.is-rec .rec-time{display:inline}
+.dr-rec.is-rec .dr-mic{background:var(--ink);color:#ece8e9}
+.dr-rec.is-rec .dr-mic-ico{color:#bfb8b5;animation:dr-blink 1.2s infinite}
+@keyframes dr-blink{50%{opacity:.35}}
+.dr-clip{display:inline-flex;align-items:center;gap:6px;font:600 14px/1 var(--sans);color:var(--ink);background:#ece8e9;border:1px solid rgba(19,6,6,.16);
+  border-radius:100px;padding:9px 13px 9px 10px;cursor:pointer}
+.dr-clip:hover{background:#ece8e9}
+.dr-bar .dr-clip{margin-left:auto}
+.dr-clip .chip-ico{display:inline-grid;place-items:center}
+@media (max-width:400px){.dr-clip-t{display:none}.dr-clip{padding:9px}}
+.dr-short .dr-files{margin:-6px 0 0}
+.dr-more summary{display:inline-flex;align-items:center;gap:8px;font:600 14px var(--sans);color:var(--green);cursor:pointer;list-style:none;padding:2px 0}
+.dr-more summary::-webkit-details-marker{display:none}
+.dr-more summary::before{content:"+";font:800 18px/1 var(--sans);width:12px}
+.dr-more[open] summary::before{content:"\2212"}
+.dr-more summary:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
+.dr-more[open]{display:grid;gap:18px}
+.dr-short .dr-opt{font:600 12px/1 var(--sans);color:var(--muted);background:rgba(19,6,6,.05);border:1px solid rgba(19,6,6,.08);border-radius:100px;padding:4px 9px;margin:0}
+.dr-short .dr-tools{margin:0}
+.dr-short .dr-more .dr-tools{margin:14px 0}
+.dr-short .dr-tools legend{font:600 14px var(--sans);color:var(--ink);margin-bottom:8px}
+.dr-short .dr-tools legend .dr-opt{display:none}
+.dr-short .chip.dr-tool{font:600 14px var(--sans);padding:8px 13px;color:var(--ink);background:#ece8e9;border:1px solid #bfb8b5}
+.dr-short .chip.dr-tool[aria-pressed="true"]{background:var(--mint);border-color:var(--mint);color:var(--ink)}
+.dr-short .dr-turnstile{margin:0}
+.dr-short .dr-turnstile:empty{display:none}
+.dr-short .dr-fine{margin:-4px 0 0;font-size:13px;color:var(--soft)}
+.dr-short .dr-note{margin:0}
+
+.dr-short .send{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;gap:16px;justify-self:start;
+  font:800 17px/1 var(--sans);letter-spacing:-.01em;color:var(--ink);border:0;border-radius:100px;padding:8px 8px 8px 26px;cursor:pointer;
+  background:linear-gradient(180deg,#b79d7a 0%,#b79d7a 52%,#a78464 100%);
+  box-shadow:inset 0 1px 0 rgba(236,232,233,.65),inset 0 -3px 0 rgba(167,132,100,.28),0 12px 26px -10px rgba(167,132,100,.6),0 2px 6px rgba(19,6,6,.08);
+  transition:transform .4s cubic-bezier(.2,.9,.25,1.25),box-shadow .4s ease,opacity .2s}
+.dr-short .send::before{content:"";position:absolute;z-index:-1;top:-20%;bottom:-20%;left:-45%;width:32%;pointer-events:none;
+  background:linear-gradient(100deg,rgba(236,232,233,0),rgba(236,232,233,.7) 50%,rgba(236,232,233,0));
+  transform:translateX(0) skewX(-18deg);animation:sweep 4.6s cubic-bezier(.55,0,.25,1) 1.4s infinite}
+@keyframes sweep{0%{transform:translateX(0) skewX(-18deg)}24%,100%{transform:translateX(560%) skewX(-18deg)}}
+.dr-short .send-t{position:relative}
+.dr-short .send-a{position:relative;flex:none;width:42px;height:42px;border-radius:50%;background:var(--ink);overflow:hidden;box-shadow:inset 0 1px 0 rgba(236,232,233,.12)}
+.dr-short .send-a::before{content:"";position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233EE0A6' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h13M13 6l6 6-6 6'/%3E%3C/svg%3E") center/19px no-repeat}
+.dr-short .send:not(:disabled):hover{transform:translateY(-2px);
+  box-shadow:inset 0 1px 0 rgba(236,232,233,.7),inset 0 -3px 0 rgba(167,132,100,.28),0 0 0 5px rgba(183,157,122,.22),0 18px 34px -12px rgba(167,132,100,.7),0 2px 6px rgba(19,6,6,.08)}
+.dr-short .send:active,.dr-short .send.bk-press{transform:translateY(1px) scale(.97);transition-duration:.12s}
+.dr-short .send:disabled{opacity:.5;cursor:default}
+.dr-short .send:disabled::before{animation:none;opacity:0}
+.dr-short .send:focus-visible{outline:3px solid var(--green);outline-offset:4px}
+@media (prefers-reduced-motion: reduce){.dr-short .send,.dr-mic{transition:none}.dr-short .send::before{animation:none;opacity:0}
+  .dr-rec.is-rec .dr-mic-ico{animation:none}.dr-short .send:not(:disabled):hover,.dr-short .send.bk-press{transform:none}}
+
+.bk-card .dr-receipt .dr-done{font:800 clamp(26px,2.6vw,34px)/1.1 var(--display);letter-spacing:-.02em;color:var(--ink)}
+.bk-card .done-got li{color:var(--ink);background:#ece8e9;border-color:#bfb8b5}
+.bk-card .done-got li::before{color:var(--green)}
+.bk-card .done-when{background:#ece8e9}
+.bk-card .btn-primary{background:var(--mint);color:var(--ink);border:0;border-radius:100px;box-shadow:0 10px 22px -12px rgba(167,132,100,.55);font:700 16px var(--sans);animation:none;filter:none}
+.bk-card .btn-primary::before,.bk-card .btn-primary::after{display:none}
+.bk-card .btn-primary:hover{background:#b79d7a;filter:none}
+.bk-card .btn-ghost{background:#ece8e9;color:var(--ink);border:1px solid rgba(19,6,6,.18);border-radius:100px;font:700 16px var(--sans)}
+.bk-card .btn-ghost:hover{background:#ece8e9}
+
+@media (min-width:1180px) and (min-aspect-ratio:5/4){
+  .book{max-width:1400px;grid-template-columns:minmax(0,1fr) minmax(0,470px);gap:80px;justify-content:stretch;padding-top:56px;padding-bottom:112px;
+    padding-right:calc(var(--gut-r) + 170px);min-height:calc(100vh - var(--top) - 40px);min-height:calc(100svh - var(--top) - 40px)}
+  .book h1{font-size:clamp(44px,4.1vw,68px)}
+}
+@media (max-width:720px){
+  .book{padding-top:40px;padding-bottom:64px;gap:170px}
+  .book h1{font-size:clamp(36px,10.5vw,48px)}
+  .bk-card{padding:20px}
+}
+@media (max-width:420px){ .book{gap:160px} }
+@media (max-width:520px){ .dr-short .dr-pair{grid-template-columns:1fr} }
+
+@media (max-width:720px){ #start.bk-3d .book{padding-bottom:104px} }
+
+#start.bk-flat .book{padding-top:56px;padding-bottom:64px}
+@media (max-width:720px){ #start.bk-flat .book{padding-top:40px;padding-bottom:56px} }
+@media (max-height:640px) and (min-aspect-ratio:3/2) and (min-width:640px) and (max-width:1179px){
+  .book{max-width:none;grid-template-columns:minmax(0,1fr) minmax(0,min(400px,48vw));gap:clamp(20px,3vw,48px);justify-content:stretch;align-items:start;
+    padding-top:48px;padding-bottom:72px;padding-right:calc(var(--gut-r) + clamp(64px,11vw,104px))}
+  .book h1{font-size:clamp(28px,3.8vw,44px)}
+  .book .lede{font-size:15px}
+}
+
+.hn{position:sticky;top:0;z-index:50;height:58px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 max(16px,4vw,env(safe-area-inset-right,0px)) 0 max(16px,4vw,env(safe-area-inset-left,0px));background:#ece8e9;border-bottom:1px solid var(--line)}
+.hn-brand{font:700 20px/1 var(--display);letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.hn-cta{font:700 14px/1 var(--sans);color:var(--ink);background:var(--mint);border-radius:100px;padding:11px 18px;text-decoration:none;white-space:nowrap}
+.hn-links{display:flex;gap:30px;margin-left:auto;margin-right:28px}
+.hn-links a{font:600 14px/1 var(--sans);color:var(--ink);text-decoration:none;opacity:.78;white-space:nowrap;transition:opacity .15s}
+.hn-links a:hover,.hn-links a:focus-visible{opacity:1}
+.hn-menu{display:none}
+
+@media (max-width:720px){
+  .hn-brand{font-size:17px;white-space:nowrap}
+  .hn-cta{padding:10px 13px;font-size:13px}
+}
+@media (max-width:860px){
+  .hn-menu{display:grid;place-items:center;width:40px;height:40px;margin-left:auto;margin-right:6px;padding:0;border:0;background:none;color:var(--ink);cursor:pointer}
+  .hn-menu span,.hn-menu span::before{display:block;width:18px;height:2px;border-radius:2px;background:currentColor;transition:transform .2s}
+  .hn-menu span::before{content:"";transform:translateY(5px)}
+  .hn-menu span{transform:translateY(-2.5px)}
+  .hn-menu[aria-expanded="true"] span{transform:translateY(0) rotate(45deg)}
+  .hn-menu[aria-expanded="true"] span::before{transform:rotate(-90deg)}
+  .hn-links{position:absolute;top:100%;left:0;right:0;margin:0;flex-direction:column;gap:0;background:#ece8e9;border-bottom:1px solid var(--line);
+    box-shadow:0 14px 28px rgba(19,6,6,.10);padding:4px max(16px,4vw) 10px;visibility:hidden;opacity:0;transform:translateY(-6px);
+    transition:opacity .18s,transform .18s,visibility 0s .18s}
+  .hn-links.open{visibility:visible;opacity:1;transform:none;transition:opacity .18s,transform .18s}
+  .hn-links a{font-size:17px;opacity:1;padding:14px 0;border-top:1px solid var(--line)}
+  .hn-links a:first-child{border-top:0}
+}
+
+.hf{width:min(1200px,calc(100% - 2*max(16px,4vw)));margin:0 auto;padding:24px 0 40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font:500 14px var(--sans);color:var(--soft);border-top:1px solid var(--line)}
+.hf b{font:700 18px var(--display);color:var(--ink)}
+.hf .hf-links{display:flex;flex-wrap:wrap;gap:12px 20px}
+.hf a{color:inherit;text-decoration:none}.hf a:hover{color:var(--green);text-decoration:underline}
+@media (max-width:720px){html{scrollbar-width:none}html::-webkit-scrollbar{display:none}}
+.hf{position:relative;z-index:2}
+</style>
+</head>
+
+<body data-turnstile="">
+
+<canvas class="gl" data-gl aria-hidden="true"></canvas>
+
+<nav class="hn" aria-label="Main" data-chrome>
+  <a class="hn-brand" href="/">Business +</a>
+  <div class="hn-links" id="hn-links" data-links>
+    <a href="/#fall">How It Works</a><a href="/#desk">Try It</a><a href="/#work">Our Work</a><a href="/#about">Team</a><a href="/#book">Book a Demo</a>
+  </div>
+  <button class="hn-menu" type="button" aria-expanded="false" aria-controls="hn-links" aria-label="Sections" data-menu><span></span></button>
+  <a class="hn-cta" href="/start.html" aria-current="page">Get a FREE Demo</a>
+</nav>
+
+<main>
+  <section class="bsec" id="start" aria-label="Get a FREE Demo" data-stage data-part="booking" data-module="/assets/home/parts/booking.js?v=337981851d">
+    <div class="book">
+      <div class="bk-copy">
+        <p class="start-eyebrow">Ready in 24 Hours&nbsp;or&nbsp;Less</p>
+        <h1>Get a FREE&nbsp;Demo</h1>
+        <p class="lede">Send a voice memo or detailed message explaining your problem, and we&rsquo;ll send you a FREE&nbsp;demo&nbsp;fixing&nbsp;it.</p>
+        <p class="lede2">The only limitation is your imagination. Seriously,&nbsp;dream&nbsp;big&nbsp;here.</p>
+        <p class="side-with"><span class="faces" aria-hidden="true"><img src="/assets/people/founder-700.webp?v=ef506d898b" alt="" width="44" height="44"></span>With Mael and the Build Desk</p>
+      </div>
+      <div class="bk-card start-form" data-form><input type="hidden" data-soft><div data-demo-request="short"><i hidden data-snapshot="demo-form"></i><form><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label class="dr-lab" for="dr1-message">Tell us where it leaks</label><div class="dr-box"><textarea class="dr-message" rows="4" id="dr1-message" placeholder="Explain it like you would to a new hire: what the task is, who does it, how long it takes, and what&nbsp;goes&nbsp;wrong."></textarea><div class="memo" hidden="hidden"><div class="memo-row"><button class="memo-play" type="button" aria-label="Play your recording"></button><span class="memo-wave" aria-hidden="true"><i style="height:6px"></i><i style="height:12px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:10px"></i><i style="height:14px"></i><i style="height:6px"></i><i style="height:12px"></i><i style="height:17px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:15px"></i><i style="height:7px"></i><i style="height:10px"></i><i style="height:13px"></i><i style="height:6px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:6px"></i><i style="height:13px"></i><i style="height:9px"></i></span><span class="memo-time">0:00</span></div><button class="memo-redo" type="button">Record Again</button></div><div class="dr-bar"><div class="rec dr-rec"><button class="dr-mic" type="button" aria-label="Tap to Record"><span class="dr-mic-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="2.2"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path></svg></span><span class="rec-label">Tap to Record</span><span class="rec-time">0:00</span></button></div><button type="button" class="dr-clip" aria-label="Attach a File"><span class="chip-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M21 11l-8.5 8.5a5 5 0 0 1-7-7L14 4a3.5 3.5 0 0 1 5 5l-8.5 8.5a2 2 0 0 1-3-3L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="dr-clip-t">Attach a File</span></button></div></div><input type="file" multiple="multiple" aria-label="Add a File (Optional)" hidden="hidden"><ul class="dr-files"></ul><div class="dr-field"><label for="dr1-name">Name</label><input type="text" required="required" autocomplete="name" maxlength="120" id="dr1-name" name="name"></div><div class="dr-pair"><div class="dr-field"><label for="dr1-company">Business Name</label><input type="text" required="required" autocomplete="organization" maxlength="300" id="dr1-company" name="company"></div><div class="dr-field"><label for="dr1-email">Work Email</label><input type="email" required="required" autocomplete="email" inputmode="email" maxlength="300" id="dr1-email" name="email"></div></div><details class="dr-more"><summary>Add Details <span class="dr-opt">Optional</span></summary><fieldset class="dr-tools"><legend>What do you use for this today? <span class="dr-opt">Optional</span></legend><div class="dr-tool-chips"><button type="button" class="chip dr-tool" aria-pressed="false" data-tool="excel">Excel or Sheets</button><button type="button" class="chip dr-tool" aria-pressed="false" data-tool="quickbooks">QuickBooks</button><button type="button" class="chip dr-tool" aria-pressed="false" data-tool="email">Email</button><button type="button" class="chip dr-tool" aria-pressed="false" data-tool="crm">A CRM</button><button type="button" class="chip dr-tool" aria-pressed="false" data-tool="paper">Paper</button><button type="button" class="chip dr-tool" aria-pressed="false" data-tool="other">Other</button></div></fieldset><div class="dr-pair"><div class="dr-field"><label for="dr1-phone">Phone</label><input type="tel" autocomplete="tel" inputmode="tel" maxlength="30" pattern="[0-9+\(\)\.\- ]{7,30}" id="dr1-phone" name="phone"></div><div class="dr-field"><label for="dr1-site">Website</label><input type="text" autocomplete="url" inputmode="url" maxlength="300" id="dr1-site" name="site"></div></div></details><div class="dr-turnstile"></div><button class="send" type="submit" disabled="disabled" data-send=""><span class="send-t">Send</span><span class="send-a" aria-hidden="true"></span></button><p class="dr-fine">We'll only use this to send your demo and follow&nbsp;up&nbsp;about&nbsp;it.</p><p class="dr-note" role="alert" hidden="hidden"></p></form><i hidden data-snapshot-end="demo-form"></i></div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="hf"><b>Business +</b><span>Bloomington–Normal, IL</span><div class="hf-links">
+  <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a>
+  <a href="tel:+13095550147">(309) 555-0147</a>
+  <a href="tools/index.html">Resources</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="terms.html">Terms</a>
+</div></footer>
+<script>
+  // The section links' menu on phones: opens below the bar, closes on a pick, a tap elsewhere or Escape.
+  (function(){
+    var btn = document.querySelector('[data-menu]'), list = document.querySelector('[data-links]');
+    function set(on){ list.classList.toggle('open', on); btn.setAttribute('aria-expanded', on ? 'true' : 'false'); }
+    btn.addEventListener('click', function(e){ e.stopPropagation(); set(!list.classList.contains('open')); });
+    list.addEventListener('click', function(e){ if(e.target.closest('a')) set(false); });
+    document.addEventListener('click', function(e){ if(list.classList.contains('open') && !e.target.closest('.hn')) set(false); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && list.classList.contains('open')){ set(false); btn.focus(); } });
+  })();
+</script>
+
+<script>
+  // The problem box grows with what they type (up to about twelve lines, then it scrolls).
+  document.addEventListener('input', function(e){
+    var t = e.target;
+    if(!t || !t.matches || !t.matches('.dr-short .dr-message')) return;
+    t.style.height = 'auto'; t.style.height = Math.min(t.scrollHeight + 2, 340) + 'px';
+  });
+  // The tool chips light up the matching 3D tile, through the field the tiles read (data-soft).
+  (function(){
+    var NAMES = {excel: 'Spreadsheets', quickbooks: 'Accounting', email: 'Email', crm: 'Customer list'};
+    var soft = document.querySelector('[data-soft]');
+    document.addEventListener('click', function(e){
+      var chip = e.target.closest && e.target.closest('.dr-tool');
+      if(!chip || !soft) return;
+      setTimeout(function(){
+        var on = [].slice.call(document.querySelectorAll('.dr-tool[aria-pressed="true"]')).map(function(b){ return NAMES[b.getAttribute('data-tool')]; }).filter(Boolean);
+        soft.value = on.join(' ');
+        soft.dispatchEvent(new Event('input'));
+      }, 0);
+    });
+  })();
+</script>
+<script src="/assets/demo-request.js?v=678a7a8055"></script>
+<script src="/assets/site.js?v=deb611b9cb" defer></script>
+<script src="/assets/form-start.js?v=dc889ba199" defer></script>
+<script src="/assets/chat.js?v=9dcd602d12" defer></script>
+<script type="module" src="/assets/home/host.js?v=23f39ebde9"></script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Business +</title>
+
+<link rel="canonical" href="https://getbusinessplus.com/privacy">
+<meta name="description" content="What Business + collects, why, and what we don't do with it. Plain English, no lawyer-speak.">
+<meta name="robots" content="index,follow">
+
+<style>
+:root{
+  --paper:#130606;
+  --paper-deep:#130606;
+  --ink:#ece8e9;
+  --ink-soft:#bfb8b5;
+  --accent:#b79d7a;
+  --accent-lift:#a78464;
+  --border:#39291f;
+  --border-soft:#39291f;
+  --r-panel:1rem;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);color:var(--ink-soft);
+  font-family:var(--sans);font-size:19px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{width:min(100% - 44px,68ch);margin-inline:auto}
+
+header{background:var(--paper);border-bottom:1px solid var(--border);padding:20px 0}
+header .wrap{width:min(100% - 44px,1120px);display:flex;align-items:center;justify-content:space-between;gap:20px}
+header img{display:block}
+.back{
+  font-size:1rem;font-weight:650;color:var(--accent);text-decoration:none;
+  border:1px solid var(--border);border-radius:.6rem;padding:10px 18px;min-height:44px;
+  display:inline-flex;align-items:center;
+}
+.back:hover{background:var(--paper-deep);color:var(--accent-lift)}
+
+main{padding:clamp(44px,6vw,76px) 0 clamp(56px,6vw,84px)}
+.label{
+  font-size:.82rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;
+}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,5vw,3rem);line-height:1.12;color:var(--ink);letter-spacing:-.01em}
+.updated{margin-top:18px;font-size:1rem}
+.lede{margin-top:26px;font-size:1.12rem}
+
+h2{
+  font-family:var(--serif);font-weight:400;font-size:clamp(1.45rem,2.6vw,1.85rem);
+  line-height:1.25;color:var(--ink);margin:44px 0 14px;
+}
+h3{font-size:1.06rem;font-weight:700;color:var(--ink);margin:26px 0 8px}
+p{margin-bottom:16px}
+ul{margin:0 0 18px 0;list-style:none}
+li{position:relative;padding-left:30px;margin-bottom:12px}
+li::before{content:"·";position:absolute;left:10px;color:var(--accent);font-weight:700;font-size:1.4rem;line-height:1.25}
+ol{margin:0 0 18px 0;padding-left:0;list-style:none;counter-reset:step}
+ol li{counter-increment:step}
+ol li::before{content:counter(step) ".";left:6px;font-size:1rem;line-height:1.65;font-weight:700}
+a{color:var(--accent)}
+a:hover{color:var(--accent-lift)}
+strong{color:var(--ink);font-weight:700}
+hr{border:0;border-top:1px solid var(--border-soft);margin:44px 0}
+
+.callout{
+  background:var(--paper-deep);border:1px solid var(--border);border-radius:var(--r-panel);
+  padding:clamp(22px,3vw,30px);margin:32px 0;
+}
+.callout p:last-child{margin-bottom:0}
+
+footer{border-top:1px solid var(--border);padding:36px 0 44px;font-size:1rem}
+footer .wrap{width:min(100% - 44px,1120px);display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between}
+
+.btn-ghost{background:transparent;color:var(--accent);box-shadow:inset 0 0 0 1px var(--border)}
+.btn-ghost:hover{background:var(--accent);color:#130606}
+.btn-invert{background:var(--accent);color:#130606;box-shadow:none}
+.bar-actions .portal-btn{background:transparent;color:var(--accent);
+  box-shadow:inset 0 0 0 1px var(--border)}
+.bar-actions .portal-btn:hover{background:var(--accent);color:#130606}
+
+.btn-primary .arrow-box,.btn-invert .arrow-box{background:rgba(19,6,6,.22);color:#130606}
+.btn-primary:hover .arrow-box,.btn-invert:hover .arrow-box{background:rgba(236,232,233,.14);color:#130606}
+.btn-ghost .arrow-box{background:rgba(183,157,122,.14);color:var(--accent)}
+.btn-ghost:hover .arrow-box{background:rgba(19,6,6,.22);color:#130606}
+
+@media (prefers-reduced-motion:reduce){
+  .btn-primary,.btn-invert{background-color:var(--accent);color:#130606}
+  .btn-ghost{background-color:transparent;color:var(--accent)}
+  .btn-primary .arrow-box,.btn-invert .arrow-box{background:rgba(19,6,6,.22);color:#130606}
+  .btn-ghost .arrow-box{background:rgba(183,157,122,.14);color:var(--accent)}
+}
+
+.panel,.panel.dark{background:#2f3c68;border:1px solid rgba(236,232,233,.07);color:var(--ink-soft)}
+.panel h3,.panel.dark h3{color:var(--ink)}
+.yes li::before{color:var(--accent)}
+.panel.dark h3{color:var(--ink)}
+
+a:not([class]){color:var(--accent)}
+a:not([class]):hover{color:var(--ink)}
+
+.dark-close,.dark-foot{background:var(--dark)}
+.dark-close .head h2,.dark-foot h4{color:var(--ink)}
+.dark-close .note,.dark-foot .fine{color:var(--ink-soft)}
+
+h1,h2,h3,h4{text-wrap:balance}
+p,li,dd,dt,td,th,figcaption,blockquote,summary,label{text-wrap:pretty}
+
+header .wrap > a:first-child{flex:0 1 auto;min-width:0}
+header .wrap > a:first-child img{max-width:100%;height:auto}
+.back{white-space:nowrap}
+
+.callout ul{margin:12px 0 0}
+.callout li:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;color:var(--ink);
+  background:var(--paper-deep);border:1px solid var(--border-soft);border-radius:.35rem;padding:1px 6px}
+h3[id],h2[id]{scroll-margin-top:24px}
+
+@media(max-width:720px){html{scrollbar-width:none}html::-webkit-scrollbar{display:none}}
+@media print{
+  h2,h3{break-after:avoid}
+  h2{margin-top:32px}
+  header{padding:8px 0}
+  main{padding:24px 0 0}
+  footer{padding:14px 0 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="index.html" aria-label="Business + — home">
+      
+    </a>
+    <a class="back" href="index.html">&larr; Back to the site</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="label">Privacy</p>
+    <h1>What We Collect, and What We&nbsp;Don&rsquo;t</h1>
+    <p class="updated"><strong>Last updated:</strong> 9 October 2026</p>
+
+    <p class="lede">This page is written to be read. It says what happens to your information when you use this website or talk to us, form by form, in the same plain language we use&nbsp;everywhere&nbsp;else.</p>
+
+    <div class="callout">
+      <p><strong>The short version.</strong></p>
+      <ul>
+        <li>Reading this site tells us almost nothing about you. Our own program counts how often each page is opened and how many people start and send each form, with nothing about who. There is no analytics service, no advertising tracker and&nbsp;no&nbsp;cookie&nbsp;of&nbsp;ours.</li>
+        <li>When you send a form, we keep what you send so we can answer you and do the work. It goes to our database on Cloudflare, our Google Workspace (calendar, sheets, Drive and email), our own internal tool, which we call HQ, and emails sent&nbsp;through&nbsp;Resend.</li>
+        <li>AI is part of how we work. Anthropic&rsquo;s Claude writes the chat&rsquo;s replies, the Ask box&rsquo;s answers and the personal part of the quiz plan, and we use Claude to read requests and prepare for calls. For the AI Visibility Audit we ask ChatGPT, Claude, Gemini and Perplexity about your type of business, your city and your&nbsp;business&nbsp;by&nbsp;name.</li>
+        <li>Most of what a form leaves with us deletes itself after two years, and Ask box questions after 90 days. Your contact record in HQ, your row on our newsletter list if you joined it, our calendar entries and audit reports, and our email, in our inboxes and in HQ, stay until we delete them, which&nbsp;we&nbsp;do&nbsp;on&nbsp;request.</li>
+        <li>We never sell your information. To see or delete what we hold, email <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a>.</li>
+      </ul>
+    </div>
+
+    <h2>Who We Are</h2>
+    <p>Integral Growth Partners is an AI consulting firm run by Mael Kazigwa and The Build Desk, based in Bloomington–Normal, Illinois. We work with clients remotely and in person. When this page says &ldquo;we,&rdquo; it means&nbsp;the&nbsp;two&nbsp;of&nbsp;us.</p>
+    <p>You can reach us at <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a> or <a href="tel:+13095550147">(309)&nbsp;555-0147</a>.</p>
+
+    <h2>When You Just Read the&nbsp;Site</h2>
+    <p>Our own program keeps one count per page per day of how many times it was opened. It also counts, per day, how many people start each form and how many send it. A form counts as started on your first tap or keystroke inside it, and that message to us carries only the form&rsquo;s name. None of these counts holds an internet address, an id or anything else that could tell one visitor&nbsp;from&nbsp;another.</p>
+    <p>These pages run no analytics software, set no cookies of their own and carry no advertising or social media trackers. Reading this site does not tell us that <em>you</em> were&nbsp;here.</p>
+    <p>Like any web host, Cloudflare, which serves these pages and runs our programs, keeps technical records of requests, such as the internet address and browser, to keep the site online and secure. It keeps them under its own policy. We use them only to find&nbsp;and&nbsp;fix&nbsp;problems.</p>
+
+    <h2>Form by Form</h2>
+    <p>Every form below sends what you type to our own program running on Cloudflare first. If the link you arrived on carried campaign tags (for example which email, post or site sent you), they are kept with whatever you send, except an Ask box question. The copies that reach our email inboxes and HQ are covered under <a href="#inboxes-and-hq">Our Inboxes and HQ</a>.</p>
+
+    <h3 id="free-demo">FREE Demo</h3>
+    <p>The form on the home page and at getbusinessplus.com/start.</p>
+    <ul>
+      <li><strong>What we collect.</strong> Your name, email and company, your website and phone number if you give them, your message, voice memo or both, up to three files, and which tools you use today if you tick&nbsp;any.</li>
+      <li><strong>Where it goes.</strong> Your details and message go to our database on Cloudflare, and your voice memo and files go straight into a private folder in our Google Drive. Both of us get an email with everything you sent and a link to that folder, you get a confirmation email, and the request is added to&nbsp;HQ.</li>
+      <li><strong>How long.</strong> The database record and the Drive folder are deleted automatically two years after you send it. The folder goes to Drive&rsquo;s trash, which Google empties 30 days later. If you start sending and stop partway, whatever reached us is kept and deleted the same&nbsp;way.</li>
+    </ul>
+
+    <h3 id="book-a-call">Book a Call</h3>
+    <ul>
+      <li><strong>What we collect.</strong> Six multiple-choice answers about your business: your role, its size, the jobs that repeat every week, what you use for them today, where you are on paying for a build, and, if you choose, a revenue range. Then your name, business name, email, your phone if you give it, and the time you&nbsp;pick.</li>
+      <li><strong>Where it goes.</strong> As soon as you give your contact details, before you pick a time, they and your answers are saved in our Cloudflare storage, put on our Google Calendar as a private note to the two of us (you are not invited to it), added as a row to our &ldquo;Website Leads&rdquo; Google Sheet, and added to HQ. When you pick a time, our program puts the call on our Google Calendar with your answers in it, and Google emails you the invitation with a Google Meet&nbsp;link.</li>
+      <li><strong>How long.</strong> The Cloudflare copies delete themselves after two years, and the sheet row is deleted two years after you first contacted us. Calendar entries stay as ordinary business records until we delete them, and we delete them on&nbsp;request.</li>
+    </ul>
+    <p>If our booking program is ever down, the page sends you to Google&rsquo;s own booking page instead. If you book there, Google collects your name and email directly, and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google&rsquo;s privacy policy</a> covers&nbsp;it.</p>
+
+    <h3 id="diagnostic-quiz">Diagnostic Quiz</h3>
+    <ul>
+      <li><strong>What we collect.</strong> Twelve multiple-choice answers, one written answer about the last time the problem happened, your name, business email and business name, your phone if you give it, and the newsletter box, which starts&nbsp;ticked.</li>
+      <li><strong>Where it goes.</strong> All of it goes to our database on Cloudflare. Your answers, including the written one but not your name or contact details, are sent to Anthropic so Claude can write the personal part of your plan. Both of us get an email with your contact details, your written answer, your main answers and what the quiz found, you get a copy of your plan by email, and HQ gets your contact details, the area and problem your plan named, and your written&nbsp;answer.</li>
+      <li><strong>How long.</strong> Your quiz record is deleted automatically after two&nbsp;years.</li>
+    </ul>
+    <p>While you take the quiz, our program records which step you reached under a random id made for that visit, with the area you picked and the campaign tags of the link you arrived on, but no name and no other answers, so we can see where people stop. Those records delete themselves after about 13 months. The same random id is saved with your finished quiz, so once you finish, those step records can&nbsp;be&nbsp;matched&nbsp;to&nbsp;you.</p>
+    <p>If you press the button to get a FREE Demo built for your plan, your written answer is handed to the FREE Demo form inside your own browser tab. It goes nowhere unless&nbsp;you&nbsp;send&nbsp;that&nbsp;form.</p>
+
+    <h3 id="free-tools">Free Tools</h3>
+    <p>The Missed Call Audit and the Unpaid Invoice Audit work out your number inside your own browser. Nothing you type is sent while you use them. The first time you tap or type in one, the page tells our program which tool it was, so we can count how many people start each tool, and nothing you&nbsp;typed&nbsp;goes&nbsp;with&nbsp;it.</p>
+    <ul>
+      <li><strong>What we collect.</strong> If you fill in the form under your result: your name, business email and business name, your phone if you give it, the figures and result on the page, whether you asked for a FREE demo, and the newsletter box, which starts&nbsp;ticked.</li>
+      <li><strong>Where it goes.</strong> Our database on Cloudflare, a row on the &ldquo;Lead Magnet Requests&rdquo; tab of our &ldquo;Website Leads&rdquo; Google Sheet, an email to both of us with all of it, a copy of your number emailed to you, and&nbsp;HQ.</li>
+      <li><strong>How long.</strong> The database record is deleted automatically after two years, and its sheet row goes with it. If we delete the record sooner, the sheet row goes&nbsp;too.</li>
+    </ul>
+
+    <h3 id="ai-visibility-audit">AI Visibility Audit</h3>
+    <ul>
+      <li><strong>What we collect.</strong> Your name, business email and business name, your phone if you give it, your type of business and city, your website and LinkedIn page or that you have neither, and the newsletter box, which starts&nbsp;ticked.</li>
+      <li><strong>Where it goes.</strong> The same places as the free tools: our database on Cloudflare, the &ldquo;Lead Magnet Requests&rdquo; tab, an email to both of us, a confirmation emailed to you, and&nbsp;HQ.</li>
+      <li><strong>How long.</strong> The database record and sheet row are deleted automatically after two years, the same as the free tools. Your finished report and the answers behind it stay in our Google Drive until we delete them, and we delete them&nbsp;on&nbsp;request.</li>
+    </ul>
+    <p>To make the audit, we, with our AI assistant, ask ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google) and Perplexity the questions a customer would ask about your type of business in your city, then ask each what it knows about your business by name. We ask through our ordinary accounts with those services. We look at your website, LinkedIn page and public listings and save the report and the answers we got in our Google Drive. One of us reads the report before we email it to you. Each of those AI companies handles the questions under&nbsp;its&nbsp;own&nbsp;policy.</p>
+
+    <h3 id="ask-box">Ask Box</h3>
+    <p>The &ldquo;Ask&rdquo; box on the home&nbsp;page&nbsp;and&nbsp;the&nbsp;FAQ.</p>
+    <ul>
+      <li><strong>What we collect.</strong> The questions you&nbsp;type.</li>
+      <li><strong>Where it goes.</strong> Each question, with the ones before it in that box, goes through our program to Anthropic so Claude can answer. We keep each answered question with the page and the time it was asked, in our database and in HQ, and the most asked ones appear in a weekly summary email to the two of&nbsp;us.</li>
+      <li><strong>How long.</strong> 90 days in our database and in HQ, then deleted automatically. The weekly email stays in our inbox until we delete&nbsp;it.</li>
+    </ul>
+    <p><strong>Please don&rsquo;t type personal&nbsp;details&nbsp;into&nbsp;it.</strong> Nothing about who asked is kept, so we cannot tell which question is yours. A question with an email address in it, or a run of seven or more digits (even with spaces or dashes between them), is kept only as a note that contact details were removed. Anything else is kept as typed, cut at 500 characters, including names, business names, web addresses and contact details written out in words. If you tell us the exact words and roughly when, we&rsquo;ll delete any match we&nbsp;find.</p>
+
+    <h3 id="chat-bubble">Chat Bubble</h3>
+    <ul>
+      <li><strong>What we collect.</strong> Nothing is kept from the chat itself. If you press Leave a message: your email, your name if you give it, and&nbsp;your&nbsp;message.</li>
+      <li><strong>Where it goes.</strong> Your message and the rest of that conversation go through our program to Anthropic so Claude can reply. We don&rsquo;t save the conversation: your browser keeps it in that tab, and it&rsquo;s gone when you close the tab. A message you leave is handled like Book a Call&rsquo;s contact step: saved in our Cloudflare storage, put on our Google Calendar as a private note to the two of us, added to the &ldquo;Website Leads&rdquo; sheet, and added to&nbsp;HQ.</li>
+      <li><strong>How long.</strong> A message you leave is kept like a booking: two years in Cloudflare storage and in the sheet, and in our calendar until we delete&nbsp;it.</li>
+    </ul>
+    <p>To stop one person or a script running the chat thousands of times, Cloudflare counts messages from each internet address for about a minute, and our program keeps one total of all chat messages each day, with nothing about&nbsp;who&nbsp;sent&nbsp;them.</p>
+
+    <h3 id="newsletter">Newsletter</h3>
+    <p>We write a monthly newsletter for small-business owners. Every issue is published openly in the <a href="newsletter/index.html">newsletter archive</a> on this site, and reading it there tells us nothing about&nbsp;you.</p>
+    <ul>
+      <li><strong>How you get on&nbsp;the&nbsp;list.</strong> Leave the newsletter box ticked on the quiz or on any of the three free tools, or ask us. That box starts ticked and says so; untick it and you are not added. Booking a call, emailing us or becoming a client does not put you on it. The one exception: AI&nbsp;Concierge clients get each issue by email as part of&nbsp;their&nbsp;service.</li>
+      <li><strong>Where it goes.</strong> Your choice is kept with your quiz or tool record in our database on Cloudflare. Your email, name and business, when you signed up, which form you used, whether you are subscribed and when that last changed also go in a row on the &ldquo;Newsletter Subscribers&rdquo; tab of our &ldquo;Website Leads&rdquo; Google Sheet, which our program updates every&nbsp;ten&nbsp;minutes.</li>
+      <li><strong>How it is&nbsp;sent.</strong> Once a month one of us sends the issue from hello@getbusinessplus.com through Gmail: to AI&nbsp;Concierge clients about a week early, and to everyone else on the day it is published here. Every address goes in blind copy, so nobody on the list sees anyone else&rsquo;s. There is no tracking pixel, so we cannot see whether you&nbsp;opened&nbsp;it.</li>
+      <li><strong>How to come&nbsp;off&nbsp;it.</strong> Use the one-click unsubscribe link in your quiz or tool email, enter your address at <a href="unsubscribe.html">getbusinessplus.com/unsubscribe</a>, or reply &ldquo;unsubscribe&rdquo; to any issue. The link and the page take you off straight away. One of us handles a reply by hand, always before the next issue goes out. You can also&nbsp;email <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a>.</li>
+      <li><strong>So we don&rsquo;t add&nbsp;you&nbsp;back.</strong> When you come off, your row stays on the tab, marked Unsubscribed. If you use the page or the link, we also keep a one-way coded fingerprint of your address, not the address itself, so we can recognize it later. You go back on the list only if you tick the box again on&nbsp;a&nbsp;new&nbsp;form.</li>
+      <li><strong>How long.</strong> You stay on the list until you come off it or we stop publishing. Your row on the tab and that fingerprint do not expire with your quiz or tool record; they stay until you ask us to&nbsp;delete&nbsp;them.</li>
+    </ul>
+
+    <h2 id="inboxes-and-hq">Our Inboxes and&nbsp;HQ</h2>
+    <p><strong>HQ</strong> is our own private tool, running on Cloudflare, that only the two of us use. A form you send creates a record there, which we call a deal, with your name, email, phone, business and where you came from, and HQ keeps what each form said. What each form said is deleted after two years. HQ also keeps a list of who has reached us from the website, with name, email and business, for two years from when we first saw&nbsp;you.</p>
+    <p>HQ reads our own email and calendars too, and keeps copies of what it reads: for an email, who it was from or to, the subject and some or all of the text, and any reply HQ drafted for us; for a calendar entry, its title and the email addresses of the people on it. When a form creates your deal, HQ&rsquo;s activity log notes it with your business name, or your name if you gave no business. Your deal, these copies and that log line have no clock. They stay while you are someone we work with or might, and we delete all&nbsp;of&nbsp;them&nbsp;on&nbsp;request.</p>
+    <p><strong>Our inboxes.</strong> The emails our forms send to hello@getbusinessplus.com, which reaches both of us, carry everything you sent. Google Calendar emails both of us about each booking and each private note. Our own summary emails to ourselves can mention you or your business. All of these stay in our Google Workspace inboxes until we delete them, and we delete them on&nbsp;request.</p>
+
+    <h2>How We Use&nbsp;AI</h2>
+    <ul>
+      <li>Anthropic&rsquo;s Claude writes the chat&rsquo;s replies, the Ask box&rsquo;s answers, the personal part of the quiz plan, and the answers in the Ask panels of the sample&nbsp;tools&nbsp;at&nbsp;/samples.</li>
+      <li>We also use Claude as our working assistant. It reads what you send us, such as form answers, calendar notes, emails and files, to help us prepare for calls, sort our email, and build your FREE demo or report. Anthropic processes that&nbsp;text&nbsp;to&nbsp;answer&nbsp;us.</li>
+      <li>For the AI Visibility Audit only, we also ask ChatGPT, Gemini and Perplexity about your type of business, your city and your&nbsp;business&nbsp;by&nbsp;name.</li>
+    </ul>
+    <p>What our website and HQ send to Anthropic goes through its API, and <a href="https://www.anthropic.com/legal/commercial-terms" target="_blank" rel="noopener">Anthropic&rsquo;s commercial terms</a> say it does not train its models on&nbsp;that.</p>
+
+    <h2>Who Else Handles&nbsp;It</h2>
+    <p>We run on ordinary business software, and these companies handle your information as it passes&nbsp;through&nbsp;them:</p>
+    <ul>
+      <li><strong>Cloudflare</strong> runs this site and our programs, holds our database and storage, runs the Turnstile check and the chat&rsquo;s per-address count. It also serves a PDF library one sample tool downloads. <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare&rsquo;s privacy policy</a>.</li>
+      <li><strong>Google</strong> (Google Workspace) is our email, calendar, Meet, Sheets and Drive, where the Website Leads sheet, our calendar entries, the FREE Demo folders, the audit reports and our inboxes live. The sample tools load their typeface from Google Fonts, and the AI Visibility Audit asks Gemini. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google&rsquo;s privacy policy</a>.</li>
+      <li><strong>Anthropic</strong> makes Claude, used as described under How We Use AI. <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic&rsquo;s privacy policy</a>.</li>
+      <li><strong>Resend</strong> sends every automatic email from our domain: your copies and confirmations, and our notices and summaries to ourselves. It sees the addresses and what the emails say. <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">Resend&rsquo;s privacy policy</a>.</li>
+      <li><strong>OpenAI</strong> (ChatGPT) and <strong>Perplexity</strong>, for the AI Visibility Audit only: the questions about your type of business, your city and your business. <a href="https://openai.com/policies/privacy-policy/" target="_blank" rel="noopener">OpenAI&rsquo;s</a> and <a href="https://www.perplexity.ai/hub/legal/privacy-policy" target="_blank" rel="noopener">Perplexity&rsquo;s</a>&nbsp;privacy&nbsp;policies.</li>
+    </ul>
+    <p>Each of them keeps its own records, such as server logs and delivery records, under its own policy, and we cannot delete those for you. They are service providers to us. We do not hand your information to anyone else except where the&nbsp;law&nbsp;requires&nbsp;it.</p>
+
+    <h2>What Your Browser&nbsp;Keeps</h2>
+    <p>We set no cookies. Cloudflare&rsquo;s Turnstile check, which runs on the pages with the FREE Demo form, Book a Call, the quiz, the free tools and the newsletter&rsquo;s unsubscribe page, may set a short-lived security cookie while it tells a person from a script. It is not advertising, and it does not follow&nbsp;you&nbsp;anywhere&nbsp;else.</p>
+    <p>A few things are kept in your browser tab&rsquo;s own storage, which the browser clears when&nbsp;you&nbsp;close&nbsp;the&nbsp;tab:</p>
+    <ul>
+      <li><code>bo-utm</code>: the campaign tags of the link you arrived on, so whichever form you send carries&nbsp;them.</li>
+      <li><code>bo-chat</code>: the chat conversation, its last 20&nbsp;messages.</li>
+      <li><code>bo-diag-session</code>: the quiz&rsquo;s random id for your&nbsp;visit.</li>
+      <li><code>bo-demo-prefill</code>: your written quiz answer on its way to the FREE Demo form, removed as soon as that form reads&nbsp;it.</li>
+    </ul>
+    <p>The sample tools at /samples work differently. They save your changes and settings in your browser&rsquo;s local storage, which lasts until you clear it, so the sample remembers what you did. None of that is sent to us. The questions you ask their Ask panels are the exception: they go, with the numbers on screen, through our program to Anthropic for an answer, and we do not keep them. The samples also load the Inter typeface from Google Fonts, and one of them downloads a PDF library from Cloudflare&rsquo;s cdnjs service when&nbsp;you&nbsp;make&nbsp;a&nbsp;PDF.</p>
+
+    <h2>Counts with Nothing About&nbsp;Who</h2>
+    <p>One number per page per day for how often it was opened. One number per form per day for how many people started it and how many sent it. One daily total of chat messages, and our own daily totals of emails sent and AI plans written. None of these holds an internet address, an id or anything else about who. We keep the page and form totals without a time limit, in our database and in HQ, because they say nothing about anyone. The other daily totals delete themselves within&nbsp;about&nbsp;six&nbsp;weeks.</p>
+
+    <h2>Records That Stop&nbsp;Abuse</h2>
+    <ul>
+      <li>To stop scripts flooding our forms, our programs count the attempts from each internet address for a short window, from about a minute to about three hours, and then delete those counts automatically. The same kind of count covers each form&rsquo;s &ldquo;started&rdquo; message and the quiz&rsquo;s step records. They are never used&nbsp;for&nbsp;anything&nbsp;else.</li>
+      <li>So nobody can use our forms to flood someone else&rsquo;s inbox, the FREE Demo form, the quiz and the free tools also count how many times each email address was used that day. Those counts hold the email address and delete themselves after about two days. The unsubscribe page counts the same way, but its count holds the coded fingerprint described under Newsletter instead&nbsp;of&nbsp;the&nbsp;address.</li>
+      <li>When you give your details on Book a Call, our program remembers your email address with the private calendar note it made, for 24 hours, so it can take that note down&nbsp;if&nbsp;you&nbsp;then&nbsp;book.</li>
+      <li>Cloudflare&rsquo;s Turnstile check sees your browser and, from us, your internet address. Most people&nbsp;never&nbsp;see&nbsp;it.</li>
+    </ul>
+
+    <h2>When You Email or&nbsp;Call</h2>
+    <p>We get whatever you send: your name, your contact details, and whatever you tell us about your business. Our email runs on Google Workspace, and we may use Claude to help us sort and answer it. Phone calls come through&nbsp;our&nbsp;business&nbsp;line.</p>
+
+    <h2>During an Assessment or a&nbsp;Project</h2>
+    <p>If we end up working together, we will see how your business actually runs: your processes, your tools, sometimes your documents and numbers. <strong>We treat all of&nbsp;it&nbsp;as&nbsp;confidential.</strong> It is used to do your work and for nothing else. It is not used as a public example, and it is never shared with another client without your written permission. Where a written agreement between us says something more specific, the agreement&nbsp;governs.</p>
+
+    <h2>If We Contacted You&nbsp;First</h2>
+    <p>We also do ordinary sales research. That means we keep a list of businesses we think we could help, mostly around Central Illinois. For each one we may keep the kind of contact details a business publishes about itself (company name, phone number, website, address), the names and job titles of its owners or managers, their public LinkedIn profiles, a work email address that the business published or that we worked out from the pattern its other addresses follow, and our own notes on whether&nbsp;we&rsquo;d&nbsp;be&nbsp;a&nbsp;fit.</p>
+    <p><strong>You may be on that list without ever&nbsp;having&nbsp;heard&nbsp;of&nbsp;us.</strong> We are saying so here because you would otherwise have no way to know. We find these details on the business&rsquo;s own website, its listings and reviews, state business records, county property records, LinkedIn, and the free previews on business-contact directories such as ZoomInfo and RocketReach. Nothing on it comes from this website, we do not buy contact lists or data from data brokers, and none of it is sold or shared with anyone. If you would rather not be on it, email <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a> and we will take you off it and not contact you&nbsp;again.</p>
+
+    <h2>What We Do with&nbsp;It</h2>
+    <ul>
+      <li>Answer you, hold appointments, and do the&nbsp;work&nbsp;you&nbsp;asked&nbsp;for.</li>
+      <li>Send you documents, plans and invoices connected&nbsp;to&nbsp;that&nbsp;work.</li>
+      <li>See how our pages and forms are used, from the counts above, so we&nbsp;can&nbsp;improve&nbsp;them.</li>
+      <li>Keep our own ordinary&nbsp;business&nbsp;records.</li>
+    </ul>
+    <p>That is the entire list. We do not use your information to&nbsp;target&nbsp;advertising.</p>
+
+    <h2>What We Never&nbsp;Do</h2>
+    <ul>
+      <li><strong>We do not sell&nbsp;your&nbsp;information.</strong> Not to anyone, for any&nbsp;price.</li>
+      <li><strong>We do not rent, trade, or share it for someone&nbsp;else&rsquo;s&nbsp;marketing.</strong></li>
+      <li><strong>We do not add you to the newsletter because you booked a&nbsp;call&nbsp;or&nbsp;emailed&nbsp;us.</strong> The quiz and the three free tools have a newsletter box that starts ticked, and each says so next to the&nbsp;box.</li>
+      <li><strong>We do not send automated&nbsp;marketing&nbsp;email.</strong> The automatic emails you get from us are the copy or confirmation you asked for when you send the quiz, a free tool or the FREE Demo form, and Google&rsquo;s invitation when you book. The newsletter is written and sent by one of&nbsp;us.</li>
+    </ul>
+
+    <h2>Seeing or Deleting What We&nbsp;Hold</h2>
+    <p>You can ask us at any time to tell you what we hold about you, to correct it, or to delete it. Email <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a>. A person reads it. We find you by the email address you used, your name and your business name, and remove you from each place on this page: our database and storage, HQ (including its copies of our email and calendar and its log), every tab of our Website Leads sheet, the newsletter&rsquo;s opt-out fingerprint, our Google Calendar, your FREE Demo folder or audit report in Drive, any demo we built for you, and our inboxes. We tell you when it is done, and asking will not change how we treat&nbsp;you.</p>
+    <p>What we cannot do: we cannot tell which Ask box question is yours, as explained above, and the records our providers keep for themselves stay with them under their own policies. We also keep anything the law requires us to&nbsp;keep&nbsp;for&nbsp;paid&nbsp;work.</p>
+
+    <h2>Do Not Track</h2>
+    <p>Some browsers send a Do Not Track signal. This site does not respond to it, because there is nothing for it to switch off: we do not track you across other websites, and we run no advertising or&nbsp;analytics&nbsp;trackers.</p>
+
+    <h2>Where It Is&nbsp;Stored</h2>
+    <p>We are in the United States. The companies above are U.S. companies, and our accounts with them are U.S. accounts. They store and process data in their own data centers, and Cloudflare and Google run networks around the world, so your information can be handled in other countries on&nbsp;its&nbsp;way&nbsp;through.</p>
+
+    <h2>Security</h2>
+    <p>We keep your information in the business accounts described above, protected by the security those platforms provide, by our own passwords and two-step sign-in, and by the checks on our forms. That is a real safeguard and it is not a guarantee. No company can honestly promise that information on the internet is perfectly safe, and we would rather say so than&nbsp;pretend&nbsp;otherwise.</p>
+
+    <h2>Children</h2>
+    <p>This is a business-to-business service. It is not directed at children, and we do not knowingly collect information from&nbsp;anyone&nbsp;under&nbsp;18.</p>
+
+    <h2>Links to Other&nbsp;Sites</h2>
+    <p>Where this site links somewhere else, that site has its own privacy policy, and this one stops at&nbsp;the&nbsp;edge&nbsp;of&nbsp;ours.</p>
+
+    <h2>If This Page&nbsp;Changes</h2>
+    <p>The date at the top is when it last changed. If a change matters, if we start collecting something we do not collect today, we will say so plainly here rather than quietly&nbsp;editing&nbsp;a&nbsp;sentence.</p>
+
+    <hr>
+
+    <p>Questions about any of this: <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a> or <a href="tel:+13095550147">(309)&nbsp;555-0147</a>.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Business +</span>
+    <span>Bloomington–Normal, Illinois</span>
+    <span><a href="index.html">Back to the site</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
