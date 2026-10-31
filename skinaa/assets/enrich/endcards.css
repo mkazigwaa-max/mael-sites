@@ -216,3 +216,22 @@ body:has(.service-main) .header__cart-link-count{display:inline-block;min-width:
 .drawer__underlay{position:fixed;inset:0;background:rgba(25,8,14,.45);opacity:0;pointer-events:none;transition:opacity .35s;z-index:230}
 .drawer__underlay.open,body.drawer-open .drawer__underlay{opacity:1;pointer-events:auto}
 body.drawer-open{overflow:hidden}
+
+/* SEQUENCING + SALES PASS (2026-10-31): the path bar + singles strips */
+.seqbar{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:space-between;background:#19080e;color:#ece7ea;padding:10px 20px;font-size:13.5px;position:relative;z-index:5}
+.seqbar__steps{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.seqbar__step{display:inline-flex;gap:8px;align-items:center;color:#ece7ea;text-decoration:none;font-weight:700;padding:5px 10px;border-radius:999px;border:1px solid rgba(236,231,234,.28);background:transparent;cursor:pointer;font:inherit}
+.seqbar__step:hover{border-color:#e3771a}
+.seqbar__step.is-here{background:#e3771a;color:#19080e;border-color:#e3771a}
+.seqbar__n{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;background:#ece7ea;color:#19080e;font-size:11.5px;font-weight:800;flex:none}
+.seqbar__step.is-here .seqbar__n{background:#19080e;color:#ece7ea}
+.seqbar__arrow{color:rgba(236,231,234,.55)}
+.seqbar__count{background:#83367a;color:#ece7ea;border-radius:999px;padding:0 7px;font-size:12px;font-weight:800}
+.seqbar__side{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.seqbar__side a{color:rgba(236,231,234,.72);text-decoration:none;font-weight:600}
+.seqbar__side a:hover{color:#ece7ea}
+.seqbar__zone{color:#ecc47f;font-weight:700;letter-spacing:.02em}
+.seq-strip{background:#ece7ea;color:#19080e;border-bottom:2px solid #634f32}
+.seq-strip__in{max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;flex-wrap:wrap;gap:8px 22px;align-items:baseline;font-size:14.5px;line-height:1.5}
+.seq-strip__in b{font-size:15.5px;letter-spacing:-.01em}
+.seq-strip__in a{color:#6f0705;font-weight:700}

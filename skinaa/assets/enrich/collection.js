@@ -67,7 +67,7 @@
     if (!host || !window.SKINAA_CART) return;
     var cart = window.SKINAA_CART.json();
     if (!cart.items.length) {
-      host.innerHTML = '<p class="cart-empty">The tray is empty. Pieces are prescribed through the intake, and collected here when added.</p>';
+      host.innerHTML = '<p class="cart-empty">The tray is empty. Add any piece from the Collection on its own, or a prescribed stack from the Prescription Counter.</p>';
     } else {
       host.innerHTML = cart.items.map(function (l) {
         return '<div class="cart-line"><img src="' + l.image + '" alt="">'

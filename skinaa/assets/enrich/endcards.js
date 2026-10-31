@@ -216,3 +216,55 @@
     document.addEventListener("skinaa:cart-changed", paintTray);
   }
 })();
+
+/* ---------- SEQUENCING + SALES PASS (2026-10-31) · the path bar ----------
+   One ordered path taught on every page: 1 The Skin Reading -> 2 The
+   Collection -> 3 The Prescription Counter -> 4 The Tray. Proof and
+   retention (guides, vault, unboxing, member's room) ride as secondary.
+   The Board leaves the primary nav (it is an exhibit, not a step). */
+(function () {
+  "use strict";
+  document.querySelectorAll('header a[href="index.html#board"]').forEach(function (a) { a.remove(); });
+  var path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  var step = { "assessment.html": 1, "catalog.html": 2, "product.html": 2, "stacks.html": 3 }[path] || 0;
+  var zone = { "vault.html": "Proof — behind the ask", "guide-female.html": "Proof — behind the ask",
+    "guide-male.html": "Proof — behind the ask", "unboxing.html": "Proof — behind the ask",
+    "portal.html": "Members — after the tray" }[path] || "";
+  var bar = document.createElement("nav");
+  bar.className = "seqbar"; bar.setAttribute("aria-label", "How buying works — the path");
+  function stepLink(n, href, label) {
+    return '<a class="seqbar__step' + (step === n ? " is-here" : "") + '" href="' + href + '"><span class="seqbar__n">' + n + '</span>' + label + '</a>';
+  }
+  bar.innerHTML =
+    '<span class="seqbar__steps">'
+    + stepLink(1, "assessment.html", "The Skin Reading")
+    + '<span class="seqbar__arrow" aria-hidden="true">\u2192</span>'
+    + stepLink(2, "catalog.html", "Shop the Pieces")
+    + '<span class="seqbar__arrow" aria-hidden="true">\u2192</span>'
+    + stepLink(3, "stacks.html", "Prescription Counter")
+    + '<span class="seqbar__arrow" aria-hidden="true">\u2192</span>'
+    + '<button type="button" class="seqbar__step seqbar__tray"><span class="seqbar__n">4</span>The Tray<span class="seqbar__count cart-count">0</span></button>'
+    + '</span>'
+    + '<span class="seqbar__side">'
+    + (zone ? '<span class="seqbar__zone">' + zone + '</span>' : '')
+    + '<a href="guide-female.html">Female Guide</a><a href="guide-male.html">Male Guide</a>'
+    + '<a href="vault.html">Visual Vault</a><a href="unboxing.html">Unboxing</a>'
+    + '<a href="portal.html">Member\u2019s Room</a></span>';
+  var anchor = document.querySelector(".hdr") || document.querySelector("header");
+  if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(bar, anchor.nextSibling);
+  else document.body.insertBefore(bar, document.body.firstChild);
+  var tray = bar.querySelector(".seqbar__tray");
+  tray.addEventListener("click", function () {
+    if (window.SKINAAOpenCart) { window.SKINAAOpenCart(); return; }
+    document.dispatchEvent(new CustomEvent("skinaa:open-cart"));
+    var t = document.querySelector("[data-cart-open]");
+    if (t) t.click();
+  });
+  if (window.SKINAA_CART && window.SKINAA_CART.json) {
+    var sync = function () {
+      var n = window.SKINAA_CART.json().item_count;
+      bar.querySelectorAll(".seqbar__count").forEach(function (el) { el.textContent = String(n); });
+    };
+    document.addEventListener("skinaa:cart-changed", sync); sync();
+  }
+})();
