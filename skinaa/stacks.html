@@ -17,6 +17,7 @@
   .member{background:#3A3A3C;border:1px solid var(--line);border-radius:24px;padding:34px;color:var(--ink)}
   .member input{flex:1;min-width:200px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:14px 22px;font-size:15px;color:#fff;font-family:inherit}
 </style>
+<link rel="stylesheet" href="assets/skinaa-products.css">
 </head>
 <body>
 <section class="pagehead">
@@ -86,6 +87,7 @@ document.getElementById("bundles").innerHTML = BUNDLES.map(b =>
   '<article class="card"><div class="pad">'
   + '<span class="tag">' + b.sex + ' Protocol</span> <span class="tag red">' + b.flag + '</span>'
   + '<div class="sku-name" style="font-size:21px">' + b.name + '</div>'
+  + (() => { const pics = b.items.map(c => skuByCode(c)).filter(x => x && x.pic); return pics.length ? '<div class="stack-strip" style="grid-template-columns:repeat(' + pics.length + ',1fr)">' + pics.map(x => '<a href="product.html?sku=' + x.code + '"><img src="' + x.pic.pack + '" alt="' + x.code + ' — ' + x.name + '"></a>').join("") + '</div>' : ''; })()
   + '<ul class="stack-items">' + b.items.map(c => '<li>\u2192 <a href="product.html?sku=' + c + '">' + skuName(c) + '</a> <span class="note">(' + c + ')</span></li>').join("") + '</ul>'
   + '<div class="price3"><span>Phase 1 upfront <b>$' + b.upfront + '.00</b></span><span>Ascension Plus <b>$' + b.weekly + ' / week</b></span></div>'
   + '<p class="note" style="margin-top:10px">Phase 2: ' + b.refill + '</p>'

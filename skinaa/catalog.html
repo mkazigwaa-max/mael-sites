@@ -7,6 +7,7 @@
 <meta name="theme-color" content="#4B4B4D">
 <title>The Catalog — SKINAA by Maanaa</title>
 <link rel="stylesheet" href="assets/skinaa.css">
+<link rel="stylesheet" href="assets/skinaa-products.css">
 </head>
 <body>
 <section class="pagehead">
@@ -24,24 +25,39 @@
   <button data-f="DIG">Digital</button>
 </div>
 
-<section class="blk" style="padding-top:40px">
-  <div class="grid c3" id="grid"></div>
+<section class="blk" style="padding-top:20px">
+  <div class="pgrid" id="grid"></div>
   <p class="note" style="text-align:center;margin-top:34px;color:var(--mute)">Free shipping from $118 — the Phase 1 stack entry price. Every stack is prescribed through the <a href="assessment.html" style="color:#fff">28-step Virtual Clinical Intake</a>.</p>
 </section>
 
 <script src="assets/skinaa-data.js"></script>
 <script>
 const grid = document.getElementById("grid");
+const LINE_LABEL = {FAB:"FAB — Barrier & Prettymaxing", TOP:"TOP — Clinical Actives", MALE:"MALE — Tactical Optimization", HW:"Hardware", DIG:"Digital"};
 function cardHTML(s){
-  const img = s.pic
-    ? '<a href="product.html?sku=' + s.code + '"><img class="prod-img" src="' + s.pic.pack + '" alt="' + s.code + ' — ' + s.name + '"></a>'
-    : '<a href="product.html?sku=' + s.code + '"><div class="prod-noimg"><span class="code">' + s.code + '</span><span class="rule"></span><span>' + s.component + '<br>' + s.material + '</span></div></a>';
-  return '<article class="card">' + img + '<div class="pad">'
-    + '<span class="tag">' + s.code + '</span>' + (s.pic ? '' : ' <span class="tag red">Picture pending</span>')
-    + '<div class="sku-name">' + s.name + '</div>'
-    + '<p class="sku-meta">' + s.component + ' · ' + s.material + ' · ' + s.anchor + '</p>'
-    + '<div class="sku-link"><a href="product.html?sku=' + s.code + '">View ' + s.code + ' \u2192</a></div>'
-    + '</div></article>';
+  const url = 'product.html?sku=' + s.code;
+  const stage = s.pic
+    ? '<div class="product-item__image"><a class="product-link" href="' + url + '" aria-label="' + s.code + ' — ' + s.name + '">'
+      + '<div class="product-item__bg"><img src="' + s.pic.pack + '" alt="' + s.code + ' — ' + s.name + '"></div>'
+      + '<div class="product-item__bg__under"><div class="product-item__bg__slider">'
+      + '<div class="product-item__bg__slide"><img src="' + s.pic.pack + '" alt=""></div>'
+      + '<div class="product-item__bg__slide"><img src="' + s.pic.portrait + '" alt="' + s.code + ' — ' + s.name + ' (portrait)"></div>'
+      + '</div></div></a>'
+      + '<div class="badge-box-container"><span class="tag" style="background:#fff">' + s.code + '</span></div></div>'
+    : '<div class="product-item__image"><a class="product-link" href="' + url + '"><div class="prod-noimg" style="aspect-ratio:auto;height:100%"><span class="code">' + s.code + '</span><span class="rule"></span><span>' + s.component + '<br>' + s.material + '</span></div></a>'
+      + '<div class="badge-box-container"><span class="tag" style="background:#fff">' + s.code + '</span> <span class="tag red" style="background:#fff">Picture pending</span></div></div>';
+  return '<article class="product-item product-item--centered product-item--outer-text product-item--has-quickbuy">'
+    + stage
+    + '<div class="product-information"><div class="product-item__info">'
+    + '<a class="product-link" href="' + url + '">'
+    + '<p class="product-item__title">' + s.name + '</p>'
+    + '<div class="product_custom_description">' + s.component + ' · ' + s.material + '</div>'
+    + '<p class="product_custom_description" style="margin-top:4px">' + s.anchor + '</p>'
+    + '<div class="product-item__price__holder">' + LINE_LABEL[s.line] + '</div>'
+    + '</a>'
+    + '<div class="product-item__spacer"></div>'
+    + '<div class="product-item__quick-add-beneath"><a class="product-item__quick-add" href="' + url + '"><span class="btn__text"><span class="btn__label">View ' + s.code + '</span><span class="btn__price">' + s.component + '</span></span></a></div>'
+    + '</div></div></article>';
 }
 function render(f){
   const list = SKUS.filter(s => f === "ALL" || s.line === f);

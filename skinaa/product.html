@@ -18,6 +18,7 @@
   .appears a{color:var(--cardink);font-weight:600}
   .appears li{margin-top:8px;font-size:15px}
 </style>
+<link rel="stylesheet" href="assets/skinaa-products.css">
 </head>
 <body>
 <section class="blk" style="padding-top:48px">
@@ -52,7 +53,7 @@ if (!s) {
     +   '</div>'
     +   (apps.length ? '<h3 style="margin-top:26px;font-size:16px;font-weight:800">Prescribed in</h3><ul class="appears" style="list-style:none">' + apps.map(a => '<li>\u2192 ' + a + '</li>').join("") + '</ul>' : '')
     +   '<p class="note" style="margin-top:22px">SKINAA is prescribed, not browsed into a cart: your stack is built by the 28-step intake and claimed as one Phase 1 box ($118\u2013$148), then refilled by Ascension Plus.</p>'
-    +   '<div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap"><a class="pill dark" href="assessment.html">Start Your Virtual Clinical Intake (28 Steps)</a><a class="pill" style="box-shadow:none;border:1.5px solid var(--cardline)" href="stacks.html">See the stacks</a></div>'
+    +   '<div class="pdp-cta"><a class="pill dark" href="assessment.html">Start Your Virtual Clinical Intake (28 Steps)</a><a class="pill" style="box-shadow:none;border:1.5px solid var(--cardline)" href="stacks.html">See the stacks</a></div>'
     + '</div></div></div>';
 }
 </script>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="The 28-Model Visual Vault — Day 0 baseline, condition panel, Day 14 transformation, straight from the master directory.">
+<meta name="description" content="The Visual Vault — exemplar archetypes in three panels: Day 0 baseline, condition panel, Day 14 transformation.">
 <meta name="theme-color" content="#4B4B4D">
 <title>The Visual Vault — SKINAA by Maanaa</title>
 <link rel="stylesheet" href="assets/skinaa.css">
@@ -17,13 +17,13 @@
 </head>
 <body>
 <section class="pagehead">
-  <div class="kicker">The 28-Model Visual Vault</div>
+  <div class="kicker">The Visual Vault</div>
   <h1>Day 0. Day 14. Day 28.</h1>
-  <p>Every archetype from the master directory, in three panels: the untouched cast portrait (Day 0 — real texture, the real-life before), the condition panel (their documented conditions as a clinical macro plate, at everyday severity), and the Day-14 result — the maximum believable delta. Drastic, but real life.</p>
+  <p>The exemplar archetypes, in three panels: the untouched cast portrait (Day 0 — real texture, the real-life before), the condition panel (their documented conditions as a clinical macro plate, at everyday severity), and the Day-14 result — the maximum believable delta. Drastic, but real life.</p>
 </section>
 
 <div class="filters" id="filters">
-  <button data-f="ALL" class="on">All 28</button>
+  <button data-f="ALL" class="on">Exemplars</button>
   <button data-f="M">Guys</button>
   <button data-f="F">Girls</button>
   <button data-f="debloat">Debloat</button>
@@ -68,8 +68,16 @@ function cardHTML(m){
     + '<div style="margin-top:18px"><a class="pill dark" href="assessment.html">Match my phenotype \u2192</a></div>'
     + '</div></article>';
 }
+/* Character presentation gate (owner ruling, FULL-PRODUCT-RUN-ADDENDUM-CHARACTERS):
+   the site presents a small exemplar set, not the cast directory. Each presented
+   character follows a direct donor example — campaign character crop
+   (prequelskin: Prequel_Skin_250307_March_Campaign_Bianca_AMPMCream_3650-1x1.jpg),
+   studio headshot (prequelskin: PRQL_SamHeadshot-1500px.jpg), clinical skin macro
+   (prequelskin: PRQL_HP_SkinMacros_*). All 28 models stay in the data and on disk;
+   only presentation is gated. */
+const PRESENTED = ["C01", "C11", "K04", "C05", "K03", "N1"];
 function render(f){
-  const list = MODELS.filter(m => f === "ALL" || (f === "M" || f === "F" ? m.gender === f : m.tags.includes(f)));
+  const list = MODELS.filter(m => PRESENTED.includes(m.code)).filter(m => f === "ALL" || (f === "M" || f === "F" ? m.gender === f : m.tags.includes(f)));
   grid.innerHTML = list.map(cardHTML).join("");
 }
 document.getElementById("filters").addEventListener("click", e => {
