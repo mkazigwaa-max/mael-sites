@@ -14,40 +14,40 @@
 <style>
   /* The Door — Story A (hazelnut) arrival + board room, hard cut to
      Story D (mulberry) collection preview, Story E end card. */
-  .arrival{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;padding:72px 28px 64px;background:var(--a-hazelnut);overflow:hidden}
+  .arrival{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;padding:55px 34px 55px;background:var(--a-hazelnut);overflow:hidden}
   .arrival::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(99,79,50,0),rgba(99,79,50,.62));pointer-events:none}
   .arrival>*{position:relative}
   .arrival .mark{height:34px;width:auto;display:block;align-self:flex-start;filter:brightness(0) invert(1) drop-shadow(0 2px 14px rgba(25,8,14,.45))}
   footer.site{max-width:none;margin:0}
-  .storyname{font-size:clamp(72px,13vw,168px);font-weight:800;letter-spacing:-.03em;line-height:.98;text-transform:lowercase;color:var(--e-ivory);margin-top:26px;text-shadow:0 4px 34px rgba(25,8,14,.45)}
+  .storyname{font-size:clamp(72px,13vw,168px);font-weight:800;letter-spacing:-.03em;line-height:.98;text-transform:lowercase;color:var(--e-ivory);margin-top:21px;text-shadow:0 4px 34px rgba(25,8,14,.45)}
   .arrival .kicker{color:var(--e-ivory);margin-top:34px}
-  .arrival h1{font-size:clamp(38px,5.6vw,64px);font-weight:800;letter-spacing:-.025em;line-height:1.04;margin-top:14px;color:var(--e-ivory)}
-  .arrival .sub{font-size:17.5px;line-height:1.62;color:var(--e-ivory);max-width:640px;margin-top:18px}
-  .doors{display:flex;gap:16px;flex-wrap:wrap;margin-top:38px}
-  .door{display:flex;align-items:center;justify-content:space-between;gap:26px;min-width:min(320px,100%);background:var(--e-ivory);color:var(--plum-black);text-decoration:none;border-radius:6px;padding:22px 26px;box-shadow:0 30px 60px rgba(25,8,14,.38)}
+  .arrival h1{font-size:clamp(38px,5.6vw,64px);font-weight:800;letter-spacing:-.025em;line-height:1.04;margin-top:13px;color:var(--e-ivory)}
+  .arrival .sub{font-size:17.5px;line-height:1.62;color:var(--e-ivory);max-width:640px;margin-top:21px}
+  .doors{display:flex;gap:13px;flex-wrap:wrap;margin-top:34px}
+  .door{display:flex;align-items:center;justify-content:space-between;gap:21px;min-width:min(320px,100%);background:var(--e-ivory);color:var(--plum-black);text-decoration:none;border-radius:6px;padding:21px 21px;box-shadow:0 30px 60px rgba(25,8,14,.38)}
   .door .dname{font-size:19px;font-weight:800;letter-spacing:-.01em}
-  .door .dtxt{display:flex;flex-direction:column;gap:5px}
+  .door .dtxt{display:flex;flex-direction:column;gap:8px}
   .door .dsub{font-size:13px;line-height:1.45;color:#634f32;font-weight:600}
-  .door-shopall{margin-top:18px}
+  .door-shopall{margin-top:21px}
   .door-shopall a{color:var(--e-ivory);font-weight:700;font-size:15px}
   .door .darrow{font-size:20px;color:var(--a-dusty-blue);font-weight:800}
   .door:hover .dname{color:var(--a-hazelnut)}
-  .boardroom{max-width:1180px;margin:0 auto;padding:84px 28px 10px;text-align:center}
-  .boardroom .lede{color:var(--soft);max-width:680px;margin:16px auto 0;line-height:1.62;font-size:16.5px}
-  .boardroom h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em;margin-top:16px}
-  .boardroom .boardhead{margin-top:76px}
-  .board{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:38px;text-align:left}
-  .board .card{background:var(--e-ivory);color:var(--plum-black);border-radius:24px;padding:26px 28px;box-shadow:0 24px 54px rgba(25,8,14,.30)}
-  .board .role{font-size:19px;font-weight:800;letter-spacing:-.01em;margin-top:10px}
+  .boardroom{max-width:1180px;margin:0 auto;padding:89px 34px 8px;text-align:center}
+  .boardroom .lede{color:var(--soft);max-width:680px;margin:13px auto 0;line-height:1.62;font-size:16.5px}
+  .boardroom h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em;margin-top:13px}
+  .boardroom .boardhead{margin-top:89px}
+  .board{display:grid;grid-template-columns:repeat(2,1fr);gap:21px;margin-top:34px;text-align:left}
+  .board .card{background:var(--e-ivory);color:var(--plum-black);border-radius:24px;padding:21px 34px;box-shadow:0 24px 54px rgba(25,8,14,.30)}
+  .board .role{font-size:19px;font-weight:800;letter-spacing:-.01em;margin-top:8px}
   .board .foc{color:var(--a-hazelnut);font-size:14px;line-height:1.55;margin-top:8px}
-  .board .qt{font-size:15.5px;line-height:1.6;margin-top:14px;font-style:italic}
-  .board .bdg{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.16em;color:var(--a-hazelnut);border:1.5px solid var(--a-dusty-blue);border-radius:6px;padding:4px 9px;transform:rotate(-1.5deg);text-transform:uppercase}
-  .preview{position:relative;margin-top:96px;padding:84px 28px 92px;background:var(--d-mulberry) url("assets/tex/fig-d.jpg") center/cover no-repeat;overflow:hidden}
+  .board .qt{font-size:15.5px;line-height:1.6;margin-top:13px;font-style:italic}
+  .board .bdg{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.16em;color:var(--a-hazelnut);border:1.5px solid var(--a-dusty-blue);border-radius:6px;padding:8px 8px;transform:rotate(-1.5deg);text-transform:uppercase}
+  .preview{position:relative;margin-top:89px;padding:89px 34px 89px;background:var(--d-mulberry) url("assets/tex/fig-d.jpg") center/cover no-repeat;overflow:hidden}
   .preview::before{content:"";position:absolute;inset:0;background:rgba(131,54,122,.38);pointer-events:none}
   .preview>*{position:relative}
   .preview .pin{max-width:1180px;margin:0 auto}
   .preview h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em;color:var(--e-ivory);text-align:center}
-  .pieces{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+  .pieces{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:34px}
   /* (7) rail cards = the Collection's scheme (Prequel product-item), skinned
      for the fig band: photo full-bleed with the radius + shadow, info as ivory
      type on the band. No color block carries a product (item 1). */
@@ -63,17 +63,17 @@
   .rail-card .product-item__bg__slider::-webkit-scrollbar{display:none}
   .rail-card .product-item__bg__slide{min-width:100%;height:100%;scroll-snap-align:start}
   .rail-card .badge-box-container{position:absolute;top:10px;left:10px;z-index:5}
-  .rail-card .badge-box{background:#ccdeec;color:#19080e;font-size:11px;font-weight:800;letter-spacing:.08em;padding:4px 8px;border-radius:999px}
+  .rail-card .badge-box{background:#ccdeec;color:#19080e;font-size:11px;font-weight:800;letter-spacing:.08em;padding:8px 8px;border-radius:999px}
   .rail-card .product-information{text-align:center}
-  .rail-card .product-item__info{padding:16px 6px 0}
+  .rail-card .product-item__info{padding:13px 8px 0}
   .rail-card .product-item__title{font-weight:600;font-size:18px;line-height:1.4;letter-spacing:0;text-transform:none;text-decoration:none;margin:0;color:var(--e-ivory)}
   .rail-card .product-link{text-decoration:none}
-  .rail-card .product_custom_description{font-size:13.2px;line-height:1.4;color:var(--e-ivory);margin-top:2px}
-  .rail-card .product_custom_text{color:#ecc47f;font-size:12px;margin:5px 0 0}
-  .dcta{display:block;width:max-content;max-width:100%;margin:42px auto 0;background:var(--d-tangerine);color:var(--plum-black);font-weight:800;font-size:15.5px;padding:15px 32px;border-radius:999px;text-decoration:none}
+  .rail-card .product_custom_description{font-size:13.2px;line-height:1.4;color:var(--e-ivory);margin-top:8px}
+  .rail-card .product_custom_text{color:#ecc47f;font-size:12px;margin:8px 0 0}
+  .dcta{display:block;width:max-content;max-width:100%;margin:34px auto 0;background:var(--d-tangerine);color:var(--plum-black);font-weight:800;font-size:15.5px;padding:13px 34px;border-radius:999px;text-decoration:none}
   @media(max-width:900px){.pieces{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:820px){.board{grid-template-columns:1fr}}
-  @media(max-width:560px){.pieces{grid-template-columns:1fr}.arrival{padding-top:52px}}
+  @media(max-width:560px){.pieces{grid-template-columns:1fr}.arrival{padding-top:55px}}
   .arrival parallax-hero{position:absolute;inset:0;overflow:hidden}
   .arrival parallax-hero img{width:100%;height:120%;object-fit:cover;display:block;opacity:.55}
   .arrival .slideshow{z-index:0}
@@ -90,7 +90,7 @@
 
 
 
-<div class="authbar">🏥 <b>Co-Founded by Board-Certified Dermatologists</b> &nbsp;|&nbsp; Official Esthetic Standard</div>
+<div class="authbar">🏥 <b>Co-Founded by Board-Certified Dermatologists</b> <span class="authbar__std">&nbsp;|&nbsp; Official Esthetic Standard</span></div>
 
 <!-- G03 · Graymatter ctr-usp-bar: the document's authority line as a bar -->
 <ctr-usp-bar class="ctr-usp-bar" data-block-count="3" data-autoplay="false" data-speed="5000">
