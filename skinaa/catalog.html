@@ -298,6 +298,23 @@ function qaHTML(s) {
    product_custom_description, product_custom_text, __price__holder) + the
    product-grid-atc quick-add holder. Re-skinned in the book + house data only.
    Both images EAGER (owner paint law) where the donor lazy-loads hover slides. */
+/* (8) ONE benefit line per card (owner, 2026-10-31): the donor card carries
+   exactly one line — selected from the record's own concerns words, whole
+   comma-items only, never rewritten, never the formula dossier (s.detail
+   lives on the product page). No short line in the record -> the card
+   carries none. */
+function benefitLine(s) {
+  const raw = (s.concerns || "").trim().replace(/\.$/, "");
+  if (!raw) return "";
+  const parts = raw.split(",").map(x => x.trim()).filter(Boolean);
+  let line = "";
+  for (const p of parts) {
+    const next = line ? line + ", " + p : p;
+    if (line && next.length > 36) break;
+    line = next;
+  }
+  return line;
+}
 function cardHTML(s, i) {
   const url = 'product.html?sku=' + s.code;
   const delay = Math.min((i % 4) * 100, 200);
@@ -314,7 +331,7 @@ function cardHTML(s, i) {
     + '</div>'
     + '<div class="product-information"><div class="product-item__info">'
     + '<a class="product-link" href="' + url + '"><p class="product-item__title">' + s.name + '</p>'
-    + '<div class="product_custom_description">' + s.detail + '</div>'
+    + '<div class="product_custom_description">' + benefitLine(s) + '</div>'
     + '<p class="product_custom_text">' + s.component + '</p>'
     + '<div class="product-item__price__holder"><div class="product-item__price">' + (typeof s.price === "number" ? '<span class="price"><span class="new-price">$' + s.price + '</span></span>' : '') + '</div></div></a>'
     + '<div class="product-item__quick-add-beneath" data-qa="' + s.code + '">' + qaHTML(s) + '</div>'
@@ -330,7 +347,9 @@ function miniCard(s, cls) {
     + '</div>'
     + '<div class="product-information"><div class="product-item__info">'
     + '<a class="product-link" href="' + url + '"><p class="product-item__title">' + s.name + '</p>'
-    + '<p class="product_custom_text">' + s.component + '</p></a>'
+    + '<div class="product_custom_description">' + benefitLine(s) + '</div>'
+    + '<p class="product_custom_text">' + s.component + '</p>'
+    + '<div class="product-item__price__holder"><div class="product-item__price"></div></div></a>'
     + '<div class="product-item__quick-add-beneath" data-qa="' + s.code + '">' + qaHTML(s) + '</div>'
     + '</div></div></article>';
 }
