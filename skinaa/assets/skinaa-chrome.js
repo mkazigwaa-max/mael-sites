@@ -22,7 +22,7 @@
     + '<a href="guide-male.html"' + here("guide-male.html") + '>Male Guide</a>'
     + '<a href="portal.html"' + here("portal.html") + ">Member's Room</a>"
     + '</nav>'
-    + '<a class="pill small" href="assessment.html">Admission</a>'
+    + '<a class="pill small" href="assessment.html">The Skin Reading</a>'
     + '</header>';
   bar.after(hdr);
   var ftr = document.createElement("footer");

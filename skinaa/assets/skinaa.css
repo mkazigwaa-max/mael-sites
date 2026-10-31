@@ -40,7 +40,7 @@ body{background:var(--ground);color:var(--ink);font-family:-apple-system,BlinkMa
 body>*{position:relative;z-index:1}
 a{color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
-.authbar{background:var(--a-hazelnut);text-align:center;font-size:12px;letter-spacing:.05em;padding:9px 16px;color:var(--e-ivory);border-bottom:1px solid rgba(102,160,181,.45)}
+.authbar{background:#bf3533;text-align:center;font-size:12px;letter-spacing:.05em;padding:9px 16px;color:var(--e-ivory);border-bottom:1px solid rgba(102,160,181,.45)}
 .authbar b{color:var(--e-ivory);font-weight:700}
 .hdr{position:sticky;top:0;z-index:60;background:rgba(99,79,50,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(236,231,234,.16)}
 header.site{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1180px;margin:0 auto;padding:0 28px;height:74px}
@@ -113,3 +113,8 @@ footer.site .fcycle{font-size:13px;color:rgba(236,231,234,.72);line-height:1.55;
 .stamp{display:inline-block;border:1.5px solid var(--signal);color:var(--signal);font-size:10.5px;font-weight:800;letter-spacing:.16em;padding:5px 10px;border-radius:6px;transform:rotate(-2deg);text-transform:uppercase}
 .stamp.teal{border-color:var(--a-dusty-blue);color:var(--a-dusty-blue);transform:rotate(1.5deg)}
 .note{font-size:13px;color:var(--greytext);line-height:1.6}
+/* MOBILE FIRST-SCREEN (2026-10-31): on a phone the announcement is exactly
+   ONE line — it never wraps into a block above the header. */
+@media(max-width:749px){
+  .authbar{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px;letter-spacing:.03em;padding:8px 12px}
+}
