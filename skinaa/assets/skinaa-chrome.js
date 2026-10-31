@@ -8,7 +8,7 @@
   function here(p){ return path === p ? ' class="here"' : ""; }
   var bar = document.createElement("div");
   bar.className = "authbar";
-  bar.innerHTML = "\u{1F3E5} <b>Co-Founded by Board-Certified Dermatologists</b> &nbsp;|&nbsp; Official Esthetic Standard";
+  bar.innerHTML = "\u{1F3E5} <b>Co-Founded by Board-Certified Dermatologists</b> <span class="authbar__std">&nbsp;|&nbsp; Official Esthetic Standard</span>";
   document.body.insertBefore(bar, document.body.firstChild);
   var hdr = document.createElement("div");
   hdr.className = "hdr";

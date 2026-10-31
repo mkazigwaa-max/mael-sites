@@ -28,7 +28,7 @@ body.cat, body.pdp-page{
 
 /* ---------- the Collection room (catalog.html) ---------- */
 body.cat{background:var(--sk-ground);color:var(--sk-ink)}
-body.cat .pagehead{padding:52px 28px 6px;
+body.cat .pagehead{padding:55px 34px 8px;
   background:linear-gradient(rgba(180,197,180,.34),rgba(236,231,234,0))}
 body.cat .pagehead h1{font-family:var(--sk-font-heading);font-weight:600;letter-spacing:0;
   text-transform:uppercase;color:var(--sk-ink)}
@@ -36,24 +36,24 @@ body.cat .pagehead p{color:var(--sk-muted);font-family:var(--sk-font-body)}
 body.cat .kicker{color:var(--sk-accent)}
 
 /* ---------- layout: calm wrapper + section rhythm ---------- */
-.cat-wrap{max-width:1100px;margin:0 auto;padding:0 50px}
+.cat-wrap{max-width:1100px;margin:0 auto;padding:0 55px}
 @media(min-width:1400px){.cat-wrap{max-width:80vw}}
-@media(max-width:989px){.cat-wrap{padding:0 30px}}
-@media(max-width:749px){.cat-wrap{padding:0 16px}}
-.cat-main{padding:30px 0 75px;
+@media(max-width:989px){.cat-wrap{padding:0 34px}}
+@media(max-width:749px){.cat-wrap{padding:0 13px}}
+.cat-main{padding:34px 0 89px;
   background-image:linear-gradient(rgba(236,231,234,.55),rgba(236,231,234,.72)),url(tex/palewing-c.jpg);
   background-size:auto,600px 760px}
-.cat-note{margin-top:38px;text-align:center;color:var(--sk-ink);
-  background:var(--sk-band);border-radius:18px;padding:18px 24px;
+.cat-note{margin-top:34px;text-align:center;color:var(--sk-ink);
+  background:var(--sk-band);border-radius:18px;padding:21px 21px;
   font-family:var(--sk-font-body);font-size:13.5px;line-height:1.6}
 .cat-note a{color:var(--sk-ink);font-weight:700}
 
 /* ---------- collection wings: one quiet line ---------- */
-body.cat .filters{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;
-  justify-content:flex-start;margin:26px 0 0;padding:14px 16px;
+body.cat .filters{display:flex;flex-wrap:wrap;gap:8px 13px;align-items:center;
+  justify-content:flex-start;margin:21px 0 0;padding:13px 13px;
   background:rgba(180,197,180,.35);border:1px solid var(--sk-line);border-radius:18px}
 body.cat .filters button{background:transparent;border:1px solid transparent;border-radius:999px;
-  padding:8px 14px;color:var(--sk-muted);font-family:var(--sk-font-nav);font-size:12.5px;
+  padding:8px 13px;color:var(--sk-muted);font-family:var(--sk-font-nav);font-size:12.5px;
   font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
 body.cat .filters button:hover{color:var(--sk-ink);border-color:var(--sk-line)}
 body.cat .filters button.on{background:var(--sk-band);color:var(--sk-ink);border-color:var(--sk-line)}
@@ -61,10 +61,10 @@ body.cat .filters .viewcount{margin-left:auto;color:var(--sk-muted);
   font-family:var(--sk-font-nav);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
 
 /* ---------- collection grid: gallery hush, generous spacing ---------- */
-.pgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px 32px}
-@media(max-width:989px){.pgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 22px}}
-@media(max-width:749px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px}}
-@media(max-width:479px){.pgrid{grid-template-columns:repeat(1,minmax(0,1fr));gap:22px 16px}}
+.pgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:34px 34px}
+@media(max-width:989px){.pgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 21px}}
+@media(max-width:749px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:21px 13px}}
+@media(max-width:479px){.pgrid{grid-template-columns:repeat(1,minmax(0,1fr));gap:21px 13px}}
 
 /* ---------- the product card — PREQUEL'S SCHEME (owner order (7),
    2026-10-31): the composed card (bordered box, centered chrome, swatch dots,
@@ -76,7 +76,7 @@ body.cat .filters .viewcount{margin-left:auto;color:var(--sk-muted);
 .product-item__title{font-family:var(--sk-font-heading)}
 .product-item__quick-add-beneath{width:100%}
 .qa-stepper{display:flex;align-items:center;justify-content:space-between;width:100%;
-  background:var(--sk-ground);border:1px solid var(--sk-line);border-radius:300px;padding:4px}
+  background:var(--sk-ground);border:1px solid var(--sk-line);border-radius:300px;padding:8px}
 .qa-step{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;
   min-width:36px;padding:0;border-radius:300px;border:1px solid var(--sk-accent);
   background:var(--sk-accent);color:var(--e-ivory);cursor:pointer;
@@ -108,27 +108,27 @@ body.pdp-page section.blk{
 .pdp-caption{display:flex;gap:16px;align-items:center;background:rgba(180,197,180,.35);
   border:1px solid var(--sk-line);border-radius:18px;padding:14px 16px}
 .pdp-caption .cap-name{font-family:var(--sk-font-body);font-size:15px;line-height:1.5;color:var(--sk-ink)}
-.spec{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.spec{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:21px}
 @media(max-width:640px){.spec{grid-template-columns:1fr}}
-.spec>div{background:rgba(180,197,180,.35);border:1px solid var(--sk-line);border-radius:16px;padding:16px}
+.spec>div{background:rgba(180,197,180,.35);border:1px solid var(--sk-line);border-radius:16px;padding:13px}
 .spec .k{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--sk-accent)}
-.spec .v{font-weight:700;margin-top:7px;font-size:15px;line-height:1.4}
+.spec .v{font-weight:700;margin-top:8px;font-size:15px;line-height:1.4}
 .appears a{color:var(--sk-ink);font-weight:600}
 .appears li{margin-top:8px;font-size:15px}
 .pdp-cta{margin-top:20px;display:grid;grid-template-columns:1fr;gap:10px}
 .pdp-cta .pill{text-align:center}
 /* the house seal: honey, chip-form, stamped — the house name only */
 .house-seal{display:inline-block;border-radius:8px;overflow:hidden;vertical-align:middle;
-  margin-left:12px;transform:rotate(-2deg);box-shadow:0 6px 16px rgba(25,8,14,.18);
+  margin-left:13px;transform:rotate(-2deg);box-shadow:0 6px 16px rgba(25,8,14,.18);
   border:1px solid rgba(25,8,14,.14)}
 .house-seal__face{display:block;background:var(--sk-seal);color:var(--e-plum-black);
   font-weight:800;font-size:13px;letter-spacing:.22em;text-transform:uppercase;
-  padding:9px 16px 7px;line-height:1.2}
+  padding:8px 13px 8px;line-height:1.2}
 .house-seal__band{display:block;background:var(--e-ivory);height:6px}
 
 /* ---------- stacks rhythm (component classes kept intact) ---------- */
-#bundles .card .pad, .blk .card .pad{padding:20px}
-.stack-strip{display:grid;gap:12px;margin:20px 0 4px}
+#bundles .card .pad, .blk .card .pad{padding:21px}
+.stack-strip{display:grid;gap:13px;margin:21px 0 8px}
 .stack-strip a{display:block;border-radius:14px;overflow:hidden;background:var(--sk-band)}
 .stack-strip img{width:100%;aspect-ratio:11/12;object-fit:cover;display:block}
-.stack-items{gap:12px}
+.stack-items{gap:13px}
