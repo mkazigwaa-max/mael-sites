@@ -39,7 +39,7 @@ body.cat .kicker{color:var(--sk-accent)}
 @media(max-width:989px){.cat-wrap{padding:0 30px}}
 @media(max-width:749px){.cat-wrap{padding:0 16px}}
 .cat-main{padding:30px 0 75px;
-  background-image:linear-gradient(rgba(236,231,234,.965),rgba(236,231,234,.985)),url(tex/palewing-c.jpg);
+  background-image:linear-gradient(rgba(236,231,234,.55),rgba(236,231,234,.72)),url(tex/palewing-c.jpg);
   background-size:auto,600px 760px}
 .cat-note{margin-top:38px;text-align:center;color:var(--sk-ink);
   background:var(--sk-band);border-radius:18px;padding:18px 24px;
@@ -136,7 +136,7 @@ body.cat .filters .viewcount{margin-left:auto;color:var(--sk-muted);
 /* ---------- the single piece (product.html) ---------- */
 body.pdp-page{background:var(--sk-ground);color:var(--sk-ink)}
 body.pdp-page section.blk{
-  background-image:linear-gradient(rgba(236,231,234,.965),rgba(236,231,234,.985)),url(tex/palewing-c.jpg);
+  background-image:linear-gradient(rgba(236,231,234,.55),rgba(236,231,234,.72)),url(tex/palewing-c.jpg);
   background-size:auto,600px 760px}
 .pdp{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
 @media(max-width:860px){.pdp{grid-template-columns:1fr}}
