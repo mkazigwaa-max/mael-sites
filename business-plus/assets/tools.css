@@ -1,0 +1,166 @@
+/* tools.css: the free calculators and the audit form (web/tools/*.html), on
+   top of site.css. Reworked 2026-10-09 (approved in session): the site's own
+   header, menu, fonts, buttons and footer, the same as the Booking page, the
+   Diagnostic and the Get a FREE Demo form. What a visitor fills in, and the
+   number it gives back, sits on a WHITE sheet: house rule, 2026-09-22,
+   anything a visitor fills in is white because it is easier to digest and
+   fill in. Bad news is red, the fix is green (ops/page-standards.md). */
+
+/* chat.js draws its panel with these names (the same values as book.html and
+   diagnostic.html), so the chat bubble looks the same on every page. */
+:root{
+  --paper:#130606;--paper-deep:#130606;--ink-soft:#bfb8b5;--accent-lift:#a78464;
+  --border:#39291f;--border-soft:#39291f;--tint:#130606;--r-panel:1rem;
+  --serif:"Bricolage Grotesque",system-ui,sans-serif;--sans:"Inter",system-ui,sans-serif;
+  --sheet-ink:#39291f;--sheet-soft:#5f5647;--sheet-line:#bfb8b5;--sheet-box:#bfb8b5;--green:#635032;
+  --no:#39291f;--no-wash:#ece8e9;--yes-wash:#ece8e9;
+}
+.trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#ts-box:not(:empty){margin:0 0 18px}
+.tool-wrap{--max:820px}
+/* A button hidden by the script stays hidden: .btn sets display, which beats the browser's own [hidden]. */
+.tool-page [hidden]{display:none!important}
+/* The menu bar stays on top while the page scrolls; a jump to the form must land below it. */
+.tool-page [id]{scroll-margin-top:92px}
+#send-h:focus{outline:none}
+main.page.tool-page{padding:clamp(28px,4vw,48px) 0 clamp(64px,8vw,104px)}
+
+/* ---------- headings on the dark page (the Diagnostic's) ---------- */
+.bk-head{margin-bottom:clamp(20px,3vw,28px)}
+.bk-eyebrow{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;padding:5px 13px;border-radius:999px;
+  font-family:var(--display);font-weight:700;font-size:14.5px;color:#bfb8b5;background:rgba(183,157,122,.1);border:1px solid rgba(183,157,122,.35)}
+.bk-eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(183,157,122,.18)}
+.bk-head h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,3.6vw,46px);line-height:1.06;letter-spacing:-.035em;color:var(--ink);margin:0}
+/* LOSING is the bad news, so it is red; a lighter red, because the heading sits on the dark page. */
+.bk-head h1 .lose{color:#bfb8b5}
+@media (max-width:420px){.bk-head h1{font-size:27px}}
+.bk-head .lede{margin:12px 0 0;font-size:clamp(16px,1.3vw,18px);line-height:1.5;color:var(--soft)}
+
+/* ---------- the white sheet ---------- */
+.panel.tool-sheet{padding:clamp(20px,3vw,34px);color:var(--sheet-soft)}
+.tool-sheet + .tool-sheet{margin-top:18px}
+.tool-sheet a:not(.btn){color:var(--green)}
+.tool-sheet b,.tool-sheet strong{color:var(--sheet-ink)}
+.tool-sheet h2{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.25;letter-spacing:-.01em;color:var(--sheet-ink);margin:0 0 6px}
+.tool-sheet p{margin:0 0 14px}
+
+/* ---------- fields (the Free Demo form's white boxes) ---------- */
+.field{margin:0 0 18px}
+.field label{display:block;font-weight:650;color:var(--sheet-ink);margin:0 0 6px;font-size:15px}
+.field .opt-word{font-weight:500;color:var(--sheet-soft)}
+.field input[type=number],.field input[type=text],.field input[type=email],.field input[type=tel],.field input[type=url],.field select{
+  width:100%;min-height:52px;padding:12px 14px;font:inherit;font-size:16px;color:var(--sheet-ink);background:#ece8e9;
+  border:1px solid var(--sheet-box);border-radius:10px}
+.field input::placeholder{color:#756c6d}
+/* Safari draws a native drop-down at its own height and ignores min-height, so draw our own arrow. */
+.field select{-webkit-appearance:none;appearance:none;padding-right:44px;cursor:pointer;
+  background:#ece8e9 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%2311201A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 16px center}
+.field input:focus,.field select:focus{outline:3px solid var(--green);outline-offset:2px;border-color:var(--green)}
+.field input:disabled{background:#ece8e9;color:#756c6d}
+.field input[type=range]{width:100%;accent-color:var(--green);margin:8px 0 0;min-height:28px}
+.field input[type=range]:focus-visible{outline:3px solid var(--green);outline-offset:4px}
+.field .hint{display:block;font-size:14px;color:var(--sheet-soft);margin:6px 0 0}
+.field.is-missing input{border-color:var(--no);border-width:2px}
+.field-err{display:block;margin:6px 0 0;font-size:14.5px;font-weight:650;color:var(--no)}
+.field-err:empty{display:none}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 16px}
+@media (max-width:620px){.two{grid-template-columns:minmax(0,1fr)}}
+.pct{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.pct label{margin:0}
+.pct output{color:var(--sheet-ink);font-weight:700;font-variant-numeric:tabular-nums}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--sheet-soft);margin:4px 0 16px;cursor:pointer}
+.check input{margin:4px 0 0;width:18px;height:18px;min-height:0;padding:0;flex:none;accent-color:var(--green)}
+
+/* ---------- the numbers: bad news red, the fix green ---------- */
+.result,.recover,.timebox{border-radius:16px;padding:clamp(18px,2.4vw,24px);margin:22px 0 0}
+.result{border:2px solid var(--no);background:var(--no-wash)}
+.recover,.timebox{border:2px solid var(--green);background:var(--yes-wash)}
+.timebox{background:#ece8e9}
+.box-label{margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.result .box-label{color:var(--no)}
+.recover .box-label,.timebox .box-label{color:var(--green)}
+.big{font:800 clamp(26px,7.2vw,60px)/1.05 var(--display);letter-spacing:-.035em;margin:6px 0 6px;font-variant-numeric:tabular-nums}
+.result .big{color:var(--no)}
+.recover .big{color:var(--green);font-size:clamp(24px,6.4vw,50px)}
+.year{font-weight:700;font-size:18px;margin:0 0 12px}
+.result .year{color:var(--no)}
+.recover .year{color:var(--green)}
+.how{font-size:15px;line-height:1.75;color:var(--sheet-soft);margin:0}
+.how b{color:var(--sheet-ink)}
+.recover .pct{margin:0 0 2px}
+.recover .pct label{font-weight:650;color:var(--sheet-ink);font-size:15px}
+.recover input[type=range]{width:100%;accent-color:var(--green);margin:6px 0 4px;min-height:28px}
+.timebox .shift{display:grid;grid-template-columns:1fr 56px 1fr;align-items:center;gap:8px}
+.timebox .now,.timebox .then{text-align:center}
+.timebox .lab{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:0 0 6px}
+.timebox .now .lab,.timebox .now .n,.timebox .now .u{color:var(--no)}
+.timebox .then .lab,.timebox .then .n,.timebox .then .u{color:var(--green)}
+.timebox .n{font:800 clamp(30px,5vw,44px)/1 var(--display);letter-spacing:-.03em;margin:0 0 4px}
+.timebox .u{font-weight:700;font-size:15px;margin:0}
+.timebox .arrow{text-align:center;font-size:28px;color:var(--green);line-height:1}
+.timebox .days{font-size:17px;font-weight:700;color:var(--green);margin:20px 0 10px}
+.timebox .days b{color:var(--sheet-ink)}
+.timebox .tiles{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.timebox .tiles span{width:32px;height:32px;border-radius:7px;background:var(--green);color:#ece8e9;font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.timebox .tiles span.more{background:transparent;color:var(--green);border:2px solid var(--green);width:auto;padding:0 8px}
+@media (max-width:620px){.timebox .shift{grid-template-columns:1fr}.timebox .arrow{transform:rotate(90deg)}}
+
+/* ---------- The Solution and the FREE demo form ---------- */
+.solution{text-align:center;padding:4px 0 22px;border-bottom:1px solid var(--sheet-line);margin:0 0 22px}
+.solution .box-label{color:var(--green)}
+.tool-sheet .solution h2{font:800 clamp(28px,3.6vw,38px)/1.1 var(--display);letter-spacing:-.03em;margin:4px 0 8px}
+.solution .what{font-size:17px;margin:0 auto 18px;max-width:46ch}
+.acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.acts .btn{min-width:200px;margin:0}
+@media (max-width:520px){.acts .btn{flex:1 1 100%}}
+.gate h2{text-align:left}
+.gate .sub{font-size:15.5px;margin:0 0 18px}
+.legal{margin:14px 0 0;font-size:13.5px;color:var(--sheet-soft);text-align:center}
+.legal a{color:inherit}
+.err{margin:0 0 14px;font-size:15px;font-weight:650;color:var(--no)}
+
+/* ---------- buttons (the Diagnostic's and the Booking page's) ---------- */
+.tool-sheet .btn{text-transform:none;letter-spacing:normal}
+.tool-sheet .btn-ghost,.tool-sheet button.btn-ghost{color:var(--sheet-ink);background:#ece8e9;border:1px solid var(--sheet-box);box-shadow:none;cursor:pointer}
+.tool-sheet .btn-ghost:hover{border-color:var(--sheet-ink)}
+.tool-sheet .btn-ghost::after{background:linear-gradient(100deg,transparent,rgba(99,80,50,.12),transparent)}
+.btn.send{width:100%;min-height:56px;font-size:17px;margin:4px 0 0}
+/* Calm and solid while the required boxes are empty. It stays pressable:
+   pressing it is how you find out which box still needs you. */
+.tool-sheet .btn-primary.is-waiting,.tool-sheet .btn-primary.is-waiting:hover{animation:none;filter:none;opacity:1;transform:none;
+  background:#ece8e9;color:#756c6d;border:1px solid #bfb8b5;box-shadow:none}
+.tool-sheet .btn-primary.is-waiting::before,.tool-sheet .btn-primary.is-waiting::after{display:none}
+.tool-sheet .btn:disabled{opacity:.7}
+
+/* ---------- after sending ---------- */
+.done{text-align:left}
+.done:focus{outline:none}
+.done .done-h{font:800 clamp(24px,3vw,30px)/1.15 var(--display);letter-spacing:-.02em;color:var(--sheet-ink);margin:0 0 8px}
+.done p{font-size:16.5px}
+.done .acts{justify-content:flex-start;margin-top:18px}
+
+/* ---------- the AI Visibility Audit's four names ---------- */
+.ai-models{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:14px 0 0}
+.ai-models li{color:var(--green);background:var(--yes-wash);border:1px solid #bfb8b5;border-radius:999px;padding:5px 14px;font-size:14.5px;font-weight:650;line-height:1.5}
+.intro-card{margin:0 0 22px;padding:0 0 22px;border-bottom:1px solid var(--sheet-line)}
+.intro-card p{margin:0}
+
+/* ---------- the list of tools (tools/index.html), on the dark page ---------- */
+.tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0}
+@media (max-width:700px){.tool-grid{grid-template-columns:minmax(0,1fr)}}
+.tool-tile{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:clamp(20px,2.4vw,26px);border:1px solid var(--line);
+  border-radius:var(--r,22px);background:var(--panel);color:var(--soft);text-decoration:none;transition:border-color .2s,transform .2s}
+.tool-tile:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tool-tile:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.tool-tile .t-kind{margin:0;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#808a9d}
+.tool-tile h2{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-.01em;color:var(--ink);margin:0}
+.tool-tile p{margin:0;font-size:16px;line-height:1.5}
+.tool-tile .t-go{margin-top:auto;padding-top:8px;font-weight:650;color:var(--accent)}
+.tools-next{margin:22px 0 0;font-size:15px;color:var(--soft)}
+
+h1,h2,h3{text-wrap:balance}
+p,li,label{text-wrap:pretty}
+@media (prefers-reduced-motion:reduce){.tool-tile{transition:none}.tool-tile:hover{transform:none}}
+@media print{header.nav,footer.foot,#bo-chat-root,.btn,.gate,#ts-box{display:none!important}
+  html,body{background:#ece8e9!important}.bk-head h1,.bk-head .lede{color:#111}.panel.tool-sheet{border:0;padding:0}}
+.nw{white-space:nowrap}
