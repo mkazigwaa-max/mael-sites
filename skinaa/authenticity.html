@@ -52,19 +52,26 @@
   <div class="service-head">
     <span class="kicker">House Service</span>
     <h1>Authenticity</h1>
-    <p>The house authenticity check (Gundry B-39's verification section), resolving against the house data slot only.</p>
+    <p>Every piece carries a verification code. Check it here, against the house registry.</p>
   </div>
   <div data-agent-slot></div>
 
   <section class="service-sec">
     <h2>Check a piece</h2>
-    <p class="house-fact">Enter the verification code carried by a piece. The check resolves against the house verification data slot — no registry is invented for this page.</p>
+    <p class="house-fact">Enter the verification code carried by a piece. The check resolves against the house verification registry — a code the registry cannot find is answered “unresolved”, never confirmed.</p>
     <form class="auth-check" id="auth-form">
       <input type="text" name="code" placeholder="Verification code" aria-label="Verification code">
       <button type="submit">Check the code</button>
     </form>
     <p class="auth-result" id="auth-result" role="status"></p>
-    <div class="named-slot"><b>Named slot — house verification registry</b>SKINAA_HOUSE.authenticity is unset: until the house sets the registry, every check answers “unresolved” and says exactly that — it never confirms a code it cannot look up.</div>
+    <div class="named-slot"><b>Held for the house — the verification registry</b>The registry itself is set by the house. Until it lands, every check answers “unresolved” and says exactly that — this page never confirms a code it cannot look up.</div>
+  </section>
+
+  <section class="service-sec">
+    <h2>How verification works</h2>
+    <p class="house-fact">A genuine piece carries its code with it. Serums ship with tamper-evident aluminum seals and nitrogen-flushed caps, and a reading completed at Admission is stamped with its own Board Verification Code — the same registry discipline, at both ends of the house.</p>
+    <p class="house-fact">The check above is the whole instrument: one code, one registry, one of two answers — verified against the registry, or unresolved. There is no third answer, and no code is ever confirmed from memory, from a photograph, or from this page's say-so.</p>
+    <p class="house-fact">If a piece arrives with a broken seal or a code that will not resolve once the registry is live, write to the house through <a href="contact.html">Contact</a> before using it.</p>
   </section>
 </main>
 <!-- THE END CARD — propagated from the Admission landing (build-admission.md):
@@ -81,7 +88,7 @@
       <div class="footer__group"><h4>The Rooms</h4>
         <a href="index.html">The Door</a><a href="vault.html">Visual Vault</a><a href="unboxing.html">Unboxing</a></div>
       <div class="footer__group"><h4>Admission</h4>
-        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a><a href="vault.html">The 28 archetypes</a></div>
+        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a></div>
       <div class="footer__group"><h4>The Gallery</h4>
         <a href="vault.html">Before &amp; After Vault</a><a href="guide-female.html">Female Guide</a><a href="guide-male.html">Male Guide</a></div>
       <div class="footer__group"><h4>Membership</h4>
