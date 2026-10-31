@@ -92,7 +92,6 @@ if (!s) {
   document.title = s.code + " — " + s.name + " — SKINAA";
   document.getElementById("crumb-piece").textContent = s.code;
   if (window.RecentlyViewed) RecentlyViewed.addProduct(s.code); /* S-18 */
-  const chip = color_manager.tokenFor(s.code).hex;
   const phMatch = (s.detail + " " + s.name).match(/pH\s*(\d+(?:\.\d+)?)/);
   const ph = phMatch ? parseFloat(phMatch[1]) : null;
   const apps = skuAppearances(s.code);
@@ -110,7 +109,7 @@ if (!s) {
   +   '<button type="button" class="product__thumb active" data-slide="0"><img src="' + s.pic.portrait + '" alt="Portrait view"></button>'
   +   '<button type="button" class="product__thumb" data-slide="1"><img src="' + s.pic.pack + '" alt="Packshot view"></button>'
   + '</div>'
-  + '<div class="pdp-caption"><div class="spec-chip spec-chip--caption" style="--chip:' + chip + '"><span class="spec-chip__face"></span><span class="spec-chip__band">' + s.code + '</span></div><p class="cap-name">' + s.name + '</p></div>'
+  + '<div class="pdp-caption"><p class="cap-name">' + s.name + '</p></div>'
   + '</product-images>'
   /* buy box */
   + '<product-info id="ProductInfo"><product-model></product-model><div class="card"><div class="pad">'
@@ -182,11 +181,11 @@ if (!s) {
   +   '</div>'
   /* BL-14 question folds — document per-piece Q&A is a NAMED SLOT */
   +   '<div class="pdp-faq" style="margin-top:22px"><h3 style="font-size:18px;font-weight:800">The piece\'s questions</h3>'
-  +     '<details class="pdp-faq__item accordion-custom"><summary>Per-piece questions for ' + s.code + '</summary><p class="note" style="padding-top:8px">NAMED SLOT — per-piece Q&amp;A: master-document pull (Phase B). No question or answer is invented for this piece.</p></details>'
+  +     '<details class="pdp-faq__item accordion-custom"><summary>Per-piece questions for ' + s.code + '</summary><p class="note" style="padding-top:8px">Held for the house — per-piece Q&amp;A, answered from the master document. No question or answer is invented for this piece.</p></details>'
   +   '</div>'
   /* G37 FAQ section system */
   +   '<section class="faqs_sec" style="--faq-bg-color:#ece7ea;--faq-text-color:#19080e;margin-top:22px"><div class="faq-sec-new">'
-  +     '<details class="faqs_sec__item"><summary>House questions</summary><p class="note" style="padding-top:8px">NAMED SLOT — house FAQ: master-document pull (Phase B).</p></details>'
+  +     '<details class="faqs_sec__item"><summary>House questions</summary><p class="note" style="padding-top:8px">Held for the house — the house FAQ, answered from the master document.</p></details>'
   +   '</div></section>'
   /* P-12 pH scale — documented values only */
   +   (ph !== null ? '<div class="product__ph-level-graphic"><h3 style="font-size:18px;font-weight:800">pH — documented at ' + ph + '</h3><div class="product__ph-level-graphic__grid">'
@@ -210,9 +209,27 @@ if (!s) {
   /* G36 related pieces at the foot */
   const rel = SKUS.filter(x => x.line === s.line && x.code !== s.code).slice(0, 4);
   lower.innerHTML = '<section class="related_new"><h2 style="font-size:22px;font-weight:800">Related pieces</h2><div class="pgrid">'
-    + rel.map(x => '<article class="product-item"><div class="product-item__image"><a href="product.html?sku=' + x.code + '"><img src="' + x.pic.pack + '" alt="' + x.code + ' — ' + x.name + '" style="width:100%;aspect-ratio:4/5;object-fit:cover"></a><div class="badge-box-container"><span class="badge-box">' + x.code + '</span></div></div><div class="product-item__info"><a class="product-item__title-link" href="product.html?sku=' + x.code + '"><p class="product-item__title" style="min-height:0">' + x.name + '</p></a></div></article>').join("")
+    + rel.map(x => '<article class="grid-item product-item product-item--centered product-item--outer-text product-item--has-quickbuy" data-code="' + x.code + '">'
+      + '<div class="product-item__image double__image">'
+      + '<a class="product-link" href="product.html?sku=' + x.code + '" aria-label="' + x.code + ' — ' + x.name + '">'
+      + '<div class="product-item__bg"><figure class="image-wrapper image-wrapper--cover"><img src="' + x.pic.pack + '" alt="' + x.code + ' — ' + x.name + '" loading="eager"></figure></div>'
+      + '<hover-images class="product-item__bg__under"><div class="product-item__bg__slider">'
+      + '<div class="product-item__bg__slide"><figure class="image-wrapper image-wrapper--cover"><img src="' + x.pic.pack + '" alt="" loading="eager"></figure></div>'
+      + '<div class="product-item__bg__slide"><figure class="image-wrapper image-wrapper--cover"><img src="' + x.pic.portrait + '" alt="' + x.code + ' — ' + x.name + ' (portrait)" loading="eager"></figure></div>'
+      + '</div></hover-images></a>'
+      + '<div class="badge-box-container"><span class="badge-box">' + x.code + '</span></div></div>'
+      + '<div class="product-information"><div class="product-item__info">'
+      + '<a class="product-link" href="product.html?sku=' + x.code + '"><p class="product-item__title">' + x.name + '</p>'
+      + '<p class="product_custom_text">' + x.component + '</p></a>'
+      + '<div class="product-item__quick-add-beneath"><div class="quick-add__holder product-grid-atc"><button class="quick-add__button btn btn--solid btn--small" type="button" data-reladd="' + x.code + '" aria-label="Add ' + x.code + ' to the tray"><span class="btn__text">Add to the tray</span></button></div></div>'
+      + '</div></div></article>').join("")
     + '</div></section>'
     + '<dialog class="specimen-modal" id="specimen-modal"><button class="drawer__close" type="button" data-close-specimen aria-label="Close">×</button><h3 id="specimen-title" style="font-size:19px;font-weight:800"></h3><p id="specimen-body" style="line-height:1.6;margin-top:8px"></p></dialog>';
+  /* (7) related-card quick-add posts into the same single cart */
+  if (!window.__skinaaRelAdd) { window.__skinaaRelAdd = 1;
+    document.addEventListener("click", e => { const b = e.target.closest("[data-reladd]"); if (!b || !window.SKINAA_CART) return;
+      SKINAA_CART.add(b.dataset.reladd, 1); if (window.SKINAAOpenCart) SKINAAOpenCart(); });
+  }
 
   window.ProductModel = { sku: s.code, variants: apps };
   /* gallery: thumbs + drag + zoom */
@@ -311,7 +328,7 @@ if (!s) {
       <div class="footer__group"><h4>The Rooms</h4>
         <a href="index.html">The Door</a><a href="vault.html">Visual Vault</a><a href="unboxing.html">Unboxing</a></div>
       <div class="footer__group"><h4>Admission</h4>
-        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a><a href="vault.html">The 28 archetypes</a></div>
+        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a></div>
       <div class="footer__group"><h4>The Gallery</h4>
         <a href="vault.html">Before &amp; After Vault</a><a href="guide-female.html">Female Guide</a><a href="guide-male.html">Male Guide</a></div>
       <div class="footer__group"><h4>Membership</h4>

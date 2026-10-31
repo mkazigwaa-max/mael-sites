@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#ccdeec">
 <link rel="icon" href="data:,">
 <title>The Virtual Clinical Intake — SKINAA by Maanaa</title>
-<meta name="description" content="The 28-step Virtual Clinical Intake: phenotype, fluid, barrier, goals — matched to 1 of 28 archetypes. Your photograph is read on your device, never uploaded.">
+<meta name="description" content="The 28-step Virtual Clinical Intake: phenotype, fluid, barrier, goals — calibrated into your custom protocol. Your photograph is read on your device, never uploaded.">
 <style>
   :root{--powder:#ccdeec;--sage:#b4c5b4;--honey:#ecc47f;--sienna:#b65a0f;--ivory:#ece7ea;--plum:#19080e;--card:#ece7ea;--ink:#19080e}
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -153,7 +153,7 @@
 const MODE = new URLSearchParams(location.search).get("mode") === "day15" ? "day15" : "intake";
 const BLOCKS = ["Phenotype & Structural","Fluid & Sebum","Barrier & Sensitivity","Goals + Photo"];
 /* 28 steps in the master document's four blocks. Option tags feed the
-   archetype match (gender + the vault's four concern axes). Calibration
+   protocol match (gender + the document's four concern axes). Calibration
    notes are AP-3: a derm-voice note on every step, mechanism named. */
 const Q = [
  {b:0, q:"The board calibrates two protocol families. Your presentation:", a:[["Male",["gM"]],["Female",["gF"]]], note:"Protocols diverge here. The male system is built around debloat, hairline density and razor mechanics; the female system around glass skin, V-line sculpting and barrier architecture."},
@@ -177,7 +177,7 @@ const Q = [
  {b:2, q:"After a breakout or irritation heals, it leaves…", a:[["A dark mark that stays for weeks",["hyperpigmentation"]],["A faint mark, gone in days",[]],["Nothing — it just heals",[]]], note:"A mark that outlives the breakout is post-inflammatory hyperpigmentation: melanocytes answering inflammation. It sets your tranexamic protocol and your sun discipline."},
  {b:2, q:"A new product usually…", a:[["Sits on top and never quite sinks in",["barrier"]],["Makes the shine worse by evening",["texture"]],["Stings or flushes within minutes",["barrier"]],["Does nothing I can point to",["glass"]]], note:"A product that sits on top is meeting a sealed or saturated barrier; a product that stings is meeting a broken one. Your answer routes the first week of your stack."},
  {b:2, q:"Fragrance in products…", a:[["Never bothers me",[]],["I avoid it — my skin objects",["barrier"]],["I love a scent, skin is fine",[]],["Never paid attention",[]]], note:"Fragrance is the most common contact sensitizer in cosmetics. SKINAA runs 0% fillers, fragrances and dyes across the line — your answer confirms the margin, it doesn't change it."},
- {b:3, q:"Your primary goal — pick the one the board should optimize for.", a:[["Jawline Sharpening",["debloat"]],["Glass Skin Radiance",["glass"]],["Hunter Eye Clearance",["debloat"]],["Hairline Density",["hairline"]]], note:"One primary goal drives the match. Your archetype, your stack and your Day-28 maintenance target are all read off this answer first."},
+ {b:3, q:"Your primary goal — pick the one the board should optimize for.", a:[["Jawline Sharpening",["debloat"]],["Glass Skin Radiance",["glass"]],["Hunter Eye Clearance",["debloat"]],["Hairline Density",["hairline"]]], note:"One primary goal drives the match. Your stack and your Day-28 maintenance target are all read off this answer first."},
  {b:3, q:"And the second front:", a:[["Even tone — dark marks gone",["hyperpigmentation"]],["Barrier calm — no more reactivity",["barrier"]],["Texture — pores and bumps handled",["texture"]],["De-puffed, drained, defined",["debloat"]]], note:"The second front sequences Phase 2. Your weekly refill drip is built from what the second answer names — it is not a generic subscription."},
  {b:3, q:"Your current routine has how many steps?", a:[["Zero to one — water and hope",[]],["Two to three — the essentials",[]],["Four to six — a real ritual",[]],["Seven plus — a laboratory",[]]], note:"The Attack Stack replaces, it doesn't accumulate. Your current step count tells the board what to retire on Day 1 so the protocol stays executable."},
  {b:3, q:"You exfoliate…", a:[["Never",["glass"]],["Weekly",[]],["A few times a week",[]],["Daily — smooth at any cost",["barrier"]]], note:"Daily exfoliation against a 14-day transformation is the most common self-inflicted barrier injury the board sees. Frequency here can lower your prescribed acid strength."},
@@ -235,11 +235,10 @@ function renderIntro(){
   } else {
     stage.innerHTML = `<div class="screen live">
       <div class="k">SKINAA Virtual Clinical Intake</div><h2 class="q">Managed by board-certified dermatologists &amp; licensed esthetic specialists.</h2>
-      <p class="sub">Answer 28 targeted diagnostic questions regarding your skin barrier, fluid retention, undertone, and texture flags. Our board logic will calibrate your custom active protocol — and match you to 1 of 28 model archetypes in the Visual Vault.</p>
+      <p class="sub">Answer 28 targeted diagnostic questions regarding your skin barrier, fluid retention, undertone, and texture flags. Our board logic will calibrate your custom active protocol.</p>
       <div class="notebox"><div class="nk">How the board reads you</div>
       <p>Four blocks: Phenotype &amp; Structural · Fluid &amp; Sebum · Barrier &amp; Sensitivity · Goals + Photo. Every step carries a dermatological calibration note. Your photograph is read on this device — never uploaded.</p></div>
-      <button class="cta" id="start">Start Your Virtual Clinical Intake (28 Steps)</button>
-      <a class="cta ghost" href="vault.html">See the 28 archetypes first</a></div>`;
+      <button class="cta" id="start">Start Your Virtual Clinical Intake (28 Steps)</button></div>`;
   }
   document.getElementById("start").onclick = ()=>{ phase = "quiz"; render(); };
 }
@@ -349,8 +348,8 @@ function renderAnalyzing(){
     ? `<div class="scanwrap"><img src="${photoData}" alt="Your photograph"><div class="scanline"></div></div>`
     : `<div class="scanwrap"><div style="height:220px;background:var(--card);border:1px solid var(--line)"></div><div class="scanline"></div></div>`;
   const lines = MODE === "day15"
-    ? ["Reading your Day-15 photograph against Day 0","Weighing your usage and outcome answers","Comparing against your matched archetype","Reformulating your next batch"]
-    : ["Reading tone and light return","Reading texture and pores", photoData ? "Measuring Facial Thirds & Canthal Tilt" : "Weighing your twenty-eight answers","Matching 1 of 28 archetypes","Composing your prescription"];
+    ? ["Reading your Day-15 photograph against Day 0","Weighing your usage and outcome answers","Reformulating your next batch"]
+    : ["Reading tone and light return","Reading texture and pores", photoData ? "Measuring Facial Thirds & Canthal Tilt" : "Weighing your twenty-eight answers","Composing your prescription"];
   stage.innerHTML = `<div class="screen live">
     <div class="k">${MODE === "day15" ? "The iteration" : "The reading"}</div><h2 class="q">${photoData ? "Analyzing your picture…" : "Composing your reading…"}</h2>
     ${img}
@@ -362,7 +361,7 @@ function renderAnalyzing(){
   });
   setTimeout(()=>{ phase = "result"; render(); }, rows.length*700 + 500);
 }
-function matchArchetype(){
+function matchProtocol(){
   const pool = MODELS.filter(m => !gender || m.gender === gender);
   let best = pool[0], bestScore = -1;
   pool.forEach(m => {
@@ -384,31 +383,27 @@ function renderResult(){
       <div class="k">AP-13 · Iteration Gate</div><h2 class="q" style="text-align:center">Iteration received.</h2>
       <p class="sub" style="text-align:center">Your usage, your outcome, and your face are with the board. The next batch is reformulated from this gate — potency advanced, held, or pulled back to barrier work by what you reported — and your cycle stays anchored on the 28th.</p>
       <div class="refcard"><div class="rk">What happens next</div>
-      <p><b>Day 15 \u2192 synthesis.</b> Your delta is measured against your matched archetype in the portal, and your dual-script Rx note is written from it.</p>
+      <p><b>Day 15 \u2192 synthesis.</b> Your delta is measured in the portal, and your dual-script Rx note is written from it.</p>
       <p><b>Next batch.</b> Reformulated refills slot into your vanity tray — same slots, new calibration.</p></div>
       <a class="cta" href="portal.html">See your delta in the portal</a>
       <a class="cta ghost" href="index.html">Back to SKINAA</a></div>`;
     try { localStorage.setItem("skinaa_day15", new Date().toISOString()); } catch(_){}
     return;
   }
-  const m = matchArchetype();
+  const m = matchProtocol();
   const ref = "SKN-" + Math.floor(10000 + Math.random() * 90000);
   const weekly = m.gender === "M" ? 32 : 34;
-  const lc = m.code.toLowerCase();
+  const stackCodes = [...m.p1.matchAll(/\(([A-Z]+-\d+)\)/g)].map(x => x[1]).filter(c => skuByCode(c));
   try { localStorage.setItem("skinaa_intake", JSON.stringify({ ref: ref, model: m.code, at: new Date().toISOString() })); } catch(_){}
   stage.innerHTML = `<div class="screen live result">
     <div class="k">Board Intake Complete</div><h2 class="q" style="text-align:center">Intake Analysis Complete.</h2>
     <div class="stampchip"><div class="stampchip-face">Board Verification Code</div><div class="stampchip-band">DERM-DIAG-8820</div></div>
-    <p class="sub" style="text-align:center">Intake Ref: #${ref} · Matched Archetype: Model ${m.n} (${m.code} — ${m.arch})</p>
-    <div class="refcard"><div class="rk">Your matched Before &amp; After benchmark</div>
-      <div class="ba"><img src="assets/vault/${lc}-day0.jpg" alt="Model ${m.n} Day 0">
-        <div class="after" style="clip-path:inset(0 0 0 50%)"><img src="assets/vault/${lc}-day14.webp" alt="Model ${m.n} Day 14" onerror="this.closest('.ba').querySelector('input').style.display='none';this.parentNode.style.display='none'"></div>
-        <span class="lab l">Day 0 Baseline</span><span class="lab r">Day 14 Peak</span>
-        <input type="range" min="0" max="100" value="50" aria-label="Before after slider" oninput="this.previousElementSibling.previousElementSibling.style.clipPath='inset(0 0 0 '+this.value+'%)'"></div>
-      <p><b>Day 0:</b> ${m.flaws}</p><p><b>Day 14:</b> ${m.gains}</p><p><b>Day 28 goal:</b> ${m.goal}</p></div>
+    <p class="sub" style="text-align:center">Intake Ref: #${ref}</p>
     <div class="refcard"><div class="rk">Prescribed Phase 1 — 14-Day Attack Stack Box</div>
       <p>${m.p1}</p><div class="chips">${stackChips(m.p1)}</div>
-      <p style="margin-top:14px"><b>Upfront package:</b> inside the Phase 1 band, $118–$148 — your exact total is set with your matched stack at claim. Hardware drops off after the audit; the liquids continue.</p></div>
+      <button class="cta" type="button" data-add-stack="${stackCodes.join(",")}" style="margin-top:18px">Add the prescribed stack to the tray</button>
+      <p style="margin-top:14px"><b>Upfront package:</b> inside the Phase 1 band, $118–$148 — your exact total is set with your matched stack at claim. Hardware drops off after the audit; the liquids continue.</p>
+      <p><b>Day 0:</b> ${m.flaws}</p><p><b>Day 14:</b> ${m.gains}</p><p><b>Day 28 goal:</b> ${m.goal}</p></div>
     <div class="refcard"><div class="rk">Phase 2 Preview — Ascension Plus Weekly Refill Drip ($${weekly}/week)</div>
       <p>${m.p2}</p>
       <p>Auto-ships fresh liquid actives starting Day 14 · Includes Weekly Dual Rx Card · Auto-charge 3 days before delivery · Day-15 re-assessment reformulates every batch.</p></div>
@@ -455,7 +450,7 @@ render();
       <div class="footer__group"><h4>The Rooms</h4>
         <a href="index.html">The Door</a><a href="vault.html">Visual Vault</a><a href="unboxing.html">Unboxing</a></div>
       <div class="footer__group"><h4>Admission</h4>
-        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a><a href="vault.html">The 28 archetypes</a></div>
+        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a></div>
       <div class="footer__group"><h4>The Gallery</h4>
         <a href="vault.html">Before &amp; After Vault</a><a href="guide-female.html">Female Guide</a><a href="guide-male.html">Male Guide</a></div>
       <div class="footer__group"><h4>Membership</h4>
@@ -544,6 +539,15 @@ render();
 
 <script src="assets/enrich/cart-shim.js"></script>
 <script src="assets/enrich/admission.js"></script>
+<script>
+/* (2) STORE PATH: the prescribed stack adds into the SAME single cart from the
+   results screen itself — one delegated handler, bound once. */
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-add-stack]"); if (!b || !window.SKINAA_CART) return;
+  b.dataset.addStack.split(",").filter(Boolean).forEach(c => SKINAA_CART.add(c, 1));
+  const open = document.querySelector("[data-cart-open]"); if (open) open.click();
+});
+</script>
 
 <script src="assets/enrich/endcards.js"></script>
 </body>

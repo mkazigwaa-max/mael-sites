@@ -226,31 +226,9 @@
   <p class="cat-note">Free shipping from $118 — the Phase 1 stack entry price. Every stack is prescribed through the <a href="assessment.html">28-step Virtual Clinical Intake</a>.</p>
 </div>
 
-<!-- F-14 · FAB quick-product modal -->
-<dialog class="quick-product-modal" id="quick-product-modal">
-  <div class="quick-product">
-    <button class="drawer__close" type="button" data-close-dialog aria-label="Close">×</button>
-    <img class="quick-product__img" alt="">
-    <h3 class="product__title"></h3>
-    <p class="quick-product__detail"></p>
-    <div class="quick-product__variants"></div>
-    <p class="product__price quick-product__price"></p>
-    <button class="qa-btn" type="button" data-modal-add><span class="btn__label">Add to tray</span></button>
-  </div>
-</dialog>
-
-<!-- S-07 · sckenofficial quick-add modal (house-stock; template unbanked —
-     markup authored against the banked entry's class citations, named) -->
-<dialog class="quick-add-modal" id="quick-add-modal">
-  <div class="quick-add-modal__in">
-    <button class="drawer__close" type="button" data-close-dialog aria-label="Close">×</button>
-    <img class="quick-add__img" alt="">
-    <h3 class="quick-add__title"></h3>
-    <div class="quick-add__variants"></div>
-    <button class="qa-btn" type="button" data-modal-add><span class="btn__label">Add to tray</span></button>
-  </div>
-</dialog>
-
+<!-- (7) The donor-scheme card carries no Quick view / Quick add buttons, so the
+     F-14/S-07 modals lost their only triggers and are REMOVED (dead surfaces,
+     item 3). The card itself is the quick surface: hover slide + quick-add. -->
 
 <script src="assets/skinaa-data.js"></script>
 <script src="assets/enrich/cart-shim.js"></script>
@@ -300,10 +278,10 @@ const ICON_PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" st
    only, never invented). */
 function qaHTML(s) {
   const q = SKINAA_CART.quantityOf(s.code);
-  const price = typeof s.price === "number" ? '<span class="btn__price">$' + s.price + '</span>' : '<span class="btn__price"></span>';
+  const price = typeof s.price === "number" ? '<span class="btn__price">$' + s.price + '</span>' : '';
   if (!q) {
-    return '<div class="quick-add__holder product-item__quick-add">'
-      + '<button class="qa-btn btn" type="button" data-add="' + s.code + '"><span class="btn__label">Add</span>' + price
+    return '<div class="quick-add__holder product-grid-atc">'
+      + '<button class="quick-add__button btn btn--solid btn--small" type="button" data-add="' + s.code + '" aria-label="Add ' + s.code + ' to the tray"><span class="btn__text">Add to the tray' + price + '</span>'
       + '<span class="btn__loader" hidden>…</span><span class="btn__added" hidden>Added</span><span class="btn__error" hidden>Unavailable</span></button></div>';
   }
   const minus = q <= 1 ? '<i class="icon-remove" aria-hidden="true">🗑</i>' : ICON_MINUS;
@@ -312,44 +290,49 @@ function qaHTML(s) {
     + '<span class="qa-count"><span class="quantity-in-cart-display">' + q + '</span> in your cart <span class="product-item__quick-add__cart-count">(' + q + ')</span></span>'
     + '<button class="qa-step quantity-input__button" type="button" data-inc="' + s.code + '" aria-label="Add one">' + ICON_PLUS + '</button></div></div>';
 }
-function swatchHTML(s) {
-  const sibs = SKUS.filter(x => x.line === s.line).slice(0, 6);
-  if (sibs.length < 2) return "";
-  return '<div class="grid-swatch swatches" role="radiogroup" aria-label="Sibling pieces">'
-    + sibs.map(x => '<button type="button" class="sibling swatch__button" role="radio" data-sibling="' + x.code + '" data-for="' + s.code + '" aria-checked="' + (x.code === s.code) + '" title="' + x.code + '" style="background:' + color_manager.tokenFor(x.code).hex + '"></button>').join("") + '</div>';
-}
+/* (7) THE CARD IS PREQUEL'S SCHEME, TAKEN FAITHFULLY (owner order, 2026-10-31).
+   Donor skeleton (prequelskin capture, collections/full-collection):
+   grid-item.product-item > __image.double__image > a.product-link > (__bg figure +
+   hover-images.__bg__under > __bg__slider > __bg__slide x2), badge-box-container
+   as sibling; product-information > __info > a.product-link > (__title,
+   product_custom_description, product_custom_text, __price__holder) + the
+   product-grid-atc quick-add holder. Re-skinned in the book + house data only.
+   Both images EAGER (owner paint law) where the donor lazy-loads hover slides. */
 function cardHTML(s, i) {
   const url = 'product.html?sku=' + s.code;
   const delay = Math.min((i % 4) * 100, 200);
   const anchor = ANCHOR_CODES.includes(s.code);
-  return '<article class="product-item product-item--centered' + (anchor ? " view-transition-card" : "") + '" data-code="' + s.code + '" data-aos="img-in" data-aos-duration="800" data-aos-easing="ease-out-quart" style="transition-delay:' + delay + 'ms' + (anchor ? ";view-transition-name:piece-" + s.code : "") + '">'
-    + '<div class="product-item__image hover-images">'
-    + '<div class="product-item__bg__slider"><div class="product-item__bg__under">'
-    + '<div class="product-item__bg__slide"><a href="' + url + '" aria-label="' + s.code + ' — ' + s.name + '"><img src="' + s.pic.pack + '" alt="' + s.code + ' — ' + s.name + '" loading="lazy"></a></div>'
-    + '<div class="product-item__bg__slide"><a href="' + url + '" aria-label="' + s.code + ' — ' + s.name + ' (portrait)"><img src="' + s.pic.portrait + '" alt="' + s.code + ' — ' + s.name + ' (portrait)" loading="lazy"></a></div>'
-    + '</div></div>'
-    + '<div class="badge-box-container"><span class="badge-box">' + s.code + '</span><span class="badge-box custom-box">SKINAA</span></div>'
-    + '<div class="spec-chip" style="--chip:' + color_manager.tokenFor(s.code).hex + '"><span class="spec-chip__face"></span><span class="spec-chip__band">' + s.code + '</span></div>'
-    + '<div class="anchored-detail" hidden>' + s.detail + '</div>'
+  return '<article class="grid-item product-item product-item--centered product-item--outer-text product-item--has-quickbuy' + (anchor ? " view-transition-card" : "") + '" data-code="' + s.code + '" data-url="' + url + '" data-aos="img-in" data-aos-duration="800" data-aos-easing="ease-out-quart" style="transition-delay:' + delay + 'ms' + (anchor ? ";view-transition-name:piece-" + s.code : "") + '">'
+    + '<div class="product-item__image double__image">'
+    + '<a class="product-link" href="' + url + '" aria-label="' + s.code + ' — ' + s.name + '">'
+    + '<div class="product-item__bg"><figure class="image-wrapper image-wrapper--cover"><img src="' + s.pic.pack + '" alt="' + s.code + ' — ' + s.name + '" loading="eager"></figure></div>'
+    + '<hover-images class="product-item__bg__under"><div class="product-item__bg__slider">'
+    + '<div class="product-item__bg__slide"><figure class="image-wrapper image-wrapper--cover"><img src="' + s.pic.pack + '" alt="" loading="eager"></figure></div>'
+    + '<div class="product-item__bg__slide"><figure class="image-wrapper image-wrapper--cover"><img src="' + s.pic.portrait + '" alt="' + s.code + ' — ' + s.name + ' (portrait)" loading="eager"></figure></div>'
+    + '</div></hover-images></a>'
+    + '<div class="badge-box-container"><span class="badge-box">' + s.code + '</span></div>'
     + '</div>'
     + '<div class="product-information"><div class="product-item__info">'
-    + '<a class="product-item__title-link" href="' + url + '"><p class="product-item__title">' + s.name + '</p></a>'
+    + '<a class="product-link" href="' + url + '"><p class="product-item__title">' + s.name + '</p>'
     + '<div class="product_custom_description">' + s.detail + '</div>'
-    + '<p class="product_custom_measure">' + s.component + '</p>'
-    + swatchHTML(s)
-    + '<div class="product-item__spacer"></div>'
+    + '<p class="product_custom_text">' + s.component + '</p>'
+    + '<div class="product-item__price__holder"><div class="product-item__price">' + (typeof s.price === "number" ? '<span class="price"><span class="new-price">$' + s.price + '</span></span>' : '') + '</div></div></a>'
     + '<div class="product-item__quick-add-beneath" data-qa="' + s.code + '">' + qaHTML(s) + '</div>'
-    + '<div style="display:flex;gap:8px;justify-content:center;margin-top:8px">'
-    + '<button type="button" class="header__icon-touch" data-quickview="' + s.code + '">Quick view</button>'
-    + '<button type="button" class="header__icon-touch" data-quickadd="' + s.code + '">Quick add</button></div>'
     + '</div></div></article>';
 }
 function miniCard(s, cls) {
-  return '<article class="' + (cls || "product-card") + ' product-item" style="flex:0 0 220px">'
-    + '<div class="product-item__image"><a href="product.html?sku=' + s.code + '"><img src="' + s.pic.pack + '" alt="' + s.code + ' — ' + s.name + '" loading="lazy" style="width:100%;aspect-ratio:4/5;object-fit:cover"></a>'
-    + '<div class="badge-box-container"><span class="badge-box">' + s.code + '</span></div></div>'
-    + '<div class="product-item__info"><a class="product-item__title-link" href="product.html?sku=' + s.code + '"><p class="product-item__title" style="min-height:0">' + s.name + '</p></a>'
-    + '<div data-qa="' + s.code + '">' + qaHTML(s) + '</div></div></article>';
+  const url = 'product.html?sku=' + s.code;
+  return '<article class="grid-item product-item product-item--centered product-item--outer-text product-item--has-quickbuy ' + (cls || "product-card") + '" data-code="' + s.code + '" data-url="' + url + '" style="flex:0 0 220px;scroll-snap-align:start">'
+    + '<div class="product-item__image double__image">'
+    + '<a class="product-link" href="' + url + '" aria-label="' + s.code + ' — ' + s.name + '">'
+    + '<div class="product-item__bg"><figure class="image-wrapper image-wrapper--cover"><img src="' + s.pic.portrait + '" alt="' + s.code + ' — ' + s.name + '" loading="eager"></figure></div></a>'
+    + '<div class="badge-box-container"><span class="badge-box">' + s.code + '</span></div>'
+    + '</div>'
+    + '<div class="product-information"><div class="product-item__info">'
+    + '<a class="product-link" href="' + url + '"><p class="product-item__title">' + s.name + '</p>'
+    + '<p class="product_custom_text">' + s.component + '</p></a>'
+    + '<div class="product-item__quick-add-beneath" data-qa="' + s.code + '">' + qaHTML(s) + '</div>'
+    + '</div></div></article>';
 }
 let io = null;
 function observeCards() {
@@ -485,7 +468,6 @@ function refreshQA(code) {
 document.addEventListener("skinaa:cart-changed", () => SKUS.forEach(s => refreshQA(s.code)));
 document.body.addEventListener("click", e => {
   const add = e.target.closest("[data-add]"), inc = e.target.closest("[data-inc]"), dec = e.target.closest("[data-dec]");
-  const sib = e.target.closest("[data-sibling]"), qv = e.target.closest("[data-quickview]"), qa = e.target.closest("[data-quickadd]");
   if (add) {
     const btn = add, code = btn.dataset.add;
     /* S-08 fix (Unit 11): capture the card + its image BEFORE the add —
@@ -506,54 +488,21 @@ document.body.addEventListener("click", e => {
   }
   if (inc) { SKINAA_CART.update(inc.dataset.inc, SKINAA_CART.quantityOf(inc.dataset.inc) + 1); refreshQA(inc.dataset.inc); }
   if (dec) { SKINAA_CART.update(dec.dataset.dec, SKINAA_CART.quantityOf(dec.dataset.dec) - 1); refreshQA(dec.dataset.dec); }
-  if (sib) { /* P-29/G23: swatch select swaps the card's piece + image */
-    const card = sib.closest(".product-item"); const s = skuByCode(sib.dataset.sibling); if (!card || !s) return;
-    card.dataset.code = s.code;
-    card.querySelectorAll("img").forEach((im, ix) => im.src = ix === 0 ? s.pic.pack : s.pic.portrait);
-    card.querySelectorAll("a").forEach(a => a.href = "product.html?sku=" + s.code);
-    card.querySelector(".product-item__title").textContent = s.name;
-    card.querySelectorAll(".grid-swatch .sibling").forEach(b => b.setAttribute("aria-checked", b === sib ? "true" : "false"));
-  }
-  if (qv) openModal("quick-product-modal", qv.dataset.quickview);
-  if (qa) openModal("quick-add-modal", qa.dataset.quickadd);
   const dc = e.target.closest("[data-close-dialog]"); if (dc) dc.closest("dialog").close();
-  const ma = e.target.closest("[data-modal-add]");
-  if (ma) { const code = ma.closest("dialog").dataset.code;
-    SKINAA_CART.add(code, 1); ma.closest("dialog").close(); SKINAAOpenCart(); }
   const railBtn = e.target.closest("[data-rail-prev],[data-rail-next]");
   if (railBtn) { const rail = railBtn.closest(".product-slider").querySelector(".product-slider__container__cards");
     rail.scrollBy({ left: (railBtn.hasAttribute("data-rail-next") ? 1 : -1) * 260, behavior: "smooth" }); }
 });
-let hoverTimer = null;
+/* (7) Donor hover behavior, re-driven on the donor nesting: hovering a card
+   scrolls its __bg__slider to the portrait slide; leaving returns it. */
 document.body.addEventListener("mouseover", e => {
   const st = e.target.closest(".product-item__image");
   if (st && e.relatedTarget && st.contains(e.relatedTarget)) return;
   document.querySelectorAll(".product-item__image").forEach(x => {
-    const sl = x.querySelector(".product-item__bg__under") || x.querySelector(".product-item__bg__slider");
+    const sl = x.querySelector(".product-item__bg__slider");
     if (sl) sl.scrollTo({ left: x === st ? sl.clientWidth : 0, behavior: "smooth" });
   });
-  const card = e.target.closest(".product-item");
-  clearTimeout(hoverTimer);
-  if (card) hoverTimer = setTimeout(() => {
-    document.querySelectorAll(".anchored-detail").forEach(d => d.hidden = true);
-    const d = card.querySelector(".anchored-detail"); if (d) d.hidden = false;
-  }, 600);
 });
-document.body.addEventListener("mouseout", e => {
-  if (!e.relatedTarget || !e.target.closest || !e.target.closest(".product-item"))
-    document.querySelectorAll(".anchored-detail").forEach(d => d.hidden = true);
-});
-function openModal(id, code) {
-  const d = document.getElementById(id), s = skuByCode(code); if (!d || !s) return;
-  d.dataset.code = code;
-  const img = d.querySelector("img"); img.src = s.pic.pack; img.alt = s.code + " — " + s.name;
-  const t = d.querySelector(".product__title,.quick-add__title"); if (t) t.textContent = s.code + " — " + s.name;
-  const det = d.querySelector(".quick-product__detail"); if (det) det.textContent = s.detail;
-  const pr = d.querySelector(".quick-product__price"); if (pr) pr.textContent = typeof s.price === "number" ? "$" + s.price : s.component;
-  const v = d.querySelector(".quick-product__variants,.quick-add__variants");
-  if (v) v.innerHTML = '<span class="tag">' + s.component + '</span> <span class="tag">' + s.line + '</span>';
-  d.showModal();
-}
 /* S-09: anchor cards view-transition into the piece page */
 document.body.addEventListener("click", e => {
   const a = e.target.closest(".view-transition-card a");
@@ -588,7 +537,7 @@ document.addEventListener("skinaa:recently-viewed", renderRails);
       <div class="footer__group"><h4>The Rooms</h4>
         <a href="index.html">The Door</a><a href="vault.html">Visual Vault</a><a href="unboxing.html">Unboxing</a></div>
       <div class="footer__group"><h4>Admission</h4>
-        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a><a href="vault.html">The 28 archetypes</a></div>
+        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a></div>
       <div class="footer__group"><h4>The Gallery</h4>
         <a href="vault.html">Before &amp; After Vault</a><a href="guide-female.html">Female Guide</a><a href="guide-male.html">Male Guide</a></div>
       <div class="footer__group"><h4>Membership</h4>

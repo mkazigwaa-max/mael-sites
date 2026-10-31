@@ -44,11 +44,26 @@
   .preview .pin{max-width:1180px;margin:0 auto}
   .preview h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em;color:var(--e-ivory);text-align:center}
   .pieces{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
-  .piece{background:var(--d-mulberry);border-radius:20px;overflow:hidden;box-shadow:0 30px 60px rgba(25,8,14,.36)}
-  .piece img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
-  .piece .pcap{padding:16px 18px 18px;color:var(--e-ivory)}
-  .piece .pcode{font-size:11px;font-weight:800;letter-spacing:.16em}
-  .piece .pname{font-size:14.5px;font-weight:700;line-height:1.4;margin-top:6px}
+  /* (7) rail cards = the Collection's scheme (Prequel product-item), skinned
+     for the fig band: photo full-bleed with the radius + shadow, info as ivory
+     type on the band. No color block carries a product (item 1). */
+  .rail-card{display:flex;flex-direction:column}
+  .rail-card .product-item__image{display:block;padding-top:125%;height:0;position:relative;overflow:hidden;border-radius:20px;box-shadow:0 30px 60px rgba(25,8,14,.36);background:#f3e9d7}
+  .rail-card .product-link{text-decoration:none;color:inherit}
+  .rail-card .product-item__image .product-link{position:absolute;inset:0;overflow:hidden}
+  .rail-card .product-item__bg,.rail-card .product-item__bg__under{position:absolute;top:-1px;right:-1px;bottom:-1px;left:-1px}
+  .rail-card .product-item__bg__under{z-index:1}
+  .rail-card figure{margin:0;height:100%}
+  .rail-card .product-item__bg img,.rail-card .product-item__bg__slide img{width:100%;height:100%;object-fit:cover;display:block}
+  .rail-card .product-item__bg__slider{display:flex;flex-flow:row nowrap;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .rail-card .product-item__bg__slider::-webkit-scrollbar{display:none}
+  .rail-card .product-item__bg__slide{min-width:100%;height:100%;scroll-snap-align:start}
+  .rail-card .badge-box-container{position:absolute;top:10px;left:10px;z-index:5}
+  .rail-card .badge-box{background:#ccdeec;color:#19080e;font-size:11px;font-weight:800;letter-spacing:.08em;padding:4px 8px;border-radius:999px}
+  .rail-card .product-information{text-align:center}
+  .rail-card .product-item__info{padding:16px 6px 0}
+  .rail-card .product-item__title{font-weight:600;font-size:16.5px;line-height:1.35;margin:0;color:var(--e-ivory)}
+  .rail-card .product_custom_text{color:#ecc47f;font-size:13px;margin:5px 0 0}
   .dcta{display:block;width:max-content;max-width:100%;margin:42px auto 0;background:var(--d-tangerine);color:var(--plum-black);font-weight:800;font-size:15.5px;padding:15px 32px;border-radius:999px;text-decoration:none}
   @media(max-width:900px){.pieces{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:820px){.board{grid-template-columns:1fr}}
@@ -131,7 +146,7 @@
     <!-- G-35 · Gundry header search button: a trigger for the P-06 popdown -->
     <button class="header__icon-touch header__icon-touch--search" type="button" aria-label="Search">Search</button>
     <a class="header__icon-touch header__icon-touch--account" href="portal.html">Account</a>
-    <a class="header__icon-touch" href="catalog.html">Cart<span class="header__cart-link-count">0</span></a>
+    <a class="header__icon-touch" href="catalog.html">Cart<span class="header__cart-link-count cart-count">0</span></a>
     <!-- BL-23 · Bloom mega drawer trigger -->
     <button class="header__icon-touch drawer-open" type="button">Directory</button>
     <button class="header__icon-touch menu-toggle" type="button" aria-label="Menu">Menu</button>
@@ -228,12 +243,14 @@
 
   <!-- P-18 · Prequel board portrait columns (section_columns / column grammar):
        credentials as records. No board face photography exists in the house
-       assets and the document carries name placeholders — faces are a NAMED SLOT. -->
+       assets and the document carries name placeholders — faces are a NAMED SLOT.
+       Medallions are flat book tones, unlabeled (COLOR-NOT-MERCHANDISE fix,
+       2026-10-31): no texture crops or picture-like fills where people belong. -->
   <div class="section_columns">
-    <div class="column"><div class="column__image column__image--circle"><img src="assets/tex/leaf-b.jpg" alt=""></div><div class="column__heading">Dermatologist Co-Founder &amp; Chief Medical Officer</div><div class="column__subtitle">Board-Certified Dermatologist</div></div>
-    <div class="column"><div class="column__image column__image--circle"><img src="assets/tex/palewing-c.jpg" alt=""></div><div class="column__heading">Medical Advisory Board</div><div class="column__subtitle">Dermatologic Oncology &amp; Barrier</div></div>
-    <div class="column"><div class="column__image column__image--circle"><img src="assets/tex/fig-d.jpg" alt=""></div><div class="column__heading">Lead LE — Head of Esthetic Protocols</div><div class="column__subtitle">Master Esthetician</div></div>
-    <div class="column"><div class="column__image column__image--circle"><img src="assets/tex/feather-e.jpg" alt=""></div><div class="column__heading">LE — Beauty Care Specialist</div><div class="column__subtitle">Clinical Facial Architect</div></div>
+    <div class="column"><div class="column__image column__image--circle column__tone--a" aria-hidden="true"></div><div class="column__heading">Dermatologist Co-Founder &amp; Chief Medical Officer</div><div class="column__subtitle">Board-Certified Dermatologist</div></div>
+    <div class="column"><div class="column__image column__image--circle column__tone--b" aria-hidden="true"></div><div class="column__heading">Medical Advisory Board</div><div class="column__subtitle">Dermatologic Oncology &amp; Barrier</div></div>
+    <div class="column"><div class="column__image column__image--circle column__tone--c" aria-hidden="true"></div><div class="column__heading">Lead LE — Head of Esthetic Protocols</div><div class="column__subtitle">Master Esthetician</div></div>
+    <div class="column"><div class="column__image column__image--circle column__tone--d" aria-hidden="true"></div><div class="column__heading">LE — Beauty Care Specialist</div><div class="column__subtitle">Clinical Facial Architect</div></div>
   </div>
   <div class="brick__section"><div class="brick__block brick__block--text"><div class="board">
     <div class="card"><span class="bdg">Board-Certified Dermatologist</span><div class="role">Dermatologist Co-Founder &amp; Chief Medical Officer</div><p class="foc">Focus: Molecule Stabilization, Duke Parameters, Barrier Integrity.</p><p class="qt">"We don't chase trends. We formulate active molecules at free-acid pH levels that fundamentally alter cell turnover."</p></div>
@@ -296,10 +313,70 @@
   <div class="pin">
     <h2>One system. Forty pieces.</h2>
     <div class="pieces">
-      <figure class="piece"><img src="assets/products/fab-01-pack.webp" alt="FAB-01 — Colloidal Oatmeal + 5-Ceramide Healing Cream"><figcaption class="pcap"><div class="pcode">FAB-01</div><div class="pname">Colloidal Oatmeal + 5-Ceramide Healing Cream</div></figcaption></figure>
-      <figure class="piece"><img src="assets/products/fab-02.webp" alt="FAB-02 — 10% AHA + Micro-Pumice KP Body Polish"><figcaption class="pcap"><div class="pcode">FAB-02</div><div class="pname">10% AHA + Micro-Pumice KP Body Polish</div></figcaption></figure>
-      <figure class="piece"><img src="assets/products/fab-05.webp" alt="FAB-05 — 5% Niacinamide Eye Corrector"><figcaption class="pcap"><div class="pcode">FAB-05</div><div class="pname">5% Niacinamide Eye Corrector</div></figcaption></figure>
-      <figure class="piece"><img src="assets/products/fab-09.webp" alt="FAB-09 — Quad-Weight HA + Squalane Serum"><figcaption class="pcap"><div class="pcode">FAB-09</div><div class="pname">Quad-Weight HA + Squalane Serum</div></figcaption></figure>
+      <!-- (7) The rail mirrors the Collection card: Prequel's product-item
+           scheme, same skeleton (image block + hover slider, badge, info in
+           type). The Door carries no quick-add layer — its cards link to the
+           piece page, where the tray lives. -->
+      <article class="grid-item product-item product-item--centered product-item--outer-text rail-card">
+        <div class="product-item__image double__image">
+          <a class="product-link" href="product.html?sku=FAB-01" aria-label="FAB-01 — Colloidal Oatmeal + 5-Ceramide Healing Cream">
+            <div class="product-item__bg"><figure class="image-wrapper image-wrapper--cover"><img src="assets/products/fab-01-pack.webp" alt="FAB-01 — Colloidal Oatmeal + 5-Ceramide Healing Cream" loading="eager"></figure></div>
+            <hover-images class="product-item__bg__under"><div class="product-item__bg__slider">
+              <div class="product-item__bg__slide"><figure class="image-wrapper image-wrapper--cover"><img src="assets/products/fab-01-pack.webp" alt="" loading="eager"></figure></div>
+              <div class="product-item__bg__slide"><figure class="image-wrapper image-wrapper--cover"><img src="assets/products/fab-01.webp" alt="FAB-01 — Colloidal Oatmeal + 5-Ceramide Healing Cream (portrait)" loading="eager"></figure></div>
+            </div></hover-images></a>
+          <div class="badge-box-container"><span class="badge-box">FAB-01</span></div>
+        </div>
+        <div class="product-information"><div class="product-item__info">
+          <a class="product-link" href="product.html?sku=FAB-01"><p class="product-item__title">Colloidal Oatmeal + 5-Ceramide Healing Cream</p>
+          <p class="product_custom_text">170g Wide Tub</p></a>
+        </div></div>
+      </article>
+      <article class="grid-item product-item product-item--centered product-item--outer-text rail-card">
+        <div class="product-item__image double__image">
+          <a class="product-link" href="product.html?sku=FAB-02" aria-label="FAB-02 — 10% AHA + Micro-Pumice KP Body Polish">
+            <div class="product-item__bg"><figure class="image-wrapper image-wrapper--cover"><img src="assets/products/fab-02.webp" alt="FAB-02 — 10% AHA + Micro-Pumice KP Body Polish" loading="eager"></figure></div>
+            <hover-images class="product-item__bg__under"><div class="product-item__bg__slider">
+              <div class="product-item__bg__slide"><figure class="image-wrapper image-wrapper--cover"><img src="assets/products/fab-02.webp" alt="" loading="eager"></figure></div>
+              <div class="product-item__bg__slide"><figure class="image-wrapper image-wrapper--cover"><img src="assets/products/fab-02-portrait.webp" alt="FAB-02 — 10% AHA + Micro-Pumice KP Body Polish (portrait)" loading="eager"></figure></div>
+            </div></hover-images></a>
+          <div class="badge-box-container"><span class="badge-box">FAB-02</span></div>
+        </div>
+        <div class="product-information"><div class="product-item__info">
+          <a class="product-link" href="product.html?sku=FAB-02"><p class="product-item__title">10% AHA + Micro-Pumice KP Body Polish</p>
+          <p class="product_custom_text">226g Squeeze Tube</p></a>
+        </div></div>
+      </article>
+      <article class="grid-item product-item product-item--centered product-item--outer-text rail-card">
+        <div class="product-item__image double__image">
+          <a class="product-link" href="product.html?sku=FAB-05" aria-label="FAB-05 — 5% Niacinamide Eye Corrector">
+            <div class="product-item__bg"><figure class="image-wrapper image-wrapper--cover"><img src="assets/products/fab-05.webp" alt="FAB-05 — 5% Niacinamide Eye Corrector" loading="eager"></figure></div>
+            <hover-images class="product-item__bg__under"><div class="product-item__bg__slider">
+              <div class="product-item__bg__slide"><figure class="image-wrapper image-wrapper--cover"><img src="assets/products/fab-05.webp" alt="" loading="eager"></figure></div>
+              <div class="product-item__bg__slide"><figure class="image-wrapper image-wrapper--cover"><img src="assets/products/fab-05-portrait.webp" alt="FAB-05 — 5% Niacinamide Eye Corrector (portrait)" loading="eager"></figure></div>
+            </div></hover-images></a>
+          <div class="badge-box-container"><span class="badge-box">FAB-05</span></div>
+        </div>
+        <div class="product-information"><div class="product-item__info">
+          <a class="product-link" href="product.html?sku=FAB-05"><p class="product-item__title">5% Niacinamide Eye Corrector</p>
+          <p class="product_custom_text">15ml Airless Jar</p></a>
+        </div></div>
+      </article>
+      <article class="grid-item product-item product-item--centered product-item--outer-text rail-card">
+        <div class="product-item__image double__image">
+          <a class="product-link" href="product.html?sku=FAB-09" aria-label="FAB-09 — Quad-Weight HA + Squalane Serum">
+            <div class="product-item__bg"><figure class="image-wrapper image-wrapper--cover"><img src="assets/products/fab-09.webp" alt="FAB-09 — Quad-Weight HA + Squalane Serum" loading="eager"></figure></div>
+            <hover-images class="product-item__bg__under"><div class="product-item__bg__slider">
+              <div class="product-item__bg__slide"><figure class="image-wrapper image-wrapper--cover"><img src="assets/products/fab-09.webp" alt="" loading="eager"></figure></div>
+              <div class="product-item__bg__slide"><figure class="image-wrapper image-wrapper--cover"><img src="assets/products/fab-09-portrait.webp" alt="FAB-09 — Quad-Weight HA + Squalane Serum (portrait)" loading="eager"></figure></div>
+            </div></hover-images></a>
+          <div class="badge-box-container"><span class="badge-box">FAB-09</span></div>
+        </div>
+        <div class="product-information"><div class="product-item__info">
+          <a class="product-link" href="product.html?sku=FAB-09"><p class="product-item__title">Quad-Weight HA + Squalane Serum</p>
+          <p class="product_custom_text">30ml Dropper Bottle</p></a>
+        </div></div>
+      </article>
     </div>
     <a class="dcta" href="catalog.html">The Collection →</a>
   </div>
@@ -318,6 +395,7 @@
 <script src="assets/enrich/P-04-announcement.js"></script>
 <script src="assets/enrich/swiper.min.js"></script>
 <script src="assets/enrich/G03-ctr-usp-bar.js"></script>
+<script src="assets/enrich/cart-shim.js"></script>
 <script src="assets/enrich/door.js"></script>
 <!-- THE END CARD — propagated from the Admission landing (build-admission.md):
      P-37 divider → BL-29 column chassis → F-18 six groups + legal → P-21
@@ -333,7 +411,7 @@
       <div class="footer__group"><h4>The Rooms</h4>
         <a href="index.html">The Door</a><a href="vault.html">Visual Vault</a><a href="unboxing.html">Unboxing</a></div>
       <div class="footer__group"><h4>Admission</h4>
-        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a><a href="vault.html">The 28 archetypes</a></div>
+        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a></div>
       <div class="footer__group"><h4>The Gallery</h4>
         <a href="vault.html">Before &amp; After Vault</a><a href="guide-female.html">Female Guide</a><a href="guide-male.html">Male Guide</a></div>
       <div class="footer__group"><h4>Membership</h4>
