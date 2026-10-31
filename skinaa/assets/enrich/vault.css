@@ -7,8 +7,8 @@
 /* ---------- F-20 header shell + P-28 drawer framework (from Counter) ---- */
 .hdr.enrich{position:sticky;top:0;z-index:80;background:rgba(236,231,234,.96);
   border-bottom:1px solid #634f32;backdrop-filter:blur(12px)}
-header.header{display:flex;align-items:center;justify-content:space-between;gap:18px;
-  max-width:1180px;margin:0 auto;padding:0 28px;height:72px;color:#19080e}
+header.header{display:flex;align-items:center;justify-content:space-between;gap:21px;
+  max-width:1180px;margin:0 auto;padding:0 34px;height:72px;color:#19080e}
 header.header .header__logo img{height:28px;width:auto;display:block}
 header.header .transparent-logo{display:none}
 header.header.is-scrolled .regular-logo{display:none}
@@ -20,7 +20,7 @@ header.header nav.site a:hover{color:#66a0b5}
   border-radius:999px;padding:8px 13px;font-size:12px;font-weight:700;letter-spacing:.08em;
   text-transform:uppercase;color:#19080e;cursor:pointer;text-decoration:none}
 .header__cart-link-count{display:inline-block;min-width:20px;text-align:center;
-  background:#66a0b5;border-radius:999px;padding:1px 6px;margin-left:6px}
+  background:#66a0b5;border-radius:999px;padding:1px 8px;margin-left:8px}
 .header-search-popdown{position:absolute;top:72px;right:28px;z-index:90;background:#ece7ea;
   border:1px solid #634f32;border-radius:16px;padding:16px;width:min(380px,90vw);
   box-shadow:0 24px 48px rgba(25,8,14,.25)}
@@ -35,13 +35,13 @@ header.header nav.site a:hover{color:#66a0b5}
 .drawer.open{transform:none}
 .drawer__inner{display:flex;flex-direction:column;height:100%}
 .drawer__head{display:flex;justify-content:space-between;align-items:center;
-  padding:18px 20px;border-bottom:1px solid #634f32;font-weight:800}
-.drawer__body{flex:1;overflow:auto;padding:16px 20px}
-.drawer__foot{padding:16px 20px;border-top:1px solid #634f32}
+  padding:21px 21px;border-bottom:1px solid #634f32;font-weight:800}
+.drawer__body{flex:1;overflow:auto;padding:13px 21px}
+.drawer__foot{padding:13px 21px;border-top:1px solid #634f32}
 .drawer__close{background:transparent;border:none;font-size:22px;cursor:pointer;color:inherit}
 body.drawer-open{overflow:hidden}
-.cart-items{display:grid;gap:14px}
-.cart-line{display:flex;gap:12px;align-items:center}
+.cart-items{display:grid;gap:13px}
+.cart-line{display:flex;gap:13px;align-items:center}
 .cart-line img{width:56px;height:56px;object-fit:cover;border-radius:10px}
 .cart-line .quantity-input{display:flex;align-items:center;gap:8px;margin-left:auto}
 .quantity-input__button{width:28px;height:28px;border-radius:999px;cursor:pointer;
@@ -51,7 +51,7 @@ body.drawer-open{overflow:hidden}
 /* ---------- G-37 kinetic signals (azure = single-word type only) ---- */
 .toast-stack{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:120;display:grid;gap:8px}
 .toast{background:#19080e;color:#ece7ea;border-radius:999px;
-  padding:10px 18px;font-size:13.5px;box-shadow:0 16px 36px rgba(25,8,14,.3)}
+  padding:8px 21px;font-size:13.5px;box-shadow:0 16px 36px rgba(25,8,14,.3)}
 .toast .toast-word,.kinetic-word{color:#02a1fd;font-weight:800}
 .loading-overlay{position:fixed;inset:0;z-index:119;background:rgba(25,8,14,.5);
   display:none;align-items:center;justify-content:center;font-size:28px;
@@ -59,7 +59,7 @@ body.drawer-open{overflow:hidden}
 .loading-overlay.show{display:flex}
 
 /* ---------- Vault layout: G05 timeline beside the wall ---------------- */
-.vault-layout{display:grid;grid-template-columns:300px 1fr;gap:44px;max-width:1180px;margin:0 auto;padding:0 28px}
+.vault-layout{display:grid;grid-template-columns:300px 1fr;gap:34px;max-width:1180px;margin:0 auto;padding:0 34px}
 @media(max-width:900px){.vault-layout{grid-template-columns:1fr}}
 .vault-layout .timeline-rail{position:relative}
 @media(min-width:901px){.vault-layout .timeline-rail .process-progress-box{position:sticky;top:110px}}
@@ -74,7 +74,7 @@ body.drawer-open{overflow:hidden}
 
 /* G-08 computed archive strip (gundry text-line chassis, no class of its
    own in the donor — inline line inside <above-os-gmd>) */
-.archive-strip{display:flex;gap:34px;flex-wrap:wrap;justify-content:center;padding:22px 28px;border-top:1px solid rgba(102,160,181,.5);border-bottom:1px solid rgba(102,160,181,.5);max-width:1180px;margin:34px auto 0}
+.archive-strip{display:flex;gap:34px;flex-wrap:wrap;justify-content:center;padding:21px 34px;border-top:1px solid rgba(102,160,181,.5);border-bottom:1px solid rgba(102,160,181,.5);max-width:1180px;margin:34px auto 0}
 .archive-strip .stat{text-align:center}
 .archive-strip .stat b{display:block;font-size:30px;color:#ece7ea}
 .archive-strip .stat span{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#66a0b5}
@@ -86,29 +86,29 @@ body.drawer-open{overflow:hidden}
 .swiper-slider-reviews .swiper-slide{flex:0 0 100%}
 .swiper-slider-reviews .review-card{background:#ece7ea;color:#19080e;border-radius:18px;padding:30px 34px}
 .swiper-slider-reviews .swiper-button-prev,.swiper-slider-reviews .swiper-button-next{width:42px;height:42px;border-radius:50%;border:1.5px solid #66a0b5;background:transparent;color:#ece7ea;font-size:19px;cursor:pointer}
-.see-more-reviews-arrow-btn{background:#66a0b5;color:#19080e;border:none;border-radius:99px;padding:9px 20px;font-weight:800;cursor:pointer;font-family:inherit}
-.carousel-nav{display:flex;gap:10px;align-items:center;margin-top:16px}
+.see-more-reviews-arrow-btn{background:#66a0b5;color:#19080e;border:none;border-radius:99px;padding:8px 21px;font-weight:800;cursor:pointer;font-family:inherit}
+.carousel-nav{display:flex;gap:8px;align-items:center;margin-top:13px}
 .carousel-nav .cur{color:#66a0b5;font-weight:800;letter-spacing:.1em}
 
 /* Selected-exemplar presentation shared bits */
-.exemplar-picker{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.exemplar-picker button{border:1.5px solid #66a0b5;background:transparent;color:#ece7ea;border-radius:99px;padding:8px 16px;font-weight:700;cursor:pointer;font-family:inherit}
+.exemplar-picker{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:21px}
+.exemplar-picker button{border:1.5px solid #66a0b5;background:transparent;color:#ece7ea;border-radius:99px;padding:8px 13px;font-weight:700;cursor:pointer;font-family:inherit}
 .exemplar-picker button.on{background:#66a0b5;color:#19080e}
 .image-text-split{background:#ece7ea;border-radius:20px;overflow:hidden}
 .split-records{text-align:left;width:100%}
-.split-records .k{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#634f32;display:block;margin-bottom:3px}
-.split-records p{font-size:14.5px;line-height:1.6;margin-bottom:12px}
+.split-records .k{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#634f32;display:block;margin-bottom:8px}
+.split-records p{font-size:14.5px;line-height:1.6;margin-bottom:13px}
 
-.archive-search input[type="search"]{width:100%;max-width:520px;padding:13px 20px;border-radius:99px;border:1.5px solid #66a0b5;background:transparent;color:#ece7ea;font-family:inherit;font-size:15px}
+.archive-search input[type="search"]{width:100%;max-width:520px;padding:13px 21px;border-radius:99px;border:1.5px solid #66a0b5;background:transparent;color:#ece7ea;font-family:inherit;font-size:15px}
 .archive-search input[type="search"]::placeholder{color:rgba(236,231,234,.6)}
 .plate-rail-item{flex:0 0 auto;text-align:center;color:#ece7ea;font-size:12px;font-weight:700}
-.plate-rail-item img{width:110px;height:110px;object-fit:cover;border-radius:12px;display:block;margin-bottom:6px;cursor:zoom-in}
-.deck-note,.rail-note{color:#66a0b5;font-size:13px;margin-top:10px}
+.plate-rail-item img{width:110px;height:110px;object-fit:cover;border-radius:12px;display:block;margin-bottom:8px;cursor:zoom-in}
+.deck-note,.rail-note{color:#66a0b5;font-size:13px;margin-top:8px}
 @media(max-width:640px){
-  header.header{padding:0 12px;gap:8px}
+  header.header{padding:0 13px;gap:8px}
   header.header .header__logo img{height:22px}
-  .header__icons{gap:5px}
-  .header__icon-touch{padding:6px 8px;font-size:10.5px}
-  .vault-layout{padding:0 16px}
-  .ctr-reviews{padding:24px 20px}
+  .header__icons{gap:8px}
+  .header__icon-touch{padding:8px 8px;font-size:10.5px}
+  .vault-layout{padding:0 13px}
+  .ctr-reviews{padding:21px 21px}
 }
