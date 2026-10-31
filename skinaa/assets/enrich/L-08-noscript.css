@@ -1,0 +1,8 @@
+/* L-08 · Lovi noscript fallback: the shell's styles-without-JS pattern.
+   Without JS, the house still presents a styled, honest threshold:
+   the gate and loader (JS states) are removed, the threshold message
+   is styled, and the arrival stands on its own. Story A values only. */
+.ctr-initial-page-loader{display:none}
+.password-gate{display:none}
+.noscript-door{background:#634f32;color:#ece7ea;text-align:center;padding:34px 24px;font-size:15px;line-height:1.6;border-bottom:2px solid #66a0b5}
+.toast-stack,.loading-overlay,.navbar-drawer{display:none}
