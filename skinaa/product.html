@@ -4,59 +4,365 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="SKINAA product — packaging architecture, formula grid, and protocol placement.">
-<meta name="theme-color" content="#4B4B4D">
+<meta name="theme-color" content="#ccdeec">
 <title>Product — SKINAA by Maanaa</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/skinaa.css">
-<style>
-  .pdp{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
-  @media(max-width:860px){.pdp{grid-template-columns:1fr}}
-  .pdp .views{display:grid;gap:14px}
-  .spec{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
-  .spec div{background:#FBFAF7;border:1px solid var(--cardline);border-radius:16px;padding:16px}
-  .spec .k{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--champ2)}
-  .spec .v{font-weight:700;margin-top:7px;font-size:15px;line-height:1.4}
-  .appears a{color:var(--cardink);font-weight:600}
-  .appears li{margin-top:8px;font-size:15px}
-</style>
 <link rel="stylesheet" href="assets/skinaa-products.css">
+<link rel="stylesheet" href="assets/enrich/collection-extracts.css">
+<link rel="stylesheet" href="assets/enrich/prequel/swatches.css">
+<link rel="stylesheet" href="assets/enrich/gray/swatches.css">
+<link rel="stylesheet" href="assets/enrich/collection.css">
+<link rel="stylesheet" href="assets/enrich/endcards-extracts.css">
+<link rel="stylesheet" href="assets/enrich/endcards.css">
 </head>
-<body>
-<section class="blk" style="padding-top:48px">
+<body class="pdp-page">
+<div class="authbar">🏥 <b>Co-Founded by Board-Certified Dermatologists</b> &nbsp;|&nbsp; Official Esthetic Standard</div>
+<div class="hdr enrich"><header class="header" id="site-header">
+  <span class="header__logo"><a class="header__logo-link" href="index.html" aria-label="SKINAA"><span class="header__logo-wrapper">
+    <span class="image regular-logo"><img src="assets/skinaa-wordmark.png" alt="SKINAA"></span>
+    <span class="image transparent-logo"><img src="assets/skinaa-wordmark.png" alt=""></span>
+  </span></a></span>
+  <nav class="site">
+    <a href="catalog.html">The Collection</a><a href="vault.html">The Vault</a>
+    <a href="index.html#board">The Board</a><a href="guide-female.html">Female Guide</a>
+    <a href="guide-male.html">Male Guide</a><a href="portal.html">Member's Room</a>
+  </nav>
+  <span class="header__icons">
+    <button class="header__icon-touch header__icon-touch--search" type="button" aria-label="Search">Search</button>
+    <a class="header__icon-touch header__icon-touch--account" href="portal.html">Account</a>
+    <button class="header__icon-touch header__icon-touch--cart" type="button" data-cart-open>Cart<span class="header__cart-link-count cart-count">0</span></button>
+  </span>
+  <div class="header-search-popdown search-popdown" hidden>
+    <form class="predictive-search-form" role="search" onsubmit="return false">
+      <input type="search" name="q" placeholder="Search the 40 pieces" aria-label="Search the collection">
+    </form>
+    <div class="predictive-search" aria-live="polite"></div>
+    <span class="search-status" role="status"></span>
+  </div>
+</header></div>
+
+<div class="drawer__underlay underlay"></div>
+<aside class="cart-drawer drawer drawer--animated" aria-hidden="true" aria-label="Cart">
+  <div class="drawer__inner">
+    <div class="drawer__head"><span>The Collection Tray</span><button class="drawer__close" type="button" aria-label="Close cart">×</button></div>
+    <div class="drawer__body"><div class="cart-items"></div></div>
+    <div class="drawer__foot"><span class="cart-total">0 in the tray</span>
+      <p class="note">Free shipping from $118 — the Phase 1 stack entry price.</p></div>
+  </div>
+</aside>
+<div class="toast-stack" aria-live="polite"></div>
+<div class="loading-overlay" aria-hidden="true"><span class="kinetic-word">open</span></div>
+
+<!-- P-35 · breadcrumbs: the path back through the house -->
+<nav class="breadcrumbs product__breadcrumbs" aria-label="Breadcrumb" style="max-width:1180px;margin-left:auto;margin-right:auto;padding:0 28px">
+  <a href="index.html">The Door</a> › <a href="catalog.html">The Collection</a> › <span id="crumb-piece">Piece</span>
+</nav>
+
+<section class="blk" style="padding-top:12px">
   <div id="pdp"></div>
+  <div id="pdp-lower"></div>
 </section>
 
+<!-- BL-31 · sticky add bar (Bloom compiled CSS family; markup authored
+     against that CSS in Phase B — TRANSPLANT-PARTIAL per the map) -->
+<div class="sticky-add-to-cart" id="sticky-add">
+  <span class="sticky-add-to-cart__label" id="sticky-label"></span>
+  <button type="button" id="sticky-add-btn">Add to tray</button>
+</div>
+
+<!-- S-06-family zoom chassis, here P-10's PhotoSwipe surface -->
+<div class="pswp" role="dialog" aria-label="Image zoom"><button type="button" id="pswp-close" aria-label="Close zoom">×</button><img id="pswp-img" alt=""></div>
+
+
 <script src="assets/skinaa-data.js"></script>
+<script src="assets/enrich/cart-shim.js"></script>
+<script src="assets/enrich/prequel/photoswipe.js"></script>
 <script>
+const CHIPS = {"FAB-01":"#80181e","FAB-02":"#2e4653","FAB-03":"#a9736e","FAB-04":"#988aad","FAB-05":"#8099b6","FAB-06":"#778ca4","FAB-07":"#16423b","FAB-08":"#a39b8f","FAB-09":"#b0c3ce","FAB-10":"#947a59","FAB-11":"#aa744c","FAB-12":"#bcb9b6","FAB-13":"#c7b8b4","FAB-14":"#242328","TOP-12":"#502509","TOP-15":"#282b30","TOP-16":"#413f3b","TOP-17":"#9d571d","TOP-18":"#758792","TOP-19":"#cacaca","TOP-20":"#6a1f25","TOP-21":"#546c74","MALE-01":"#2f2f2f","MALE-02":"#2f2d2b","MALE-03":"#b7a27b","MALE-04":"#4e260d","MALE-05":"#3b3732","MALE-06":"#bf7231","MALE-07":"#492c1f","MALE-08":"#2a2a2a","MALE-09":"#874711","MALE-10":"#68645e","MALE-11":"#1c1c1c","MALE-12":"#633515","MALE-13":"#c0c0bf","MALE-14":"#202020","HW-02":"#dadada","HW-06":"#bf282b","DIG-01":"#c1996c","DIG-02":"#b1b2b1"};
+window.color_manager = { tokenFor: function (code) { return { name: code, hex: CHIPS[code] || "#b4c5b4" }; }, tokens: CHIPS };
 const code = (new URLSearchParams(location.search).get("sku") || "FAB-01").toUpperCase();
 const s = skuByCode(code);
 const root = document.getElementById("pdp");
+const lower = document.getElementById("pdp-lower");
+const LINES = { FAB: "FAB — Barrier & Prettymaxing", TOP: "TOP — Clinical Actives", MALE: "MALE — Tactical Optimization", HW: "Hardware", DIG: "Digital" };
 if (!s) {
   root.innerHTML = '<div class="card"><div class="pad"><h2 style="font-size:26px;font-weight:800">SKU not in the catalog</h2><p class="sku-meta">The 40-SKU catalog lives <a href="catalog.html">here</a>.</p></div></div>';
 } else {
   document.title = s.code + " — " + s.name + " — SKINAA";
-  const views = s.pic
-    ? '<img class="prod-img" style="border-radius:20px" src="' + s.pic.portrait + '" alt="' + s.code + ' portrait">'
-      + '<img class="prod-img" style="border-radius:20px" src="' + s.pic.pack + '" alt="' + s.code + ' packshot">'
-    : '<div class="prod-noimg" style="border-radius:20px"><span class="code">' + s.code + '</span><span class="rule"></span><span>Product picture pending — this SKU is prescribed by specification.<br>Its packaging architecture is below.</span></div>';
+  document.getElementById("crumb-piece").textContent = s.code;
+  if (window.RecentlyViewed) RecentlyViewed.addProduct(s.code); /* S-18 */
+  const chip = color_manager.tokenFor(s.code).hex;
+  const phMatch = (s.detail + " " + s.name).match(/pH\s*(\d+(?:\.\d+)?)/);
+  const ph = phMatch ? parseFloat(phMatch[1]) : null;
   const apps = skuAppearances(s.code);
-  root.innerHTML = '<div class="pdp">'
-    + '<div class="views">' + views + '</div>'
-    + '<div class="card"><div class="pad">'
-    +   '<span class="tag">' + s.code + '</span> <span class="tag">' + ({FAB:"FAB — Barrier & Prettymaxing",TOP:"TOP — Clinical Actives",MALE:"MALE — Tactical Optimization",HW:"Hardware",DIG:"Digital"})[s.line] + '</span>'
-    +   '<h1 style="font-size:clamp(28px,3.4vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.12;margin-top:14px">' + s.name + '</h1>'
-    +   '<p style="font-size:16.5px;line-height:1.65;margin-top:16px">' + s.detail + '</p>'
-    +   '<p class="sku-meta" style="margin-top:12px"><b style="color:var(--cardink)">Built for:</b> ' + s.concerns + '</p>'
-    +   '<div class="spec">'
-    +     '<div><div class="k">Component</div><div class="v">' + s.component + '</div></div>'
-    +     '<div><div class="k">Material &amp; Finish</div><div class="v">' + s.material + '</div></div>'
-    +     '<div><div class="k">Visual Anchor</div><div class="v">' + s.anchor + '</div></div>'
-    +   '</div>'
-    +   (apps.length ? '<h3 style="margin-top:26px;font-size:16px;font-weight:800">Prescribed in</h3><ul class="appears" style="list-style:none">' + apps.map(a => '<li>\u2192 ' + a + '</li>').join("") + '</ul>' : '')
-    +   '<p class="note" style="margin-top:22px">SKINAA is prescribed, not browsed into a cart: your stack is built by the 28-step intake and claimed as one Phase 1 box ($118\u2013$148), then refilled by Ascension Plus.</p>'
-    +   '<div class="pdp-cta"><a class="pill dark" href="assessment.html">Start Your Virtual Clinical Intake (28 Steps)</a><a class="pill" style="box-shadow:none;border:1.5px solid var(--cardline)" href="stacks.html">See the stacks</a></div>'
-    + '</div></div></div>';
+  const bundles = BUNDLES.filter(b => b.items.includes(s.code));
+  const ingredients = s.detail.split(/[,+—]/).map(x => x.trim()).filter(x => x.length > 3 && x.length < 60).slice(0, 6);
+
+  /* BL-13 main-pdp shell + P-33 blocks + P-23 product-info orchestrator */
+  root.innerHTML =
+  '<div class="main-pdp"><div class="pdp" style="display:contents">'
+  /* P-10 gallery */
+  + '<product-images class="product__gallery"><div class="product__slides">'
+  +   '<div class="product__slide active"><img class="prod-img" src="' + s.pic.portrait + '" alt="' + s.code + ' portrait"></div>'
+  +   '<div class="product__slide"><img class="prod-img" src="' + s.pic.pack + '" alt="' + s.code + ' packshot"></div>'
+  + '</div><div class="product__thumbs">'
+  +   '<button type="button" class="product__thumb active" data-slide="0"><img src="' + s.pic.portrait + '" alt="Portrait view"></button>'
+  +   '<button type="button" class="product__thumb" data-slide="1"><img src="' + s.pic.pack + '" alt="Packshot view"></button>'
+  + '</div>'
+  + '<div class="pdp-caption"><div class="spec-chip spec-chip--caption" style="--chip:' + chip + '"><span class="spec-chip__face"></span><span class="spec-chip__band">' + s.code + '</span></div><p class="cap-name">' + s.name + '</p></div>'
+  + '</product-images>'
+  /* buy box */
+  + '<product-info id="ProductInfo"><product-model></product-model><div class="card"><div class="pad">'
+  /* F-17 badge stack */
+  +   '<div class="product-badges" data-badge-shape="square" data-badge-position="top-left">'
+  +     '<span class="product-badge" data-type="custom" data-handle="' + s.code.toLowerCase() + '"><span class="product-badge__inner"><span class="badge-shape"></span>' + s.code + '</span></span>'
+  +     '<span class="product-badge" data-type="custom" data-handle="' + s.line.toLowerCase() + '"><span class="product-badge__inner"><span class="badge-shape"></span>' + LINES[s.line] + '</span></span>'
+  +     '<span class="product-badge" data-type="custom" data-handle="anchor"><span class="product-badge__inner"><span class="badge-shape"></span>' + s.anchor + '</span></span>'
+  +   '</div>'
+  +   '<span class="tag">' + s.code + '</span> <span class="house-seal"><span class="house-seal__face">SKINAA</span><span class="house-seal__band"></span></span> <span class="tag">' + LINES[s.line] + '</span>'
+  +   '<h1 style="font-size:clamp(28px,3.4vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.12;margin-top:14px">' + s.name + '</h1>'
+  +   '<div class="product__block product__block--description"><p style="font-size:16.5px;line-height:1.65;margin-top:16px">' + s.detail + '</p>'
+  +   '<p class="sku-meta" style="margin-top:12px"><b style="color:var(--cardink)">Built for:</b> ' + s.concerns + '</p></div>'
+  +   '<div class="product__block product__block--lines spec">'
+  +     '<div><div class="k">Component</div><div class="v">' + s.component + '</div></div>'
+  +     '<div><div class="k">Material &amp; Finish</div><div class="v">' + s.material + '</div></div>'
+  +     '<div><div class="k">Visual Anchor</div><div class="v">' + s.anchor + '</div></div>'
+  +   '</div>'
+  /* P-32 variant picker: the piece's prescribed contexts (document data) */
+  +   '<variant-selects class="product__selectors"><fieldset class="radio__fieldset selector-wrapper"><legend>Prescribed in</legend>'
+  +     apps.map((a, i) => { const b = bundles.find(x => a === x.name);
+        return '<label style="display:block;padding:5px 0"><input class="variant-input" type="radio" name="context" value="' + a + '"' + (i === 0 ? " checked" : "") + '> ' + a
+        + (b ? ' — <span class="option-price">$' + b.upfront + ' Phase 1</span>' : '') + '</label>'; }).join("")
+  +   '</fieldset></variant-selects>'
+  /* BL-15 flavour/variant selector: the piece's two photographs, icon-bearing */
+  +   '<div class="product__block"><div class="k" style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase">View</div>'
+  +   '<div class="flavour-selector" data-alpine-state="portrait" role="radiogroup">'
+  +     '<button type="button" role="radio" aria-checked="true" data-flavour="portrait"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="2"/></svg> Portrait</button>'
+  +     '<button type="button" role="radio" aria-checked="false" data-flavour="pack"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8l8-4 8 4v8l-8 4-8-4z"/></svg> Packshot</button>'
+  +   '</div></div>'
+  /* G23 named-token swatches, driven by G32's colour manager */
+  +   '<div class="product__block"><div class="k" style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase">Specimen token</div>'
+  +   '<div class="swatches">'
+  +     SKUS.filter(x => x.line === s.line).slice(0, 6).map(x => '<button type="button" class="swatch__button swatch--' + x.code.toLowerCase() + '" data-token="' + x.code + '" aria-checked="' + (x.code === s.code) + '"><span class="swatch" style="display:inline-block;width:12px;height:12px;border-radius:99px;background:' + color_manager.tokenFor(x.code).hex + ';vertical-align:-1px"></span> ' + color_manager.tokenFor(x.code).name + '</button>').join("")
+  +   '</div></div>'
+  /* S-10 morphing variant picker — the Counter's piece-add context */
+  +   '<div class="morphing-picker product__block"><fieldset><legend>Pieces for the Counter tray</legend>'
+  +     [1, 2, 3].map(n => '<label style="margin-right:14px"><input type="radio" name="counter-qty" value="' + n + '"' + (n === 1 ? " checked" : "") + '> ' + n + (n === 1 ? " piece" : " pieces") + '</label>').join("")
+  +   '</fieldset></div>'
+  /* price + form */
+  +   '<div class="product__block product__block--buttons"><p class="product__price" id="pdp-price">'
+  +     (typeof s.price === "number" ? "$" + s.price : "Prescribed as one Phase 1 box ($118–$148) — see its stacks below.") + '</p>'
+  +   '<form class="product__form__holder" id="pdp-form" onsubmit="return false">'
+  +     '<label>Quantity <input type="number" data-quantity-input min="1" value="1" style="width:64px;padding:8px;border-radius:8px;border:1px solid var(--cardline)"></label>'
+  +     '<div class="pdp-cta"><button class="pill dark" type="submit" id="pdp-add">Add to the tray</button>'
+  +     '<button class="pill" type="button" data-standard-add="' + s.code + '" style="box-shadow:none;border:1.5px solid var(--cardline)">Add via standard action</button>'
+  +     '<a class="pill" style="box-shadow:none;border:1.5px solid var(--cardline)" href="assessment.html">Start Your Virtual Clinical Intake (28 Steps)</a>'
+  +     '<a class="pill" style="box-shadow:none;border:1.5px solid var(--cardline)" href="stacks.html">See the stacks</a></div>'
+  +   '</form>'
+  /* P-33 sold-out notification structure, living inside product-info (P-23) */
+  +   '<details class="product__notification"><summary>If this piece is held, leave word</summary>'
+  +     '<form class="notification-form" onsubmit="return false"><input type="email" required placeholder="Correspondence address" aria-label="Correspondence address"><button class="qa-btn" type="submit" style="margin-top:8px"><span class="btn__label">Leave word</span></button><p class="note notification-done" hidden>Word left. The house will write when the piece is dispensed.</p></form></details>'
+  +   '</div>'
+  +   '<p class="note" style="margin-top:22px">SKINAA is prescribed, not browsed into a cart: your stack is built by the 28-step intake and claimed as one Phase 1 box ($118–$148), then refilled by Ascension Plus.</p>'
+  +   '</div></div></product-info></div></div>'
+  /* G29 ctr-product lower composition */
+  + '<div class="ctr-product"><div class="ctr-product__inner">'
+  /* P-11 facts folds */
+  +   '<collapsible-elements><div class="accordion product-accordion" style="margin-top:26px">'
+  +     '<div class="accordion__item"><button type="button" class="accordion__title">Benefits <span>+</span></button><div class="accordion__content"><div class="accordion__body">' + s.concerns + '</div></div></div>'
+  +     '<div class="accordion__item"><button type="button" class="accordion__title">Details <span>+</span></button><div class="accordion__content"><div class="accordion__body">' + s.detail + '</div></div></div>'
+  +     '<div class="accordion__item"><button type="button" class="accordion__title">Component &amp; finish <span>+</span></button><div class="accordion__content"><div class="accordion__body">' + s.component + ' — ' + s.material + '. Visual anchor: ' + s.anchor + '.</div></div></div>'
+  +     (apps.length ? '<div class="accordion__item"><button type="button" class="accordion__title">Prescribed in <span>+</span></button><div class="accordion__content"><div class="accordion__body"><ul style="list-style:none">' + apps.map(a => '<li>→ ' + a + '</li>').join("") + '</ul></div></div></div>' : '')
+  +   '</div></collapsible-elements>'
+  /* G04 evidence folds */
+  +   '<div class="sc_scientifically accordion" style="margin-top:22px"><h3 style="font-size:18px;font-weight:800">The evidence fold</h3>'
+  +     '<div class="accordion__item"><button type="button" class="accordion__title">Formula evidence <span>+</span></button><div class="accordion__content"><div class="accordion__body">' + s.detail + '</div></div></div>'
+  +     '<div class="accordion__item"><button type="button" class="accordion__title">Documented target <span>+</span></button><div class="accordion__content"><div class="accordion__body">' + s.concerns + '</div></div></div>'
+  +   '</div>'
+  /* BL-14 question folds — document per-piece Q&A is a NAMED SLOT */
+  +   '<div class="pdp-faq" style="margin-top:22px"><h3 style="font-size:18px;font-weight:800">The piece\'s questions</h3>'
+  +     '<details class="pdp-faq__item accordion-custom"><summary>Per-piece questions for ' + s.code + '</summary><p class="note" style="padding-top:8px">NAMED SLOT — per-piece Q&amp;A: master-document pull (Phase B). No question or answer is invented for this piece.</p></details>'
+  +   '</div>'
+  /* G37 FAQ section system */
+  +   '<section class="faqs_sec" style="--faq-bg-color:#ece7ea;--faq-text-color:#19080e;margin-top:22px"><div class="faq-sec-new">'
+  +     '<details class="faqs_sec__item"><summary>House questions</summary><p class="note" style="padding-top:8px">NAMED SLOT — house FAQ: master-document pull (Phase B).</p></details>'
+  +   '</div></section>'
+  /* P-12 pH scale — documented values only */
+  +   (ph !== null ? '<div class="product__ph-level-graphic"><h3 style="font-size:18px;font-weight:800">pH — documented at ' + ph + '</h3><div class="product__ph-level-graphic__grid">'
+      + Array.from({ length: 14 }, (_, i) => '<span class="product__ph-level-graphic__grid-item' + (i === Math.round(ph) ? " marked" : "") + '"><span class="product__ph-level-graphic__grid-item-color-block"></span></span>').join("")
+      + '</div><p class="note">One mark on a 14-block specimen scale — the value the document itself carries for this piece.</p></div>' : '')
+  /* G12 ingredient specimens */
+  +   (ingredients.length ? '<h3 style="font-size:18px;font-weight:800;margin-top:26px">Formula specimens</h3><div class="ingredients-block-new">'
+      + ingredients.map((ing, i) => '<button type="button" class="ingredient-tile" data-ing="' + i + '"><b>' + ing + '</b><br><span class="note">Open the specimen</span></button>').join("") + '</div>' : '')
+  /* G-12 guarantee seal + sign-off */
+  +   '<div class="guarantee-seal"><h3 style="font-size:18px;font-weight:800">The “Rx-to-Vanity” Formula Guarantee</h3>'
+  +     '<p style="line-height:1.6;margin-top:8px">Every serum, cleanser, and barrier glaze is developed under direct dermatological oversight. We strictly adhere to Duke Parameter guidelines for L-Ascorbic Acid stabilization, free-acid glycolic values, and 2:4:2 lipid ratios—delivering prescription-tier results directly to your vanity.</p>'
+  +     '<p class="signature" style="margin-top:10px">— SKINAA by Maanaa</p></div>'
+  + '</div></div>'
+  /* G-25 second gallery: Gundry product-slider instance */
+  + '<section class="product-slider pdp-slider" style="margin-top:30px"><h3 style="font-size:18px;font-weight:800">The piece, again</h3>'
+  +   '<div class="slides" id="pdp-slider-track"><img src="' + s.pic.pack + '" alt="' + s.code + ' packshot"><img src="' + s.pic.portrait + '" alt="' + s.code + ' portrait"></div>'
+  +   '<div style="display:flex;gap:8px;margin-top:10px"><button type="button" class="product-slider__chev" data-chev="-1"><span class="mat-icon">chevron_left</span></button><button type="button" class="product-slider__chev" data-chev="1"><span class="mat-icon">chevron_right</span></button></div></section>'
+  /* G15 marquee: the piece's own name + documented measure */
+  + '<div class="marquee-section"><span class="marquee-track">' + (s.code + " — " + s.name + " · " + s.component + " · ").repeat(4) + '</span></div>';
+
+  /* G36 related pieces at the foot */
+  const rel = SKUS.filter(x => x.line === s.line && x.code !== s.code).slice(0, 4);
+  lower.innerHTML = '<section class="related_new"><h2 style="font-size:22px;font-weight:800">Related pieces</h2><div class="pgrid">'
+    + rel.map(x => '<article class="product-item"><div class="product-item__image"><a href="product.html?sku=' + x.code + '"><img src="' + x.pic.pack + '" alt="' + x.code + ' — ' + x.name + '" style="width:100%;aspect-ratio:4/5;object-fit:cover"></a><div class="badge-box-container"><span class="badge-box">' + x.code + '</span></div></div><div class="product-item__info"><a class="product-item__title-link" href="product.html?sku=' + x.code + '"><p class="product-item__title" style="min-height:0">' + x.name + '</p></a></div></article>').join("")
+    + '</div></section>'
+    + '<dialog class="specimen-modal" id="specimen-modal"><button class="drawer__close" type="button" data-close-specimen aria-label="Close">×</button><h3 id="specimen-title" style="font-size:19px;font-weight:800"></h3><p id="specimen-body" style="line-height:1.6;margin-top:8px"></p></dialog>';
+
+  window.ProductModel = { sku: s.code, variants: apps };
+  /* gallery: thumbs + drag + zoom */
+  const slides = root.querySelectorAll(".product__slide"), thumbs = root.querySelectorAll(".product__thumb");
+  let cur = 0;
+  function go(n) { cur = (n + slides.length) % slides.length;
+    slides.forEach((sl, i) => sl.style.display = i === cur ? "" : "none");
+    thumbs.forEach((t, i) => t.classList.toggle("active", i === cur)); }
+  thumbs.forEach(t => t.addEventListener("click", () => go(+t.dataset.slide)));
+  go(0);
+  let dragX = null;
+  const slideHost = root.querySelector(".product__slides");
+  slideHost.addEventListener("pointerdown", e => dragX = e.clientX);
+  slideHost.addEventListener("pointerup", e => { if (dragX !== null && Math.abs(e.clientX - dragX) > 40) go(cur + (e.clientX < dragX ? 1 : -1)); dragX = null; });
+  const pswp = document.querySelector(".pswp"), pswpImg = document.getElementById("pswp-img");
+  slides.forEach(sl => sl.addEventListener("click", () => {
+    pswpImg.src = sl.querySelector("img").src; pswp.classList.add("open");
+    if (window.PhotoSwipe) { /* fetched photoswipe.js is present for the full library path */ }
+  }));
+  document.getElementById("pswp-close").addEventListener("click", () => pswp.classList.remove("open"));
+  /* flavour selector swaps gallery + price line follows the context price */
+  root.querySelectorAll("[data-flavour]").forEach(b => b.addEventListener("click", () => {
+    root.querySelectorAll("[data-flavour]").forEach(x => x.setAttribute("aria-checked", x === b ? "true" : "false"));
+    b.closest(".flavour-selector").dataset.alpineState = b.dataset.flavour;
+    go(b.dataset.flavour === "portrait" ? 0 : 1);
+  }));
+  /* P-32 publishes optionValueSelectionChange; P-23 listens and re-prices */
+  root.querySelectorAll("[name=context]").forEach(r => r.addEventListener("change", () => {
+    document.dispatchEvent(new CustomEvent("optionValueSelectionChange", { detail: { value: r.value } }));
+  }));
+  document.addEventListener("optionValueSelectionChange", e => {
+    const b = bundles.find(x => x.name === e.detail.value);
+    const priceEl = document.getElementById("pdp-price");
+    if (priceEl) priceEl.textContent = b ? e.detail.value + " — $" + b.upfront + " Phase 1 · $" + b.weekly + "/week refill"
+                                         : e.detail.value + " — prescribed context (no stack price in the document for this entry)";
+  });
+  /* G23 token swatch swaps the piece */
+  root.querySelectorAll("[data-token]").forEach(b => b.addEventListener("click", () => { location.href = "product.html?sku=" + b.dataset.token; }));
+  /* S-10 morphing fieldsets */
+  root.querySelectorAll("[name=counter-qty]").forEach(r => r.addEventListener("change", () => {
+    const fs = r.closest("fieldset"); fs.classList.add("morphed");
+    document.querySelector("[data-quantity-input]").value = r.value;
+  }));
+  /* folds: one panel's height animates (P-11/G04 contract) */
+  root.querySelectorAll(".accordion__title").forEach(t => t.addEventListener("click", () => {
+    const c = t.nextElementSibling, open = c.style.maxHeight && c.style.maxHeight !== "0px";
+    const host = t.closest(".accordion");
+    if (host) host.querySelectorAll(".accordion__content").forEach(x => x.style.maxHeight = "0px");
+    c.style.maxHeight = open ? "0px" : c.scrollHeight + "px";
+  }));
+  /* ingredient specimen modal (G12) */
+  const modal = document.getElementById("specimen-modal");
+  root.querySelectorAll("[data-ing]").forEach(b => b.addEventListener("click", () => {
+    document.getElementById("specimen-title").textContent = ingredients[+b.dataset.ing];
+    document.getElementById("specimen-body").textContent = s.detail;
+    modal.showModal();
+  }));
+  modal.querySelector("[data-close-specimen]").addEventListener("click", () => modal.close());
+  /* G-25 chevrons */
+  let sliderIx = 0; const trackImgs = document.querySelectorAll("#pdp-slider-track img");
+  document.querySelectorAll("[data-chev]").forEach(b => b.addEventListener("click", () => {
+    sliderIx = (sliderIx + (+b.dataset.chev) + trackImgs.length) % trackImgs.length;
+    document.getElementById("pdp-slider-track").scrollTo({ left: sliderIx * 232, behavior: "smooth" });
+  }));
+  /* add via shim; S-24's bridge button is handled inside cart-shim.js */
+  function doAdd() {
+    const qty = Math.max(1, +document.querySelector("[data-quantity-input]").value || 1);
+    SKINAA_CART.add(s.code, qty);
+    const img = root.querySelector(".product__slide img");
+    if (img && window.SKINAAFly) SKINAAFly(img);
+    SKINAAOpenCart();
+  }
+  document.getElementById("pdp-form").addEventListener("submit", doAdd);
+  document.getElementById("sticky-add").querySelector("#sticky-add-btn").addEventListener("click", doAdd);
+  document.getElementById("sticky-label").textContent = s.code + " — " + s.name;
+  document.querySelector(".notification-form").addEventListener("submit", e => {
+    e.preventDefault(); e.target.querySelector(".notification-done").hidden = false;
+  });
+  addEventListener("scroll", () => {
+    document.getElementById("sticky-add").classList.toggle("show", scrollY > 620);
+  }, { passive: true });
 }
 </script>
-<script src="assets/skinaa-chrome.js"></script>
+<script src="assets/enrich/collection.js"></script>
+<!-- THE END CARD — propagated from the Admission landing (build-admission.md):
+     P-37 divider → BL-29 column chassis → F-18 six groups + legal → P-21
+     supporting-menu strip → G24 wordmark lockup → P-20 single correspondence
+     line → BL-01 quiet line. BL-24 currency modal inside the register;
+     S-13 overflow behaviour on the strip at mobile widths. -->
+<div class="divider"><div class="divider-holder"></div></div>
+<footer class="site end-card footer footer--fab" id="end-card">
+  <section-footer-component class="footer__container">
+    <div class="footer__container__inner footer__fab-top">
+      <div class="footer__group"><h4>The Collection</h4>
+        <a href="catalog.html">All 40 pieces</a><a href="product.html">The piece page</a><a href="stacks.html">Attack Stacks</a></div>
+      <div class="footer__group"><h4>The Rooms</h4>
+        <a href="index.html">The Door</a><a href="vault.html">Visual Vault</a><a href="unboxing.html">Unboxing</a></div>
+      <div class="footer__group"><h4>Admission</h4>
+        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a><a href="vault.html">The 28 archetypes</a></div>
+      <div class="footer__group"><h4>The Gallery</h4>
+        <a href="vault.html">Before &amp; After Vault</a><a href="guide-female.html">Female Guide</a><a href="guide-male.html">Male Guide</a></div>
+      <div class="footer__group"><h4>Membership</h4>
+        <a href="portal.html">Ascension Plus Portal</a><a href="portal.html">Manage the drip</a><a href="assessment.html?mode=day15">The iteration gate</a></div>
+      <div class="footer__group"><h4>House Service</h4>
+        <a href="help.html">Help</a><a href="authenticity.html">Authenticity</a><a href="wholesale.html">Wholesale</a><a href="contact.html">Contact</a><a href="policies.html">Policies</a></div>
+    </div>
+    <div class="footer__fab-legal"><span>SKINAA by Maanaa — Clinical Dermatology Meets Facial Architecture.</span><span class="footer-stamp">Official Esthetic Standard</span></div>
+    <overflow-list class="supporting-overflow" minimum-items="3">
+      <div class="supporting-menu">
+        <a href="index.html">The Door</a><a href="catalog.html">The Collection</a><a href="assessment.html">Admission</a><a href="stacks.html" data-overflow-extra>Prescription Counter</a><a href="vault.html" data-overflow-extra>Members' Gallery</a><a href="portal.html" data-overflow-extra>Member's Room</a><a href="unboxing.html" data-overflow-extra>Unboxing</a>
+        <button type="button" class="currency-open">Currency / locale</button>
+        <span class="payment-icon" title="Named slot">Payment marks — NAMED SLOT</span>
+        <button type="button" class="supporting-more" aria-expanded="false">More rooms</button>
+      </div>
+    </overflow-list>
+    <div class="footer__brand-strip"><img class="footer-wordmark" src="assets/skinaa-wordmark.png" alt="SKINAA"></div>
+    <div class="newsletter-component">
+      <form class="newsletter-form" data-newsletter-form>
+        <span class="correspondence-line">The weekly drip, in one quiet line — your Dual Rx note, every seven days.</span>
+        <span class="input-group"><input type="email" name="email" required placeholder="Your email" aria-label="Your email"><button type="submit">Correspond</button></span>
+      </form>
+    </div>
+    <div class="announcement-bar"><div class="announcement-bar__container"><div class="announcement-bar__slides"><div class="announcement-bar__slide">Cycles run 30 days, anchored on the 28th. Days 1–14: the full Attack Stack. Day 15: the iteration gate.</div></div></div></div>
+  </section-footer-component>
+  <modal-currency-root>
+    <div class="currency-modal" role="dialog" aria-modal="true" aria-label="Currency and locale">
+      <div class="currency-modal__card">
+        <span class="currency-modal__close-btn" aria-label="Close">×</span>
+        <div class="front-modal">
+          <h3>Currency &amp; locale</h3>
+          <p>The house's localization choice, kept on this device. Prices stay as the house sets them — no rate is invented here.</p>
+          <form id="modal--localization" modal-side="front">
+            <select name="country_code" aria-label="Country"><option value="US">United States</option></select>
+            <select name="locale_code" aria-label="Language"><option value="en">English</option></select>
+            <select name="currency" aria-label="Currency"><option value="USD">USD</option></select>
+            <button type="submit" class="modal-apply">Apply</button>
+          </form>
+        </div>
+        <div class="back-modal">
+          <h3>Kept</h3>
+          <p class="localization-status" role="status"></p>
+          <form id="modal--localization" modal-side="back">
+            <button type="submit" class="modal-apply">Confirm</button>
+          </form>
+          <span class="close_modal">Close</span>
+        </div>
+      </div>
+    </div>
+  </modal-currency-root>
+</footer>
+<script src="assets/enrich/endcards.js"></script>
 </body>
 </html>

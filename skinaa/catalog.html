@@ -4,72 +4,642 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="The SKINAA catalog — all 40 SKUs of the collectible clinical system: FAB, TOP, MALE, hardware and digital.">
-<meta name="theme-color" content="#4B4B4D">
+<meta name="theme-color" content="#ccdeec">
 <title>The Catalog — SKINAA by Maanaa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Karla:wght@500;600;700&display=swap">
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/skinaa.css">
 <link rel="stylesheet" href="assets/skinaa-products.css">
+<link rel="stylesheet" href="assets/enrich/collection-extracts.css">
+<link rel="stylesheet" href="assets/enrich/prequel/swatches.css">
+<link rel="stylesheet" href="assets/enrich/collection.css">
+<link rel="stylesheet" href="assets/enrich/endcards-extracts.css">
+<link rel="stylesheet" href="assets/enrich/endcards.css">
 </head>
-<body>
+<body class="cat">
+<div class="authbar">🏥 <b>Co-Founded by Board-Certified Dermatologists</b> &nbsp;|&nbsp; Official Esthetic Standard</div>
+
+<!-- F-20 · FAB header shell (chrome rollout, copied from the Door's landed
+     build): dual regular/transparent logo mechanism, house wordmark in both
+     slots. P-06 predictive search mounts inside it; P-13's count lives here. -->
+<div class="hdr enrich"><header class="header" id="site-header">
+  <span class="header__logo"><a class="header__logo-link" href="index.html" aria-label="SKINAA"><span class="header__logo-wrapper">
+    <span class="image regular-logo"><img src="assets/skinaa-wordmark.png" alt="SKINAA"></span>
+    <span class="image transparent-logo"><img src="assets/skinaa-wordmark.png" alt=""></span>
+  </span></a></span>
+  <nav class="site">
+    <span class="navitem--dropdown"><a href="catalog.html" class="navlink--toplevel">The Collection</a>
+      <span class="header__dropdown"><span class="header__dropdown__wrapper">
+        <span class="header__dropdown__image"><img src="assets/tex/palewing-c.jpg" alt="The pale wing"></span>
+        <span class="header__grandparent__links">
+          <a class="navlink" href="catalog.html">The Collection</a>
+          <a class="navlink" href="vault.html">The Vault</a>
+          <a class="navlink" href="index.html#board">The Board</a>
+          <a class="navlink" href="guide-female.html">Female Guide</a>
+          <a class="navlink" href="guide-male.html">Male Guide</a>
+          <a class="navlink" href="stacks.html">Attack Stacks</a>
+          <a class="navlink" href="unboxing.html">Unboxing</a>
+        </span>
+      </span></span>
+    </span>
+    <a href="vault.html">The Vault</a>
+    <a href="index.html#board">The Board</a>
+    <a href="guide-female.html">Female Guide</a>
+    <a href="guide-male.html">Male Guide</a>
+    <a href="portal.html">Member's Room</a>
+  </nav>
+  <span class="header__icons">
+    <!-- G-35 pattern · the search trigger that opens P-06 -->
+    <button class="header__icon-touch header__icon-touch--search" type="button" aria-label="Search">Search</button>
+    <a class="header__icon-touch header__icon-touch--account" href="portal.html">Account</a>
+    <button class="header__icon-touch header__icon-touch--cart" type="button" data-cart-open>Cart<span class="header__cart-link-count cart-count">0</span></button>
+  </span>
+  <!-- P-06 · Prequel predictive search popdown, answered by the cart-routes
+       shim in the captured section-fragment shape -->
+  <div class="header-search-popdown search-popdown" hidden>
+    <form class="predictive-search-form" role="search" onsubmit="return false">
+      <input type="search" name="q" placeholder="Search the 40 pieces" aria-label="Search the collection">
+    </form>
+    <div class="predictive-search" aria-live="polite"></div>
+    <span class="search-status" role="status"></span>
+  </div>
+</header></div>
+
+<!-- P-28 · drawer framework + P-13 · Prequel cart drawer (site-wide cart;
+     the discount-code field CUT on transplant, per its row) -->
+<div class="drawer__underlay underlay"></div>
+<aside class="cart-drawer drawer drawer--animated" aria-hidden="true" aria-label="Cart">
+  <div class="drawer__inner">
+    <div class="drawer__head"><span>The Collection Tray</span><button class="drawer__close" type="button" aria-label="Close cart">×</button></div>
+    <div class="drawer__body"><div class="cart-items"></div></div>
+    <div class="drawer__foot"><span class="cart-total">0 in the tray</span>
+      <p class="note">Free shipping from $118 — the Phase 1 stack entry price.</p></div>
+  </div>
+</aside>
+
+<!-- G-37 · kinetic signals -->
+<div class="toast-stack" aria-live="polite"></div>
+<div class="loading-overlay" aria-hidden="true"><span class="kinetic-word">open</span></div>
+
 <section class="pagehead">
   <div class="kicker">The Catalog</div>
   <h1>One system. Forty pieces.</h1>
   <p>Every SKU is engineered as part of a modular, cohesive system — standardized dimensions, an Rx-style typographic grid, percentage-first labels. An incomplete set looks visually fractured; a full set forms one clean, geometric block.</p>
 </section>
 
-<div class="filters" id="filters">
-  <button data-f="ALL" class="on">All 40</button>
-  <button data-f="FAB">FAB — Barrier &amp; Prettymaxing</button>
-  <button data-f="TOP">TOP — Clinical Actives</button>
-  <button data-f="MALE">MALE — Tactical Optimization</button>
-  <button data-f="HW">Hardware</button>
-  <button data-f="DIG">Digital</button>
+<div class="cat-wrap">
+  <!-- BL-07 · Bloom collection-cards: the Collection's family doors -->
+  <section class="collection-cards" aria-label="Families">
+    <span class="collection-cards__wave"></span>
+    <div class="collection-cards__inner"><div class="collection-cards__grid">
+      <a class="collection-cards__card" href="catalog.html" data-door="FAB"><span class="picture-container"><img class="collection-cards__img" src="assets/products/fab-01-pack.webp" alt="FAB family"></span><span class="collection-cards__label">FAB — Barrier &amp; Prettymaxing</span></a>
+      <a class="collection-cards__card" href="catalog.html" data-door="TOP"><span class="picture-container"><img class="collection-cards__img" src="assets/products/top-17-pack.webp" alt="TOP family"></span><span class="collection-cards__label">TOP — Clinical Actives</span></a>
+      <a class="collection-cards__card" href="catalog.html" data-door="MALE"><span class="picture-container"><img class="collection-cards__img" src="assets/products/male-01.webp" alt="MALE family"></span><span class="collection-cards__label">MALE — Tactical Optimization</span></a>
+      <a class="collection-cards__card" href="catalog.html" data-door="HW"><span class="picture-container"><img class="collection-cards__img" src="assets/products/hw-02.webp" alt="Hardware"></span><span class="collection-cards__label">Hardware</span></a>
+      <a class="collection-cards__card" href="catalog.html" data-door="DIG"><span class="picture-container"><img class="collection-cards__img" src="assets/products/dig-01.webp" alt="Digital"></span><span class="collection-cards__label">Digital</span></a>
+    </div></div>
+  </section>
+
+  <!-- F-02 · FAB link-cards swiper rail (B74 init pattern; Swiper fetched D2) -->
+  <section class="custom-css__link-cards" aria-label="Family cards">
+    <div class="swiper" id="link-cards-swiper"><div class="swiper-wrapper">
+      <div class="swiper-slide custom-css__link-cards-slide"><a href="catalog.html" data-door="FAB"><img src="assets/products/fab-05.webp" alt="FAB — Barrier &amp; Prettymaxing"><span>FAB</span></a></div>
+      <div class="swiper-slide custom-css__link-cards-slide"><a href="catalog.html" data-door="TOP"><img src="assets/products/top-17.webp" alt="TOP — Clinical Actives"><span>TOP</span></a></div>
+      <div class="swiper-slide custom-css__link-cards-slide"><a href="catalog.html" data-door="MALE"><img src="assets/products/male-05.webp" alt="MALE — Tactical Optimization"><span>MALE</span></a></div>
+      <div class="swiper-slide custom-css__link-cards-slide"><a href="catalog.html" data-door="HW"><img src="assets/products/hw-06.webp" alt="Hardware"><span>Hardware</span></a></div>
+    </div><div class="swiper-pagination"></div></div>
+  </section>
+
+  <!-- P-08 · Prequel tabbed collections: several views of the room, in place -->
+  <tabs-component class="tabs-wrapper">
+    <div class="tabs__head" role="tablist">
+      <button type="button" role="tab" class="current" data-tab="grid-view">The Grid</button>
+      <button type="button" role="tab" data-tab="family-view">By Family</button>
+      <button type="button" role="tab" data-tab="concern-view">By Concern</button>
+    </div>
+
+    <div class="tab-content current" id="grid-view">
+      <!-- F-16 · filter chrome: topbar + sort popover shell + active pills -->
+      <div class="filter-topbar">
+        <button type="button" class="filters-toggle header__icon-touch" id="sidebar-toggle">Filters</button>
+        <div class="filter-bar popout">
+          <button type="button" class="header__icon-touch" data-popout-toggle aria-haspopup="listbox">Sort</button>
+          <!-- S-16 · floating panel: the sort panel clamps to the viewport -->
+          <div class="popout-list floating-panel" role="listbox" hidden data-popout-list>
+            <div class="popout-list__option" role="option" data-sort="featured" aria-selected="true">Featured</div>
+            <div class="popout-list__option" role="option" data-sort="name">Name, A–Z</div>
+            <div class="popout-list__option" role="option" data-sort="family">Family</div>
+          </div>
+          <input type="hidden" data-popout-input name="sort" value="featured">
+        </div>
+        <!-- F-13 · FAB quick-search: the in-room results surface -->
+        <form class="quick-search" role="search" onsubmit="return false">
+          <span class="quick-search__faux-input">
+            <input class="quick-search__input" type="search" placeholder="Quick search the pieces" aria-label="Quick search">
+          </span>
+          <select class="quick-search__type-select" aria-label="Search scope"><option value="product">Pieces</option></select>
+          <div class="quick-search__results"></div>
+          <button type="button" class="quick-search__view-all">View all results</button>
+        </form>
+      </div>
+      <div class="active-filters" id="active-filters"></div>
+
+      <!-- P-24 · main-search results surface: its inputs stay in sync -->
+      <section class="search-results-surface" id="search-surface" hidden>
+        <form class="main-search" role="search" onsubmit="return false">
+          <input type="search" class="main-search__input" placeholder="Search the collection" aria-label="Search the collection">
+          <input type="search" class="main-search__input main-search__input--mirror" placeholder="Search the collection" aria-label="Search the collection (mirror)">
+        </form>
+        <div class="main-search__results"></div>
+      </section>
+
+      <div class="collection-layout">
+        <!-- P-34 · Prequel collection sidebar chassis, wearing F-03's form -->
+        <collection-component>
+          <aside class="collection__sidebar" id="collection-sidebar">
+            <nav class="collection__nav"><span>The Collection</span><span>40 pieces</span></nav>
+            <form class="filter-form" id="filter-form">
+              <div id="facet-host"></div>
+              <button type="button" class="filter-form__group-clear" id="facet-clear">Clear all</button>
+              <p class="filter-count" id="filter-count" role="status"></p>
+            </form>
+          </aside>
+        </collection-component>
+
+        <div class="collection-main">
+          <div class="legacy-filters" id="filters" hidden>
+            <button data-f="ALL" class="on">All 40</button><button data-f="FAB">FAB</button>
+            <button data-f="TOP">TOP</button><button data-f="MALE">MALE</button>
+            <button data-f="HW">Hardware</button><button data-f="DIG">Digital</button>
+            <span class="viewcount" id="viewcount">View 40 items</span>
+          </div>
+          <div class="pgrid grid-slider" id="grid"></div>
+
+          <!-- G-28 · Gundry bestsellers band: the anchor-led house set -->
+          <section class="bestsellers-band" aria-label="House set">
+            <h2 style="font-size:20px;font-weight:800">The house set</h2>
+            <div class="pgrid" id="band-grid" style="margin-top:14px"></div>
+          </section>
+
+          <!-- BL-05 · Bloom product-slider rails, one family at a time -->
+          <div id="family-rails"></div>
+
+          <!-- G-27 · Gundry favorites tabbed rail: documented house groupings -->
+          <section class="customer-favorites-tabs" aria-label="House groupings">
+            <div class="tabs__head">
+              <button type="button" class="current" data-fav="FAB">Barrier first</button>
+              <button type="button" data-fav="TOP">Clinical actives</button>
+              <button type="button" data-fav="MALE">Tactical</button>
+            </div>
+            <div class="product-slider"><div class="product-slider__container__cards swiper-wrapper" id="fav-rail"></div></div>
+          </section>
+
+          <!-- S-18 · RecentlyViewed data layer, rendered through BL-05's chassis -->
+          <section class="recently-viewed-rail" aria-label="Recently viewed">
+            <h2 style="font-size:20px;font-weight:800">Recently viewed</h2>
+            <div class="product-slider"><div class="product-slider__container__cards swiper-wrapper" id="rv-rail"></div></div>
+          </section>
+
+          <!-- F-04 · load-more + honest viewing counter -->
+          <div class="load-more-row">
+            <button type="button" id="load-more">Load more pieces</button>
+            <span class="viewing-count" id="viewing-count">Viewing 0 of 40</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="family-view"><div id="family-groups"></div></div>
+    <div class="tab-content" id="concern-view"><div id="concern-groups"></div></div>
+  </tabs-component>
+
+  <!-- F-05 · FAB quick-links pills: neighbouring rooms -->
+  <nav class="quick-links" aria-label="Rooms">
+    <a class="quick-links__link" href="assessment.html">Admission — the Intake</a>
+    <a class="quick-links__link" href="stacks.html">The Prescription Counter</a>
+    <a class="quick-links__link" href="vault.html">The Members' Gallery</a>
+    <a class="quick-links__link" href="portal.html">The Member's Room</a>
+    <a class="quick-links__link" href="index.html">The Door</a>
+  </nav>
+  <p class="cat-note">Free shipping from $118 — the Phase 1 stack entry price. Every stack is prescribed through the <a href="assessment.html">28-step Virtual Clinical Intake</a>.</p>
 </div>
 
-<section class="blk" style="padding-top:20px">
-  <div class="pgrid" id="grid"></div>
-  <p class="note" style="text-align:center;margin-top:34px;color:var(--mute)">Free shipping from $118 — the Phase 1 stack entry price. Every stack is prescribed through the <a href="assessment.html" style="color:#fff">28-step Virtual Clinical Intake</a>.</p>
-</section>
+<!-- F-14 · FAB quick-product modal -->
+<dialog class="quick-product-modal" id="quick-product-modal">
+  <div class="quick-product">
+    <button class="drawer__close" type="button" data-close-dialog aria-label="Close">×</button>
+    <img class="quick-product__img" alt="">
+    <h3 class="product__title"></h3>
+    <p class="quick-product__detail"></p>
+    <div class="quick-product__variants"></div>
+    <p class="product__price quick-product__price"></p>
+    <button class="qa-btn" type="button" data-modal-add><span class="btn__label">Add to tray</span></button>
+  </div>
+</dialog>
+
+<!-- S-07 · sckenofficial quick-add modal (house-stock; template unbanked —
+     markup authored against the banked entry's class citations, named) -->
+<dialog class="quick-add-modal" id="quick-add-modal">
+  <div class="quick-add-modal__in">
+    <button class="drawer__close" type="button" data-close-dialog aria-label="Close">×</button>
+    <img class="quick-add__img" alt="">
+    <h3 class="quick-add__title"></h3>
+    <div class="quick-add__variants"></div>
+    <button class="qa-btn" type="button" data-modal-add><span class="btn__label">Add to tray</span></button>
+  </div>
+</dialog>
+
 
 <script src="assets/skinaa-data.js"></script>
+<script src="assets/enrich/cart-shim.js"></script>
+<script src="assets/enrich/fab/swiper-bundle.min.js"></script>
 <script>
+document.documentElement.classList.add("aos-init");
+const CHIPS = {"FAB-01":"#80181e","FAB-02":"#2e4653","FAB-03":"#a9736e","FAB-04":"#988aad","FAB-05":"#8099b6","FAB-06":"#778ca4","FAB-07":"#16423b","FAB-08":"#a39b8f","FAB-09":"#b0c3ce","FAB-10":"#947a59","FAB-11":"#aa744c","FAB-12":"#bcb9b6","FAB-13":"#c7b8b4","FAB-14":"#242328","TOP-12":"#502509","TOP-15":"#282b30","TOP-16":"#413f3b","TOP-17":"#9d571d","TOP-18":"#758792","TOP-19":"#cacaca","TOP-20":"#6a1f25","TOP-21":"#546c74","MALE-01":"#2f2f2f","MALE-02":"#2f2d2b","MALE-03":"#b7a27b","MALE-04":"#4e260d","MALE-05":"#3b3732","MALE-06":"#bf7231","MALE-07":"#492c1f","MALE-08":"#2a2a2a","MALE-09":"#874711","MALE-10":"#68645e","MALE-11":"#1c1c1c","MALE-12":"#633515","MALE-13":"#c0c0bf","MALE-14":"#202020","HW-02":"#dadada","HW-06":"#bf282b","DIG-01":"#c1996c","DIG-02":"#b1b2b1"};
+/* G32 · colour manager: the one table mapping each piece to its named
+   colour token (the CHIPS table, sampled from each piece's photograph).
+   G23's swatches and P-01's chips both read from here. */
+window.color_manager = {
+  tokenFor: function (code) { return { name: code, hex: CHIPS[code] || "#b4c5b4" }; },
+  tokens: CHIPS
+};
+const ANCHOR_CODES = ["FAB-01", "FAB-02", "FAB-05", "FAB-09"];
 const grid = document.getElementById("grid");
-const LINE_LABEL = {FAB:"FAB — Barrier & Prettymaxing", TOP:"TOP — Clinical Actives", MALE:"MALE — Tactical Optimization", HW:"Hardware", DIG:"Digital"};
-function cardHTML(s){
+const PAGE = 12;
+let shown = PAGE, sortMode = "featured";
+const activeFacets = { family: new Set(), concern: new Set(), size: new Set() };
+const CONCERN_KEYS = [["dryness","Dryness"],["barrier","Barrier"],["redness","Redness"],
+  ["acne|breakout|blemish","Acne & breakouts"],["dark mark|hyperpigmentation|dark spot|uneven tone","Dark marks & tone"],
+  ["dehydrat","Dehydration"],["pore|texture","Pores & texture"],["eye|circle","Eye area"],
+  ["lip","Lips"],["hair|beard","Hair & beard"],["chaf|friction","Friction"],["sun|spf|uv","Sun"]];
+function concernsOf(s) {
+  const t = (s.concerns + " " + s.detail).toLowerCase();
+  return CONCERN_KEYS.filter(([re]) => new RegExp(re).test(t)).map(([, label]) => label);
+}
+function sizeOf(s) {
+  const m = s.component.match(/(\d+)\s*(ml|g)\b/i);
+  if (!m) return s.line === "HW" ? "Hardware" : s.line === "DIG" ? "Digital" : "—";
+  const n = +m[1]; return n <= 30 ? "Up to 30" : n <= 100 ? "50–100" : "Over 100";
+}
+function filtered() {
+  let list = SKUS.slice();
+  if (sortMode === "name") list.sort((a, b) => a.name.localeCompare(b.name));
+  if (sortMode === "family") list.sort((a, b) => a.line.localeCompare(b.line) || a.code.localeCompare(b.code));
+  return list.filter(s =>
+    (!activeFacets.family.size || activeFacets.family.has(s.line)) &&
+    (!activeFacets.concern.size || concernsOf(s).some(c => activeFacets.concern.has(c))) &&
+    (!activeFacets.size.size || activeFacets.size.has(sizeOf(s))));
+}
+const ICON_MINUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M20 12H12H4"/></svg>';
+const ICON_PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M12 4V12M12 12V20M12 12H20M12 12H4"/></svg>';
+/* P-03 quick-add (stateful: price→loader→added/error) fused with F-01's
+   in-place stepper, both posting through the cart-routes shim. Prices
+   render only where the data layer carries one (none today — structure
+   only, never invented). */
+function qaHTML(s) {
+  const q = SKINAA_CART.quantityOf(s.code);
+  const price = typeof s.price === "number" ? '<span class="btn__price">$' + s.price + '</span>' : '<span class="btn__price"></span>';
+  if (!q) {
+    return '<div class="quick-add__holder product-item__quick-add">'
+      + '<button class="qa-btn btn" type="button" data-add="' + s.code + '"><span class="btn__label">Add</span>' + price
+      + '<span class="btn__loader" hidden>…</span><span class="btn__added" hidden>Added</span><span class="btn__error" hidden>Unavailable</span></button></div>';
+  }
+  const minus = q <= 1 ? '<i class="icon-remove" aria-hidden="true">🗑</i>' : ICON_MINUS;
+  return '<div class="quick-add__holder product-item__quick-add"><div class="qa-stepper quantity-input' + (q <= 1 ? " quantity-input--at-min" : "") + '" role="group" aria-label="Quantity in your cart">'
+    + '<button class="qa-step quantity-input__button" type="button" data-dec="' + s.code + '" aria-label="Remove one">' + minus + '</button>'
+    + '<span class="qa-count"><span class="quantity-in-cart-display">' + q + '</span> in your cart <span class="product-item__quick-add__cart-count">(' + q + ')</span></span>'
+    + '<button class="qa-step quantity-input__button" type="button" data-inc="' + s.code + '" aria-label="Add one">' + ICON_PLUS + '</button></div></div>';
+}
+function swatchHTML(s) {
+  const sibs = SKUS.filter(x => x.line === s.line).slice(0, 6);
+  if (sibs.length < 2) return "";
+  return '<div class="grid-swatch swatches" role="radiogroup" aria-label="Sibling pieces">'
+    + sibs.map(x => '<button type="button" class="sibling swatch__button" role="radio" data-sibling="' + x.code + '" data-for="' + s.code + '" aria-checked="' + (x.code === s.code) + '" title="' + x.code + '" style="background:' + color_manager.tokenFor(x.code).hex + '"></button>').join("") + '</div>';
+}
+function cardHTML(s, i) {
   const url = 'product.html?sku=' + s.code;
-  const stage = s.pic
-    ? '<div class="product-item__image"><a class="product-link" href="' + url + '" aria-label="' + s.code + ' — ' + s.name + '">'
-      + '<div class="product-item__bg"><img src="' + s.pic.pack + '" alt="' + s.code + ' — ' + s.name + '"></div>'
-      + '<div class="product-item__bg__under"><div class="product-item__bg__slider">'
-      + '<div class="product-item__bg__slide"><img src="' + s.pic.pack + '" alt=""></div>'
-      + '<div class="product-item__bg__slide"><img src="' + s.pic.portrait + '" alt="' + s.code + ' — ' + s.name + ' (portrait)"></div>'
-      + '</div></div></a>'
-      + '<div class="badge-box-container"><span class="tag" style="background:#fff">' + s.code + '</span></div></div>'
-    : '<div class="product-item__image"><a class="product-link" href="' + url + '"><div class="prod-noimg" style="aspect-ratio:auto;height:100%"><span class="code">' + s.code + '</span><span class="rule"></span><span>' + s.component + '<br>' + s.material + '</span></div></a>'
-      + '<div class="badge-box-container"><span class="tag" style="background:#fff">' + s.code + '</span> <span class="tag red" style="background:#fff">Picture pending</span></div></div>';
-  return '<article class="product-item product-item--centered product-item--outer-text product-item--has-quickbuy">'
-    + stage
+  const delay = Math.min((i % 4) * 100, 200);
+  const anchor = ANCHOR_CODES.includes(s.code);
+  return '<article class="product-item product-item--centered' + (anchor ? " view-transition-card" : "") + '" data-code="' + s.code + '" data-aos="img-in" data-aos-duration="800" data-aos-easing="ease-out-quart" style="transition-delay:' + delay + 'ms' + (anchor ? ";view-transition-name:piece-" + s.code : "") + '">'
+    + '<div class="product-item__image hover-images">'
+    + '<div class="product-item__bg__slider"><div class="product-item__bg__under">'
+    + '<div class="product-item__bg__slide"><a href="' + url + '" aria-label="' + s.code + ' — ' + s.name + '"><img src="' + s.pic.pack + '" alt="' + s.code + ' — ' + s.name + '" loading="lazy"></a></div>'
+    + '<div class="product-item__bg__slide"><a href="' + url + '" aria-label="' + s.code + ' — ' + s.name + ' (portrait)"><img src="' + s.pic.portrait + '" alt="' + s.code + ' — ' + s.name + ' (portrait)" loading="lazy"></a></div>'
+    + '</div></div>'
+    + '<div class="badge-box-container"><span class="badge-box">' + s.code + '</span><span class="badge-box custom-box">SKINAA</span></div>'
+    + '<div class="spec-chip" style="--chip:' + color_manager.tokenFor(s.code).hex + '"><span class="spec-chip__face"></span><span class="spec-chip__band">' + s.code + '</span></div>'
+    + '<div class="anchored-detail" hidden>' + s.detail + '</div>'
+    + '</div>'
     + '<div class="product-information"><div class="product-item__info">'
-    + '<a class="product-link" href="' + url + '">'
-    + '<p class="product-item__title">' + s.name + '</p>'
-    + '<div class="product_custom_description">' + s.component + ' · ' + s.material + '</div>'
-    + '<p class="product_custom_description" style="margin-top:4px">' + s.anchor + '</p>'
-    + '<div class="product-item__price__holder">' + LINE_LABEL[s.line] + '</div>'
-    + '</a>'
+    + '<a class="product-item__title-link" href="' + url + '"><p class="product-item__title">' + s.name + '</p></a>'
+    + '<div class="product_custom_description">' + s.detail + '</div>'
+    + '<p class="product_custom_measure">' + s.component + '</p>'
+    + swatchHTML(s)
     + '<div class="product-item__spacer"></div>'
-    + '<div class="product-item__quick-add-beneath"><a class="product-item__quick-add" href="' + url + '"><span class="btn__text"><span class="btn__label">View ' + s.code + '</span><span class="btn__price">' + s.component + '</span></span></a></div>'
+    + '<div class="product-item__quick-add-beneath" data-qa="' + s.code + '">' + qaHTML(s) + '</div>'
+    + '<div style="display:flex;gap:8px;justify-content:center;margin-top:8px">'
+    + '<button type="button" class="header__icon-touch" data-quickview="' + s.code + '">Quick view</button>'
+    + '<button type="button" class="header__icon-touch" data-quickadd="' + s.code + '">Quick add</button></div>'
     + '</div></div></article>';
 }
-function render(f){
-  const list = SKUS.filter(s => f === "ALL" || s.line === f);
-  grid.innerHTML = list.map(cardHTML).join("");
+function miniCard(s, cls) {
+  return '<article class="' + (cls || "product-card") + ' product-item" style="flex:0 0 220px">'
+    + '<div class="product-item__image"><a href="product.html?sku=' + s.code + '"><img src="' + s.pic.pack + '" alt="' + s.code + ' — ' + s.name + '" loading="lazy" style="width:100%;aspect-ratio:4/5;object-fit:cover"></a>'
+    + '<div class="badge-box-container"><span class="badge-box">' + s.code + '</span></div></div>'
+    + '<div class="product-item__info"><a class="product-item__title-link" href="product.html?sku=' + s.code + '"><p class="product-item__title" style="min-height:0">' + s.name + '</p></a>'
+    + '<div data-qa="' + s.code + '">' + qaHTML(s) + '</div></div></article>';
 }
-document.getElementById("filters").addEventListener("click", e => {
-  const b = e.target.closest("button"); if (!b) return;
-  document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("on", x === b));
-  render(b.dataset.f);
+let io = null;
+function observeCards() {
+  const cards = grid.querySelectorAll("[data-aos]");
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    cards.forEach(c => c.classList.add("aos-animate")); return;
+  }
+  io = io || new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("aos-animate"); io.unobserve(e.target); } }); }, { threshold: .05, rootMargin: "0px 0px -4% 0px" });
+  cards.forEach(c => io.observe(c));
+}
+function render() {
+  const list = filtered();
+  grid.innerHTML = list.slice(0, shown).map(cardHTML).join("");
+  document.getElementById("viewing-count").textContent = "Viewing " + Math.min(shown, list.length) + " of " + list.length;
+  document.getElementById("viewcount").textContent = "View " + list.length + " items";
+  document.getElementById("filter-count").textContent = list.length + " products";
+  document.getElementById("load-more").hidden = shown >= list.length;
+  observeCards(); renderRails(); renderGroups();
+}
+function renderRails() {
+  document.getElementById("family-rails").innerHTML = ["FAB", "TOP", "MALE"].map(line =>
+    '<section class="product-slider" aria-label="' + line + ' rail"><div style="display:flex;justify-content:space-between;align-items:center"><h2 style="font-size:20px;font-weight:800">' + line + '</h2>'
+    + '<span class="product-slider__nav"><button type="button" data-rail-prev aria-label="Previous">‹</button><button type="button" data-rail-next aria-label="Next">›</button></span></div>'
+    + '<div class="product-slider__container__cards swiper-wrapper">' + SKUS.filter(s => s.line === line).slice(0, 6).map(s => miniCard(s)).join("") + '</div></section>').join("");
+  document.getElementById("band-grid").innerHTML = ANCHOR_CODES.map(c => miniCard(skuByCode(c))).join("");
+  renderFav(document.querySelector("[data-fav].current")?.dataset.fav || "FAB");
+  const rv = (window.RecentlyViewed ? RecentlyViewed.get() : []).map(c => skuByCode(c)).filter(Boolean);
+  document.getElementById("rv-rail").innerHTML = rv.length ? rv.map(s => miniCard(s)).join("") : '<p class="note">No pieces viewed yet this visit.</p>';
+}
+function renderFav(line) {
+  document.getElementById("fav-rail").innerHTML = SKUS.filter(s => s.line === line).slice(0, 6).map(s => miniCard(s)).join("");
+}
+function renderGroups() {
+  document.getElementById("family-groups").innerHTML = ["FAB", "TOP", "MALE", "HW", "DIG"].map(line =>
+    '<section class="product-slider"><h2 style="font-size:20px;font-weight:800">' + line + '</h2><div class="product-slider__container__cards">'
+    + SKUS.filter(s => s.line === line).slice(0, 4).map(s => miniCard(s)).join("") + '</div></section>').join("");
+  document.getElementById("concern-groups").innerHTML = CONCERN_KEYS.map(([, label]) => {
+    const items = SKUS.filter(s => concernsOf(s).includes(label)).slice(0, 4);
+    return items.length ? '<section class="product-slider"><h2 style="font-size:20px;font-weight:800">' + label + '</h2><div class="product-slider__container__cards">' + items.map(s => miniCard(s)).join("") + '</div></section>' : "";
+  }).join("");
+}
+/* F-03 facet form: counted checkbox groups rendered in the captured shape */
+function buildFacets() {
+  const groups = [
+    ["family", "Family", ["FAB", "TOP", "MALE", "HW", "DIG"].map(v => [v, SKUS.filter(s => s.line === v).length])],
+    ["concern", "Concern", CONCERN_KEYS.map(([, label]) => [label, SKUS.filter(s => concernsOf(s).includes(label)).length]).filter(([, n]) => n > 0)],
+    ["size", "Size", ["Up to 30", "50–100", "Over 100", "Hardware", "Digital"].map(v => [v, SKUS.filter(s => sizeOf(s) === v).length]).filter(([, n]) => n > 0)]
+  ];
+  document.getElementById("facet-host").innerHTML = groups.map(([key, title, opts]) =>
+    '<fieldset class="filter-form__group filter-group"><legend class="filter-form__group-toggle">' + title + '</legend>'
+    + '<div class="filter-form__list">' + opts.map(([v, n]) =>
+      '<label class="filter-item"><input class="filter-input__input" type="checkbox" data-facet="' + key + '" value="' + v + '" data-filter-item-value="' + v + '">'
+      + '<span class="filter-item__checkbox"></span><span class="filter-item__label">' + v + '</span>'
+      + '<span class="filter-item__count">(' + n + ')</span></label>').join("") + '</div></fieldset>').join("");
+}
+function renderActivePills() {
+  const host = document.getElementById("active-filters");
+  const pills = [];
+  Object.entries(activeFacets).forEach(([k, set]) => set.forEach(v => pills.push([k, v])));
+  host.innerHTML = pills.map(([k, v]) => '<button type="button" class="pill-x" data-uncheck="' + k + ':' + v + '">' + v + ' ×</button>').join("");
+}
+buildFacets(); render();
+document.getElementById("filter-form").addEventListener("change", e => {
+  const cb = e.target.closest("[data-facet]"); if (!cb) return;
+  cb.checked ? activeFacets[cb.dataset.facet].add(cb.value) : activeFacets[cb.dataset.facet].delete(cb.value);
+  shown = PAGE; renderActivePills(); render();
 });
-render("ALL");
+document.getElementById("facet-clear").addEventListener("click", () => {
+  Object.values(activeFacets).forEach(s => s.clear());
+  document.querySelectorAll("[data-facet]").forEach(c => c.checked = false);
+  shown = PAGE; renderActivePills(); render();
+});
+document.getElementById("active-filters").addEventListener("click", e => {
+  const b = e.target.closest("[data-uncheck]"); if (!b) return;
+  const [k, v] = b.dataset.uncheck.split(":");
+  activeFacets[k].delete(v);
+  document.querySelectorAll("[data-facet]").forEach(c => { if (c.dataset.facet === k && c.value === v) c.checked = false; });
+  renderActivePills(); render();
+});
+document.getElementById("load-more").addEventListener("click", () => { shown += PAGE; render(); });
+document.querySelectorAll("[data-door]").forEach(a => a.addEventListener("click", e => {
+  e.preventDefault();
+  Object.values(activeFacets).forEach(s => s.clear());
+  activeFacets.family.add(a.dataset.door);
+  document.querySelectorAll("[data-facet]").forEach(c => c.checked = c.dataset.facet === "family" && c.value === a.dataset.door);
+  shown = PAGE; renderActivePills(); render();
+  document.getElementById("grid").scrollIntoView({ behavior: "smooth" });
+}));
+/* tabs (P-08) */
+document.querySelectorAll("[data-tab]").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll("[data-tab]").forEach(x => x.classList.toggle("current", x === b));
+  document.querySelectorAll(".tab-content").forEach(p => p.classList.toggle("current", p.id === b.dataset.tab));
+}));
+document.querySelectorAll("[data-fav]").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll("[data-fav]").forEach(x => x.classList.toggle("current", x === b)); renderFav(b.dataset.fav);
+}));
+/* popout sort (P-26) inside its floating panel (S-16, viewport-clamped) */
+const popBtn = document.querySelector("[data-popout-toggle]"), popList = document.querySelector("[data-popout-list]");
+popBtn.addEventListener("click", () => {
+  const open = popList.hidden; popList.hidden = !open;
+  if (open) { const r = popList.getBoundingClientRect();
+    if (r.right > innerWidth) popList.style.left = Math.max(8 - popList.offsetParent.getBoundingClientRect().left, innerWidth - r.width - 16 - popList.offsetParent.getBoundingClientRect().left) + "px"; }
+});
+popList.addEventListener("click", e => {
+  const o = e.target.closest("[data-sort]"); if (!o) return;
+  popList.querySelectorAll("[data-sort]").forEach(x => x.setAttribute("aria-selected", x === o ? "true" : "false"));
+  document.querySelector("[data-popout-input]").value = o.dataset.sort;
+  sortMode = o.dataset.sort; shown = PAGE; popList.hidden = true; render();
+});
+document.getElementById("sidebar-toggle").addEventListener("click", () =>
+  document.getElementById("collection-sidebar").classList.toggle("open"));
+/* quick search (F-13) + results surface sync (P-24) */
+const qsInput = document.querySelector(".quick-search__input"), qsResults = document.querySelector(".quick-search__results");
+function doQuickSearch(q) {
+  qsResults.innerHTML = SKINAA_CART.searchFragment(q);
+  const surface = document.getElementById("search-surface");
+  surface.querySelector(".main-search__results").innerHTML = SKINAA_CART.searchFragment(q);
+  surface.querySelectorAll(".main-search__input").forEach(i => { if (i.value !== q) i.value = q; });
+}
+qsInput.addEventListener("input", () => doQuickSearch(qsInput.value));
+document.querySelector(".quick-search__view-all").addEventListener("click", () => {
+  const surface = document.getElementById("search-surface");
+  surface.hidden = false; doQuickSearch(qsInput.value); surface.scrollIntoView({ behavior: "smooth" });
+});
+document.querySelectorAll(".main-search__input").forEach(i => i.addEventListener("input", () => {
+  document.querySelectorAll(".main-search__input").forEach(x => { if (x !== i) x.value = i.value; });
+  document.querySelector(".main-search__results").innerHTML = SKINAA_CART.searchFragment(i.value);
+}));
+/* grid actions: add / stepper / swatches / popover / modals / view-transition */
+function refreshQA(code) {
+  document.querySelectorAll('[data-qa="' + code + '"]').forEach(z => { const s = skuByCode(code); if (s) z.innerHTML = qaHTML(s); });
+}
+document.addEventListener("skinaa:cart-changed", () => SKUS.forEach(s => refreshQA(s.code)));
+document.body.addEventListener("click", e => {
+  const add = e.target.closest("[data-add]"), inc = e.target.closest("[data-inc]"), dec = e.target.closest("[data-dec]");
+  const sib = e.target.closest("[data-sibling]"), qv = e.target.closest("[data-quickview]"), qa = e.target.closest("[data-quickadd]");
+  if (add) {
+    const btn = add, code = btn.dataset.add;
+    /* S-08 fix (Unit 11): capture the card + its image BEFORE the add —
+       the cart-changed re-render (refreshQA) detaches this button before
+       the promise resolves, so closest(".product-item") read inside
+       .then is null and the fly call never happened. The captured image
+       itself is not re-rendered (refreshQA only rewrites [data-qa]
+       zones), so it keeps its live geometry for the arc. */
+    const card = btn.closest(".product-item"); const flyImg = card ? card.querySelector("img") : null;
+    btn.querySelector(".btn__loader").hidden = false;
+    SKINAARoutes.fetch(Shopify.routes.cart_add_url, { body: JSON.stringify({ items: [{ id: code, quantity: 1 }] }) }).then(() => {
+      btn.querySelector(".btn__loader").hidden = true;
+      const added = btn.querySelector(".btn__added"); if (added) added.hidden = false;
+      if (flyImg && window.SKINAAFly) SKINAAFly(flyImg);
+      if (window.SKINAAState) SKINAAState.toast("added", " — " + code + " is in the tray");
+      refreshQA(code);
+    });
+  }
+  if (inc) { SKINAA_CART.update(inc.dataset.inc, SKINAA_CART.quantityOf(inc.dataset.inc) + 1); refreshQA(inc.dataset.inc); }
+  if (dec) { SKINAA_CART.update(dec.dataset.dec, SKINAA_CART.quantityOf(dec.dataset.dec) - 1); refreshQA(dec.dataset.dec); }
+  if (sib) { /* P-29/G23: swatch select swaps the card's piece + image */
+    const card = sib.closest(".product-item"); const s = skuByCode(sib.dataset.sibling); if (!card || !s) return;
+    card.dataset.code = s.code;
+    card.querySelectorAll("img").forEach((im, ix) => im.src = ix === 0 ? s.pic.pack : s.pic.portrait);
+    card.querySelectorAll("a").forEach(a => a.href = "product.html?sku=" + s.code);
+    card.querySelector(".product-item__title").textContent = s.name;
+    card.querySelectorAll(".grid-swatch .sibling").forEach(b => b.setAttribute("aria-checked", b === sib ? "true" : "false"));
+  }
+  if (qv) openModal("quick-product-modal", qv.dataset.quickview);
+  if (qa) openModal("quick-add-modal", qa.dataset.quickadd);
+  const dc = e.target.closest("[data-close-dialog]"); if (dc) dc.closest("dialog").close();
+  const ma = e.target.closest("[data-modal-add]");
+  if (ma) { const code = ma.closest("dialog").dataset.code;
+    SKINAA_CART.add(code, 1); ma.closest("dialog").close(); SKINAAOpenCart(); }
+  const railBtn = e.target.closest("[data-rail-prev],[data-rail-next]");
+  if (railBtn) { const rail = railBtn.closest(".product-slider").querySelector(".product-slider__container__cards");
+    rail.scrollBy({ left: (railBtn.hasAttribute("data-rail-next") ? 1 : -1) * 260, behavior: "smooth" }); }
+});
+let hoverTimer = null;
+document.body.addEventListener("mouseover", e => {
+  const st = e.target.closest(".product-item__image");
+  if (st && e.relatedTarget && st.contains(e.relatedTarget)) return;
+  document.querySelectorAll(".product-item__image").forEach(x => {
+    const sl = x.querySelector(".product-item__bg__under") || x.querySelector(".product-item__bg__slider");
+    if (sl) sl.scrollTo({ left: x === st ? sl.clientWidth : 0, behavior: "smooth" });
+  });
+  const card = e.target.closest(".product-item");
+  clearTimeout(hoverTimer);
+  if (card) hoverTimer = setTimeout(() => {
+    document.querySelectorAll(".anchored-detail").forEach(d => d.hidden = true);
+    const d = card.querySelector(".anchored-detail"); if (d) d.hidden = false;
+  }, 600);
+});
+document.body.addEventListener("mouseout", e => {
+  if (!e.relatedTarget || !e.target.closest || !e.target.closest(".product-item"))
+    document.querySelectorAll(".anchored-detail").forEach(d => d.hidden = true);
+});
+function openModal(id, code) {
+  const d = document.getElementById(id), s = skuByCode(code); if (!d || !s) return;
+  d.dataset.code = code;
+  const img = d.querySelector("img"); img.src = s.pic.pack; img.alt = s.code + " — " + s.name;
+  const t = d.querySelector(".product__title,.quick-add__title"); if (t) t.textContent = s.code + " — " + s.name;
+  const det = d.querySelector(".quick-product__detail"); if (det) det.textContent = s.detail;
+  const pr = d.querySelector(".quick-product__price"); if (pr) pr.textContent = typeof s.price === "number" ? "$" + s.price : s.component;
+  const v = d.querySelector(".quick-product__variants,.quick-add__variants");
+  if (v) v.innerHTML = '<span class="tag">' + s.component + '</span> <span class="tag">' + s.line + '</span>';
+  d.showModal();
+}
+/* S-09: anchor cards view-transition into the piece page */
+document.body.addEventListener("click", e => {
+  const a = e.target.closest(".view-transition-card a");
+  if (a && document.startViewTransition) { e.preventDefault();
+    document.startViewTransition(() => { location.href = a.href; }); }
+});
+document.addEventListener("skinaa:recently-viewed", renderRails);
+/* F-02 init, B74 pattern: poll for the Swiper global, captured breakpoints */
+(function initLinkCards() {
+  let tries = 0;
+  const iv = setInterval(() => {
+    if (typeof Swiper !== "undefined") { clearInterval(iv);
+      new Swiper("#link-cards-swiper", { slidesPerView: "auto", spaceBetween: 8, loop: false,
+        pagination: { el: ".swiper-pagination", clickable: true },
+        breakpoints: { 720: { spaceBetween: 20, slidesPerView: 3 }, 1024: { spaceBetween: 24, slidesPerView: "auto" } } });
+    } else if (++tries > 40) clearInterval(iv);
+  }, 100);
+})();
 </script>
-<script src="assets/skinaa-chrome.js"></script>
+<script src="assets/enrich/collection.js"></script>
+<!-- THE END CARD — propagated from the Admission landing (build-admission.md):
+     P-37 divider → BL-29 column chassis → F-18 six groups + legal → P-21
+     supporting-menu strip → G24 wordmark lockup → P-20 single correspondence
+     line → BL-01 quiet line. BL-24 currency modal inside the register;
+     S-13 overflow behaviour on the strip at mobile widths. -->
+<div class="divider"><div class="divider-holder"></div></div>
+<footer class="site end-card footer footer--fab" id="end-card">
+  <section-footer-component class="footer__container">
+    <div class="footer__container__inner footer__fab-top">
+      <div class="footer__group"><h4>The Collection</h4>
+        <a href="catalog.html">All 40 pieces</a><a href="product.html">The piece page</a><a href="stacks.html">Attack Stacks</a></div>
+      <div class="footer__group"><h4>The Rooms</h4>
+        <a href="index.html">The Door</a><a href="vault.html">Visual Vault</a><a href="unboxing.html">Unboxing</a></div>
+      <div class="footer__group"><h4>Admission</h4>
+        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a><a href="vault.html">The 28 archetypes</a></div>
+      <div class="footer__group"><h4>The Gallery</h4>
+        <a href="vault.html">Before &amp; After Vault</a><a href="guide-female.html">Female Guide</a><a href="guide-male.html">Male Guide</a></div>
+      <div class="footer__group"><h4>Membership</h4>
+        <a href="portal.html">Ascension Plus Portal</a><a href="portal.html">Manage the drip</a><a href="assessment.html?mode=day15">The iteration gate</a></div>
+      <div class="footer__group"><h4>House Service</h4>
+        <a href="help.html">Help</a><a href="authenticity.html">Authenticity</a><a href="wholesale.html">Wholesale</a><a href="contact.html">Contact</a><a href="policies.html">Policies</a></div>
+    </div>
+    <div class="footer__fab-legal"><span>SKINAA by Maanaa — Clinical Dermatology Meets Facial Architecture.</span><span class="footer-stamp">Official Esthetic Standard</span></div>
+    <overflow-list class="supporting-overflow" minimum-items="3">
+      <div class="supporting-menu">
+        <a href="index.html">The Door</a><a href="catalog.html">The Collection</a><a href="assessment.html">Admission</a><a href="stacks.html" data-overflow-extra>Prescription Counter</a><a href="vault.html" data-overflow-extra>Members' Gallery</a><a href="portal.html" data-overflow-extra>Member's Room</a><a href="unboxing.html" data-overflow-extra>Unboxing</a>
+        <button type="button" class="currency-open">Currency / locale</button>
+        <span class="payment-icon" title="Named slot">Payment marks — NAMED SLOT</span>
+        <button type="button" class="supporting-more" aria-expanded="false">More rooms</button>
+      </div>
+    </overflow-list>
+    <div class="footer__brand-strip"><img class="footer-wordmark" src="assets/skinaa-wordmark.png" alt="SKINAA"></div>
+    <div class="newsletter-component">
+      <form class="newsletter-form" data-newsletter-form>
+        <span class="correspondence-line">The weekly drip, in one quiet line — your Dual Rx note, every seven days.</span>
+        <span class="input-group"><input type="email" name="email" required placeholder="Your email" aria-label="Your email"><button type="submit">Correspond</button></span>
+      </form>
+    </div>
+    <div class="announcement-bar"><div class="announcement-bar__container"><div class="announcement-bar__slides"><div class="announcement-bar__slide">Cycles run 30 days, anchored on the 28th. Days 1–14: the full Attack Stack. Day 15: the iteration gate.</div></div></div></div>
+  </section-footer-component>
+  <modal-currency-root>
+    <div class="currency-modal" role="dialog" aria-modal="true" aria-label="Currency and locale">
+      <div class="currency-modal__card">
+        <span class="currency-modal__close-btn" aria-label="Close">×</span>
+        <div class="front-modal">
+          <h3>Currency &amp; locale</h3>
+          <p>The house's localization choice, kept on this device. Prices stay as the house sets them — no rate is invented here.</p>
+          <form id="modal--localization" modal-side="front">
+            <select name="country_code" aria-label="Country"><option value="US">United States</option></select>
+            <select name="locale_code" aria-label="Language"><option value="en">English</option></select>
+            <select name="currency" aria-label="Currency"><option value="USD">USD</option></select>
+            <button type="submit" class="modal-apply">Apply</button>
+          </form>
+        </div>
+        <div class="back-modal">
+          <h3>Kept</h3>
+          <p class="localization-status" role="status"></p>
+          <form id="modal--localization" modal-side="back">
+            <button type="submit" class="modal-apply">Confirm</button>
+          </form>
+          <span class="close_modal">Close</span>
+        </div>
+      </div>
+    </div>
+  </modal-currency-root>
+</footer>
+<script src="assets/enrich/endcards.js"></script>
 </body>
 </html>
