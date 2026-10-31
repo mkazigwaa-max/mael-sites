@@ -1,0 +1,189 @@
+/* PHASE B UNIT 4 — THE MEMBER'S ROOM wiring layer.
+   Story E only: scarlet #bf3533 · plum-black #19080e · ivory #ece7ea ·
+   azure #02a1fd in the kinetic register only (G-37 single-word state text).
+   Donor class contracts live in member-extracts.css (bodily, re-valued);
+   this file wires those contracts to this room: layout, open states,
+   and the class contracts whose CSS is component-only in the captures. */
+
+html{overflow-x:clip}
+.member-main{min-width:0}
+@media(max-width:640px){
+  header.header{padding:0 14px;gap:8px}
+  .header__icons [data-so-open]{display:none}
+  .header__icon-touch{padding:7px 9px;font-size:11px}
+  .rewards-compare-table{overflow-x:auto}
+}
+
+/* ---------- F-20 header shell (chrome rollout, copied pattern from the
+   Collection's landed build; Story E values) ---------- */
+.hdr.enrich{position:sticky;top:0;z-index:80;background:rgba(25,8,14,.97);
+  border-bottom:1px solid rgba(236,231,234,.18);backdrop-filter:blur(12px)}
+header.header{display:flex;align-items:center;justify-content:space-between;gap:18px;
+  max-width:1180px;margin:0 auto;padding:0 28px;height:72px;color:#ece7ea;position:relative}
+header.header .header__logo img{height:28px;width:auto;display:block;filter:invert(1)}
+header.header .transparent-logo{display:none}
+header.header.is-scrolled .regular-logo{display:none}
+header.header.is-scrolled .transparent-logo{display:block}
+.header__icons{display:flex;gap:8px;align-items:center}
+.header__icon-touch{background:transparent;border:1px solid rgba(236,231,234,.35);
+  border-radius:999px;padding:8px 13px;font-size:12px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:#ece7ea;cursor:pointer;text-decoration:none}
+.header__cart-link-count{margin-left:6px;color:#bf3533;font-weight:800}
+.authbar{background:#19080e;color:#ece7ea;text-align:center;font-size:12px;
+  letter-spacing:.06em;padding:8px 12px;border-bottom:1px solid rgba(236,231,234,.14)}
+
+/* ---------- F-07 · FAB meganav — the residence header ----------
+   Extracts carry the captured panel rules; the wiring layer seats the
+   primary row and the open state (hover/focus + .is-open from member.js). */
+.meganav-nav{display:flex;gap:4px;align-items:center}
+.meganav__primary{display:flex;gap:2px;list-style:none;margin:0;padding:0}
+.meganav__primary>li{position:relative}
+.meganav__primary>li>a{color:#ece7ea;text-decoration:none;font-size:13.5px;font-weight:600;
+  letter-spacing:.04em;padding:10px 12px;display:block;border-radius:999px}
+.meganav__primary>li>a:hover,.meganav__primary>li>a:focus{background:rgba(236,231,234,.12)}
+.meganav__secondary{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  width:min(680px,92vw);background:#ece7ea;color:#19080e;border-radius:20px;padding:22px;
+  box-shadow:0 34px 70px rgba(25,8,14,.55);visibility:hidden;opacity:0;transition:opacity .25s,visibility .25s;z-index:90}
+.meganav__primary>li:hover .meganav__secondary,.meganav__primary>li:focus-within .meganav__secondary,
+.meganav__secondary.is-open{visibility:visible;opacity:1}
+.meganav-promoted-products{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.meganav-promoted-products-item{text-decoration:none;color:#19080e}
+.meganav-promoted-products-item img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;display:block}
+.meganav-promoted-products-item span{display:block;margin-top:8px;font-size:12.5px;font-weight:700;line-height:1.35}
+.meganav-promoted-products-item small{display:block;font-size:11px;opacity:.65;letter-spacing:.08em}
+.meganav__roomlinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;border-top:1px solid rgba(25,8,14,.14);padding-top:14px}
+.meganav__roomlinks a{color:#19080e;font-size:12.5px;font-weight:600;text-decoration:none;border:1px solid rgba(25,8,14,.3);border-radius:999px;padding:6px 11px}
+@media(max-width:900px){.meganav-nav{display:none}}
+
+/* ---------- F-19 · FAB mobile menu (residence) ---------- */
+.mobile-menu{position:fixed;inset:0;z-index:110;visibility:hidden}
+.mobile-menu.is-open,.mobile-menu.active{visibility:visible}
+.mobile-menu__overlay{position:absolute;inset:0;background:rgba(25,8,14,.66);opacity:0;transition:opacity .3s}
+.mobile-menu.is-open .mobile-menu__overlay,.mobile-menu.active .mobile-menu__overlay{opacity:1}
+.mobile-menu__panel{position:absolute;top:0;left:0;height:100%;width:min(340px,88vw);background:#19080e;color:#ece7ea;
+  transform:translateX(-102%);transition:transform .34s;padding:26px 22px;overflow:auto}
+.mobile-menu.is-open .mobile-menu__panel,.mobile-menu.active .mobile-menu__panel{transform:none}
+.mobile-menu__contents a{display:block;color:#ece7ea;text-decoration:none;font-size:16px;font-weight:600;padding:11px 2px;border-bottom:1px solid rgba(236,231,234,.14)}
+.mobile-menu__close{background:transparent;border:1px solid rgba(236,231,234,.4);color:#ece7ea;border-radius:999px;padding:7px 13px;cursor:pointer;margin-bottom:14px}
+[data-mobile-menu-open]{display:none}
+@media(max-width:900px){[data-mobile-menu-open]{display:inline-block}}
+
+/* ---------- P-28 drawer framework + P-13 site cart drawer ---------- */
+.drawer{position:fixed;top:0;right:0;height:100dvh;width:min(420px,94vw);z-index:96;
+  background:#ece7ea;color:#19080e;transform:translateX(103%);transition:transform .34s;display:flex}
+.drawer.open{transform:none}
+.drawer__inner{display:flex;flex-direction:column;width:100%}
+.drawer__head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid rgba(25,8,14,.16);font-weight:800}
+.drawer__body{flex:1;overflow:auto;padding:16px 20px}
+.drawer__foot{padding:16px 20px;border-top:1px solid rgba(25,8,14,.16)}
+.drawer__close{background:transparent;border:0;font-size:22px;cursor:pointer;color:inherit}
+.drawer__underlay{position:fixed;inset:0;background:rgba(25,8,14,.6);z-index:95;opacity:0;visibility:hidden;transition:opacity .3s}
+.drawer__underlay.show{opacity:1;visibility:visible}
+body.drawer-open{overflow:hidden}
+.cart-items .ci{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed rgba(25,8,14,.2);font-size:13.5px}
+
+/* ---------- G-37 kinetic signals (azure = single-word type only) ---- */
+.toast-stack{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:120;display:grid;gap:8px}
+.toast{background:#19080e;color:#ece7ea;border:1px solid rgba(236,231,234,.3);border-radius:999px;
+  padding:10px 18px;font-size:13.5px;box-shadow:0 18px 40px rgba(25,8,14,.5)}
+.toast .toast-word,.kinetic-word{color:#02a1fd;font-weight:800}
+.loading-overlay{position:fixed;inset:0;z-index:119;background:rgba(25,8,14,.5);
+  display:none;align-items:center;justify-content:center;font-size:22px;letter-spacing:.2em}
+.loading-overlay.show{display:flex}
+
+/* ---------- room layout: G-02 sidebar + main ---------- */
+.member-layout{display:grid;grid-template-columns:230px 1fr;gap:26px;align-items:start}
+@media(max-width:900px){.member-layout{grid-template-columns:1fr}}
+.account-sidebar{background:rgba(236,231,234,.06);border:1px solid rgba(236,231,234,.16);border-radius:20px;padding:18px;position:sticky;top:96px}
+.account-sidebar .sidebar-rule{border:0;border-top:1px solid rgba(236,231,234,.2);margin:12px 0}
+.account-sidebar a.sidebar-text-link{display:block;color:#ece7ea;text-decoration:none;font-size:14px;font-weight:600;padding:9px 10px;border-radius:10px}
+.account-sidebar a.sidebar-text-link:hover{background:rgba(236,231,234,.1)}
+.account-sidebar a.sidebar-text-link.is-active{background:#ece7ea;color:#19080e}
+.account-sidebar .side-k{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(236,231,234,.55)}
+
+/* ---------- member sections (ivory records on plum-black) ---------- */
+.member-section{background:#ece7ea;color:#19080e;border-radius:22px;padding:28px;margin-top:26px;box-shadow:0 24px 54px rgba(25,8,14,.5)}
+.member-section h3{font-size:21px;font-weight:800;letter-spacing:-.01em}
+.member-section .k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#bf3533;font-weight:800}
+.member-section p{line-height:1.6;margin-top:10px}
+.member-dark{background:rgba(236,231,234,.06);border:1px solid rgba(236,231,234,.16);color:#ece7ea;border-radius:22px;padding:28px;margin-top:26px}
+.member-dark .k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#bf3533;font-weight:800}
+.member-dark h3{font-size:21px;font-weight:800}
+.member-dark p{line-height:1.6;margin-top:10px;color:rgba(236,231,234,.85)}
+
+/* ---------- G01 · announcement slider ---------- */
+.announcement__slider{position:relative;overflow:hidden;border-radius:16px;background:#bf3533;color:#ece7ea;padding:14px 20px;margin-top:22px}
+.announcement__slide{display:none;font-weight:700;letter-spacing:.03em;font-size:14.5px}
+.announcement__slide.is-active{display:block}
+.announcement__slider .ann-k{font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.75;display:block;margin-bottom:3px}
+
+/* ---------- F-08 · membership dual tiles ---------- */
+.member-tiles{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+@media(max-width:700px){.member-tiles{grid-template-columns:1fr}}
+.image-overlay{position:relative;display:block;border-radius:22px;overflow:hidden;min-height:210px;text-decoration:none}
+.image-overlay img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.image-overlay::after{content:"";position:absolute;inset:0;background:rgba(25,8,14,var(--overlay-opacity,.45))}
+.image-overlay-content{position:absolute;inset:auto 0 0 0;z-index:2;padding:20px;color:#ece7ea}
+.image-overlay-content b{font-size:19px;display:block}
+.image-overlay-content span{font-size:13px;opacity:.85}
+
+/* ---------- G19/G27 · Ascension Plus program system ---------- */
+.ctr-progression{margin-top:16px}
+.ctr-progression__track{height:10px;border-radius:99px;background:rgba(25,8,14,.15);overflow:hidden}
+.ctr-progression__fill{height:100%;background:#bf3533;border-radius:99px;transition:width .5s}
+.ctr-progression__steps{display:flex;justify-content:space-between;font-size:11.5px;font-weight:700;letter-spacing:.05em;margin-top:8px}
+.ctr-activity__cards,.ctr-feature-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+@media(max-width:800px){.ctr-activity__cards,.ctr-feature-cards{grid-template-columns:1fr}}
+.ctr-activity__card,.ctr-feature-cards .ctr-feature-card{background:#19080e;color:#ece7ea;border-radius:16px;padding:18px}
+.ctr-activity__card-title,.ctr-feature-card b{font-size:15px;font-weight:800;display:block}
+.ctr-activity__description,.ctr-feature-card p{font-size:13.5px;color:rgba(236,231,234,.8);margin-top:7px;line-height:1.55}
+.ctr-credit-artifact{margin-top:16px;border:1.5px dashed rgba(25,8,14,.4);border-radius:14px;padding:14px 16px;font-size:14px}
+.ctr-credit-artifact:empty{display:none}
+
+/* ---------- BL-19 · standing-order presentation ---------- */
+.subscription-landing .so-lines{display:grid;gap:10px;margin-top:14px}
+.subscription-landing .so-line{display:flex;justify-content:space-between;gap:12px;border:1px solid rgba(25,8,14,.18);border-radius:14px;padding:13px 16px;font-size:14px}
+.subscription-landing [data-member-price]:empty,.subscription-landing [data-member-deal]:empty{display:none}
+
+/* ---------- BL-20 · tier table vars (captured CSS in extracts) ------ */
+.rewards-compare-table{--bg-color:#ece7ea;--text-color:#19080e;border-radius:22px;margin-top:26px}
+[data-tier-save]:empty{display:none}
+
+/* ---------- G09 · standing-order drawer (ctr-cart family) ---------- */
+.ctr-cart-drawer{position:fixed;top:0;right:0;height:100dvh;width:min(430px,94vw);z-index:97;background:#ece7ea;color:#19080e;
+  transform:translateX(103%);transition:transform .34s;display:flex;flex-direction:column;box-shadow:-24px 0 60px rgba(25,8,14,.5)}
+.ctr-cart-drawer.is-open{transform:none}
+.ctr-cart-drawer .ctr-cart-head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid rgba(25,8,14,.16);font-weight:800}
+.ctr-cart-items{flex:1;overflow:auto;padding:14px 20px}
+.ctr-cart-item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-bottom:1px dashed rgba(25,8,14,.2);font-size:14px}
+.ctr-cart-item .qty{display:flex;gap:8px;align-items:center}
+.ctr-cart-item .qty button{width:26px;height:26px;border-radius:50%;border:1px solid rgba(25,8,14,.4);background:transparent;cursor:pointer;font-weight:800}
+.ctr-cart-foot{padding:16px 20px;border-top:1px solid rgba(25,8,14,.16);font-weight:800;display:flex;justify-content:space-between}
+
+/* ---------- P-31 · shared tooltip ---------- */
+.tooltip-default{position:fixed;z-index:130;background:#19080e;color:#ece7ea;border:1px solid rgba(236,231,234,.35);
+  border-radius:10px;padding:8px 12px;font-size:12px;letter-spacing:.04em;opacity:0;visibility:hidden;transition:opacity .2s;pointer-events:none;max-width:250px}
+.tooltip-default.is-visible{opacity:1;visibility:visible}
+.tooltip-default__arrow{display:none}
+
+/* ---------- G-22/G-23 · account panel + passwordless login ---------- */
+.account-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:800px){.account-grid{grid-template-columns:1fr}}
+.account-benefits-panel{border:1px solid rgba(25,8,14,.2);border-radius:16px;padding:18px}
+.account-benefits-panel .artifact{display:flex;gap:10px;align-items:baseline;padding:8px 0;border-bottom:1px dashed rgba(25,8,14,.18);font-size:14px}
+.account-benefits-panel .artifact:last-child{border-bottom:0}
+.gh-input,.member-input{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid rgba(25,8,14,.35);background:transparent;font-size:14.5px;margin-top:10px;color:#19080e}
+.member-btn{display:inline-block;margin-top:12px;background:#19080e;color:#ece7ea;border:0;border-radius:999px;padding:11px 20px;font-weight:700;cursor:pointer;font-size:13.5px}
+.member-btn.scarlet{background:#bf3533}
+.member-note{font-size:13px;margin-top:10px;min-height:18px}
+
+/* ---------- G-39 · rebill card-confirm modal ---------- */
+.subsciption-rebill-card-confirm-modal{position:fixed;inset:0;z-index:125;display:none;align-items:center;justify-content:center;background:rgba(25,8,14,.72);padding:20px}
+.subsciption-rebill-card-confirm-modal.is-open{display:flex}
+.subsciption-rebill-card-confirm-modal .box{background:#ece7ea;color:#19080e;border-radius:24px;max-width:480px;width:100%;padding:28px}
+
+/* ---------- pause dialog: P-27 popup chassis over the page modal ---- */
+.modal-wrapper.popup-component .box{outline:2px solid rgba(191,53,51,.35)}
+/* the component hosts generate no box of their own, so the modal/tooltip
+   keep their direct-child stacking against the base CSS's body>* rule */
+popup-component,tooltip-component{display:contents}
