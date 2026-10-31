@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wholesale — SKINAA by Maanaa</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/skinaa.css">
+<link rel="stylesheet" href="assets/enrich/endcards-extracts.css">
+<link rel="stylesheet" href="assets/enrich/endcards.css">
+</head>
+<body>
+<!-- F-20 · FAB header shell (chrome rollout, copied from the landed Reading
+     Rooms build): dual regular/transparent logo mechanism, house wordmark in
+     both slots. P-13 drawer + G-37 kinetic layer copied with it. -->
+<div class="hdr enrich"><header class="header" id="site-header">
+  <span class="header__logo"><a class="header__logo-link" href="index.html" aria-label="SKINAA"><span class="header__logo-wrapper">
+    <span class="image regular-logo"><img src="assets/skinaa-wordmark.png" alt="SKINAA"></span>
+    <span class="image transparent-logo"><img src="assets/skinaa-wordmark.png" alt=""></span>
+  </span></a></span>
+  <nav class="site">
+    <a href="catalog.html">The Collection</a>
+    <a href="vault.html">The Vault</a>
+    <a href="index.html#board">The Board</a>
+    <a href="guide-female.html">Female Guide</a>
+    <a href="guide-male.html">Male Guide</a>
+    <a href="portal.html">Member's Room</a>
+  </nav>
+  <span class="header__icons">
+    <a class="header__icon-touch header__icon-touch--search" href="catalog.html">Search</a>
+    <a class="header__icon-touch header__icon-touch--account" href="portal.html">Account</a>
+    <button class="header__icon-touch header__icon-touch--cart" type="button" data-cart-open>Cart<span class="header__cart-link-count cart-count">0</span></button>
+  </span>
+</header></div>
+
+<!-- P-28 drawer framework + P-13 · Prequel cart drawer (site-wide cart;
+     the discount-code field CUT on transplant, per its row) -->
+<div class="drawer__underlay underlay"></div>
+<aside class="cart-drawer drawer drawer--animated" aria-hidden="true" aria-label="Cart">
+  <div class="drawer__inner">
+    <div class="drawer__head"><span>The Collection Tray</span><button class="drawer__close" type="button" aria-label="Close cart">×</button></div>
+    <div class="drawer__body"><div class="cart-items"></div></div>
+    <div class="drawer__foot"><span class="cart-total">0 in the tray</span>
+      <p class="note">Free shipping from $118 — the Phase 1 stack entry price.</p></div>
+  </div>
+</aside>
+
+<!-- G-37 · kinetic signals -->
+<div class="toast-stack" aria-live="polite"></div>
+<div class="loading-overlay" aria-hidden="true"><span class="kinetic-word">open</span></div>
+<main class="service-main">
+  <div class="service-head">
+    <span class="kicker">House Service · Trade</span>
+    <h1>Wholesale</h1>
+    <p>The trade door, linked from the closing register — with its own alternative footer, on this surface only.</p>
+  </div>
+  <div data-agent-slot></div>
+
+  <section class="service-sec wholesale-hero">
+    <h2>The trade door</h2>
+    <p class="house-fact">Wholesale is the house's trade/professional surface — Graymatter's wholesale system (hero, who-for, cards, login) in the End Card register.</p>
+    <ul class="wholesale-hero__benefits-list">
+      <li><div class="named-slot"><b>Named slot — document trade facts — who this door serves</b>The master document carries no trade terms, eligibility, or pricing. The who-for list ships as a slot; donor trade copy never transfers.</div></li>
+    </ul>
+    <div class="wholesale-cards"><div class="wholesale-cards__container">
+      <div class="wholesale-cards__grid">
+        <div class="wholesale-cards__card"><div class="wholesale-cards__card-title">Trade card — one</div><p class="wholesale-cards__points">NAMED SLOT — document trade facts.</p></div>
+        <div class="wholesale-cards__card"><div class="wholesale-cards__card-title">Trade card — two</div><p class="wholesale-cards__points">NAMED SLOT — document trade facts.</p></div>
+        <div class="wholesale-cards__card"><div class="wholesale-cards__card-title">Trade card — three</div><p class="wholesale-cards__points">NAMED SLOT — document trade facts.</p></div>
+      </div>
+    </div></div>
+    <div class="wholesale-login">
+      <form id="wholesale-login-form">
+        <div class="wholesale-login__field form-field"><label class="wholesale-login__label" for="wl-email">Trade email</label><input class="wholesale-login__input" id="wl-email" type="email" required></div>
+        <div class="wholesale-login__field form-field"><label class="wholesale-login__label" for="wl-pass">Password</label><input class="wholesale-login__input" id="wl-pass" type="password" required></div>
+        <button type="submit" class="wholesale-login__btn--primary">Sign in to the trade door</button>
+        <p class="wholesale-login__status" id="wholesale-login-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+  <div class="footer-alternative">
+    <span class="alt-mark">SKINAA — Wholesale</span>
+    <nav><a href="catalog.html">The Collection</a><a href="contact.html">Contact</a><a href="policies.html">Policies</a><a href="index.html">The Door</a></nav>
+    <span>The alternative footer renders on this surface only.</span>
+  </div>
+</main>
+<!-- THE END CARD — propagated from the Admission landing (build-admission.md):
+     P-37 divider → BL-29 column chassis → F-18 six groups + legal → P-21
+     supporting-menu strip → G24 wordmark lockup → P-20 single correspondence
+     line → BL-01 quiet line. BL-24 currency modal inside the register;
+     S-13 overflow behaviour on the strip at mobile widths. -->
+<div class="divider"><div class="divider-holder"></div></div>
+<footer class="site end-card footer footer--fab" id="end-card">
+  <section-footer-component class="footer__container">
+    <div class="footer__container__inner footer__fab-top">
+      <div class="footer__group"><h4>The Collection</h4>
+        <a href="catalog.html">All 40 pieces</a><a href="product.html">The piece page</a><a href="stacks.html">Attack Stacks</a></div>
+      <div class="footer__group"><h4>The Rooms</h4>
+        <a href="index.html">The Door</a><a href="vault.html">Visual Vault</a><a href="unboxing.html">Unboxing</a></div>
+      <div class="footer__group"><h4>Admission</h4>
+        <a href="assessment.html">Virtual Clinical Intake</a><a href="assessment.html?mode=day15">Day-15 Re-Assessment</a><a href="vault.html">The 28 archetypes</a></div>
+      <div class="footer__group"><h4>The Gallery</h4>
+        <a href="vault.html">Before &amp; After Vault</a><a href="guide-female.html">Female Guide</a><a href="guide-male.html">Male Guide</a></div>
+      <div class="footer__group"><h4>Membership</h4>
+        <a href="portal.html">Ascension Plus Portal</a><a href="portal.html">Manage the drip</a><a href="assessment.html?mode=day15">The iteration gate</a></div>
+      <div class="footer__group"><h4>House Service</h4>
+        <a href="help.html">Help</a><a href="authenticity.html">Authenticity</a><a href="wholesale.html">Wholesale</a><a href="contact.html">Contact</a><a href="policies.html">Policies</a></div>
+    </div>
+    <div class="footer__fab-legal"><span>SKINAA by Maanaa — Clinical Dermatology Meets Facial Architecture.</span><span class="footer-stamp">Official Esthetic Standard</span></div>
+    <overflow-list class="supporting-overflow" minimum-items="3">
+      <div class="supporting-menu">
+        <a href="index.html">The Door</a><a href="catalog.html">The Collection</a><a href="assessment.html">Admission</a><a href="stacks.html" data-overflow-extra>Prescription Counter</a><a href="vault.html" data-overflow-extra>Members' Gallery</a><a href="portal.html" data-overflow-extra>Member's Room</a><a href="unboxing.html" data-overflow-extra>Unboxing</a>
+        <button type="button" class="currency-open">Currency / locale</button>
+      <locale-selector>
+        <button type="button" class="locale-open" data-qa="locale-dropdown-toggle"><span data-locale-label>US · USD</span></button>
+        <locale-dropdown hidden>
+          <form class="locale-form" id="locale-dropdown-form">
+            <select name="country_code" aria-label="Country"><option value="US">United States</option></select>
+            <select name="locale_code" aria-label="Language"><option value="en">English</option></select>
+            <select name="currency" aria-label="Currency"><option value="USD">USD</option></select>
+            <button type="submit">Apply locale</button>
+            <p class="localization-status" role="status"></p>
+          </form>
+        </locale-dropdown>
+      </locale-selector>
+        <span class="payment-icon" title="Named slot">Payment marks — NAMED SLOT</span>
+        <button type="button" class="supporting-more" aria-expanded="false">More rooms</button>
+      </div>
+    </overflow-list>
+    <div class="footer__brand-strip"><img class="footer-wordmark" src="assets/skinaa-wordmark.png" alt="SKINAA"></div>
+    <div class="newsletter-component">
+      <form class="newsletter-form" data-newsletter-form>
+        <span class="correspondence-line">The weekly drip, in one quiet line — your Dual Rx note, every seven days.</span>
+        <span class="input-group"><input type="email" name="email" required placeholder="Your email" aria-label="Your email"><button type="submit">Correspond</button></span>
+      </form>
+    </div>
+    <div class="announcement-bar"><div class="announcement-bar__container"><div class="announcement-bar__slides"><div class="announcement-bar__slide">Cycles run 30 days, anchored on the 28th. Days 1–14: the full Attack Stack. Day 15: the iteration gate.</div></div></div></div>
+  </section-footer-component>
+  <modal-currency-root>
+    <div class="currency-modal" role="dialog" aria-modal="true" aria-label="Currency and locale">
+      <div class="currency-modal__card">
+        <span class="currency-modal__close-btn" aria-label="Close">×</span>
+        <div class="front-modal">
+          <h3>Currency &amp; locale</h3>
+          <p>The house's localization choice, kept on this device. Prices stay as the house sets them — no rate is invented here.</p>
+          <form id="modal--localization" modal-side="front">
+            <select name="country_code" aria-label="Country"><option value="US">United States</option></select>
+            <select name="locale_code" aria-label="Language"><option value="en">English</option></select>
+            <select name="currency" aria-label="Currency"><option value="USD">USD</option></select>
+            <button type="submit" class="modal-apply">Apply</button>
+          </form>
+        </div>
+        <div class="back-modal">
+          <h3>Kept</h3>
+          <p class="localization-status" role="status"></p>
+          <form id="modal--localization" modal-side="back">
+            <button type="submit" class="modal-apply">Confirm</button>
+          </form>
+          <span class="close_modal">Close</span>
+        </div>
+      </div>
+    </div>
+  </modal-currency-root>
+</footer>
+<script src="assets/enrich/cart-shim.js"></script>
+<script src="assets/enrich/endcards.js"></script>
+</body>
+</html>
