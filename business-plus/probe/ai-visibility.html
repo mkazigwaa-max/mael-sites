@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find out whether AI assistants recommend your business, who they mention instead, and what to fix. Request a free AI Visibility Audit.">
+  <title>AI Visibility Audit: does AI recommend your business? | Business +</title>
+  <link rel="canonical" href="https://getbusinessplus.com/tools/ai-visibility">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/site.css?v=687746fd0">
+  <link rel="stylesheet" href="../assets/tools.css?v=687746fd0">
+</head>
+
+<body data-turnstile="">
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="../index.html" aria-label="Business + home"></a>
+    <nav class="nav-links" id="site-nav" aria-label="Main">
+      <a href="../work.html">Our Work</a><a href="../custom-builds.html">Custom Builds</a><a href="../concierge.html">AI Concierge</a><a href="../book.html">Book a Call</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="../start.html">Get a FREE Demo</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
+  </div>
+</header>
+
+<main class="page tool-page" data-form-start="ai-visibility">
+  <div class="wrap tool-wrap">
+    <div class="bk-head">
+      <p class="bk-eyebrow">AI Visibility Audit</p>
+      <h1>Does AI Recommend&nbsp;Your&nbsp;Business?</h1>
+      <p class="lede">See who gets mentioned when customers ask AI for a business like&nbsp;yours.</p>
+    </div>
+
+    <div class="panel start-form tool-sheet">
+      <div class="intro-card">
+        <h2><span class="nw">Your Business.</span> <span class="nw">Your Competitors.</span> <span class="nw">Your Next Move.</span></h2>
+        <p>We check the leading AI assistants, show you the results, and lay out <strong>FREE</strong>&nbsp;solutions.</p>
+        <ul class="ai-models" aria-label="AI Assistants We Check"><li>ChatGPT</li><li>Claude</li><li>Gemini</li><li>Perplexity</li></ul>
+      </div>
+      <form id="send" class="gate" novalidate>
+        <h2>Get Your FREE Audit</h2>
+        <p class="sub">A person from our team reviews your results and emails your report within one business&nbsp;day.</p>
+        <div class="two">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" maxlength="120" required></div>
+          <div class="field"><label for="email">Business Email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="200" required></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="business">Business Name</label><input id="business" name="business" type="text" autocomplete="organization" maxlength="160" required></div>
+          <div class="field"><label for="phone">Phone # <span class="opt-word">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="category">Type of Business</label><input id="category" name="category" type="text" maxlength="160" placeholder="e.g. Insurance Agency" autocomplete="off" required></div>
+          <div class="field"><label for="location">City / State</label><input id="location" name="location" type="text" maxlength="160" placeholder="e.g. Bloomington–Normal, IL" required></div>
+        </div>
+        <div class="field">
+          <label for="businessUrl">Business Website</label>
+          <input id="businessUrl" name="businessUrl" type="url" maxlength="400" placeholder="https://" autocomplete="url" required>
+        </div>
+        <label class="check"><input id="noWebsite" name="noWebsite" type="checkbox"><span>We Don't Have a Website</span></label>
+        <div class="field">
+          <label for="linkedinUrl">Business LinkedIn Page</label>
+          <input id="linkedinUrl" name="linkedinUrl" type="url" maxlength="400" placeholder="https://www.linkedin.com/company/" required>
+        </div>
+        <label class="check"><input id="noLinkedin" name="noLinkedin" type="checkbox"><span>We Don't Have a LinkedIn Page</span></label>
+        <label class="trap" aria-hidden="true">Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+        <label class="check"><input name="newsletter" type="checkbox" checked><span>Also send me the Business + newsletter for small-business owners. One email a month; unsubscribe&nbsp;any&nbsp;time.</span></label>
+        <div id="ts-box"></div>
+        <p class="err" role="alert" hidden></p>
+        <button class="btn btn-primary send" type="submit">Get My FREE Audit</button>
+        <p class="legal">We do not sell your information. <a href="../privacy.html">Privacy</a></p>
+      </form>
+      <div id="done" class="done" role="status" tabindex="-1" hidden>
+        <h2 class="done-h">Got It.</h2>
+        <p>We&rsquo;ll email your AI Visibility Audit within one business day. Rather talk now? <a href="../book.html">Book a&nbsp;call</a>.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    
+    <span>Bloomington–Normal, Illinois</span>
+    <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a>
+    <a href="tel:+13095550147">(309) 555-0147</a>
+    <a href="index.html">Resources</a>
+    <a href="../privacy.html">Privacy</a>
+    <a href="../terms.html">Terms</a>
+  </div>
+</footer>
+
+<script type="module">
+    import { wireCapture } from '../assets/tools.js?v=687746fd0';
+    const $ = (s) => document.querySelector(s);
+    for (const [field, checkbox] of [['businessUrl', 'noWebsite'], ['linkedinUrl', 'noLinkedin']]) {
+      const input = $('#' + field), none = $('#' + checkbox);
+      const sync = () => { input.disabled = none.checked; input.required = !none.checked; if (none.checked) { input.dispatchEvent(new Event('input', { bubbles: true })); } };
+      none.addEventListener('change', sync);
+      sync();
+    }
+    wireCapture({
+      magnet: 'ai-answer-check',
+      form: $('#send'),
+      inputs: () => ({ category: $('#category').value.trim(), location: $('#location').value.trim(), businessUrl: $('#noWebsite').checked ? '' : $('#businessUrl').value.trim(), noWebsite: $('#noWebsite').checked, linkedinUrl: $('#noLinkedin').checked ? '' : $('#linkedinUrl').value.trim(), noLinkedin: $('#noLinkedin').checked }),
+      after: () => { $('#send').hidden = true; $('#done').hidden = false; $('#done').focus({ preventScroll: true }); $('#done').scrollIntoView({ behavior: 'smooth', block: 'center' }); },
+    });
+</script>
+<script src="../assets/site.js?v=687746fd0" defer></script>
+<script src="../assets/form-start.js?v=687746fd0" defer></script>
+<script src="../assets/chat.js?v=687746fd0" defer></script>
+</body>
+</html>

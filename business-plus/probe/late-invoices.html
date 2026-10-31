@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="What is your business losing to unpaid invoices? A free two-minute audit: invoices per month, typical invoice, never paid %, hours chasing. See the number before anything is asked of you.">
+  <title>Unpaid Invoice Audit: what's your business losing to unpaid invoices? | Business +</title>
+  <link rel="canonical" href="https://getbusinessplus.com/tools/late-invoices">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Unpaid Invoice Audit","url":"https://getbusinessplus.com/tools/late-invoices","applicationCategory":"BusinessApplication","operatingSystem":"Web","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"ProfessionalService","name":"Business +","url":"https://getbusinessplus.com/"},"description":"What a small business is losing to invoices that are never paid, and the hours spent chasing them."}
+  </script>
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/site.css?v=687746fd0">
+  <link rel="stylesheet" href="../assets/tools.css?v=687746fd0">
+</head>
+
+<body data-turnstile="">
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="../index.html" aria-label="Business + home"></a>
+    <nav class="nav-links" id="site-nav" aria-label="Main">
+      <a href="../work.html">Our Work</a><a href="../custom-builds.html">Custom Builds</a><a href="../concierge.html">AI Concierge</a><a href="../book.html">Book a Call</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="../start.html">Get a FREE Demo</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
+  </div>
+</header>
+
+<main class="page tool-page" data-form-start="late-invoices">
+  <div class="wrap tool-wrap">
+    <div class="bk-head">
+      <p class="bk-eyebrow">Unpaid Invoice Audit</p>
+      <h1>What&rsquo;s Your Business <span class="lose">LOSING</span> to Unpaid&nbsp;Invoices?</h1>
+      <p class="lede">Industry averages are preset if&nbsp;you&rsquo;re&nbsp;unsure.</p>
+    </div>
+
+    <div class="panel start-form tool-sheet">
+      <form id="calc" novalidate>
+        <div class="field">
+          <label for="trade">Type of Business</label>
+          <select id="trade" name="trade">
+            <option value="plumbing">Plumbing / Heating and Air</option>
+            <option value="electrical">Electrical</option>
+            <option value="roofing">Roofing</option>
+            <option value="landscaping">Landscaping</option>
+            <option value="contractor">General Contractor / Remodeling</option>
+            <option value="cleaning">Cleaning</option>
+            <option value="pest">Pest Control</option>
+            <option value="auto">Auto Repair</option>
+            <option value="other" selected>Other</option>
+          </select>
+        </div>
+        <div class="two">
+          <div class="field">
+            <label for="invoices">Invoices per Month</label>
+            <input id="invoices" name="invoices" type="number" inputmode="numeric" min="1" max="5000" step="1" value="40">
+          </div>
+          <div class="field">
+            <label for="value">Typical Invoice Value</label>
+            <input id="value" name="value" type="number" inputmode="numeric" min="1" max="1000000" step="10" value="300">
+          </div>
+        </div>
+        <div class="field">
+          <div class="pct"><label for="never">Never Paid %</label><output for="never" id="neverOut">8%</output></div>
+          <input id="never" name="never" type="range" min="0" max="50" step="1" value="8">
+        </div>
+        <div class="field">
+          <label for="hours">Hours per Week Chasing</label>
+          <input id="hours" name="hours" type="number" inputmode="decimal" min="0" max="80" step="0.5" value="2">
+        </div>
+      </form>
+
+      <div class="result" aria-live="polite">
+        <p class="box-label">Leaking Revenue</p>
+        <p class="big" id="monthly">$960 per month</p>
+        <p class="year"><span id="yearly">$11,520</span> per year</p>
+        <p class="how"><b id="invN">40</b> Invoices &times; <b id="valN">$300</b> = <b id="invoicedN">$12,000</b> Invoiced &times; <b id="neverN">8%</b> Never Paid = <b id="totalN">$960</b>&nbsp;per&nbsp;month</p>
+      </div>
+
+      <div class="recover" aria-live="polite">
+        <p class="box-label">Recovered Revenue</p>
+        <div class="pct"><label for="recovery">Recovery %</label><output for="recovery" id="recoveryOut">40%</output></div>
+        <input id="recovery" name="recovery" type="range" min="0" max="100" step="5" value="40">
+        <p class="big" id="recMonthly">$384 per month</p>
+        <p class="year"><span id="recYearly">$4,608</span> per year</p>
+        <p class="how"><b id="recPct">40%</b> &times; <b id="recLeak">$960</b> Leaked = <b id="recTotal">$384</b>&nbsp;per&nbsp;month</p>
+      </div>
+
+      <div class="timebox" aria-live="polite">
+        <p class="box-label">Time Back</p>
+        <div class="shift">
+          <div class="now"><p class="lab">Chasing Today</p><p class="n" id="chaseBig">8.7</p><p class="u">hours per month</p></div>
+          <div class="arrow" aria-hidden="true">&rarr;</div>
+          <div class="then"><p class="lab">With Reminders</p><p class="n">0</p><p class="u">hours per month</p></div>
+        </div>
+        <p class="days"><b id="chaseY">104</b> hours. <b id="chaseD">13</b> working days. <b id="chaseP">5%</b> of your year.</p>
+        <div class="tiles" id="tiles" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span></div>
+      </div>
+    </div>
+
+    <div class="panel start-form tool-sheet" id="fix-sheet">
+      <div class="solution" id="fix" aria-live="polite">
+        <p class="box-label">The Solution</p>
+        <h2 id="fixName">Invoice Reminders</h2>
+        <p class="what" id="fixWhat">You did the work. <b>It chases the money so you don&rsquo;t</b>: a reminder before the due date, on it, and after it, until&nbsp;they&nbsp;pay.</p>
+        <div class="acts"><a class="btn btn-ghost" id="buy" href="../book.html">Book a Call</a><a class="btn btn-primary" id="to-demo" href="#send">Get a FREE Demo</a></div>
+      </div>
+
+      <form id="send" class="gate" novalidate>
+        <h2 id="send-h" tabindex="-1">Get a FREE Demo of <span id="demoName">Invoice Reminders</span></h2>
+        <p class="sub">Built around your numbers. In your inbox within&nbsp;24&nbsp;hours.</p>
+        <div class="two">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" maxlength="120" required></div>
+          <div class="field"><label for="email">Business Email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="200" required></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="business">Business Name</label><input id="business" name="business" type="text" autocomplete="organization" maxlength="160" required></div>
+          <div class="field"><label for="phone">Phone # <span class="opt-word">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        </div>
+        <label class="trap" aria-hidden="true">Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+        <label class="check"><input name="newsletter" type="checkbox" checked><span>Also send me the Business + newsletter for small-business owners. One email a month; unsubscribe&nbsp;any&nbsp;time.</span></label>
+        <div id="ts-box"></div>
+        <p class="err" role="alert" hidden></p>
+        <button class="btn btn-primary send" type="submit">Send My FREE Demo Request</button>
+        <p class="legal">We do not sell your information. <a href="../privacy.html">Privacy</a></p>
+      </form>
+      <div id="done" class="done" role="status" tabindex="-1" hidden>
+        <h2 class="done-h">Got It.</h2>
+        <p>Your FREE demo of <b id="doneName">Invoice Reminders</b> will be in your inbox within 24 hours. If anything&rsquo;s unclear, we&rsquo;ll email you a question&nbsp;first.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    
+    <span>Bloomington–Normal, Illinois</span>
+    <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a>
+    <a href="tel:+13095550147">(309) 555-0147</a>
+    <a href="index.html">Resources</a>
+    <a href="../privacy.html">Privacy</a>
+    <a href="../terms.html">Terms</a>
+  </div>
+</footer>
+
+<script type="module">
+    import { unpaidInvoices, UNPAID, TRADES, money, hrs } from '../assets/tools-math.mjs?v=687746fd0';
+    import { wireCapture, wheelSafe } from '../assets/tools.js?v=687746fd0';
+    const $ = (s) => document.querySelector(s);
+    const calc = $('#calc');
+    let last = null;
+    // The trade list is written in the markup so the page reads without the script; a test keeps it equal to TRADES.
+    // Only the typical invoice moves with the trade: nothing published splits write-offs by trade.
+    function presets() { const t = TRADES[$('#trade').value] || TRADES.other; $('#value').value = t.jobValue; }
+    function read() { return { trade: $('#trade').value, invoicesPerMonth: $('#invoices').value, invoiceValue: $('#value').value, neverPaidPct: $('#never').value, hours: $('#hours').value, recoveryPct: $('#recovery').value }; }
+    function show() {
+      last = unpaidInvoices(read());
+      const i = last.inputs;
+      $('#neverOut').textContent = i.neverPaidPct + '%'; $('#recoveryOut').textContent = i.recoveryPct + '%';
+      $('#monthly').textContent = money(last.monthly) + ' per month'; $('#yearly').textContent = money(last.yearly);
+      $('#invN').textContent = i.invoicesPerMonth; $('#valN').textContent = money(i.invoiceValue); $('#invoicedN').textContent = money(last.invoicedMonthly); $('#neverN').textContent = i.neverPaidPct + '%'; $('#totalN').textContent = money(last.monthly);
+      $('#chaseBig').textContent = hrs(last.hoursMonthly); $('#chaseY').textContent = hrs(last.hoursYearly); $('#chaseD').textContent = last.daysYearly; $('#chaseP').textContent = pct(last.yearPct);
+      $('#recMonthly').textContent = money(last.recoveredMonthly) + ' per month'; $('#recYearly').textContent = money(last.recoveredYearly);
+      $('#recPct').textContent = i.recoveryPct + '%'; $('#recLeak').textContent = money(last.monthly); $('#recTotal').textContent = money(last.recoveredMonthly);
+      tiles(last.daysYearly);
+    }
+    // "5%" for most, "0.5%" for a small number, "<1%" only when it rounds away entirely.
+    function pct(v) { return v >= 1 ? Math.round(v) + '%' : v > 0 ? v + '%' : '0%'; }
+    // One tile per working day back, up to forty, then one tile for the rest; the markup carries the default thirteen.
+    function tiles(days) { const box = $('#tiles'); const n = Math.max(0, Math.round(days)); const shown = Math.min(n, 40); let h = ''; for (let k = 1; k <= shown; k++) h += `<span>${k}</span>`; if (n > shown) h += `<span class="more">+${n - shown} more</span>`; box.innerHTML = h; }
+    $('#trade').addEventListener('change', () => { presets(); show(); });
+    document.querySelector('.recover').addEventListener('input', show);
+    wheelSafe();
+    calc.addEventListener('input', show);
+    calc.addEventListener('submit', (e) => e.preventDefault());
+    presets(); show();
+    // "Get a FREE Demo" on The Solution card: down to the form, focus on its heading (Tab goes on to Name; a phone keyboard does not pop up).
+    $('#to-demo').addEventListener('click', (e) => {
+      e.preventDefault();
+      $('#send').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'instant' : 'smooth', block: 'start' });
+      $('#send-h').focus({ preventScroll: true });
+    });
+    // After sending: the form gives way to the receipt, and the card's demo button goes (it pointed at the form).
+    const sent = () => { $('#doneName').textContent = $('#fixName').textContent; $('#send').hidden = true; $('#to-demo').hidden = true; $('#done').hidden = false; $('#done').focus({ preventScroll: true }); $('#done').scrollIntoView({ behavior: 'smooth', block: 'center' }); };
+    wireCapture({
+      magnet: 'late-invoices',
+      form: $('#send'),
+      inputs: () => ({ ...last.inputs, invoicedMonthly: last.invoicedMonthly, monthly: last.monthly, yearly: last.yearly, recoveredMonthly: last.recoveredMonthly, recoveredYearly: last.recoveredYearly, hoursMonthly: last.hoursMonthly, hoursYearly: last.hoursYearly, daysYearly: last.daysYearly, yearPct: last.yearPct, demo: true }),
+      after: sent,
+    });
+</script>
+<script src="../assets/site.js?v=687746fd0" defer></script>
+<script src="../assets/form-start.js?v=687746fd0" defer></script>
+<script src="../assets/chat.js?v=687746fd0" defer></script>
+</body>
+</html>

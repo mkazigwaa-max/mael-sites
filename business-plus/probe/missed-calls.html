@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="What is your business losing to missed calls? A free two-minute audit: calls a week, missed call %, jobs booked %, typical job value. See the number before anything is asked of you.">
+  <title>Missed Call Audit: what's your business losing to missed calls? | Business +</title>
+  <link rel="canonical" href="https://getbusinessplus.com/tools/missed-calls">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Missed Call Audit","url":"https://getbusinessplus.com/tools/missed-calls","applicationCategory":"BusinessApplication","operatingSystem":"Web","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"ProfessionalService","name":"Business +","url":"https://getbusinessplus.com/"},"description":"What a small business is losing to missed calls every month."}
+  </script>
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/site.css?v=687746fd0">
+  <link rel="stylesheet" href="../assets/tools.css?v=687746fd0">
+</head>
+
+<body data-turnstile="">
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="../index.html" aria-label="Business + home"></a>
+    <nav class="nav-links" id="site-nav" aria-label="Main">
+      <a href="../work.html">Our Work</a><a href="../custom-builds.html">Custom Builds</a><a href="../concierge.html">AI Concierge</a><a href="../book.html">Book a Call</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="../start.html">Get a FREE Demo</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
+  </div>
+</header>
+
+<main class="page tool-page" data-form-start="missed-calls">
+  <div class="wrap tool-wrap">
+    <div class="bk-head">
+      <p class="bk-eyebrow">Missed Call Audit</p>
+      <h1>What&rsquo;s Your Business <span class="lose">LOSING</span> to Missed&nbsp;Calls?</h1>
+      <p class="lede">Industry averages are preset if&nbsp;you&rsquo;re&nbsp;unsure.</p>
+    </div>
+
+    <div class="panel start-form tool-sheet">
+      <form id="calc" novalidate>
+        <div class="field">
+          <label for="trade">Type of Business</label>
+          <select id="trade" name="trade">
+            <option value="plumbing">Plumbing / Heating and Air</option>
+            <option value="electrical">Electrical</option>
+            <option value="roofing">Roofing</option>
+            <option value="landscaping">Landscaping</option>
+            <option value="contractor">General Contractor / Remodeling</option>
+            <option value="cleaning">Cleaning</option>
+            <option value="pest">Pest Control</option>
+            <option value="auto">Auto Repair</option>
+            <option value="other" selected>Other</option>
+          </select>
+        </div>
+        <div class="two">
+          <div class="field">
+            <label for="calls">Customer Calls / Week</label>
+            <input id="calls" name="calls" type="number" inputmode="numeric" min="1" max="5000" step="1" value="60">
+          </div>
+          <div class="field">
+            <label for="job">Typical Job Value</label>
+            <input id="job" name="job" type="number" inputmode="numeric" min="1" max="100000" step="10" value="300">
+          </div>
+        </div>
+        <div class="field">
+          <div class="pct"><label for="missed">Missed Call %</label><output for="missed" id="missedOut">28%</output></div>
+          <input id="missed" name="missed" type="range" min="0" max="100" step="1" value="28">
+        </div>
+        <div class="field">
+          <div class="pct"><label for="book">Jobs Booked %</label><output for="book" id="bookOut">40%</output></div>
+          <input id="book" name="book" type="range" min="0" max="100" step="1" value="40">
+          <span class="hint">Industry averages for your trade. Most owners&nbsp;guess&nbsp;low.</span>
+        </div>
+      </form>
+
+      <div class="result" aria-live="polite">
+        <p class="box-label">Leaking Revenue</p>
+        <p class="big" id="monthly">$8,736 per month</p>
+        <p class="year"><span id="yearly">$104,832</span> per year</p>
+        <p class="how"><b id="missedN">73</b> Missed Calls &times; <b id="bookN">40%</b> Booked = <b id="jobsN">29.1</b> Lost Jobs &times; <b id="jobV">$300</b> Avg. Job Value = <b id="totalN">$8,736</b>&nbsp;per&nbsp;month</p>
+      </div>
+
+      <div class="recover" aria-live="polite">
+        <p class="box-label">Recovered Revenue</p>
+        <div class="pct"><label for="recovery">Recovery %</label><output for="recovery" id="recoveryOut">40%</output></div>
+        <input id="recovery" name="recovery" type="range" min="0" max="100" step="5" value="40">
+        <p class="big" id="recMonthly">$3,494 per month</p>
+        <p class="year"><span id="recYearly">$41,933</span> per year</p>
+        <p class="how"><b id="recPct">40%</b> &times; <b id="recLeak">$8,736</b> Leaked = <b id="recTotal">$3,494</b>&nbsp;per&nbsp;month</p>
+      </div>
+    </div>
+
+    <div class="panel start-form tool-sheet" id="fix-sheet">
+      <div class="solution" id="fix" aria-live="polite">
+        <p class="box-label">The Solution</p>
+        <h2 id="fixName">Missed Call Text Back</h2>
+        <p class="what" id="fixWhat">Every call you miss gets texted in <b>less than 60 seconds</b>.</p>
+        <div class="acts"><a class="btn btn-ghost" id="buy" href="../book.html">Book a Call</a><a class="btn btn-primary" id="to-demo" href="#send">Get a FREE Demo</a></div>
+      </div>
+
+      <form id="send" class="gate" novalidate>
+        <h2 id="send-h" tabindex="-1">Get a FREE Demo of <span id="demoName">Missed Call Text Back</span></h2>
+        <p class="sub">Built around your numbers. In your inbox within&nbsp;24&nbsp;hours.</p>
+        <div class="two">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" maxlength="120" required></div>
+          <div class="field"><label for="email">Business Email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="200" required></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="business">Business Name</label><input id="business" name="business" type="text" autocomplete="organization" maxlength="160" required></div>
+          <div class="field"><label for="phone">Phone # <span class="opt-word">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        </div>
+        <label class="trap" aria-hidden="true">Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+        <label class="check"><input name="newsletter" type="checkbox" checked><span>Also send me the Business + newsletter for small-business owners. One email a month; unsubscribe&nbsp;any&nbsp;time.</span></label>
+        <div id="ts-box"></div>
+        <p class="err" role="alert" hidden></p>
+        <button class="btn btn-primary send" type="submit">Send My FREE Demo Request</button>
+        <p class="legal">We do not sell your information. <a href="../privacy.html">Privacy</a></p>
+      </form>
+      <div id="done" class="done" role="status" tabindex="-1" hidden>
+        <h2 class="done-h">Got It.</h2>
+        <p>Your FREE demo of <b id="doneName">Missed Call Text Back</b> will be in your inbox within 24 hours. If anything&rsquo;s unclear, we&rsquo;ll email you a question&nbsp;first.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    
+    <span>Bloomington–Normal, Illinois</span>
+    <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a>
+    <a href="tel:+13095550147">(309) 555-0147</a>
+    <a href="index.html">Resources</a>
+    <a href="../privacy.html">Privacy</a>
+    <a href="../terms.html">Terms</a>
+  </div>
+</footer>
+
+<script type="module">
+    import { missedCalls, missedFix, TRADES, money } from '../assets/tools-math.mjs?v=687746fd0';
+    import { wireCapture, wheelSafe } from '../assets/tools.js?v=687746fd0';
+    const $ = (s) => document.querySelector(s);
+    const calc = $('#calc');
+    let last = null;
+    // The trade list is written in the markup so the page reads without the script; a test keeps it equal to TRADES.
+    function presets() { const t = TRADES[$('#trade').value] || TRADES.other; $('#missed').value = t.missedPct; $('#book').value = t.bookPct; $('#job').value = t.jobValue; }
+    function read() { return { trade: $('#trade').value, callsPerWeek: $('#calls').value, missedPct: $('#missed').value, bookPct: $('#book').value, jobValue: $('#job').value, recoveryPct: $('#recovery').value }; }
+    function show() {
+      last = missedCalls(read());
+      $('#missedOut').textContent = $('#missed').value + '%'; $('#bookOut').textContent = $('#book').value + '%'; $('#recoveryOut').textContent = $('#recovery').value + '%';
+      $('#monthly').textContent = money(last.monthly) + ' per month';
+      $('#yearly').textContent = money(last.yearly);
+      $('#missedN').textContent = last.missedPerMonth; $('#bookN').textContent = last.inputs.bookPct + '%'; $('#jobsN').textContent = last.lostJobs; $('#jobV').textContent = money(last.inputs.jobValue); $('#totalN').textContent = money(last.monthly);
+      fix(last.inputs.missedPct);
+      $('#recMonthly').textContent = money(last.recoveredMonthly) + ' per month'; $('#recYearly').textContent = money(last.recoveredYearly);
+      $('#recPct').textContent = last.inputs.recoveryPct + '%'; $('#recLeak').textContent = money(last.monthly); $('#recTotal').textContent = money(last.recoveredMonthly);
+    }
+    /* Which fix to name, and so which FREE demo they ask for: the rule lives in
+       tools-math.mjs (missedFix), shared with the emails and the sheet. */
+    function fix(missedPct) {
+      const f = missedFix(missedPct);
+      $('#fixName').textContent = f.name; $('#demoName').textContent = f.name;
+      $('#fixWhat').innerHTML = f.what;
+    }
+    $('#trade').addEventListener('change', () => { presets(); show(); });
+    document.querySelector('.recover').addEventListener('input', show);
+    wheelSafe();
+    calc.addEventListener('input', show);
+    calc.addEventListener('submit', (e) => e.preventDefault());
+    presets(); show();
+    // "Get a FREE Demo" on The Solution card: down to the form, focus on its heading (Tab goes on to Name; a phone keyboard does not pop up).
+    $('#to-demo').addEventListener('click', (e) => {
+      e.preventDefault();
+      $('#send').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'instant' : 'smooth', block: 'start' });
+      $('#send-h').focus({ preventScroll: true });
+    });
+    // After sending: the form gives way to the receipt, and the card's demo button goes (it pointed at the form).
+    const sent = () => { $('#doneName').textContent = $('#fixName').textContent; $('#send').hidden = true; $('#to-demo').hidden = true; $('#done').hidden = false; $('#done').focus({ preventScroll: true }); $('#done').scrollIntoView({ behavior: 'smooth', block: 'center' }); };
+    wireCapture({
+      magnet: 'missed-calls',
+      form: $('#send'),
+      inputs: () => ({ ...last.inputs, missedPerMonth: last.missedPerMonth, lostJobs: last.lostJobs, monthly: last.monthly, yearly: last.yearly, recoveredMonthly: last.recoveredMonthly, recoveredYearly: last.recoveredYearly, demo: true }),
+      after: sent,
+    });
+</script>
+<script src="../assets/site.js?v=687746fd0" defer></script>
+<script src="../assets/form-start.js?v=687746fd0" defer></script>
+<script src="../assets/chat.js?v=687746fd0" defer></script>
+</body>
+</html>
