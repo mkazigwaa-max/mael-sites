@@ -55,7 +55,7 @@ body.drawer-open{overflow:hidden}
 .toast .toast-word,.kinetic-word{color:#02a1fd;font-weight:800}
 .loading-overlay{position:fixed;inset:0;z-index:119;background:rgba(25,8,14,.5);
   display:none;align-items:center;justify-content:center;font-size:28px;
-  background-image:url("../tex/wing-a.jpg");background-size:600px 760px}
+
 .loading-overlay.show{display:flex}
 
 /* ---------- Vault layout: G05 timeline beside the wall ---------------- */

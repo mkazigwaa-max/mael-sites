@@ -15,13 +15,13 @@
   --color-foreground:#ece7ea; --section-bg:#634f32;
 }
 /* ---------- G31 initial page loader (Graymatter ctr-initial-page-loader) ---------- */
-.ctr-initial-page-loader .loading{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;background:#634f32 url("../tex/wing-a.jpg") center/cover no-repeat;opacity:1;visibility:visible;transition:opacity .2s ease-out,visibility .2s ease-out}
+.ctr-initial-page-loader .loading{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;background:#634f32;opacity:1;visibility:visible;transition:opacity .2s ease-out,visibility .2s ease-out}
 .ctr-initial-page-loader .loading::before{content:"";position:absolute;inset:0;background:rgba(25,8,14,.38)}
 body.is-loaded .ctr-initial-page-loader .loading{opacity:0;visibility:hidden;pointer-events:none}
 .loading__image__holder{position:absolute;inset:0;font-size:0}
 .kinetic-word{position:relative;font-size:clamp(56px,11vw,132px);font-weight:800;letter-spacing:-.02em;text-transform:lowercase;color:#02a1fd;text-shadow:0 4px 34px rgba(25,8,14,.45)}
 /* ---------- S-01 / S-02 password gate (sckenofficial threshold) ---------- */
-.password-gate{position:relative;background:#634f32 url("../tex/wing-a.jpg") center/cover no-repeat;color:#ece7ea;padding:84px 28px 72px;text-align:center;overflow:hidden}
+.password-gate{position:relative;background:#19080e url("../tex/feather-e.jpg") center/cover no-repeat;color:#ece7ea;padding:84px 28px 72px;text-align:center;overflow:hidden}
 .password-gate::before{content:"";position:absolute;inset:0;background:rgba(99,79,50,.55)}
 .password-gate>*{position:relative}
 .password-gate .background-image-container img{width:min(300px,62vw);aspect-ratio:4/5;object-fit:cover;border-radius:18px;box-shadow:0 30px 60px rgba(25,8,14,.42);display:block;margin:0 auto}
@@ -39,7 +39,7 @@ body.is-loaded .ctr-initial-page-loader .loading{opacity:0;visibility:hidden;poi
 .password-dialog__submit-button{background:#634f32;color:#ece7ea;border:none;font:inherit;font-weight:800;font-size:14.5px;padding:13px 22px;border-radius:999px;cursor:pointer}
 body.gate-open .password-gate{display:none}
 /* ---------- P-04 ticker (Prequel ticker-bar contract) ---------- */
-announcement-bar{display:block;background:#634f32 url("../tex/wing-a.jpg") center/cover no-repeat;color:#ece7ea;border-bottom:1px solid rgba(102,160,181,.45)}
+announcement-bar{display:block;background:#66a0b5;color:#ece7ea;border-bottom:1px solid rgba(102,160,181,.45)}
 .ticker--unloaded{visibility:hidden}
 [data-ticker-text]{display:inline-flex;white-space:nowrap}
 .ticker--animated{animation:door-ticker-scroll var(--animation-time,18s) linear infinite}
@@ -155,8 +155,8 @@ slider-component{display:block;position:relative}
 .s05-slide{min-width:100%;padding:34px 38px;text-align:left}
 .s05-slide .sq{font-size:19px;line-height:1.6;font-style:italic}
 .s05-slide .sr{margin-top:14px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#66a0b5}
-.philosophy-card{position:relative;overflow:hidden;border-radius:24px;margin-top:44px;padding:64px 38px;background:#634f32 url("../tex/wing-a.jpg") center/cover no-repeat;color:#ece7ea;text-align:left;box-shadow:0 24px 54px rgba(25,8,14,.30)}
-.philosophy-card::before{content:"";position:absolute;top:0;right:0;width:45%;height:100%;pointer-events:none;background-image:url("../tex/wing-a.jpg");background-repeat:no-repeat;background-size:205% auto;background-position:left 10% center;opacity:.5}
+.philosophy-card{position:relative;overflow:hidden;border-radius:24px;margin-top:44px;padding:64px 38px;background:#634f32 url("../tex/leaf-b.jpg") center/cover no-repeat;color:#ece7ea;text-align:left;box-shadow:0 24px 54px rgba(25,8,14,.30)}
+.philosophy-card::before{content:"";position:absolute;top:0;right:0;width:45%;height:100%;pointer-events:none;background-image:url("../tex/fig-d.jpg");background-repeat:no-repeat;background-size:205% auto;background-position:left 10% center;opacity:.5}
 .philosophy-card>*{position:relative}
 .philosophy-card h3{font-size:clamp(26px,3.6vw,38px);font-weight:800;letter-spacing:-.02em}
 .philosophy-card p{margin-top:14px;font-size:16px;line-height:1.62;max-width:620px}
@@ -174,7 +174,7 @@ slider-component{display:block;position:relative}
 .toast{background:#ece7ea;color:#19080e;border-radius:14px;box-shadow:0 24px 54px rgba(25,8,14,.42);padding:14px 18px;display:flex;gap:12px;align-items:baseline;max-width:min(360px,90vw)}
 .toast .toast-word{color:#02a1fd;font-weight:800;letter-spacing:.06em;text-transform:lowercase}
 .toast-message{font-size:13.5px;line-height:1.5}
-.loading-overlay{position:fixed;inset:0;z-index:190;display:none;align-items:center;justify-content:center;background:#634f32 url("../tex/wing-a.jpg") center/cover no-repeat}
+.loading-overlay{position:fixed;inset:0;z-index:190;display:none;align-items:center;justify-content:center;background:#19080e}
 .loading-overlay.show{display:flex}
 .loading-overlay::before{content:"";position:absolute;inset:0;background:rgba(25,8,14,.38)}
 .loading-overlay .kinetic-word{position:relative}
