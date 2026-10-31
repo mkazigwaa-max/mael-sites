@@ -1,0 +1,145 @@
+/* VAULT EXTRACTS — Phase B unit 6 (Story A · hazelnut).
+   Donor code moved bodily from the capture files named per block; the ONLY
+   changes are the combination swap (donor colors/fonts → Story A values:
+   hazelnut #634f32 · dusty blue #66a0b5 · ivory #ece7ea · plum-black #19080e
+   ink) per ENRICHMENT-MAP §(iii). Gold appears nowhere here — it lives only
+   inside the wing photograph. */
+
+/* ---------- BL-08 · Bloom image-text-split.css (30 hits, banked verbatim;
+   swaps: text color (Bloom green) → hazelnut, donor font names → house inherit) -- */
+.image-text-split__container{display:flex;flex-basis:100%;width:100%;position:relative;overflow-x:hidden}
+@media (max-width:439.99px){.image-text-split__container{background:var(--mobile-background,inherit)}}
+.image-text-split__container__image{width:100%;display:flex;position:relative;flex:1}
+@media (min-width:440px){.image-text-split__container__image{width:100%}}
+@media (min-width:1024px){.image-text-split__container__image{width:50%}}
+.image-text-split__container__image .picture-container{width:100%}
+.image-text-split__container__image .picture-container picture{width:100%;height:100%;display:block}
+.image-text-split__container__image .picture-container picture img{width:100%;height:100%;object-fit:cover}
+.image-text-split__container__image.centered{padding:1em}
+.image-text-split__container__image.centered .picture-container{position:relative;height:100%}
+.image-text-split__container__image.centered .picture-container picture img{border-radius:1em}
+.image-text-split__container__sticker{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.image-text-split__container__text{width:100%;row-gap:1em;padding:4rem 2rem;display:flex;flex-direction:column;text-align:center;align-items:center;justify-content:center;color:#634f32;font-family:inherit;position:relative}
+@media (min-width:1024px){.image-text-split__container__text{row-gap:2em;width:50%}}
+.image-text-split__container__text span h1,.image-text-split__container__text span h2,.image-text-split__container__text span h3,.image-text-split__container__text span h4,.image-text-split__container__text span h5,.image-text-split__container__text span h6,.image-text-split__container__text span p{font-size:inherit;margin:0}
+.image-text-split__container__text__italicized-text{font-family:inherit;font-style:italic;padding:.5vw}
+.image-text-split__container__text__secondary{display:flex;flex-direction:column;align-items:center;justify-content:center;row-gap:.75em;width:100%}
+@media (min-width:1024px){.image-text-split__container__text__secondary{row-gap:1em}}
+.image-text-split__container .image-text-split__wave-shape{position:absolute;top:0;left:-3rem;height:100%;width:auto;max-width:8rem;z-index:-1;pointer-events:none;display:none}
+@media (min-width:1024px){.image-text-split__container .image-text-split__wave-shape{display:block}}
+.image-text-split__container .image-text-split__wave-shape svg{width:auto;height:100%;display:block}
+
+/* ---------- G02 · Graymatter ctr-banner-slider.css / coffee-section slider
+   chassis (banked css; swaps: slide face white → ivory, border/text near-black →
+   plum-black, accent sage-green → dusty blue, gradient pale grey → ivory) -------- */
+.coffee-section{background-position:center top;background-repeat:no-repeat;background-size:cover;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.coffee-section .overlay-block{position:absolute;width:100%;height:180px;top:0;background-image:linear-gradient(rgba(236,231,234,.9),rgba(236,231,234,0))}
+.coffee-section .stack-container{width:100%;max-width:1160px;margin:0 auto;padding:0 20px 60px;position:relative;z-index:9}
+.coffee-section .setion-title{width:100%;max-width:526px;margin:0 auto}
+.coffee-section .coffee-section__slider-clip{position:relative;width:100%;padding-top:56px;overflow-x:hidden}
+.coffee-section .coffee-section__slider-bleed{width:100%}
+.coffee-section .coffee-section-swiper-container{position:relative;width:100%;overflow:visible}
+.coffee-section .swiper-wrapper{align-items:stretch;display:flex;transition:transform .45s ease}
+.coffee-section .swiper-slide-center{padding:0 10px;height:auto;box-sizing:border-box;flex:0 0 100%}
+.coffee-section .coffee-section__slider-nav{display:flex;align-items:center;justify-content:center;gap:16px;padding:24px 0 8px;position:relative;z-index:2}
+.coffee-section .coffee-section__slider-nav-label{font-size:16px;text-transform:uppercase;line-height:1;letter-spacing:.12em}
+.coffee-section .swiper-slide-center .slider-box{display:flex;align-items:center;justify-content:center;transition:all .2s linear;background-color:#ece7ea;padding:40px 42px;border:1px solid #19080e;gap:1rem;height:100%}
+.coffee-section .icon-box{width:30%}
+.coffee-section .slider-box .icon-box img{width:100%;max-width:220px}
+.coffee-section .content-box{width:70%;color:#19080e}
+.coffee-section .content-block-content-1,.coffee-section .content-block-content-1 em{color:#66a0b5}
+.coffee-section .btn-block{display:flex;padding-top:10px;justify-content:center}
+.coffee-section .slider-btn-block{padding:9px 54px;text-transform:uppercase;border-radius:50px}
+.coffee-section .swiper-button-next:after,.coffee-section .swiper-button-prev:after{display:none}
+.coffee-section .swiper-button-next,.coffee-section .swiper-button-prev{position:static;background:transparent;border:0;padding:0;margin:0;width:40px;height:auto;cursor:pointer;color:#ece7ea;display:flex;align-items:center;justify-content:center;font-size:26px}
+@media only screen and (max-width:1199px){.coffee-section .swiper-slide-center .slider-box{flex-direction:column;padding:20px 15px}.coffee-section .swiper-slide-center .content-box{width:100%;text-align:center}.coffee-section .swiper-slide-center .content-box h3{margin-top:0}}
+
+/* ---------- G07 · Graymatter theme.css reviews family (16 reviews__grid
+   hits; core layout rules extracted; vars take Story A values in vault.css) */
+.reviews{position:relative;color:var(--text);background-color:var(--bg)}
+.reviews--section{overflow:hidden}
+.reviews--have-images .reviews__grid{position:relative;padding-left:0;padding-right:0;scroll-padding:0}
+.reviews__grid{max-width:none;display:flex;flex-flow:row nowrap;justify-content:flex-start;align-items:stretch;overflow-x:scroll;overflow-y:hidden;scroll-behavior:smooth;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none}
+.reviews__grid::-webkit-scrollbar{display:none}
+.reviews__grid-item{flex:0 0 auto;display:flex;scroll-snap-align:start}
+.reviews__grid-item:last-child{margin-right:0}
+a.review:hover .review__image img{transform:scale(1.06)}
+.review__image{position:relative;overflow:hidden}
+.review__image img{transition:transform 1s ease}
+.review__content{--inner:30px;position:relative;padding:var(--inner) 0}
+.review__quote{position:absolute;font-size:96px;line-height:1;color:#66a0b5;opacity:.35;pointer-events:none;font-family:Georgia,serif}
+
+/* ---------- G05 · Graymatter process-progress (inline-code extraction,
+   named in the map: rules live in the donor sections' inline <style>;
+   classes verbatim — process-progress-box, progress_line, default-line,
+   draw-line, progressblock, progresstitle, in-view) ----------------------- */
+.process-progress-box{position:relative}
+.process-progress-box .progress_line{position:absolute;left:19px;top:0;bottom:0;width:2px}
+.process-progress-box .default-line{position:absolute;inset:0;background:rgba(236,231,234,.25)}
+.process-progress-box .draw-line{position:absolute;left:0;top:0;width:100%;height:0;background:#66a0b5;transition:height .3s linear}
+.process-progress-box .progressblock{position:relative;padding:0 0 44px 56px;opacity:.45;transition:opacity .4s}
+.process-progress-box .progressblock.in-view{opacity:1}
+.process-progress-box .progressblock::before{content:"";position:absolute;left:11px;top:4px;width:18px;height:18px;border-radius:50%;background:#634f32;border:2px solid #66a0b5}
+.process-progress-box .progressblock.in-view::before{background:#66a0b5}
+.process-progress-box .progresstitle{font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#66a0b5}
+.process-progress-box .process-content p{color:#ece7ea;line-height:1.6}
+
+/* ---------- G30 · Graymatter ctr-reviews (markup classes grep-verbatim in
+   rescan-graymatter §G30; CSS/JS sit in the 53-file absent register — this
+   is the named house CSS for the captured class contract, Story A values) - */
+.ctr-reviews{background:#ece7ea;color:#19080e;border-radius:20px;padding:34px 36px}
+.ctr-reviews__header{display:flex;flex-wrap:wrap;gap:14px;align-items:baseline;justify-content:space-between}
+.ctr-reviews__title{font-size:22px;font-weight:800}
+.ctr-reviews__subtitle{color:#634f32;font-size:14px}
+.ctr-reviews__tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.ctr-reviews__tab{border:1.5px solid #634f32;background:transparent;color:#634f32;border-radius:999px;padding:8px 16px;font-weight:700;cursor:pointer;font-family:inherit}
+.ctr-reviews__tab.is-active{background:#634f32;color:#ece7ea}
+.ctr-reviews__cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-top:20px}
+.ctr-reviews__card{background:#ece7ea;border:1px solid rgba(99,79,50,.4);border-radius:14px;padding:18px}
+.ctr-reviews__card-code{font-weight:800;letter-spacing:.06em}
+.ctr-reviews__track{height:8px;border-radius:99px;background:rgba(99,79,50,.18);margin-top:6px;overflow:hidden}
+.ctr-reviews__track-fill{height:100%;background:#66a0b5;border-radius:99px}
+.ctr-reviews__track-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#634f32}
+.ctr-reviews__footnote{margin-top:16px;font-size:12.5px;color:#634f32}
+
+/* ---------- P-25 · Prequel native-scrollbar (theme.js code-only element;
+   markup contract: [data-scrollbar], [data-scrollbar-arrow-prev/next],
+   [data-scrollbar-slider]; arrows hide at ends via is-hidden) ------------- */
+native-scrollbar{display:block;position:relative}
+native-scrollbar [data-scrollbar]{overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;display:flex;gap:14px}
+native-scrollbar [data-scrollbar]::-webkit-scrollbar{display:none}
+native-scrollbar [data-scrollbar-arrow-prev],native-scrollbar [data-scrollbar-arrow-next]{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:40px;height:40px;border-radius:50%;border:1.5px solid #66a0b5;background:#634f32;color:#ece7ea;cursor:pointer;font-size:18px}
+native-scrollbar [data-scrollbar-arrow-prev]{left:-8px}
+native-scrollbar [data-scrollbar-arrow-next]{right:-8px}
+native-scrollbar [data-scrollbar-arrow-prev].is-hidden,native-scrollbar [data-scrollbar-arrow-next].is-hidden{display:none}
+
+/* ---------- G25 · Graymatter predictive-search + popular panel (classes
+   from §2A/2C citations; backend re-pointed to the static MODELS index) --- */
+.predictive-search{position:relative}
+.predictive-search__popular{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.predictive-search__popular button{border:1px solid #66a0b5;background:transparent;color:#ece7ea;border-radius:999px;padding:6px 14px;cursor:pointer;font-family:inherit;font-size:13px}
+.predictive-search__results{display:grid;gap:10px;margin-top:16px}
+.predictive-search__result{display:flex;gap:14px;align-items:center;background:#ece7ea;color:#19080e;border-radius:12px;padding:10px 14px;text-align:left;border:none;cursor:pointer;font-family:inherit;width:100%}
+.predictive-search__result img{width:52px;height:52px;object-fit:cover;border-radius:8px}
+.predictive-search__status{font-size:13px;color:#66a0b5;min-height:18px}
+
+/* ---------- S-04 · sckenofficial layered-slideshow (banked JS contract:
+   layered-slideshow-component, draggable stacked panels, peeking tabs) ---- */
+layered-slideshow-component{display:block;position:relative}
+.layered-slideshow__container{position:relative;height:340px;touch-action:pan-y;user-select:none}
+.layered-slideshow__panel{position:absolute;inset:0;background:#ece7ea;color:#19080e;border-radius:18px;padding:22px 26px;box-shadow:0 24px 48px rgba(25,8,14,.4);cursor:grab;overflow:hidden}
+.layered-slideshow__panel img{width:100%;height:180px;object-fit:cover;border-radius:10px}
+.layered-slideshow__tab{position:absolute;top:-14px;right:22px;background:#66a0b5;color:#19080e;font-size:11px;font-weight:800;letter-spacing:.14em;padding:5px 12px;border-radius:99px;text-transform:uppercase}
+
+/* ---------- S-06 · sckenofficial media-gallery + zoom dialog (banked JS:
+   media-gallery element, refs zoomDialogComponent/slideshow/media,
+   ThemeEvents.zoomMediaSelected; TEMPLATE UNBANKED — markup authored
+   against the banked JS/CSS + entry class citations, named per the map) --- */
+media-gallery{display:block}
+.media-gallery__grid{display:flex;gap:12px;flex-wrap:wrap}
+.media-gallery__item{border:none;padding:0;background:none;cursor:zoom-in;border-radius:12px;overflow:hidden}
+.media-gallery__item img{width:150px;height:150px;object-fit:cover;display:block}
+.media-gallery__zoom-dialog{border:none;border-radius:20px;padding:0;background:#ece7ea;color:#19080e;max-width:min(680px,92vw)}
+.media-gallery__zoom-dialog::backdrop{background:rgba(25,8,14,.7)}
+.media-gallery__zoom-dialog img{width:100%;max-height:70vh;object-fit:contain;display:block;background:#634f32}
+.media-gallery__zoom-close{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:none;background:#634f32;color:#ece7ea;font-size:19px;cursor:pointer}

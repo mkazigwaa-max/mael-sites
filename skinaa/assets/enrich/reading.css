@@ -1,0 +1,270 @@
+/* READING WIRING LAYER — Phase B unit 7 (Story B · chartreuse).
+   Chrome rollout (F-20 shell + P-13 drawer + G-37 kinetic) copied from the
+   landed Vault build and re-valued to Story B: oxblood #6f0705 · chartreuse
+   #a8a147 · ivory #ece7ea · plum-black #19080e · azure #02a1fd kinetic type
+   only (inside the G-37 selectors, exactly as the landed builds).
+   Donor var() names from reading-extracts.css are bound to Story B here. */
+:root{--border:rgba(111,7,5,.35);--text:#19080e;--text-dark:#19080e;--text-light:#6f0705;
+  --COLOR-BG:#ece7ea;--bg:#ece7ea;--inner:20px;--gap:18px;--rte-column-divider-width:25px;
+  --font-body-small:12.5px;--link:#6f0705;--link-hover:#19080e;--link-a70:rgba(111,7,5,.7);
+  --btn-text:#19080e;--sticky-header-offset:84px;--layer-flat:5;
+  --FONT-STACK-BODY:inherit;--FONT-STYLE-BODY:normal;--FONT-WEIGHT-BODY:400;--LETTER-SPACING-BODY:.04em}
+
+/* ---------- F-20 header shell + P-28 drawer framework (from Vault) ---- */
+.hdr.enrich{position:sticky;top:0;z-index:80;background:rgba(236,231,234,.96);
+  border-bottom:1px solid #6f0705;backdrop-filter:blur(12px)}
+header.header{display:flex;align-items:center;justify-content:space-between;gap:18px;
+  max-width:1180px;margin:0 auto;padding:0 28px;height:72px;color:#19080e;position:relative}
+header.header .header__logo img{height:28px;width:auto;display:block}
+header.header .transparent-logo{display:none}
+header.header.is-scrolled .regular-logo{display:none}
+header.header.is-scrolled .transparent-logo{display:block}
+header.header nav.site a{color:#19080e}
+header.header nav.site a:hover{color:#a8a147}
+.header__icons{display:flex;gap:8px;align-items:center}
+.header__icon-touch{background:transparent;border:1px solid #6f0705;
+  border-radius:999px;padding:8px 13px;font-size:12px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:#19080e;cursor:pointer;text-decoration:none}
+.header__cart-link-count{display:inline-block;min-width:20px;text-align:center;
+  background:#a8a147;border-radius:999px;padding:1px 6px;margin-left:6px}
+.header-search-popdown{position:absolute;top:72px;right:28px;z-index:90;background:#ece7ea;
+  border:1px solid #6f0705;border-radius:16px;padding:16px;width:min(380px,90vw);
+  box-shadow:0 24px 48px rgba(25,8,14,.25)}
+.header-search-popdown input{width:100%;padding:11px 14px;border-radius:99px;border:1px solid #6f0705;font-family:inherit}
+.header-search-popdown .predictive-search{color:#19080e;margin-top:10px;font-size:14px}
+.drawer__underlay,.underlay{position:fixed;inset:0;background:rgba(25,8,14,.45);z-index:95;
+  opacity:0;pointer-events:none;transition:opacity .25s}
+.drawer__underlay.open,.underlay.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100dvh;width:min(420px,94vw);z-index:96;
+  background:#ece7ea;color:#19080e;
+  transform:translateX(105%);transition:transform .3s ease;display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer__inner{display:flex;flex-direction:column;height:100%}
+.drawer__head{display:flex;justify-content:space-between;align-items:center;
+  padding:18px 20px;border-bottom:1px solid #6f0705;font-weight:800}
+.drawer__body{flex:1;overflow:auto;padding:16px 20px}
+.drawer__foot{padding:16px 20px;border-top:1px solid #6f0705}
+.drawer__close{background:transparent;border:none;font-size:22px;cursor:pointer;color:inherit}
+body.drawer-open{overflow:hidden}
+.cart-items{display:grid;gap:14px}
+.cart-line{display:flex;gap:12px;align-items:center}
+.cart-empty{color:rgba(25,8,14,.62)}
+
+/* ---------- G-37 kinetic signals (azure = single-word type only) ---- */
+.toast-stack{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:120;display:grid;gap:8px}
+.toast{background:#19080e;color:#ece7ea;border-radius:999px;
+  padding:10px 18px;font-size:13.5px;box-shadow:0 16px 36px rgba(25,8,14,.3)}
+.toast .toast-word,.kinetic-word{color:#02a1fd;font-weight:800}
+.loading-overlay{position:fixed;inset:0;z-index:119;background:rgba(25,8,14,.5);
+  display:none;align-items:center;justify-content:center;font-size:28px;
+  background-image:url("../tex/leaf-b.jpg");background-size:cover}
+.loading-overlay.show{display:flex}
+
+/* ---------- S-21 reading measure + frame (S-29 sticky column + G-15) - */
+.reading-frame{display:grid;grid-template-columns:248px minmax(0,760px);gap:36px;
+  max-width:1120px;margin:0 auto;padding:0 28px;justify-content:center}
+.reading-main{min-width:0}
+.reading-main section.blk{max-width:760px;padding-left:0;padding-right:0}
+.reading-aside{padding-top:60px}
+.sticky-content--desktop{top:96px}
+.migrated-toc{background:#ece7ea;border:1px solid rgba(111,7,5,.3);border-top:4px solid #a8a147;
+  border-radius:8px;padding:20px 22px;box-shadow:0 14px 34px rgba(25,8,14,.12)}
+.toc-title{font-weight:800;color:#6f0705;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.migrated-toc ol{list-style:none;margin-top:12px;display:grid;gap:4px}
+.toc-item a{display:block;padding:7px 10px;border-radius:6px;color:#19080e;text-decoration:none;font-size:14.5px}
+.toc-item a:hover{background:rgba(168,161,71,.18)}
+.toc-item.is-active a{background:#a8a147;color:#19080e;font-weight:700}
+.toc-bullet{color:#6f0705;margin-right:6px}
+
+/* ---------- BL-02 mobile chapter track ------------------------------- */
+.scroll-link-banner{display:none}
+@media(max-width:750px){
+  .scroll-link-banner{display:block;background:#19080e;padding:10px 0;overflow:hidden}
+  .scroll-link-banner__track{display:flex;gap:10px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
+  .scroll-link-banner__link{white-space:nowrap;color:#ece7ea;text-decoration:none;font-size:13px;
+    border:1px solid #a8a147;border-radius:999px;padding:6px 13px}
+  .reading-frame{grid-template-columns:minmax(0,1fr);padding:0}
+  .reading-aside{display:none}
+  .reading-main section.blk{padding-left:22px;padding-right:22px}
+}
+
+/* ---------- BL-22 hub index + article cards -------------------------- */
+.main-blog-hub{max-width:1120px;margin:0 auto;padding:56px 28px 0}
+.hub-head{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.hub-title{color:#6f0705;font-size:26px;font-weight:800}
+.tag-chips{display:flex;gap:8px;flex-wrap:wrap}
+.tag-chip{border:1px solid #6f0705;background:#ece7ea;color:#19080e;border-radius:999px;
+  padding:7px 14px;font-size:13px;font-weight:700;cursor:pointer}
+.tag-chip.is-active{background:#a8a147;border-color:#a8a147}
+.hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-top:22px}
+.article-card{background:#ece7ea;border:1px solid rgba(111,7,5,.3);border-radius:10px;
+  padding:20px 22px;box-shadow:0 12px 30px rgba(25,8,14,.10)}
+.article-card__category{color:#6f0705;font-size:11.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.article-card__title{font-size:17px;font-weight:800;margin-top:7px;line-height:1.3}
+.article-card__title a{color:#19080e;text-decoration:none}
+.article-card__excerpt{font-size:14px;color:rgba(25,8,14,.68);margin-top:8px;line-height:1.55}
+.article-card__meta{margin-top:12px;font-size:12.5px}
+.article-card__link{color:#6f0705;font-weight:700;text-decoration-color:#a8a147;text-underline-offset:3px}
+.article-card__read-time{color:rgba(25,8,14,.55)}
+.search-open{border:1px solid #6f0705;background:#6f0705;color:#ece7ea;border-radius:999px;
+  padding:9px 18px;font-weight:700;cursor:pointer;font-size:13.5px}
+
+/* ---------- F-06 scroll slider --------------------------------------- */
+scroll-slider-component{display:block;margin-top:30px}
+.scroll-slider__head{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.scroll-slider__counter{font-size:13px;color:#6f0705;font-weight:800}
+.scroll-slider__btn{width:38px;height:38px;border-radius:999px;border:1px solid #6f0705;
+  background:#ece7ea;color:#6f0705;font-size:17px;cursor:pointer}
+.scroll-slider__slider{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:14px 2px 8px;scrollbar-width:none}
+.scroll-slider__slider>*{flex:0 0 min(250px,72vw);scroll-snap-align:start}
+.scroll-slider__dots{display:flex;gap:6px;justify-content:center;margin-top:6px}
+.scroll-slider-page-dot{width:9px;height:9px;border-radius:99px;background:rgba(111,7,5,.3);border:none;cursor:pointer;padding:0}
+.scroll-slider-page-dot.is-selected{background:#a8a147}
+
+/* ---------- F-21 section-blocks (catalogue head) ---------------------- */
+.section-blocks{margin-top:8px}
+.section-blocks__accent{color:#a8a147;font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:12px}
+.section-blocks .section-blocks__heading{color:#6f0705}
+.section-blocks__text p{color:rgba(25,8,14,.72)}
+.section-blocks__button a{display:inline-block;border:1px solid #6f0705;border-radius:999px;
+  padding:9px 18px;color:#6f0705;font-weight:700;text-decoration:none}
+
+/* ---------- P-19 ingredient catalogue -------------------------------- */
+.ingredient-log{margin-top:26px}
+.ingredient-log .article{background:#ece7ea;border:1px solid rgba(111,7,5,.28);border-radius:10px;
+  padding:22px 24px;margin-top:14px;box-shadow:0 12px 30px rgba(25,8,14,.09)}
+.article__title{font-size:19px;font-weight:800;color:#19080e}
+.article__meta{color:#6f0705;font-size:13px;font-weight:700;margin-top:5px}
+.article__body{font-size:15px;line-height:1.65;margin-top:9px;color:rgba(25,8,14,.8)}
+.article .widget{margin-top:12px;border-top:1px solid rgba(111,7,5,.25);padding-top:10px;font-size:13.5px}
+.article .widget a{color:#6f0705;font-weight:700}
+.show-more__item.is-collapsed{display:none}
+.show-more__btn{margin-top:18px;border:1px solid #6f0705;background:#ece7ea;color:#6f0705;
+  border-radius:999px;padding:10px 20px;font-weight:700;cursor:pointer}
+.ingredient-entry{display:flex;gap:12px;align-items:center;margin-top:22px;background:#19080e;
+  border-radius:10px;padding:18px 22px;color:#ece7ea}
+.ingredient-entry a{color:#a8a147;font-weight:800;text-decoration:none}
+
+/* ---------- P-36 rich text columns ------------------------------------ */
+.rich-text-columns__wrapper{gap:0}
+.rich-text-columns__left,.rich-text-columns__right{flex:1 1 300px}
+.rich-text-columns__divider-line{background:rgba(111,7,5,.4)}
+
+/* ---------- P-30 toggle ellipsis -------------------------------------- */
+.toggle-ellipsis__btn{margin-top:12px;border:1px solid #a8a147;background:#a8a147;color:#19080e;
+  border-radius:999px;padding:8px 16px;font-weight:700;cursor:pointer;font-size:13px}
+toggle-ellipsis.expanded{max-height:2400px}
+
+/* ---------- G21 companion (sc-landing) -------------------------------- */
+.sc-landing{margin-top:8px}
+.sc-landing__grid{display:grid;grid-template-columns:200px 1fr;gap:18px;align-items:stretch}
+.sc-landing__portrait{border-radius:10px;overflow:hidden;border:1px solid rgba(111,7,5,.3)}
+.sc-landing__portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.session-cards{display:grid;gap:14px}
+.session-card{background:#ece7ea;border:1px solid rgba(111,7,5,.28);border-left:4px solid #a8a147;
+  border-radius:8px;padding:18px 22px}
+.session-card b{color:#6f0705}
+@media(max-width:640px){.sc-landing__grid{grid-template-columns:1fr}.sc-landing__portrait{max-height:220px}}
+
+/* ---------- G-17 numbered methods ------------------------------------- */
+.numbered-methods{counter-reset:method}
+.numbered-methods>div{position:relative;padding-right:46px}
+.numbered-methods>div::after{counter-increment:method;content:counter(method,decimal-leading-zero);
+  position:absolute;top:10px;right:14px;color:#a8a147;font-weight:800;font-size:13px}
+
+/* ---------- BL-11 film row (named slots — no house embed banked) ----- */
+.multi-video-embeds{--bg-color:#19080e;background:#19080e;border-radius:12px;margin-top:26px;padding-bottom:26px}
+.multi-video-embeds__header{color:#ece7ea}
+.multi-video-embeds__title{color:#a8a147;font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:13px}
+.film-slot{border:1.5px dashed #a8a147;border-radius:10px;padding:30px 22px;text-align:center;color:#ece7ea}
+.film-slot b{color:#a8a147}
+.film-slot span{display:block;margin-top:6px;font-size:13px;color:rgba(236,231,234,.75)}
+
+/* ---------- BL-09 marquee ---------------------------------------------- */
+.scroll-banner{--bg-color:#6f0705;--scroll-duration:36s;margin-top:34px;border-radius:8px;overflow:hidden}
+.scroll-banner__marquee{background:#6f0705}
+.scroll-banner__item{color:#ece7ea;font-weight:700;letter-spacing:.06em}
+.scroll-banner__item i{color:#a8a147;font-style:normal;margin-left:28px}
+
+/* ---------- G-16 wall chart -------------------------------------------- */
+.wall-chart{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.wall-chart__list{background:#ece7ea;border:1px solid rgba(111,7,5,.3);border-radius:10px;padding:22px 24px}
+.wall-chart__list h3{color:#6f0705;font-size:16px}
+.wall-chart__list ul{list-style:none;margin-top:12px;display:grid;gap:8px;font-size:14.5px}
+.wall-chart__list li{padding-left:18px;position:relative}
+.wall-chart__list li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;background:#a8a147;transform:rotate(45deg)}
+.wall-chart__notes{grid-column:1/-1;font-size:13px;color:rgba(25,8,14,.62);border-top:1px solid rgba(111,7,5,.3);padding-top:10px}
+@media(max-width:640px){.wall-chart{grid-template-columns:1fr}}
+
+/* ---------- G20 counters ------------------------------------------------ */
+.stat-counters{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin:24px 0 6px}
+.stat-counter{background:#19080e;border-radius:10px;padding:20px 16px;text-align:center}
+.stat-counter__value{font-size:34px;font-weight:800;color:#a8a147;line-height:1}
+.stat-counter__label{font-size:12px;color:#ece7ea;margin-top:8px;line-height:1.45}
+
+/* ---------- folds: S-11 details + BL-31 accordion-custom --------------- */
+details.guide-fold{border:1px solid rgba(111,7,5,.3);border-radius:10px;margin-top:16px;background:#ece7ea}
+details.guide-fold>summary{cursor:pointer;padding:16px 20px;font-weight:800;color:#6f0705;list-style:none}
+details.guide-fold>div{padding:0 20px 18px}
+accordion-custom{display:block;margin-top:20px}
+accordion-custom details{border:1px solid rgba(111,7,5,.3);border-radius:10px;background:#ece7ea}
+accordion-custom summary{cursor:pointer;padding:16px 20px;font-weight:800;color:#6f0705;list-style:none}
+accordion-custom [data-ref="details-content"]{padding:0 20px 18px}
+
+/* ---------- G-18 protocol two-part cards -------------------------------- */
+.protocol-card{display:grid;grid-template-columns:92px 1fr;gap:16px;background:#ece7ea;
+  border:1px solid rgba(111,7,5,.28);border-radius:10px;padding:18px 20px;margin-top:14px}
+.protocol-card__measure{color:#6f0705;font-weight:800;font-size:19px;border-right:2px solid #a8a147;padding-right:14px}
+.protocol-card__body p{font-size:15.5px;line-height:1.7}
+
+/* ---------- S-22 tables -------------------------------------------------- */
+.rte-table-wrapper{margin-top:22px;border:1px solid rgba(111,7,5,.3);border-radius:10px;background:#ece7ea}
+.rte-table-wrapper table{width:100%;border-collapse:collapse;font-size:14.5px}
+.rte-table-wrapper th{background:#6f0705;color:#ece7ea;text-align:left;padding:11px 16px}
+.rte-table-wrapper td{padding:11px 16px;border-top:1px solid rgba(111,7,5,.2);line-height:1.55}
+.rte-table-wrapper td:first-child{font-weight:800;color:#6f0705;white-space:nowrap}
+
+/* ---------- S-27 resource list ------------------------------------------- */
+.section-resource-list{margin-top:8px}
+.section-resource-list__header h2{color:#6f0705}
+.section-resource-list__content{display:flex;gap:14px;overflow-x:auto;padding:16px 2px 8px;scrollbar-width:none}
+.resource-card{flex:0 0 210px;background:#ece7ea;border:1px solid rgba(111,7,5,.3);border-top:4px solid #a8a147;
+  border-radius:10px;padding:18px 20px;text-decoration:none;color:#19080e}
+.resource-card b{color:#6f0705;display:block;margin-bottom:6px}
+.resource-card span{font-size:13.5px;color:rgba(25,8,14,.66);line-height:1.5;display:block}
+
+/* ---------- G-33 builder grid + closings --------------------------------- */
+.builder-grid{max-width:1120px;margin:0 auto;padding:64px 28px 0}
+.builder-grid__title{color:#6f0705;font-size:24px;font-weight:800}
+.builder-grid__layout{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:20px}
+.builder-card{border:1px solid rgba(111,7,5,.3);background:#ece7ea;border-radius:6px;padding:20px 22px}
+.builder-card a{color:#19080e;font-weight:800;text-decoration:none}
+.builder-card p{font-size:13.5px;color:rgba(25,8,14,.66);margin-top:7px;line-height:1.55}
+.article-navigator{max-width:1120px;margin:0 auto;padding:44px 28px 0;display:flex;justify-content:space-between;gap:14px}
+.article-navigator a{border:1px solid #6f0705;border-radius:999px;padding:11px 20px;color:#6f0705;
+  font-weight:700;text-decoration:none;background:#ece7ea}
+.article-end-stack{max-width:1120px;margin:0 auto;padding:26px 28px 70px;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.stack-part{background:#19080e;border-radius:10px;padding:22px 24px;color:#ece7ea}
+.stack-part b{color:#a8a147;display:block;margin-bottom:8px}
+.stack-part a{color:#ece7ea;font-weight:700;text-decoration-color:#a8a147;text-underline-offset:3px}
+.stack-part p{font-size:13.5px;color:rgba(236,231,234,.72);line-height:1.55;margin-top:6px}
+
+/* ---------- BL-30 library search overlay --------------------------------- */
+.b__search{z-index:130}
+.b__search__panel{background:#ece7ea;border:1px solid #6f0705}
+.b__search__panel input{width:100%;padding:12px 15px;border-radius:99px;border:1px solid #6f0705;font-family:inherit;font-size:15px}
+.b__search__results{margin-top:14px;display:grid;gap:8px;max-height:46vh;overflow:auto}
+.b__search__panel__results__item{display:block;padding:10px 13px;border:1px solid rgba(111,7,5,.25);
+  border-radius:8px;text-decoration:none;color:#19080e;background:#ece7ea}
+.b__search__panel__results__item__title{font-weight:700;color:#6f0705}
+.b__search__status{font-size:12.5px;color:rgba(25,8,14,.6);margin-top:10px}
+
+@media(max-width:640px){
+  header.header{padding:0 12px;gap:8px}
+  header.header .header__logo img{height:22px}
+  .header__icons{gap:5px}
+  .header__icon-touch{padding:6px 8px;font-size:10.5px}
+  header.header nav.site{display:none}
+}
