@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Service — Business +</title>
+
+<link rel="canonical" href="https://getbusinessplus.com/terms">
+<meta name="description" content="The terms that govern this website and the work Business + does for clients.">
+<meta name="robots" content="index,follow">
+
+<style>
+:root{
+  --paper:#130606;
+  --paper-deep:#130606;
+  --ink:#ece8e9;
+  --ink-soft:#bfb8b5;
+  --accent:#b79d7a;
+  --accent-lift:#a78464;
+  --border:#39291f;
+  --border-soft:#39291f;
+  --r-panel:1rem;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);color:var(--ink-soft);
+  font-family:var(--sans);font-size:19px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{width:min(100% - 44px,68ch);margin-inline:auto}
+
+header{background:var(--paper);border-bottom:1px solid var(--border);padding:20px 0}
+header .wrap{width:min(100% - 44px,1120px);display:flex;align-items:center;justify-content:space-between;gap:20px}
+header img{display:block}
+.back{
+  font-size:1rem;font-weight:650;color:var(--accent);text-decoration:none;
+  border:1px solid var(--border);border-radius:.6rem;padding:10px 18px;min-height:44px;
+  display:inline-flex;align-items:center;
+}
+.back:hover{background:var(--paper-deep);color:var(--accent-lift)}
+
+main{padding:clamp(44px,6vw,76px) 0 clamp(56px,6vw,84px)}
+.label{
+  font-size:.82rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;
+}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,5vw,3rem);line-height:1.12;color:var(--ink);letter-spacing:-.01em}
+.updated{margin-top:18px;font-size:1rem}
+.lede{margin-top:26px;font-size:1.12rem}
+
+h2{
+  font-family:var(--serif);font-weight:400;font-size:clamp(1.45rem,2.6vw,1.85rem);
+  line-height:1.25;color:var(--ink);margin:44px 0 14px;
+}
+h3{font-size:1.06rem;font-weight:700;color:var(--ink);margin:26px 0 8px}
+p{margin-bottom:16px}
+ul{margin:0 0 18px 0;list-style:none}
+li{position:relative;padding-left:30px;margin-bottom:12px}
+li::before{content:"·";position:absolute;left:10px;color:var(--accent);font-weight:700;font-size:1.4rem;line-height:1.25}
+a{color:var(--accent)}
+a:hover{color:var(--accent-lift)}
+strong{color:var(--ink);font-weight:700}
+hr{border:0;border-top:1px solid var(--border-soft);margin:44px 0}
+
+.callout{
+  background:var(--paper-deep);border:1px solid var(--border);border-radius:var(--r-panel);
+  padding:clamp(22px,3vw,30px);margin:32px 0;
+}
+.callout p:last-child{margin-bottom:0}
+
+.gap{
+  background:#130606;border:2px dashed #635032;border-radius:var(--r-panel);
+  padding:clamp(20px,2.6vw,28px);margin:28px 0;color:var(--ink-soft);
+}
+.gap p:last-child{margin-bottom:0}
+.gap .t{
+  display:block;font-size:.8rem;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:10px;
+}
+.gap strong{color:#39291f}
+
+.loud{text-transform:uppercase;font-weight:700;color:var(--ink)}
+
+footer{border-top:1px solid var(--border);padding:36px 0 44px;font-size:1rem}
+footer .wrap{width:min(100% - 44px,1120px);display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between}
+
+.btn-ghost{background:transparent;color:var(--accent);box-shadow:inset 0 0 0 1px var(--border)}
+.btn-ghost:hover{background:var(--accent);color:#130606}
+.btn-invert{background:var(--accent);color:#130606;box-shadow:none}
+.bar-actions .portal-btn{background:transparent;color:var(--accent);
+  box-shadow:inset 0 0 0 1px var(--border)}
+.bar-actions .portal-btn:hover{background:var(--accent);color:#130606}
+
+.btn-primary .arrow-box,.btn-invert .arrow-box{background:rgba(19,6,6,.22);color:#130606}
+.btn-primary:hover .arrow-box,.btn-invert:hover .arrow-box{background:rgba(236,232,233,.14);color:#130606}
+.btn-ghost .arrow-box{background:rgba(183,157,122,.14);color:var(--accent)}
+.btn-ghost:hover .arrow-box{background:rgba(19,6,6,.22);color:#130606}
+
+@media (prefers-reduced-motion:reduce){
+  .btn-primary,.btn-invert{background-color:var(--accent);color:#130606}
+  .btn-ghost{background-color:transparent;color:var(--accent)}
+  .btn-primary .arrow-box,.btn-invert .arrow-box{background:rgba(19,6,6,.22);color:#130606}
+  .btn-ghost .arrow-box{background:rgba(183,157,122,.14);color:var(--accent)}
+}
+
+.panel,.panel.dark{background:#2f3c68;border:1px solid rgba(236,232,233,.07);color:var(--ink-soft)}
+.panel h3,.panel.dark h3{color:var(--ink)}
+.yes li::before{color:var(--accent)}
+.panel.dark h3{color:var(--ink)}
+
+a:not([class]){color:var(--accent)}
+a:not([class]):hover{color:var(--ink)}
+
+.dark-close,.dark-foot{background:var(--dark)}
+.dark-close .head h2,.dark-foot h4{color:var(--ink)}
+.dark-close .note,.dark-foot .fine{color:var(--ink-soft)}
+
+h1,h2,h3,h4{text-wrap:balance}
+p,li,dd,dt,td,th,figcaption,blockquote,summary,label{text-wrap:pretty}
+
+header .wrap > a:first-child{flex:0 1 auto;min-width:0}
+header .wrap > a:first-child img{max-width:100%;height:auto}
+.back{white-space:nowrap}
+
+@media print{
+  h2,h3{break-after:avoid}
+  h2{margin-top:32px}
+  header{padding:8px 0}
+  main{padding:24px 0 0}
+  footer{padding:14px 0 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="index.html" aria-label="Business + — home">
+      
+    </a>
+    <a class="back" href="index.html">&larr; Back to the site</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="label">Terms</p>
+    <h1>Terms of Service</h1>
+    <p class="updated"><strong>Last updated:</strong> 9 October 2026</p>
+
+    <p class="lede">These terms govern your use of this website and any work we do for you. They are written to be read. Where a clause exists to protect us, it says so plainly rather than hiding in the middle of a paragraph.</p>
+
+    <div class="callout">
+      <p><strong>The short version.</strong> We give you recommendations; you decide what to do with them. The tools we recommend are made by other companies and we do not control them. AI can be wrong, so check its output before you rely on it. We do not promise a specific financial result. If something goes badly wrong, what you can recover from us is capped. Disputes get worked out in Illinois, between us, and not as a class action.</p>
+      <p>The short version is a summary, not a substitute. The full terms below are what actually&nbsp;applies.</p>
+    </div>
+
+    <h2>1. Who these terms are between</h2>
+    <p><strong>Integral Growth Partners</strong> is operated by Mael Kazigwa and The Build Desk. We work out of Bloomington–Normal, Illinois, and with clients anywhere. In these terms, &ldquo;we,&rdquo; &ldquo;us,&rdquo; and &ldquo;Business +&rdquo; mean that company. &ldquo;You&rdquo; means the person or business using this website or engaging us.</p>
+    <p>If you are agreeing to these terms on behalf of a company, you confirm that you are authorized to bind that company, and &ldquo;you&rdquo; means both you and&nbsp;that&nbsp;company.</p>
+    <p>You can reach us at <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a> or <a href="tel:+13095550147">(309) 555-0147</a>.</p>
+    <p><strong>Formal legal notice</strong> must be sent in writing to our registered agent: Integral Growth Partners [registered agent address to be updated at filing]. Notice by email alone is not formal notice.</p>
+
+    <h2>2. Accepting these terms</h2>
+    <p>By using this website, booking a call, or engaging us for any service, you agree to these terms. If you do not agree, do not use the site and do not engage&nbsp;us.</p>
+    <p>If we sign a separate written agreement with you &mdash; a statement of work, a proposal, an engagement letter &mdash; and anything in it conflicts with these terms, <strong>that signed agreement controls for the conflict only</strong>. Everything not addressed there is still governed by these terms.</p>
+
+    <h2>3. What we do, and what we do not do</h2>
+    <p>We assess how a business operates and recommend software, processes, and artificial intelligence tools. Where you ask us to, we also configure, build, and hand over those tools, and we may remain available on an ongoing basis.</p>
+    <p><strong>We provide business recommendations and technical implementation. Nothing we produce is legal, accounting, tax, financial, investment, medical, insurance, or&nbsp;regulatory&nbsp;advice</strong>, and it must not be used as a substitute for a licensed professional in any of those fields. If a recommendation touches an area that is regulated in your industry, it is your responsibility to have it reviewed by someone qualified before you act on it.</p>
+    <p>Every decision about your business remains yours. We advise; you&nbsp;choose.</p>
+
+    <h2>4. The assessment and other deliverables</h2>
+    <p>An assessment produces a written plan &mdash; observations, recommended tools, an order to do them in, and estimates. It is a professional opinion based on what you tell us and what we observe in the time available. It is not an audit, a certification, a guarantee of outcome, or a complete review of your business.</p>
+
+    <p><strong>The assessment is free.</strong> There is no charge for the discovery call, the analysis, the written plan, or the call where we walk you through it. You owe us nothing for any of it, and the plan is yours to keep and act on however you like &mdash; including by hiring someone else to build it, or building it yourself.</p>
+    <p>Work beyond the assessment &mdash; anything we build, configure, or run for you &mdash; is quoted and agreed separately in writing before it starts. Nothing is chargeable unless you have agreed to it in writing first.</p>
+    <p><strong>&ldquo;Free 14-Day Time Refund&rdquo; is the name we give this offer.</strong> It describes what the assessment is for &mdash; getting time back &mdash; and it is not a separate guarantee, warranty, or refund entitlement. The assessment costs nothing, so there is nothing to refund. What we actually promise about results is set out in section 6, and our commitment on paid work is in the section immediately below.</p>
+
+    <h2 id="guarantee">5. Our commitment on paid work</h2>
+    <p>Where we take on paid work, we may agree a <strong>specific outcome</strong> with you in writing before that work starts. Where we do, <strong>we keep working with you toward that outcome at no additional charge until it is&nbsp;met.</strong></p>
+    <p>The outcome is specific to you and is whatever the two of us agree is the right measure &mdash; hours saved per week, a dollar figure, or a defined implementation milestone. <strong>This is a commitment to keep working, not&nbsp;a&nbsp;refund.</strong> Money already paid for work already performed is not returned; what you get instead is our continued time until the agreed thing is done.</p>
+    <p>For this commitment to apply, the written agreement for that work must state three things: <strong>what the outcome is</strong>, <strong>how it is measured and by whom</strong>, and <strong>the date by which it is assessed</strong>. Without all three there is nothing to be held to, in either direction.</p>
+    <p><strong>If that agreement does not name an assessment date, the commitment runs for ninety (90) days from the day the paid work starts, and then ends.</strong> This backstop exists so that an agreement written in a hurry does not leave either of us in an open-ended arrangement. Where a date is named, the named date governs and this paragraph does not apply.</p>
+    <p>The commitment is limited to the scope of the work it was agreed for, and it ends&nbsp;if:</p>
+    <ul>
+      <li>you stop implementing, or stop giving us the access, information, or decisions the work&nbsp;needs;</li>
+      <li>you change the underlying business, process, or systems in a way that makes the agreed outcome no longer&nbsp;meaningful;&nbsp;or</li>
+      <li>the outcome becomes unachievable for reasons outside our reasonable control, including a third-party tool changing or&nbsp;being&nbsp;withdrawn.</li>
+    </ul>
+    <p>Nothing in this section is a warranty that a particular result will occur, and it does not change section 6 or the limits in section&nbsp;17.</p>
+
+    <h2>6. Estimates, projections, and results</h2>
+    <p class="loud">We do not guarantee any particular result, saving, revenue, or&nbsp;return.</p>
+    <p>Any figure we give you &mdash; hours saved per week, cost avoided, time to set something up, dollar return &mdash; is a <strong>good-faith estimate based on the information available at&nbsp;the&nbsp;time</strong>. It is not a promise, a warranty, or a projection you should plan around as if it were certain.</p>
+    <p>Results depend almost entirely on things outside our control: whether you implement the plan, how well, how quickly, whether your team adopts it, how your business changes, and how the underlying tools behave. Two businesses given the same plan routinely get different outcomes.</p>
+    <p>Any example, case study, or number shown on our website or in our materials is illustrative. It is not a representation of what you will&nbsp;achieve.</p>
+
+    <h2>7. Third-party tools and services</h2>
+    <p>Most of what we recommend and build uses software made by other companies &mdash; among them AI providers, automation platforms, and productivity tools. We are not affiliated with them unless we say so in&nbsp;writing.</p>
+    <ul>
+      <li><strong>We do not control them.</strong> Their pricing, features, availability, security, and terms are theirs, and they can change or disappear without notice to us or to you.</li>
+      <li><strong>You contract with them directly.</strong> Their terms of service and privacy policies apply to your use of them, alongside these terms. It is your responsibility to read and comply with them.</li>
+      <li><strong>Their subscription costs are yours,</strong> and are separate from anything you pay us, unless we have agreed otherwise in writing.</li>
+      <li class="loud">We are not liable for a third-party tool's failure, outage, price change, discontinuation, security incident, or change of&nbsp;terms.</li>
+    </ul>
+
+    <h2>8. Artificial intelligence &mdash; what you need to know</h2>
+    <p>Our work involves AI systems, both in producing our recommendations and in what we build for you. AI has specific limitations, and you are agreeing that you&nbsp;understand&nbsp;them:</p>
+    <ul>
+      <li><strong>AI output can be wrong, and can be&nbsp;confidently&nbsp;wrong.</strong> It can invent facts, misread context, and produce something plausible that is not true.</li>
+      <li><strong>It is not consistent.</strong> The same input can produce different output on different days.</li>
+      <li><strong>A human has to check it.</strong> You are responsible for reviewing AI-generated output before you rely on it, send it to a customer, or make a decision on it. This is especially true for anything involving money, contracts, safety, health, employment, or legal obligations.</li>
+      <li><strong>Your data may leave your building.</strong> Using these tools generally means sending information to a third-party provider. We will tell you where data goes; you decide what is acceptable to send. <strong>Do not put information into a tool we set up if you are not permitted to&nbsp;disclose&nbsp;it.</strong></li>
+      <li><strong>Ownership of AI output is unsettled law.</strong> Nobody can currently guarantee that AI-generated material is protectable, or that it does not resemble something else. We make no warranty on that point.</li>
+    </ul>
+
+    <h2>9. What we need from you</h2>
+    <p>Our work depends on what you give us. You agree&nbsp;to:</p>
+    <ul>
+      <li>Give us accurate, complete, and current information. A plan built on wrong information will be wrong, and that is not a defect in our&nbsp;work.</li>
+      <li>Provide reasonable and timely access to the people, systems, and information the&nbsp;work&nbsp;requires.</li>
+      <li>Confirm that you have the right to give us everything you give us &mdash; including any data belonging to your customers, employees, or vendors &mdash; and that doing so breaches no law, contract, or privacy obligation you are&nbsp;under.</li>
+      <li><strong>Keep your own backups.</strong> Before we change, connect, or automate anything, you are responsible for having a working, tested backup of the systems and data involved.</li>
+      <li>Maintain your own accounts, licenses, and credentials with third-party providers, and keep them&nbsp;secure.</li>
+      <li>Comply with the laws and industry rules that apply to&nbsp;your&nbsp;business.</li>
+    </ul>
+    <p>If a delay or failure is caused by information or access you did not provide, deadlines move accordingly and we are not responsible for the consequence.</p>
+
+    <h2>10. Confidentiality</h2>
+    <p>Each of us will keep the other's confidential business information confidential, use it only for the engagement, and protect it with at least reasonable care. This obligation survives the end of the&nbsp;engagement.</p>
+    <p>It does not apply to information that is public through no fault of the receiving party, was already known, is independently developed, or must be disclosed by law &mdash; and in that last case, the party compelled to disclose will tell the other first where it is lawful to do so.</p>
+    <p>We will not name you as a client publicly without your permission. Where you give it, that permission is revocable in writing.</p>
+
+    <h2>11. Ownership</h2>
+    <h3>What stays yours</h3>
+    <p>Your business information, your data, your customer records, your existing processes, and your content remain entirely yours. We claim no ownership over any of it.</p>
+
+    <h3>What stays ours</h3>
+    <p>Our methods, frameworks, templates, prompts, checklists, internal tooling, and the general knowledge and experience we bring to the work remain ours &mdash; including anything of that kind we improve while working with you.</p>
+
+    <h3>What you get</h3>
+    <p>On full payment of any amounts due, you receive a <strong>perpetual, non-exclusive, non-transferable license to use the deliverables we produce for you, within your own&nbsp;business</strong>. You may not resell them, license them onward, or offer them as a service to others without our written permission.</p>
+    <p>Nothing stops us from doing similar work for other clients, including in your industry, so long as we honor our confidentiality obligations under section&nbsp;10.</p>
+
+    <h2>12. Fees and payment</h2>
+    <p><strong>The assessment is free.</strong> Everything else is quoted per engagement and agreed in writing before it starts. Any figure we give for work not yet agreed is an estimate, not a quote, and binds nobody until we have both confirmed the scope in writing.</p>
+    <p>For paid work, unless the written agreement for that work says otherwise:</p>
+    <ul>
+      <li><strong>Invoices are due within fifteen&nbsp;(15)&nbsp;days</strong> of the invoice date.</li>
+      <li><strong>Late amounts carry interest at 1.5%&nbsp;per&nbsp;month</strong> (18% per year) or the maximum rate permitted by Illinois law, whichever is lower, from the due date until paid.</li>
+      <li><strong>You are responsible for the reasonable costs of collection</strong>, including reasonable attorneys' fees, on any amount properly due and unpaid.</li>
+      <li><strong>We may suspend work</strong> on any engagement while an invoice is more than fifteen (15) days overdue, having first told you in writing. Deadlines move by at least the length of the suspension.</li>
+      <li><strong>Fees for work already performed are non-refundable.</strong> Where work is agreed in stages, each stage is payable once delivered.</li>
+      <li><strong>Prices exclude tax.</strong> You are responsible for any sales, use, or similar tax that applies, other than tax on our income.</li>
+      <li><strong>Third-party subscription costs&nbsp;are&nbsp;yours</strong> and are billed to you by those providers directly, as set out in section 7.</li>
+    </ul>
+
+    <h2>13. Changes to scope</h2>
+    <p>If you ask for work beyond what was agreed, we will tell you what it involves before we do it. Additional work is only agreed once we have both confirmed it in writing, which&nbsp;includes&nbsp;email.</p>
+
+    <h2>14. Your use of this website</h2>
+    <p>You may read this site and use its booking form for its intended purpose. You may not:</p>
+    <ul>
+      <li>Scrape, harvest, or systematically copy it by automated means.</li>
+      <li>Attempt to gain unauthorized access to it or to anything connected to it.</li>
+      <li>Interfere with its operation, or test its security without our written permission.</li>
+      <li>Submit false information, or book appointments you have no intention of&nbsp;keeping.</li>
+      <li>Use it to send anything unlawful, misleading, or harmful.</li>
+    </ul>
+    <p>The content, wording, design, and branding on this site are ours and are protected. Do not reproduce them without permission.</p>
+    <p>We may suspend or refuse access to the site or to our services at any time, for any lawful&nbsp;reason.</p>
+
+    <h2>15. How we contact you</h2>
+    <p>When you give us your details, you agree that we may contact you by email, phone, or text <strong>about the work and about your inquiry</strong>. That is not consent to marketing messages. Our monthly newsletter goes only to people who ask for it or leave its box ticked on the quiz or a free tool, and to AI&nbsp;Concierge clients as part of their service, as our <a href="privacy.html#newsletter">Privacy Policy</a> explains. Every issue says how to come off it: the one-click link in your quiz or tool email, getbusinessplus.com/unsubscribe, or a reply. You can tell us to stop contacting you at&nbsp;any&nbsp;time.</p>
+    <p>You agree that electronic records and electronic signatures satisfy any requirement that something be in writing or&nbsp;signed.</p>
+
+    <h2>16. Disclaimer of warranties</h2>
+    <p class="loud">The website and our services are provided &ldquo;as is&rdquo; and &ldquo;as available,&rdquo; without warranties of any kind, express or implied.</p>
+    <p class="loud">To the fullest extent permitted by law, we disclaim all implied warranties, including merchantability, fitness for a particular purpose, title, non-infringement, and any warranty arising from course of dealing or usage of&nbsp;trade.</p>
+    <p>We do not warrant that the website will be uninterrupted or error-free, that any recommendation will produce a particular result, that any third-party tool will keep working, or that any system we build will be free of every defect. We will perform our services with reasonable skill and care, and that is the standard we hold ourselves to.</p>
+    <p>Some states do not allow certain warranties to be excluded. Where that is the case, the exclusions above apply to the fullest extent that state's law&nbsp;allows.</p>
+
+    <h2>17. Limitation of liability</h2>
+    <p class="loud">To the fullest extent permitted by law, neither party is liable to the other for any indirect, incidental, special, consequential, exemplary, or punitive damages, or for lost profits, lost revenue, lost business, lost data, or business interruption &mdash; even if told such damages were possible.</p>
+
+    <p class="loud">Subject to the paragraph above, our total aggregate liability arising out of or relating to these terms or our services, whether in contract, tort, negligence, or otherwise, will not exceed the greater of (a) the total fees you paid us in the twelve (12) months preceding the event giving rise to the claim, or (b) one thousand US dollars ($1,000).</p>
+    <p>The thousand-dollar floor is there deliberately. The assessment is free, so for many clients the fees paid will be nothing &mdash; and a limit of nothing is not a limit. The floor means there is always a real amount available, whatever you have or have not paid&nbsp;us.</p>
+    <p>Nothing in these terms excludes or limits liability that cannot lawfully be excluded or limited &mdash; including liability for fraud, fraudulent misrepresentation, or death or personal injury caused by&nbsp;negligence.</p>
+    <p>You acknowledge that these limits are a reasonable allocation of risk, that they reflect what we charge, and that we would not provide the services on these commercial terms&nbsp;without&nbsp;them.</p>
+
+    <h2>18. Indemnity</h2>
+    <p>You agree to indemnify and hold us harmless from any third-party claim, loss, liability, or expense (including reasonable legal fees) arising from: information you gave us that you had no right to share; your use of a recommendation or deliverable in breach of a law or a contract you are subject to; your breach of these terms; or content or data you put into a system we set&nbsp;up.</p>
+    <p>This does not apply to the extent the claim results from our own gross negligence or&nbsp;wilful&nbsp;misconduct.</p>
+
+    <h2>19. Our relationship</h2>
+    <p>We are independent contractors. Nothing here creates a partnership, joint venture, employment, agency, or fiduciary relationship. Neither of us can bind the other or make commitments on the other's&nbsp;behalf.</p>
+    <p>Nobody who is not a party to these terms has any right to enforce them.</p>
+
+    <h2>20. Ending the engagement</h2>
+    <p>Either of us may end an engagement by giving written notice. On termination you pay for work performed up to that point, and each of us returns or destroys the other's confidential information on&nbsp;request.</p>
+    <p>The sections that are meant to outlast the engagement do: confidentiality, ownership, disclaimers, limitation of liability, indemnity, and dispute resolution.</p>
+
+    <h2>21. Events outside our control</h2>
+    <p>Neither party is liable for a failure or delay caused by something genuinely beyond its reasonable control &mdash; including natural disaster, war, epidemic, labour dispute, government action, utility or internet failure, or the outage or discontinuation of a third-party platform we depend on.</p>
+
+    <h2>22. Governing law and where disputes go</h2>
+    <p>These terms are governed by the laws of the <strong>State of Illinois</strong>, without regard to its conflict-of-laws rules.</p>
+
+    <h3>Talk first</h3>
+    <p>Before either of us starts a formal proceeding, that party will send the other a written description of the dispute and what it wants, and both will try in good faith to resolve it for <strong>thirty (30) days</strong>. This step is required.</p>
+
+    <h3>Then arbitration</h3>
+    <p class="loud">If a dispute is not resolved in that thirty days, it will be settled by final and binding arbitration administered by the American Arbitration Association under its Commercial Arbitration Rules, seated in McLean County, Illinois, before one arbitrator. Judgment on the award may be entered in any court of competent jurisdiction.</p>
+    <p class="loud">By agreeing to these terms, you and we are each giving up the right to sue in court and the right to a jury trial, except as set out&nbsp;below.</p>
+    <p>Either of us may still bring a claim in small claims court if it qualifies, and either of us may ask a court for an injunction to stop a breach of confidentiality or misuse of intellectual property.</p>
+
+    <h3>No class actions</h3>
+    <p class="loud">Any dispute will be brought in an individual capacity only, and not as a plaintiff or class member in any purported class, collective, consolidated, or representative proceeding. The arbitrator may not consolidate claims or preside over any form of representative proceeding.</p>
+    <p>If this class-action waiver is found unenforceable, then the whole of the arbitration agreement in this section is void, and disputes will instead be resolved in the state or federal courts located in <strong>McLean County, Illinois</strong>, to whose exclusive jurisdiction both parties consent.</p>
+
+    <h2>23. Everything else</h2>
+    <ul>
+      <li><strong>Severability.</strong> If a court finds any provision unenforceable, that provision is limited or removed to the minimum extent necessary and the rest stays in force.</li>
+      <li><strong>No waiver.</strong> If we do not enforce something straight away, we have not given up the right to enforce it later.</li>
+      <li><strong>Assignment.</strong> You may not transfer these terms without our written consent. We may assign them to a successor in connection with a merger, acquisition, or sale of the business.</li>
+      <li><strong>Entire agreement.</strong> These terms, together with our <a href="privacy.html">Privacy Policy</a> and any signed agreement between us, are the whole of what we have agreed, and replace anything discussed beforehand.</li>
+      <li><strong>Headings</strong> are for navigation and do not affect meaning.</li>
+    </ul>
+
+    <h2>24. Changes to these terms</h2>
+    <p>We may update these terms. The date at the top shows when they last changed. Continuing to use the site or our services after a change means you accept the&nbsp;updated&nbsp;version.</p>
+    <p><strong>Changes are not retroactive</strong>: work already agreed is governed by the terms in force when it was agreed.</p>
+
+    <h2>25. Contact</h2>
+    <p>Questions about these terms go to <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a>, or Integral Growth Partners, Bloomington–Normal, Illinois.</p>
+
+    <hr>
+
+    <p style="font-size:1rem">See also our <a href="privacy.html">Privacy Policy</a>, which covers what we collect and what we do with it.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Business +</span>
+    <span><a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy Policy</a></span>
+    <span>Bloomington–Normal, Illinois</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where Is Your Business Leaking Time? | Business +</title>
+<meta name="description" content="A guided business exercise that identifies where work is getting stuck, repeated, or lost.">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=8f1efb5828">
+
+<style>
+
+:root{
+  --paper:#130606;--paper-deep:#130606;--ink-soft:#bfb8b5;--accent-lift:#a78464;
+  --border:#39291f;--border-soft:#39291f;--tint:#130606;--r-panel:1rem;
+  --serif:"Bricolage Grotesque",system-ui,sans-serif;--sans:"Inter",system-ui,sans-serif;
+  --sheet-ink:#39291f;--sheet-soft:#5f5647;--sheet-line:#bfb8b5;--sheet-box:#bfb8b5;--green:#635032;--no:#39291f;
+}
+.tarpit{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#ts-box:not(:empty){margin:0 0 18px}
+.dg-wrap{--max:860px}
+main.page{padding:clamp(28px,4vw,48px) 0 clamp(64px,8vw,104px)}
+#app:focus{outline:none}
+
+.progress{display:flex;gap:10px;margin:0 0 clamp(20px,3vw,28px);padding:0;list-style:none}
+.progress li{flex:1 1 0;min-width:0;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--soft);padding-top:10px;border-top:4px solid var(--line);text-wrap:balance}
+.progress li[data-state="now"]{color:var(--accent);border-top-color:var(--accent)}
+.progress li[data-state="done"]{color:var(--accent);border-top-color:rgba(183,157,122,.35)}
+@media (max-width:560px){.progress{gap:6px}.progress li{font-size:11px;letter-spacing:.05em}}
+
+.bk-head{margin-bottom:clamp(20px,3vw,28px)}
+.bk-eyebrow{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;padding:5px 13px;border-radius:999px;
+  font-family:var(--display);font-weight:700;font-size:14.5px;color:#bfb8b5;background:rgba(183,157,122,.1);border:1px solid rgba(183,157,122,.35)}
+.bk-eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(183,157,122,.18)}
+.bk-head h1{font-family:var(--display);font-weight:800;font-size:clamp(32px,3.6vw,48px);line-height:1.04;letter-spacing:-.035em}
+.bk-head h1:focus{outline:none}
+.bk-head .lede{margin-top:14px;font-size:clamp(17px,1.4vw,19px);line-height:1.55;max-width:58ch}
+.r-head h1{font-size:clamp(28px,3.2vw,42px);line-height:1.1}
+
+.panel.bk-sheet{padding:clamp(20px,3vw,34px)}
+.bk-sheet a:not(.btn){color:var(--green)}
+.bk-sheet strong{color:var(--sheet-ink)}
+.step-line{margin:0 0 16px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.step-line:focus{outline:none}
+.sheet-h{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-.01em;color:var(--sheet-ink);margin:0 0 6px}
+.sheet-sub{font-size:15.5px;color:var(--sheet-soft);margin:0 0 18px}
+
+.q{border:0;margin:0;padding:22px 0;min-width:0;border-top:1px solid var(--sheet-line)}
+.q:first-of-type{border-top:0;padding-top:0}
+.q::after{content:"";display:table;clear:both}
+.q legend,.q-label{float:left;width:100%;padding:0;margin:0 0 12px;font-family:var(--display);font-weight:700;font-size:19px;
+  line-height:1.3;letter-spacing:-.01em;color:var(--sheet-ink)}
+.q-label{float:none;display:block}
+.q .hint{clear:both;font-size:14.5px;color:var(--sheet-soft);margin:-4px 0 10px}
+.q.is-missing legend,.q.is-missing .q-label{color:var(--no)}
+.opts{clear:both;display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:9px 16px;border-radius:999px;
+  font:600 15px/1.3 var(--body);color:var(--sheet-ink);background:#ece8e9;border:1px solid #bfb8b5;cursor:pointer;
+  -webkit-user-select:none;user-select:none}
+@media (hover:hover){.opt:hover{background:#ece8e9;border-color:#bfb8b5}}
+.opt input{position:absolute;left:12px;top:50%;width:1px;height:1px;margin:0;opacity:0;pointer-events:none}
+.opt.is-on{background:var(--green);border-color:var(--green);color:#ece8e9}
+.opt.is-on::before{content:"\2713";font-weight:800}
+.opt:has(input:focus-visible){outline:3px solid var(--green);outline-offset:2px}
+.q.is-missing .opt{border-color:#bfb8b5}
+.opts.wide{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.opts.wide .opt{border-radius:16px;align-items:flex-start;text-align:left;padding:11px 16px}
+.story{width:100%;min-height:150px;padding:14px 16px;border-radius:14px;font:16px/1.5 var(--body);resize:vertical}
+.start-form .story{background:#ece8e9;border:1px solid #bfb8b5;color:#39291f}
+.start-form .story:focus{outline:3px solid var(--green);outline-offset:2px;border-color:var(--green)}
+.q.is-missing .story{border-color:var(--no);border-width:2px}
+@media (max-width:620px){
+  .opts.wide{grid-template-columns:1fr}
+  .opts.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .opts.two .opt{border-radius:14px;align-items:flex-start;text-align:left;padding:10px 12px;font-size:14.5px}
+  .opt{padding:9px 14px}
+  .opts.wide .opt{padding:10px 14px;font-size:14.5px}
+  .q{padding:18px 0}
+  .q legend,.q-label{font-size:17.5px;margin-bottom:10px}
+  .bk-head h1{font-size:29px}
+  .r-head h1{font-size:26px}
+  .bk-head .lede{margin-top:10px;font-size:16px}
+  .bk-eyebrow{margin-bottom:10px}
+  .panel.bk-sheet{padding:20px 16px}
+}
+
+.ticks{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px;font-weight:650;font-size:16px;color:var(--sheet-ink)}
+.ticks li::before{content:"\2713\00a0";color:var(--green);font-weight:800}
+
+.dr-pair{align-items:start}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--sheet-soft);margin:4px 0 16px;cursor:pointer}
+.check input{margin-top:4px;width:18px;height:18px;flex:none;accent-color:var(--green)}
+.legal{margin-top:16px;font-size:13.5px;color:var(--sheet-soft)}
+
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px;padding-top:22px;border-top:1px solid var(--sheet-line)}
+.dr .actions .btn{margin-top:0}
+.actions .btn-primary{flex:1 1 260px;min-height:54px;font-size:17px}
+.bk-sheet .btn-ghost,.bk-sheet button.btn-ghost{color:var(--sheet-ink);background:#ece8e9;border:1px solid var(--sheet-box);box-shadow:none;cursor:pointer}
+.bk-sheet .btn-ghost:hover{border-color:var(--sheet-ink)}
+@media (max-width:520px){.actions .btn{flex:1 1 100%}}
+.dr .btn-primary.is-waiting,.dr .btn-primary.is-waiting:hover{animation:none;filter:none;opacity:1;transform:none;
+  background:#ece8e9;color:#756c6d;border:1px solid #bfb8b5;box-shadow:none}
+.dr .btn-primary.is-waiting::before,.dr .btn-primary.is-waiting::after{display:none}
+.err{margin-top:14px;font-size:15px;font-weight:650;color:var(--no)}
+.err:empty{display:none}
+
+.r-block + .r-block{margin-top:24px;padding-top:22px;border-top:1px solid var(--sheet-line)}
+.r-block h2,.fold h3{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.3;color:var(--sheet-ink);margin:0 0 10px}
+.saw{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.saw li{font-weight:700;color:var(--sheet-ink);font-size:16.5px;padding-left:16px;border-left:3px solid var(--green)}
+.saw li span{display:block;font-weight:500;font-size:14px;color:var(--sheet-soft)}
+.move-title{font-family:var(--display);font-weight:700;font-size:17.5px;color:var(--green);margin:0 0 8px}
+.steps{list-style:decimal;padding-left:22px;margin:0;color:var(--sheet-ink)}
+.steps li::marker{color:var(--green);font-weight:700}
+.steps-one{margin:0;color:var(--sheet-ink)}
+.steps li{margin:8px 0;padding-left:2px}
+.next-line{margin:0;font-weight:600;color:var(--sheet-ink)}
+.r-next{margin-top:24px;padding-top:22px;border-top:1px solid var(--sheet-line)}
+.r-next .actions{border-top:0;padding-top:0;margin-top:14px}
+.fold{margin-top:22px;border:1px solid var(--sheet-line);border-radius:16px;background:#ece8e9}
+.fold summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:54px;padding:14px 18px;cursor:pointer;
+  font-family:var(--display);font-weight:700;font-size:17px;color:var(--sheet-ink);list-style:none;border-radius:16px}
+.fold summary::-webkit-details-marker{display:none}
+.fold summary::after{content:"";flex:none;width:10px;height:10px;border-right:2.5px solid var(--green);border-bottom:2.5px solid var(--green);transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s}
+.fold[open] summary::after{transform:rotate(-135deg) translate(-2px,-2px)}
+.fold summary:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.fold-body{padding:4px 18px 20px;color:var(--sheet-soft)}
+.fold-body p{margin:0}
+.fold h3{font-size:17px;margin:20px 0 6px}
+.sev{color:var(--sheet-ink)}
+
+.road,.bespoke{padding:14px 16px;border-radius:0 12px 12px 0;margin:16px 0 0;color:var(--sheet-ink)}
+.road{border-left:5px solid var(--no);background:#ece8e9}.road strong{color:var(--no)}
+.bespoke{border-left:5px solid var(--green);background:#ece8e9}.bespoke strong{color:var(--green)}
+.road p,.bespoke p{margin:4px 0 0}
+.fold .btn{margin-top:12px}
+.after{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:22px}
+.after .btn{margin:0}
+.after .fine{margin:0;font-size:14.5px;color:var(--sheet-soft)}
+.print-only{display:none}
+.wait{display:flex;align-items:center;gap:14px}
+.wait::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;border:3px solid #bfb8b5;border-top-color:var(--green);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.opt{transition:transform .09s ease,background-color .2s ease .05s,border-color .2s ease .05s,color .2s ease .05s}
+.opt:active{transform:scale(.96)}
+@keyframes fx-yes{0%{transform:scale(.96)}55%{transform:scale(1.035)}100%{transform:scale(1)}}
+@keyframes fx-no{0%,100%{transform:translateX(0)}18%{transform:translateX(-4px)}38%{transform:translateX(4px)}60%{transform:translateX(-3px)}82%{transform:translateX(2px)}}
+@keyframes fx-step{0%{transform:translateY(8px);opacity:0}100%{transform:translateY(0);opacity:1}}
+.fx-yes{animation:fx-yes .2s cubic-bezier(.2,.9,.3,1)}
+.fx-no{animation:fx-no .19s ease-out}
+.fx-step{animation:fx-step .3s cubic-bezier(.2,.9,.3,1)}
+@media (prefers-reduced-motion:reduce){.opt,.fold summary::after,#app{transition:none!important;animation:none!important}.wait::before{animation:none}}
+
+h1,h2,h3{text-wrap:balance}
+p,li,label,legend{text-wrap:pretty}
+.opt span{text-wrap:balance}
+
+@media print{
+  header.nav,footer.foot,#bo-chat-root,.progress,.r-next .actions,.fold summary,.after,.no-print{display:none!important}
+  html,body{background:#ece8e9!important;color:#222}
+  main.page{padding:0}
+  .bk-head h1,.bk-eyebrow{color:#111}
+  .bk-eyebrow{background:none;border:0;padding:0}
+  .bk-eyebrow::before{display:none}
+  .page::before,.page::after,body::before,body::after{display:none!important}
+  .panel.bk-sheet{border:0!important;padding:0;background:#ece8e9!important;box-shadow:none!important}
+  .fold{border:0;border-top:1px solid #ccc;border-radius:0;background:none;margin-top:20px;padding-top:6px}
+  .fold-body{padding:0}
+  .road,.bespoke,.r-block{break-inside:avoid}
+  .road,.bespoke{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .print-only{display:block;margin-top:18px;font-weight:700;color:#635032}
+}
+</style>
+</head>
+
+<body data-turnstile="">
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="Business + home"></a>
+    <nav class="nav-links" id="site-nav" aria-label="Main">
+      <a href="work.html">Our Work</a><a href="custom-builds.html">Custom Builds</a><a href="concierge.html">AI Concierge</a><a href="book.html">Book a Call</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="start.html">Get a FREE Demo</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
+  </div>
+</header>
+
+<main class="page">
+  <div class="wrap dg-wrap">
+    <div id="app" tabindex="-1"></div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    
+    <span>Bloomington–Normal, Illinois</span>
+    <a href="mailto:hello@getbusinessplus.com">hello@getbusinessplus.com</a>
+    <a href="tel:+13095550147">(309) 555-0147</a>
+    <a href="tools/index.html">Resources</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+</footer>
+
+<script type="module">
+import { core, reflection, follow, composePlan, patterns, NEXT_LINE } from '/assets/diagnostic-logic.js?v=bf5016d916';
+
+const API = '/api/intake/diagnostic';
+// Where the "Get a FREE Demo Built for This" button leaves the visitor's own
+// words for the Free Demo form (assets/demo-request.js reads it once, then
+// removes it). sessionStorage only: personal words never go in an address.
+const PREFILL_KEY = 'bo-demo-prefill';
+
+/* The screens, in order. Short tap questions share a screen; each follow-up
+   question, the story box and the contact boxes get one each. 2026-10-09:
+   9 question screens plus contact = 10 (was 14 plus contact = 15). */
+const STAGES = ['Your Business', 'Where Work Gets Stuck', 'Follow the Evidence', 'Your Starting Plan'];
+const SCREENS = [
+  { stage: 0, ids: ['industry', 'role'] },
+  { stage: 1, ids: ['drag'] },
+  { stage: 1, ids: ['team', 'frequency', 'cost', 'goal'] },
+  { stage: 2, follow: 0 }, { stage: 2, follow: 1 }, { stage: 2, follow: 2 }, { stage: 2, follow: 3 }, { stage: 2, follow: 4 },
+  { stage: 2, story: true },
+];
+const CONTACT = SCREENS.length, RESULT = SCREENS.length + 1, TOTAL = SCREENS.length + 1;
+const COPY = {
+  pickOne: 'Pick an answer to keep going.',
+  pickAll: 'Pick an answer for each question to keep going.',
+  tellUs: 'Tell us what happened to keep going.',
+};
+
+const state = { i: -1, started: false, a: {}, newsletter: true, requestId: null, loadedAt: Date.now(), session: sessionId(), source: utmTags(), plan: null, ai: null, emailing: false, busy: false };
+
+function sessionId() {
+  try { const k = 'bo-diag-session'; let v = sessionStorage.getItem(k); if (!v) { v = crypto.randomUUID(); sessionStorage.setItem(k, v); } return v; }
+  catch { return 'anon-' + Math.random().toString(36).slice(2, 14); }
+}
+function utmTags() { let o = {}; try { const p = new URLSearchParams(location.search); ['utm_source', 'utm_medium', 'utm_campaign'].forEach((k) => { const v = p.get(k); if (v) o[k] = v.slice(0, 80); }); if (Object.keys(o).length) sessionStorage.setItem('bo-utm', JSON.stringify(o)); else o = JSON.parse(sessionStorage.getItem('bo-utm') || '{}') || {}; } catch { o = {}; } return o; }
+
+/* Funnel events: a few per session, batched, anonymous, no free text.
+   "step" is the screen number (0 to 9) since 2026-10-09; before, it was the question number. */
+const queue = []; let flushTimer = 0;
+function track(kind, extra = {}) { queue.push({ kind, ...extra, route: state.a.drag || null }); clearTimeout(flushTimer); flushTimer = setTimeout(flush, kind === 'start' ? 0 : 4000); }
+function flush() {
+  if (!queue.length) return;
+  const body = JSON.stringify({ session: state.session, events: queue.splice(0), source: state.source });
+  try {
+    if (navigator.sendBeacon && navigator.sendBeacon(API + '/events', new Blob([body], { type: 'application/json' }))) return;
+    fetch(API + '/events', { method: 'POST', headers: { 'content-type': 'application/json' }, body, keepalive: true }).catch(() => {});
+  } catch {}
+}
+addEventListener('pagehide', () => { if (state.i >= 0 && !state.plan) queue.push({ kind: 'abandon', step: state.i, route: state.a.drag || null }); flush(); });
+
+const app = document.querySelector('#app');
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+/* Escapes, then keeps the last words together (the no-orphan-words rule, as
+   glue-orphans.mjs does for the fixed pages): about 20 characters, never more
+   than 28, never more than half the words. */
+function glue(s, big = false) {
+  const words = String(s ?? '').trim().split(/\s+/);
+  if (words.length < 4) return esc(words.join(' '));
+  const limit = big ? 2 : Math.ceil(words.length / 2), want = big ? 16 : 20, cap = big ? 16 : 28;
+  let n = 1, len = words[words.length - 1].length;
+  while (n < limit && len < want && len + 1 + words[words.length - 1 - n].length <= cap) { len += 1 + words[words.length - 1 - n].length; n++; }
+  return esc(words.slice(0, words.length - n).join(' ')) + ' ' + words.slice(words.length - n).map(esc).join('&nbsp;');
+}
+const calm = matchMedia('(prefers-reduced-motion:reduce)');
+function fx(el, cls) { if (!el || calm.matches) return; el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }
+
+const questionsOf = (sc) => sc.ids ? sc.ids.map((id) => core.find((q) => q.id === id))
+  : sc.follow !== undefined ? [{ id: 'follow' + sc.follow, q: follow[state.a.drag][sc.follow].q, a: follow[state.a.drag][sc.follow].a }]
+  : [reflection];
+const answered = (q) => q.a ? q.a.includes(state.a[q.id]) : Boolean((state.a[q.id] || '').trim());
+
+function tracker(stage) {
+  return `<ol class="progress" aria-label="Progress">${STAGES.map((s, x) => `<li${x < stage ? ' data-state="done"' : x === stage ? ' data-state="now" aria-current="step"' : ''}>${esc(s)}</li>`).join('')}</ol>`;
+}
+const sheet = (inner) => `<div class="panel start-form bk-sheet"><div class="dr">${inner}</div></div>`;
+
+/* After every move: back to the top of the new screen, with focus on its
+   first line, so a keyboard or screen reader starts there too. */
+function settle(focusSel) {
+  const top = app.getBoundingClientRect().top + scrollY - 90;
+  if (scrollY > top) scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+  const f = focusSel && app.querySelector(focusSel);
+  if (f) f.focus({ preventScroll: true });
+  // chat.js moves its round button aside when a button sits under it; it
+  // listens for scroll, so tell it the page under it changed.
+  dispatchEvent(new Event('scroll'));
+}
+
+function render(moved = true) {
+  fx(app, 'fx-step');
+  if (state.i < 0) intro();
+  else if (state.i === CONTACT) contact();
+  else if (state.i === RESULT) results();
+  else question();
+  if (moved) settle(state.i < 0 ? null : state.i === RESULT ? 'h1' : '.step-line, h1');
+}
+
+function intro() {
+  app.innerHTML = `<div class="bk-head"><p class="bk-eyebrow">A Guided Business Exercise</p><h1 tabindex="-1">Where Is Your Business&nbsp;Leaking&nbsp;Time?</h1><p class="lede">Find your most likely bottleneck and a first move&nbsp;for&nbsp;this&nbsp;week.</p></div>`
+    + sheet(`<ul class="ticks"><li>About 5 Minutes</li><li>No AI Expertise Needed</li><li>A First Move, Not a Score</li></ul><div class="actions"><button id="start" class="btn btn-primary" type="button">Start the Diagnostic</button></div>`);
+  // One start per page load: Back to this screen and Start again is the same visit (2026-10-09).
+  app.querySelector('#start').onclick = () => { if (!state.started) { state.started = true; track('start'); } go(0); };
+}
+
+function optsClass(list) { const m = Math.max(...list.map((x) => x.length)); return m > 28 ? 'wide' : m > 12 ? 'two' : ''; }
+
+function question() {
+  const sc = SCREENS[state.i], qs = questionsOf(sc);
+  const block = (q) => q.a
+    ? `<fieldset class="q" data-q="${q.id}"><legend>${glue(q.q)}</legend><div class="opts ${optsClass(q.a)}">${q.a.map((x, n) => `<label class="opt${state.a[q.id] === x ? ' is-on' : ''}" for="${q.id}-${n}"><input type="radio" name="${q.id}" id="${q.id}-${n}" value="${esc(x)}"${state.a[q.id] === x ? ' checked' : ''}><span>${esc(x).replace(/\//g, '/&#8203;')}</span></label>`).join('')}</div></fieldset>`
+    : `<div class="q" data-q="${q.id}"><label class="q-label" for="story">${glue(q.q)}</label>${q.hint ? `<p class="hint" id="story-hint">${glue(q.hint)}</p>` : ''}<textarea id="story" class="story" rows="6" maxlength="2000" aria-describedby="story-hint">${esc(state.a[q.id] || '')}</textarea></div>`;
+  app.innerHTML = tracker(sc.stage) + sheet(`<p class="step-line" tabindex="-1">Step ${state.i + 1} of ${TOTAL}</p><form id="qf" novalidate>${qs.map(block).join('')}<p class="err" id="qerr" role="alert"></p><div class="actions"><button class="btn btn-primary" type="submit" id="next">Continue</button><button class="btn btn-ghost" type="button" id="back">Back</button></div></form>`);
+  const form = app.querySelector('#qf'), next = app.querySelector('#next'), err = app.querySelector('#qerr');
+  // Waiting look until every question on the screen is answered. It stays
+  // pressable: pressing it is how you find out which one still needs you.
+  const ready = () => { const ok = qs.every(answered); next.classList.toggle('is-waiting', !ok); if (ok) err.textContent = ''; return ok; };
+  ready();
+  form.querySelectorAll('input[type=radio]').forEach((input) => {
+    input.addEventListener('change', () => {
+      const id = input.name, before = state.a[id];
+      state.a[id] = input.value;
+      // A new area means new follow-up questions: the old answers no longer apply.
+      if (id === 'drag' && before && before !== input.value) for (let n = 0; n < 5; n++) delete state.a['follow' + n];
+      form.querySelectorAll(`input[name="${id}"]`).forEach((x) => x.parentNode.classList.toggle('is-on', x.checked));
+      form.querySelector(`[data-q="${id}"]`).classList.remove('is-missing');
+      fx(input.parentNode, 'fx-yes');
+      ready();
+    });
+    // Enter picks too (by default it would try to send the form).
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); input.click(); } });
+  });
+  const box = app.querySelector('#story');
+  if (box) box.addEventListener('input', () => { state.a.story = box.value; if (box.value.trim()) box.closest('.q').classList.remove('is-missing'); ready(); });
+  app.querySelector('#back').onclick = () => history.back();
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!ready()) {
+      const missing = qs.filter((q) => !answered(q));
+      missing.forEach((q) => form.querySelector(`[data-q="${q.id}"]`).classList.add('is-missing'));
+      err.innerHTML = glue(missing.some((q) => !q.a) ? COPY.tellUs : qs.length > 1 ? COPY.pickAll : COPY.pickOne);
+      fx(next, 'fx-no');
+      const first = form.querySelector(`[data-q="${missing[0].id}"] input, [data-q="${missing[0].id}"] textarea`);
+      if (first) first.focus();
+      return;
+    }
+    track('answer', { step: state.i });
+    go(state.i + 1);
+  });
+}
+
+/* Turnstile: the same public site key the booking page uses, on <body>.
+   The check is verified by the program, not here. */
+let tsWidget = null;
+function loadTurnstile() {
+  const key = document.body.getAttribute('data-turnstile') || '';
+  const box = document.querySelector('#ts-box');
+  if (!key || !box) return;
+  const draw = () => { try { tsWidget = window.turnstile.render(box, { sitekey: key, appearance: 'interaction-only' }); } catch {} };
+  if (window.turnstile) return draw();
+  const sc = document.createElement('script');
+  sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; sc.async = true; sc.onload = draw;
+  document.head.appendChild(sc);
+}
+function tsToken() { try { return tsWidget !== null ? window.turnstile.getResponse(tsWidget) || '' : ''; } catch { return ''; } }
+/* The check takes a moment, and the contact screen draws a new one each time it
+   is drawn. A press before its token arrived used to send none and be refused
+   (bug hunt 2026-10-09): wait for it, up to ten seconds, then let the server decide. */
+async function tsTokenReady(maxMs = 10000) {
+  if (!document.body.getAttribute('data-turnstile')) return '';
+  for (let waited = 0; ; waited += 200) { const t = tsToken(); if (t || waited >= maxMs) return t; await new Promise((r) => setTimeout(r, 200)); }
+}
+function tsReset() { try { if (tsWidget !== null) window.turnstile.reset(tsWidget); } catch {} }
+/* One id per press of Show, kept for retries, so a retry after a lost reply is
+   answered from the first press instead of a second lead and second emails. */
+function newRequestId() {
+  try { if (crypto.randomUUID) return crypto.randomUUID(); } catch {}
+  const b = crypto.getRandomValues(new Uint8Array(16)); b[6] = (b[6] & 15) | 64; b[8] = (b[8] & 63) | 128;
+  const h = [...b].map((x) => x.toString(16).padStart(2, '0')).join('');
+  return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`;
+}
+
+function contact(error = '') {
+  if (!error) track('gate');
+  const field = (id, label, type, ac, opt) => `<div class="dr-field"><label for="${id}">${label}${opt ? ' <span class="dr-opt">(optional)</span>' : ''}</label><input id="${id}" type="${type}" autocomplete="${ac}"${opt ? '' : ' required'}></div>`;
+  app.innerHTML = tracker(3) + sheet(`<p class="step-line" tabindex="-1">Step ${TOTAL} of ${TOTAL}</p><h2 class="sheet-h">Your Starting Plan Is&nbsp;Ready</h2><p class="sheet-sub">Tell us where to send your copy and it shows right&nbsp;here.</p><form id="cf" novalidate><div class="dr-pair">${field('name', 'Name', 'text', 'name')}${field('email', 'Business Email', 'email', 'email')}</div><div class="dr-pair">${field('business', 'Business Name', 'text', 'organization')}${field('phone', 'Phone #', 'tel', 'tel', true)}</div><div class="tarpit" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div><label class="check"><input id="newsletter" type="checkbox"${state.newsletter ? ' checked' : ''}><span>Also send me the Business + newsletter for small-business owners. One email a month; unsubscribe any&nbsp;time.</span></label><div id="ts-box"></div><p class="err" id="error" role="alert">${glue(error)}</p><div class="actions"><button id="show" class="btn btn-primary" type="submit">Show My Starting Plan</button><button class="btn btn-ghost" type="button" id="back">Back</button></div></form><p class="legal">Your answers are read by an AI service to write the personal part of your plan. We don't sell your information. <a href="privacy.html">Privacy</a></p>`);
+  const show = app.querySelector('#show');
+  const ready = () => { const ok = ['name', 'email', 'business'].every((id) => (state.a[id] || '').trim()); show.classList.toggle('is-waiting', !ok); };
+  // A changed detail is a new request (see requestId in submit).
+  ['name', 'email', 'business', 'phone'].forEach((id) => { const el = app.querySelector('#' + id); el.value = state.a[id] || ''; el.oninput = () => { state.a[id] = el.value; state.requestId = null; ready(); }; });
+  // The box keeps the visitor's own choice when this screen is drawn again
+  // (after an error, after Back): it used to tick itself again (bug hunt 2026-10-09).
+  app.querySelector('#newsletter').onchange = (e) => { state.newsletter = e.target.checked; state.requestId = null; };
+  ready();
+  loadTurnstile();
+  app.querySelector('#back').onclick = () => history.back();
+  app.querySelector('#cf').addEventListener('submit', (e) => { e.preventDefault(); submit(); });
+}
+
+async function submit() {
+  const name = (state.a.name || '').trim(), email = (state.a.email || '').trim(), business = (state.a.business || '').trim();
+  const err = app.querySelector('#error');
+  const fail = (msg) => { err.innerHTML = glue(msg); fx(app.querySelector('#show'), 'fx-no'); };
+  if (!name || !email || !business) return fail('Please add your name, business email, and business name so we can send your copy.');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return fail('That email address doesn\'t look right.');
+  if (state.busy) return;
+  state.busy = true;
+  if (!state.requestId) state.requestId = newRequestId();
+  const answers = {};
+  SCREENS.forEach((sc) => questionsOf(sc).forEach((q) => { answers[q.id] = state.a[q.id]; }));
+  const show = app.querySelector('#show'); show.disabled = true;
+  const token = await tsTokenReady();
+  const body = { answers, contact: { name, email, business, phone: (state.a.phone || '').trim() }, newsletter: state.newsletter, website: app.querySelector('#website').value, loadedAt: state.loadedAt, session: state.session, source: state.source, turnstile: token, requestId: state.requestId };
+  track('submit'); flush();
+  app.innerHTML = tracker(3) + sheet(`<h2 class="sheet-h wait" tabindex="-1">Building Your Plan</h2><p class="sheet-sub" role="status">Writing the personal part from your answers. Ten to twenty&nbsp;seconds.</p>`);
+  settle('h2');
+  let res, data;
+  try { res = await fetch(API + '/submit', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }); data = await res.json().catch(() => ({})); }
+  catch { res = null; }
+  state.busy = false;
+  if (!res || !res.ok || !data.ok) {
+    tsReset();
+    contact(res && res.status === 403 ? 'That didn\'t go through. Please check the security check above and try again.' : 'We could not save your plan just now. Please try again in a moment.');
+    settle('#error');
+    return;
+  }
+  state.plan = data.plan; state.ai = data.ai || null; state.emailing = data.emailing === true; state.a.emailSent = email;
+  state.requestId = null;
+  go(RESULT, 'replace');
+}
+
+/* The PDF is the browser's own print, with the full plan opened first. Also
+   covers Ctrl+P / Cmd+P, which skip the button. */
+let foldWasOpen = null;
+addEventListener('beforeprint', () => { const f = app.querySelector('#fold'); if (f) { foldWasOpen = f.open; f.open = true; } });
+addEventListener('afterprint', () => { const f = app.querySelector('#fold'); if (f && foldWasOpen !== null) f.open = foldWasOpen; foldWasOpen = null; });
+
+function results() {
+  const p = state.plan || composePlan({ ...state.a }), ai = state.ai;
+  const pat = ai ? (patterns[p.route] || []).find((x) => x.name === ai.failure) : null;
+  const headline = pat ? pat.headline : p.headline;
+  const why = pat ? pat.why : p.why;
+  const title = ai ? ai.title : p.win.label;
+  const steps = ai ? ai.steps : [p.win.move];
+  const roadblock = ai ? ai.roadblock : p.win.limit;
+  const bespoke = ai ? ai.bespoke : p.win.build;
+  const next = pat ? (pat.next || p.next) : p.next;
+  const words = (state.a.story || p.story || p.issue || '').trim();
+  const first = state.a.name ? ', ' + state.a.name.trim().split(/\s+/)[0] : '';
+  // What We Saw: at most three, the answers that pointed here. With none,
+  // their own words (clipped) instead.
+  let saw = (p.evidence || []).slice(0, 3).map((e) => `<li><span>${glue(e.q)}</span>${glue(e.a)}</li>`);
+  if (!saw.length && words) saw = [`<li><span>In Your Words</span>“${glue(words.length > 220 ? words.slice(0, 217).replace(/\s+\S*$/, '') + '…' : words)}”</li>`];
+  app.innerHTML = `<div class="bk-head r-head"><p class="bk-eyebrow">Your Starting Plan${esc(first)}</p><h1 tabindex="-1">${glue(headline, true)}</h1></div>`
+    + sheet(`${saw.length ? `<section class="r-block"><h2>What We Saw</h2><ul class="saw">${saw.join('')}</ul></section>` : ''}`
+    + `<section class="r-block"><h2>Your First Move This Week</h2><p class="move-title">${glue(title)}</p>${steps.length > 1 ? `<ol class="steps">${steps.map((s) => `<li>${glue(s)}</li>`).join('')}</ol>` : `<p class="steps-one">${glue(steps[0])}</p>`}</section>`
+    + `<div class="r-next"><p class="next-line">${glue(NEXT_LINE)}</p><div class="actions"><a class="btn btn-primary" id="to-demo" href="start.html">Get a FREE Demo Built for&nbsp;This</a><a class="btn btn-ghost" href="book.html">Book a Call</a></div><p class="print-only">Get a FREE demo: getbusinessplus.com/start &nbsp;·&nbsp; Book a call: getbusinessplus.com/book</p></div>`
+    + `<details class="fold" id="fold"><summary>See Your Full Plan</summary><div class="fold-body">`
+    + `<p class="sev">${glue(p.severity + ' ' + why)}</p>`
+    + (ai ? `<h3>Your Situation</h3><p>${glue(ai.situation)}</p>` : '')
+    + `<div class="road"><strong>Future Roadblock</strong><p>${glue(roadblock)}</p></div><div class="bespoke"><strong>Business + Solution</strong><p>${glue(bespoke)}</p></div>`
+    + `<h3>What This Reveals Next</h3><p>${glue(next)}</p>`
+    + `<h3>Do it Yourself</h3><p>Your FREE guide for this area covers every first move it can call for, with what each one teaches and where&nbsp;it&nbsp;stops.</p><a class="btn btn-ghost no-print" href="guides/${esc(p.guide)}.html">Open the FREE Guide</a><p class="print-only">getbusinessplus.com/guides/${esc(p.guide)}.html</p>`
+    + `</div></details>`
+    + `<div class="after"><button class="btn btn-ghost" id="pdf" type="button">Download Your Plan as a PDF</button>${state.emailing ? `<p class="fine">${glue(`A copy of this plan is on its way to ${state.a.emailSent || ''}.`)}</p>` : ''}</div>`);
+  // Hand their own words to the Free Demo form. Read once there, then removed.
+  app.querySelector('#to-demo').addEventListener('click', () => {
+    const message = (words ? words + '\n\n' : '') + `From the Diagnostic: ${p.route}.`;
+    try { sessionStorage.setItem(PREFILL_KEY, JSON.stringify({ message: message.slice(0, 6000), via: 'diagnostic', at: Date.now() })); } catch {}
+  });
+  // The full plan opens first and stays open: some browsers return from print()
+  // before the page is printed, so closing it again here could print it shut.
+  app.querySelector('#pdf').onclick = () => { app.querySelector('#fold').open = true; const t = document.title; document.title = 'Business +, Your Starting Plan'; window.print(); document.title = t; };
+  // Opening the fold on a phone happens below the button: bring it into view.
+  const fold = app.querySelector('#fold');
+  fold.addEventListener('toggle', () => { if (fold.open && foldWasOpen === null) fold.scrollIntoView({ block: 'nearest', behavior: calm.matches ? 'instant' : 'smooth' }); dispatchEvent(new Event('scroll')); });
+}
+
+/* Every screen is a step in the browser's history (bug hunt 2026-10-09): the
+   browser's Back button and the page's own Back both go one screen back, and
+   Forward comes again, instead of leaving the quiz with every answer lost. A
+   screen whose earlier answers are missing (after a reload) is never shown;
+   the visitor lands on the first one still to answer. */
+function go(i, how = 'push') {
+  state.i = i;
+  history[how === 'replace' ? 'replaceState' : 'pushState']({ dg: i }, '');
+  render();
+}
+function firstOpen(target) {
+  if (target === RESULT && !state.plan) target = CONTACT;
+  for (let n = 0; n < Math.min(target, CONTACT); n++) if (!questionsOf(SCREENS[n]).every(answered)) return n;
+  return target;
+}
+addEventListener('popstate', (e) => {
+  const st = e.state;
+  // A jump to an #anchor arrives here with no state: same screen, new entry.
+  if (!st || typeof st.dg !== 'number') { history.replaceState({ dg: state.i }, ''); return; }
+  const target = st.dg < 0 ? -1 : firstOpen(st.dg);
+  state.i = target;
+  if (target !== st.dg) history.replaceState({ dg: target }, '');
+  render();
+});
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+history.replaceState({ dg: -1 }, '');
+render(false);
+</script>
+<script src="/assets/site.js?v=deb611b9cb" defer></script>
+<script src="/assets/chat.js?v=9dcd602d12" defer></script>
+</body>
+</html>
