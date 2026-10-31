@@ -232,18 +232,18 @@
     "portal.html": "Members — after the tray" }[path] || "";
   var bar = document.createElement("nav");
   bar.className = "seqbar"; bar.setAttribute("aria-label", "How buying works — the path");
-  function stepLink(n, href, label) {
-    return '<a class="seqbar__step' + (step === n ? " is-here" : "") + '" href="' + href + '"><span class="seqbar__n">' + n + '</span>' + label + '</a>';
+  function stepLink(n, href, label, short) {
+    return '<a class="seqbar__step' + (step === n ? " is-here" : "") + '" href="' + href + '"><span class="seqbar__n">' + n + '</span><span class="seqbar__long">' + label + '</span><span class="seqbar__short">' + short + '</span></a>';
   }
   bar.innerHTML =
     '<span class="seqbar__steps">'
-    + stepLink(1, "assessment.html", "The Skin Reading")
+    + stepLink(1, "assessment.html", "The Skin Reading", "Reading")
     + '<span class="seqbar__arrow" aria-hidden="true">\u2192</span>'
-    + stepLink(2, "catalog.html", "Shop the Pieces")
+    + stepLink(2, "catalog.html", "Shop the Pieces", "Pieces")
     + '<span class="seqbar__arrow" aria-hidden="true">\u2192</span>'
-    + stepLink(3, "stacks.html", "Prescription Counter")
+    + stepLink(3, "stacks.html", "Prescription Counter", "Counter")
     + '<span class="seqbar__arrow" aria-hidden="true">\u2192</span>'
-    + '<button type="button" class="seqbar__step seqbar__tray"><span class="seqbar__n">4</span>The Tray<span class="seqbar__count cart-count">0</span></button>'
+    + '<button type="button" class="seqbar__step seqbar__tray"><span class="seqbar__n">4</span><span class="seqbar__long">The Tray</span><span class="seqbar__short">Tray</span><span class="seqbar__count cart-count">0</span></button>'
     + '</span>'
     + '<span class="seqbar__side">'
     + (zone ? '<span class="seqbar__zone">' + zone + '</span>' : '')

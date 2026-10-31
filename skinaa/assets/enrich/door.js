@@ -148,6 +148,17 @@
     }
   }
 
+  /* MOBILE FIRST-SCREEN (2026-10-31) — on a phone the authority trio is
+     proof, not a first screen: the bar is re-homed below the product
+     preview, where proof belongs. Desktop DOM is untouched. */
+  if(window.matchMedia && window.matchMedia("(max-width:749px)").matches){
+    var uspBar = $(".ctr-usp-bar"), previewSec = $(".preview");
+    if(uspBar && previewSec && previewSec.parentNode){
+      previewSec.parentNode.insertBefore(uspBar, previewSec.nextSibling);
+      uspBar.classList.add("usp-relocated");
+    }
+  }
+
   /* P-39 — video-background: poster swaps to the player on view/interaction.
      The player carries no house film file yet (named GAP in the room report);
      the poster state is the captured pre-play state. */

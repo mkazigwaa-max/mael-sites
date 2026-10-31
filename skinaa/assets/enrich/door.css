@@ -55,7 +55,7 @@ announcement-bar{display:block;background:#66a0b5;color:#ece7ea;border-bottom:1p
 .header nav.site{flex-wrap:nowrap;gap:12px}
 .header__icon-touch{padding:9px 6px}
 @media(max-width:820px){.header .drawer-open,.header .header__icon-touch--account{display:none}}
-@media(max-width:640px){.header .header__icon-touch--search{display:none}.header .pill.small{padding:8px 13px;font-size:12.5px}.header{gap:8px;padding:10px 14px}}
+@media(max-width:640px){.header .header__icon-touch--search{display:none}.header .pill.small{padding:8px 11px;font-size:12px}.header{gap:6px;padding:10px 10px}}
 .header nav.site a{font-size:10.5px;white-space:nowrap}
 .header .pill.small{white-space:nowrap}
 .header__logo-link{text-decoration:none;display:block}
@@ -187,3 +187,26 @@ slider-component{display:block;position:relative}
 .loading-overlay .kinetic-word{position:relative}
 /* ---------- L-08 noscript ---------- */
 .noscript-door{background:#634f32;color:#ece7ea;text-align:center;padding:34px 24px;font-size:15px;line-height:1.6}
+/* ---------- MOBILE FIRST-SCREEN (2026-10-31) — the Door on a phone.
+   First viewport = announcement line + slim header + hero. Three kills:
+   (1) The authority trio leaves the first screen: hidden in place, and
+   door.js re-homes it below the product preview as proof (it returns
+   there with .usp-relocated). (2) The hero's smoked wordmark image is
+   illegible at phone size — the solid ivory storyname below it is the
+   hero wordmark on mobile. (3) The ticker becomes a STATIC band: no
+   clones, no animation, the phrase whole from its boundary. Desktop
+   rendering is untouched by all three. */
+@media(max-width:749px){
+  .ctr-usp-bar{display:none}
+  .ctr-usp-bar.usp-relocated{display:block}
+  .arrival img.mark{display:none}
+  .arrival .ticker--animated{animation:none}
+  .arrival ticker-bar .ticker__comparitor{display:none}
+  .arrival ticker-bar [data-clone]{display:none}
+  .arrival ticker-bar{display:block;width:100%}
+  .arrival .announcement__scale{display:block;width:auto}
+  .arrival .announcement__text{display:block;width:auto;white-space:normal;justify-content:center;text-align:center;min-height:0}
+  .arrival .announcement__text>div{display:block}
+  .arrival [data-ticker-text]{white-space:normal;display:block}
+  .arrival .announcement__text p{padding:7px 10px;line-height:1.55;white-space:normal}
+}

@@ -235,3 +235,29 @@ body.drawer-open{overflow:hidden}
 .seq-strip__in{max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;flex-wrap:wrap;gap:8px 22px;align-items:baseline;font-size:14.5px;line-height:1.5}
 .seq-strip__in b{font-size:15.5px;letter-spacing:-.01em}
 .seq-strip__in a{color:#6f0705;font-weight:700}
+.seqbar__short{display:none}
+
+/* MOBILE FIRST-SCREEN (2026-10-31) — two shared-layer repairs.
+   (a) THE PATH BAR IS A RAIL, NOT A BLOB: on a phone it is one slim row
+   (<=44px) of compact labels, horizontally scrollable if it must be; the
+   secondary room links leave the bar (they live in the end-card register).
+   (b) THE WORDMARK IS SOLID TYPE: the house wordmark PNG carries a smoke
+   texture that collapses into illegible noise at header size (and is
+   white-on-transparent, so it vanishes on the light room headers). On a
+   phone the header carries solid text in the header's own ink instead.
+   Desktop rendering is untouched by both. */
+@media (max-width:749px){
+  .seqbar{flex-wrap:nowrap;justify-content:flex-start;padding:6px 8px;gap:6px}
+  .seqbar__steps{flex-wrap:nowrap;gap:4px;overflow-x:auto;scrollbar-width:none;min-width:0}
+  .seqbar__steps::-webkit-scrollbar{display:none}
+  .seqbar__step{padding:3px 7px;font-size:11px;gap:5px;white-space:nowrap;flex:none}
+  .seqbar__n{width:15px;height:15px;font-size:10px}
+  .seqbar__count{padding:0 6px;font-size:11px}
+  .seqbar__arrow{display:none}
+  .seqbar__side{display:none}
+  .seqbar__long{display:none}
+  .seqbar__short{display:inline}
+  header.header .header__logo .image{display:none!important}
+  header.header .header__logo-link{display:inline-flex;align-items:center;min-height:28px;text-decoration:none;color:inherit}
+  header.header .header__logo-link::after{content:"SKINAA";font-size:19px;font-weight:800;letter-spacing:.14em;line-height:1;color:inherit;white-space:nowrap}
+}
