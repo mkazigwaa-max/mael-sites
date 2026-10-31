@@ -1,0 +1,167 @@
+/* END CARDS — the site-wide closing register (Phase B unit 9).
+   The register block itself is propagated BODILY from the Admission landing
+   (assets/enrich/admission.css register section, build-admission.md): same
+   classes, same order, same Story E darkened values. This file carries that
+   register for the other ten pages + the five service pages, plus the
+   unit-9 surfaces: BL-24 currency modal, G-34 locale dropdown, S-13 overflow
+   behaviour, and the service-page systems (G-14 / G-20 / G33 / G34 / G-41 /
+   S-28 / G-36). Story E only: plum-black #19080e · ivory #ece7ea · scarlet
+   #bf3533 for the single stamp only. Neutrals: rgba() veils of those two. */
+
+/* ---------- P-37 · the divider (the pause above the register) ---------- */
+.divider{max-width:1180px;margin:34px auto 0;padding:0 20px}
+.divider-holder{border-top:2px solid #19080e;opacity:.85}
+
+/* ---------- THE REGISTER (BL-29 chassis · F-18 groups/legal · P-21 strip ·
+   G24 lockup · P-20 correspondence · BL-01 quiet line) ---------- */
+footer.end-card{position:relative;z-index:1;max-width:1180px;margin:14px auto 30px;background:#19080e url(../tex/feather-e.jpg) center/cover no-repeat;border-radius:28px;overflow:hidden;color:#ece7ea;box-shadow:0 30px 70px rgba(25,8,14,.35)}
+footer.end-card::before{content:"";position:absolute;inset:0;background:rgba(25,8,14,.82)}
+footer.end-card>*{position:relative}
+.footer__container{display:block;padding:30px 28px 26px}
+.footer__container__inner{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.footer__group h4{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#ece7ea;margin-bottom:10px}
+.footer__group a{display:block;color:rgba(236,231,234,.78);text-decoration:none;font-size:14.5px;line-height:1.5;padding:3px 0}
+.footer__group a:hover{color:#ece7ea}
+.footer__fab-legal{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(236,231,234,.25);margin-top:24px;padding-top:16px;font-size:13px;color:rgba(236,231,234,.75)}
+.footer-stamp{color:#bf3533;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:11.5px}
+.supporting-menu{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;align-items:center}
+.supporting-menu a{color:#ece7ea;text-decoration:none;font-size:13.5px;font-weight:600}
+.supporting-menu .payment-icon{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(236,231,234,.55);border:1px dashed rgba(236,231,234,.35);border-radius:6px;padding:4px 8px}
+.currency-open,.locale-open{background:none;border:1px solid rgba(236,231,234,.4);color:#ece7ea;border-radius:99px;padding:6px 14px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.footer__brand-strip{margin-top:22px;text-align:center}
+.footer__brand-strip .footer-wordmark{width:min(300px,70%);filter:brightness(0) invert(1);opacity:.95}
+.newsletter-component{margin-top:20px}
+.newsletter-form{display:flex;flex-direction:column;gap:12px}
+.newsletter-form .correspondence-line{font-size:15px;line-height:1.55}
+.newsletter-form .input-group{display:flex;gap:10px}
+.newsletter-form input{flex:1;padding:13px 16px;border-radius:99px;border:1px solid rgba(236,231,234,.4);background:transparent;color:#ece7ea;font-family:inherit;font-size:15px}
+.newsletter-form button{background:#ece7ea;color:#19080e;border:none;border-radius:99px;padding:0 20px;font-family:inherit;font-weight:700;cursor:pointer}
+.newsletter-form.has-success .correspondence-line::after{content:" — received. The next line arrives with the weekly drip.";font-weight:700}
+.announcement-bar{margin-top:20px;border-top:1px solid rgba(236,231,234,.25);padding-top:14px}
+.announcement-bar__slide{font-size:13px;line-height:1.55;color:rgba(236,231,234,.75);text-align:center}
+/* S-13 · overflow list (re-driven behaviour in endcards.js; donor JS rides
+   the unbanked @theme chain — named in the report). At mobile widths the
+   strip's links collapse behind its control so the register stays one
+   calm block. */
+.supporting-overflow{display:block}
+.supporting-more{display:none;background:none;border:1px solid rgba(236,231,234,.4);color:#ece7ea;border-radius:99px;padding:6px 14px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer}
+@media (max-width:640px){
+  .footer__container__inner{grid-template-columns:repeat(2,1fr)}
+  .newsletter-form .input-group{flex-wrap:wrap}
+  .newsletter-form input{min-width:0}
+  .newsletter-form button{padding:12px 20px}
+  .supporting-overflow .supporting-menu a[data-overflow-extra]{display:none}
+  .supporting-overflow.is-expanded .supporting-menu a[data-overflow-extra]{display:inline}
+  .supporting-overflow .supporting-more{display:inline-block}
+}
+
+/* ---------- BL-24 · Bloom currency modal (class contract from
+   currency-modal.js: modal-currency-root / currency-modal / front-modal /
+   back-modal / form#modal--localization; the donor script's Shopify locale
+   read is re-pointed to the house localization slot in endcards.js) ----- */
+.currency-modal{display:none;position:fixed;inset:0;z-index:120;background:rgba(25,8,14,.72);align-items:center;justify-content:center}
+.currency-modal.is-open{display:flex}
+.currency-modal__card{background:#19080e;color:#ece7ea;border:1px solid rgba(236,231,234,.3);border-radius:20px;padding:28px;max-width:420px;width:calc(100% - 40px);position:relative}
+.currency-modal__card h3{font-size:19px;margin-bottom:8px}
+.currency-modal__card p{font-size:14px;line-height:1.55;color:rgba(236,231,234,.78);margin-bottom:16px}
+.currency-modal__close-btn{position:absolute;top:12px;right:16px;cursor:pointer;font-size:20px;color:#ece7ea}
+.close_modal{display:inline-block;margin-top:14px;cursor:pointer;font-size:14px;color:#ece7ea;text-decoration:underline}
+.currency-modal select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(236,231,234,.4);background:#19080e;color:#ece7ea;font-family:inherit;font-size:15px;margin-bottom:12px}
+.currency-modal .modal-apply{background:#ece7ea;color:#19080e;border:none;border-radius:99px;padding:12px 22px;font-family:inherit;font-weight:700;cursor:pointer}
+.currency-modal .back-modal{display:none}
+.currency-modal.show-back .front-modal{display:none}
+.currency-modal.show-back .back-modal{display:block}
+.localization-status{font-size:13px;margin-top:12px;color:rgba(236,231,234,.8)}
+
+/* ---------- G-34 · Gundry locale selector (service-page registers) ----- */
+locale-selector{position:relative;display:inline-block}
+locale-dropdown{position:absolute;bottom:calc(100% + 10px);left:0;background:#19080e;border:1px solid rgba(236,231,234,.35);border-radius:14px;padding:16px;min-width:230px;z-index:60}
+locale-dropdown[hidden]{display:none}
+locale-dropdown select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(236,231,234,.4);background:#19080e;color:#ece7ea;font-family:inherit;margin-bottom:10px}
+locale-dropdown button{background:#ece7ea;color:#19080e;border:none;border-radius:99px;padding:9px 18px;font-family:inherit;font-weight:700;cursor:pointer}
+
+/* ---------- SERVICE PAGES (Story E register, feather ground) ---------- */
+.service-main{max-width:880px;margin:0 auto;padding:0 20px 10px}
+.service-head{position:relative;margin:34px auto 0;max-width:1180px;border-radius:28px;overflow:hidden;background:#19080e url(../tex/feather-e.jpg) center/cover no-repeat;color:#ece7ea;padding:56px 34px 48px}
+.service-head::before{content:"";position:absolute;inset:0;background:rgba(25,8,14,.82)}
+.service-head>*{position:relative}
+.service-head .kicker{font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:rgba(236,231,234,.7)}
+.service-head h1{font-size:clamp(30px,5vw,46px);line-height:1.08;margin:12px 0 10px}
+.service-head p{font-size:16px;line-height:1.6;color:rgba(236,231,234,.82);max-width:620px}
+.service-sec{padding:34px 0 6px}
+.service-sec h2{font-size:22px;margin-bottom:12px;color:#19080e}
+.named-slot{border:1.5px dashed rgba(25,8,14,.4);border-radius:14px;padding:18px 20px;font-size:14.5px;line-height:1.6;color:rgba(25,8,14,.75);background:rgba(236,231,234,.6)}
+.named-slot b{color:#19080e;letter-spacing:.08em;text-transform:uppercase;font-size:12px;display:block;margin-bottom:6px}
+.house-fact{font-size:15.5px;line-height:1.65;color:rgba(25,8,14,.85);margin-bottom:12px}
+
+/* G-14 · Gundry categorized help accordion (accordions / accordion /
+   accordion__title / __text / __info, contact capture B-37) */
+.accordions{border-top:1px solid rgba(25,8,14,.25)}
+.accordion{border-bottom:1px solid rgba(25,8,14,.25)}
+.accordion__title{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:none;font-family:inherit;font-size:17px;font-weight:700;color:#19080e;padding:18px 4px;cursor:pointer;text-align:left}
+.accordion__title::after{content:"+";font-weight:400;font-size:22px}
+.accordion.open .accordion__title::after{content:"–"}
+.accordion__text{display:none;padding:0 4px 20px}
+.accordion.open .accordion__text{display:block}
+.accordion__info{font-size:15px;line-height:1.65;color:rgba(25,8,14,.85)}
+
+/* G-20 · authenticity verification section */
+.auth-check{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.auth-check input{flex:1;min-width:220px;padding:13px 16px;border-radius:99px;border:1px solid rgba(25,8,14,.45);font-family:inherit;font-size:15px;color:#19080e;background:#ece7ea}
+.auth-check button{background:#19080e;color:#ece7ea;border:none;border-radius:99px;padding:0 22px;font-family:inherit;font-weight:700;cursor:pointer}
+.auth-result{font-size:15px;line-height:1.6;min-height:24px}
+
+/* G33 · Graymatter wholesale system (wholesale-hero / wholesale-cards /
+   wholesale-login class families from the captured build pages) */
+.wholesale-hero{padding:10px 0 4px}
+.wholesale-hero__benefits-list{list-style:none;margin:14px 0;padding:0}
+.wholesale-cards__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:14px}
+.wholesale-cards__card{border:1px solid rgba(25,8,14,.3);border-radius:16px;padding:22px;background:#ece7ea}
+.wholesale-cards__card-title{font-size:17px;font-weight:800;margin-bottom:8px;color:#19080e}
+.wholesale-cards__points{font-size:14.5px;line-height:1.6;color:rgba(25,8,14,.78)}
+.wholesale-login{border:1px solid rgba(25,8,14,.3);border-radius:16px;padding:24px;margin-top:14px;background:#ece7ea}
+.wholesale-login__field{margin-bottom:14px}
+.wholesale-login__label{display:block;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;color:#19080e}
+.wholesale-login__input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(25,8,14,.45);font-family:inherit;font-size:15px;background:#ece7ea;color:#19080e}
+.wholesale-login__btn--primary{background:#19080e;color:#ece7ea;border:none;border-radius:99px;padding:12px 24px;font-family:inherit;font-weight:700;cursor:pointer}
+.wholesale-login__status{font-size:14.5px;margin-top:12px;line-height:1.6}
+/* G33's alternative footer — renders on the wholesale surface ONLY */
+.footer-alternative{max-width:1180px;margin:26px auto 0;border:1.5px solid #19080e;border-radius:20px;padding:22px 26px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;color:#19080e;background:#ece7ea}
+.footer-alternative .alt-mark{font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:13px}
+.footer-alternative nav{display:flex;gap:16px;flex-wrap:wrap}
+.footer-alternative a{color:#19080e;font-size:14px;font-weight:600;text-decoration:none}
+
+/* G34 · Graymatter gm-* contact system (class family from the captured
+   contact build page; styled fully inline there — values here are Story E) */
+.gm-head{padding:8px 0 4px}
+.gm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:14px}
+.gm-card{border:1px solid rgba(25,8,14,.3);border-radius:16px;padding:20px;background:#ece7ea}
+.gm-card__title{font-size:16px;font-weight:800;color:#19080e;margin-bottom:6px}
+.gm-card__desc{font-size:14.5px;line-height:1.6;color:rgba(25,8,14,.78)}
+.gm-card__foot{margin-top:10px;font-size:13px;font-weight:700}
+.gm-card__arrow{color:#19080e;text-decoration:none}
+.gm-form{border:1px solid rgba(25,8,14,.3);border-radius:16px;padding:24px;margin-top:16px;background:#ece7ea}
+.gm-form__sub{font-size:14.5px;color:rgba(25,8,14,.75);margin-bottom:14px;line-height:1.6}
+.gm-field{margin-bottom:14px}
+.gm-inp{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(25,8,14,.45);font-family:inherit;font-size:15px;background:#ece7ea;color:#19080e}
+textarea.gm-inp{min-height:110px;resize:vertical}
+.gm-cta{background:#19080e;color:#ece7ea;border:none;border-radius:99px;padding:12px 24px;font-family:inherit;font-weight:700;cursor:pointer}
+.gm-sent{display:none;font-size:15px;line-height:1.6;margin-top:12px}
+.gm-form.is-sent .gm-sent{display:block}
+.gm-note{font-size:13.5px;color:rgba(25,8,14,.65);margin-top:12px;line-height:1.6}
+.gm-foot{font-size:13.5px;color:rgba(25,8,14,.65);padding:16px 0 4px;line-height:1.6}
+
+/* G-36 · speak-to-agent (availability-gated; rendered by endcards.js ONLY
+   when the house availability slot reports attending) */
+.speak-to-agent-btn{display:inline-flex;align-items:center;gap:10px;background:#19080e;color:#ece7ea;border:none;border-radius:99px;padding:13px 22px;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;text-decoration:none}
+.speak-to-agent-btn .agent-dot{width:9px;height:9px;border-radius:50%;background:#ece7ea}
+
+/* G-41 + S-28 · policy pages: ptc-content block in the shopify-policy
+   typography family (see endcards-extracts.css for the bodily families) */
+.shopify-policy{max-width:760px;margin:0 auto}
+.shopify-policy__title{font-size:clamp(28px,4.4vw,40px);color:#19080e;margin:30px 0 6px}
+.ptc-content{font-size:16px;line-height:1.7;color:rgba(25,8,14,.88)}
+.ptc-content h2{font-size:21px;margin:28px 0 10px;color:#19080e}
+.ptc-content h3{font-size:18px;margin:22px 0 8px;color:#19080e}
+.ptc-content p{margin-bottom:14px}
+.ptc-content a.anchor{display:block;position:relative;top:-200px;visibility:hidden}
