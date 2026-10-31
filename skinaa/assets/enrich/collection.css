@@ -18,12 +18,21 @@
 .product-item__bg__slide{min-width:100%;height:100%;scroll-snap-align:start}
 .product-item{--bg:#f3e9d7}
 .product-item__image{background:#f3e9d7}
-.product_custom_description{color:#5d5648;font-size:15px;line-height:1.45;margin-top:2px}
-.product_custom_text{color:#8a7a5c;font-size:13.5px;margin:2px 0 0}
+/* (8) CARD TYPE CORRECTION (owner, 2026-10-31): the card's type is the
+   donor's, measured from Prequel theme.css — description = ONE benefit line
+   at the donor's --font-body-small (.825rem = 13.2px), measure at the
+   donor's 12px, both inheriting the .product-information line-height (1.4);
+   the quick-add takes the donor's pill form (.btn--small on --RADIUS:300px,
+   Karla 14px/600, .025em, uppercase). Muted ink tones stay as house skin
+   (the donor's --text-light role). */
+.product_custom_description{color:#5d5648;font-size:13.2px;margin-top:2px}
+.product_custom_text{color:#8a7a5c;font-size:12px;margin:2px 0 0}
 .product-item--centered .product_custom_text{text-align:center}
+.product-item .product-link,.product-item__title{text-decoration:none}
 .quick-add__button{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;
   background:var(--e-plum-black,#19080e);color:var(--e-ivory,#ece7ea);border:1px solid var(--e-plum-black,#19080e);
-  border-radius:4px;padding:11px 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:background .2s,border-color .2s}
+  border-radius:300px;padding:7px 11.9px;font-family:var(--sk-font-btn,Karla,"Avenir Next",Avenir,sans-serif);font-size:14px;font-weight:600;
+  letter-spacing:.025em;text-transform:uppercase;cursor:pointer;transition:background .2s,border-color .2s}
 .quick-add__button:hover{background:var(--c-burnt-sienna,#b65a0f);border-color:var(--c-burnt-sienna,#b65a0f)}
 .quick-add__button .btn__added{color:var(--c-honey,#ecc47f)}
 .badge-box-container{position:absolute;top:10px;left:10px;z-index:5;display:flex;gap:6px}

@@ -207,6 +207,20 @@ if (!s) {
   + '<div class="marquee-section"><span class="marquee-track">' + (s.code + " — " + s.name + " · " + s.component + " · ").repeat(4) + '</span></div>';
 
   /* G36 related pieces at the foot */
+  /* (8) ONE benefit line per card — same selection as the Collection:
+     whole comma-items from the record's own concerns words, never the
+     dossier (the full detail stands in the PDP body above, untouched). */
+  const benefitLine = (x) => {
+    const raw = (x.concerns || "").trim().replace(/\.$/, "");
+    if (!raw) return "";
+    let line = "";
+    for (const p of raw.split(",").map(v => v.trim()).filter(Boolean)) {
+      const next = line ? line + ", " + p : p;
+      if (line && next.length > 36) break;
+      line = next;
+    }
+    return line;
+  };
   const rel = SKUS.filter(x => x.line === s.line && x.code !== s.code).slice(0, 4);
   lower.innerHTML = '<section class="related_new"><h2 style="font-size:22px;font-weight:800">Related pieces</h2><div class="pgrid">'
     + rel.map(x => '<article class="grid-item product-item product-item--centered product-item--outer-text product-item--has-quickbuy" data-code="' + x.code + '">'
@@ -220,7 +234,9 @@ if (!s) {
       + '<div class="badge-box-container"><span class="badge-box">' + x.code + '</span></div></div>'
       + '<div class="product-information"><div class="product-item__info">'
       + '<a class="product-link" href="product.html?sku=' + x.code + '"><p class="product-item__title">' + x.name + '</p>'
-      + '<p class="product_custom_text">' + x.component + '</p></a>'
+      + '<div class="product_custom_description">' + benefitLine(x) + '</div>'
+      + '<p class="product_custom_text">' + x.component + '</p>'
+      + '<div class="product-item__price__holder"><div class="product-item__price"></div></div></a>'
       + '<div class="product-item__quick-add-beneath"><div class="quick-add__holder product-grid-atc"><button class="quick-add__button btn btn--solid btn--small" type="button" data-reladd="' + x.code + '" aria-label="Add ' + x.code + ' to the tray"><span class="btn__text">Add to the tray</span></button></div></div>'
       + '</div></div></article>').join("")
     + '</div></section>'
