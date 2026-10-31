@@ -1,0 +1,141 @@
+/* UNBOXING WIRING LAYER — Phase B unit 8 (Story B · chartreuse).
+   Chrome rollout (F-20 shell + P-13 drawer + G-37 kinetic) copied from the
+   landed Reading Rooms build and re-valued to Story B: oxblood #6f0705 ·
+   chartreuse #a8a147 · ivory #ece7ea · plum-black #19080e · azure #02a1fd
+   kinetic type only (inside the G-37 selectors, exactly as landed). */
+:root{--border:rgba(111,7,5,.35);--text:#19080e;--text-dark:#19080e;--text-light:#6f0705;
+  --COLOR-BG:#ece7ea;--bg:#ece7ea;--inner:20px;--gap:18px;--rte-column-divider-width:25px;
+  --font-body-small:12.5px;--link:#6f0705;--link-hover:#19080e;--link-a70:rgba(111,7,5,.7);
+  --btn-text:#19080e;--sticky-header-offset:84px;--layer-flat:5;
+  --FONT-STACK-BODY:inherit;--FONT-STYLE-BODY:normal;--FONT-WEIGHT-BODY:400;--LETTER-SPACING-BODY:.04em}
+
+/* ---------- F-20 header shell + P-28 drawer framework (from Vault) ---- */
+.hdr.enrich{position:sticky;top:0;z-index:80;background:rgba(236,231,234,.96);
+  border-bottom:1px solid #6f0705;backdrop-filter:blur(12px)}
+header.header{display:flex;align-items:center;justify-content:space-between;gap:18px;
+  max-width:1180px;margin:0 auto;padding:0 28px;height:72px;color:#19080e;position:relative}
+header.header .header__logo img{height:28px;width:auto;display:block}
+header.header .transparent-logo{display:none}
+header.header.is-scrolled .regular-logo{display:none}
+header.header.is-scrolled .transparent-logo{display:block}
+header.header nav.site a{color:#19080e}
+header.header nav.site a:hover{color:#a8a147}
+.header__icons{display:flex;gap:8px;align-items:center}
+.header__icon-touch{background:transparent;border:1px solid #6f0705;
+  border-radius:999px;padding:8px 13px;font-size:12px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:#19080e;cursor:pointer;text-decoration:none}
+.header__cart-link-count{display:inline-block;min-width:20px;text-align:center;
+  background:#a8a147;border-radius:999px;padding:1px 6px;margin-left:6px}
+.header-search-popdown{position:absolute;top:72px;right:28px;z-index:90;background:#ece7ea;
+  border:1px solid #6f0705;border-radius:16px;padding:16px;width:min(380px,90vw);
+  box-shadow:0 24px 48px rgba(25,8,14,.25)}
+.header-search-popdown input{width:100%;padding:11px 14px;border-radius:99px;border:1px solid #6f0705;font-family:inherit}
+.header-search-popdown .predictive-search{color:#19080e;margin-top:10px;font-size:14px}
+.drawer__underlay,.underlay{position:fixed;inset:0;background:rgba(25,8,14,.45);z-index:95;
+  opacity:0;pointer-events:none;transition:opacity .25s}
+.drawer__underlay.open,.underlay.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100dvh;width:min(420px,94vw);z-index:96;
+  background:#ece7ea;color:#19080e;
+  transform:translateX(105%);transition:transform .3s ease;display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer__inner{display:flex;flex-direction:column;height:100%}
+.drawer__head{display:flex;justify-content:space-between;align-items:center;
+  padding:18px 20px;border-bottom:1px solid #6f0705;font-weight:800}
+.drawer__body{flex:1;overflow:auto;padding:16px 20px}
+.drawer__foot{padding:16px 20px;border-top:1px solid #6f0705}
+.drawer__close{background:transparent;border:none;font-size:22px;cursor:pointer;color:inherit}
+body.drawer-open{overflow:hidden}
+.cart-items{display:grid;gap:14px}
+.cart-line{display:flex;gap:12px;align-items:center}
+.cart-empty{color:rgba(25,8,14,.62)}
+
+/* ---------- G-37 kinetic signals (azure = single-word type only) ---- */
+.toast-stack{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:120;display:grid;gap:8px}
+.toast{background:#19080e;color:#ece7ea;border-radius:999px;
+  padding:10px 18px;font-size:13.5px;box-shadow:0 16px 36px rgba(25,8,14,.3)}
+.toast .toast-word,.kinetic-word{color:#02a1fd;font-weight:800}
+.loading-overlay{position:fixed;inset:0;z-index:119;background:rgba(25,8,14,.5);
+  display:none;align-items:center;justify-content:center;font-size:28px;
+  background-image:url("../tex/leaf-b.jpg");background-size:cover}
+.loading-overlay.show{display:flex}
+
+
+/* ---------- BL-03 · image-CTA snap sequence (the ritual opener) ------- */
+.ritual-seq{max-width:1120px;margin:52px auto 0;padding:0 28px}
+.ritual-seq .image-cta-slider{border-radius:26px;overflow:hidden;box-shadow:0 44px 90px rgba(25,8,14,.42)}
+.ritual-seq .image-cta-slider__img{height:min(72vh,640px);object-fit:cover}
+.ritual-seq .image-cta-slider__bullet{background:#ece7ea;border-color:rgba(111,7,5,.4)}
+.ritual-seq .image-cta-slider__bullet--active,.ritual-seq .image-cta-slider__bullet:hover{background:#a8a147}
+.ritual-seq .image-cta-slider__cta a{background:#6f0705;color:#ece7ea;border-radius:999px;
+  padding:12px 22px;font-weight:800;letter-spacing:.06em;text-decoration:none}
+.seq-caption{position:absolute;left:22px;bottom:44px;z-index:5;background:rgba(25,8,14,.72);
+  color:#ece7ea;border-radius:10px;padding:10px 16px;font-size:14px;font-weight:700}
+.seq-caption b{color:#a8a147;letter-spacing:.12em;font-size:12px;display:block}
+@media(max-width:640px){.ritual-seq{padding:0 18px;margin-top:38px}
+  .ritual-seq .image-cta-slider__img{height:56vh}}
+
+/* ---------- P-05 instance · parallax ground --------------------------- */
+.unboxing-parallax{height:340px;margin-top:56px}
+.unboxing-parallax .hero__image{width:100%;height:120%;object-fit:cover;display:block}
+@media(max-width:640px){.unboxing-parallax{height:220px}}
+
+/* ---------- G17 · starter-kit inventory (Graymatter markup contract;
+   section-starter-kit-includes.css is NOT on disk in the capture — the
+   class contract is styled here in Story B, named in build-unboxing.md) - */
+.starter_kit_includes{background:#ece7ea;border:1px solid rgba(111,7,5,.3);
+  border-top:5px solid #6f0705;border-radius:8px;padding:30px 32px;margin-top:26px;
+  box-shadow:0 18px 42px rgba(25,8,14,.14);position:relative;overflow:hidden}
+.starter_kit_includes-title{color:#6f0705;font-size:22px;font-weight:800}
+.starter_kit_includes-description{color:rgba(25,8,14,.72);margin-top:8px;font-size:15px}
+.starter_kit_includes-image-and-items{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:28px;margin-top:22px;align-items:start}
+.starter_kit_includes-image img{width:100%;border-radius:14px;display:block}
+.starter_kit_includes-items{display:grid;gap:18px}
+.starter_kit_includes-item{display:grid;grid-template-columns:34px 1fr;column-gap:12px}
+.starter_kit_includes-item .item-icon{grid-row:span 2}
+.starter_kit_includes-item-title{font-weight:800;font-size:15.5px}
+.starter_kit_includes-item-title p{margin:0}
+.starter_kit_includes-item-description{font-size:14px;color:rgba(25,8,14,.68);margin-top:3px}
+@media(max-width:750px){.starter_kit_includes-image-and-items{grid-template-columns:1fr}}
+
+/* ---------- BL-06 · image-CTA v2 icon row (inside the box section) ---- */
+.bl06-band{margin-top:26px;border-radius:14px;overflow:hidden;border:1px solid rgba(111,7,5,.3)}
+.bl06-band .image-cta-v2{--bg-color-top:#ece7ea;--bg-color-bottom:#ece7ea}
+.bl06-band .image-cta-v2__inner{min-height:0}
+.bl06-band .image-cta-v2__content{flex:1 1 100%;width:100%;padding:30px 26px}
+.bl06-band .image-cta-v2__title{color:#6f0705}
+.bl06-band .image-cta-v2__icon-description{color:#19080e;font-family:inherit;font-size:13.5px;font-weight:700}
+.bl06-band .house-icon{width:100%;height:100%}
+
+/* ---------- S-17 · lazy film field (poster-first; film = NAMED SLOT) -- */
+.film-field{position:relative;margin-top:26px;border-radius:26px;overflow:hidden;
+  min-height:320px;background:#19080e;box-shadow:0 30px 64px rgba(25,8,14,.3)}
+.film-field .video-background{position:absolute;inset:0}
+.film-field video-background-component{display:block;position:absolute;inset:0}
+.film-field .video__poster{width:100%;height:100%;object-fit:cover;display:block;opacity:.9}
+.film-field .film-slot{position:absolute;left:22px;bottom:20px;z-index:3;background:rgba(25,8,14,.78);
+  color:#ece7ea;border:1px solid #a8a147;border-radius:10px;padding:10px 16px;font-size:13.5px}
+.film-field .film-slot b{color:#a8a147;letter-spacing:.12em;font-size:11.5px;display:block}
+.film-field video{width:100%;height:100%;object-fit:cover}
+.film-field.is-approached{outline:3px solid #a8a147;outline-offset:-3px}
+
+/* ---------- BL-10 · seamless closing panel (the room's final section) - */
+.closing-panel{max-width:none;margin:64px 0 0;padding:0}
+.closing-panel .image-cta__container{min-height:420px;color:#ece7ea}
+.closing-panel .image-cta__container::after{content:"";position:absolute;inset:0;background:rgba(25,8,14,.48);z-index:1}
+.closing-panel .image-cta__cta{z-index:10}
+.closing-panel .image-cta__container picture{position:absolute;inset:0}
+.closing-panel .image-cta__container picture img{width:100%;height:100%;object-fit:cover;display:block}
+.closing-panel .image-cta__cta{--cta-vertical-mobile:50%;--cta-horizontal-mobile:50%;
+  --cta-vertical-desktop:50%;--cta-horizontal-desktop:50%}
+.closing-panel .image-cta__title{font-size:30px;font-weight:800;color:#ece7ea;
+  text-shadow:0 2px 18px rgba(25,8,14,.6)}
+.closing-panel .image-cta__subtitle{color:#ece7ea;font-size:15.5px;
+  text-shadow:0 2px 14px rgba(25,8,14,.6)}
+.seamless__bottom__image{border-radius:0}
+
+/* S-17 as the protocol section's background field (behind the card) */
+.protocol-film{position:relative;overflow:hidden;border-radius:28px}
+.protocol-film>*{position:relative;z-index:2}
+.protocol-film .film-field{position:absolute;inset:0;z-index:1;margin:0;border-radius:0;min-height:0;box-shadow:none;background:transparent}
+.protocol-film .film-field .video__poster{opacity:.16}
+.protocol-film .film-field .film-slot{top:14px;right:14px;left:auto;bottom:auto;max-width:250px}
